@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a13460c92ce6a6d47b364160cff32a9a, type: 3}
+  m_Name: Animal Hide
+  m_EditorClassIdentifier: 
+  <IsStackable>k__BackingField: 1
+  <MaxStackSize>k__BackingField: 10
+  <ItemImage>k__BackingField: {fileID: 2036652677935873260, guid: ddd4fa8233245ac4a8facb81ec9aa27f,
+    type: 3}
+  <ItemName>k__BackingField: Animal Hide
+  <ItemDescription>k__BackingField: 'You skinned the animal, and got its hide..
+
+    How
+    can you be this cruel..
+
+'

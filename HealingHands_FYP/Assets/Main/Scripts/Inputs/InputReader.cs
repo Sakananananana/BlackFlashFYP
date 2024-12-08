@@ -6,7 +6,7 @@ namespace PlayerInputSystem
 {
 
     [CreateAssetMenu(fileName = "InputReader", menuName = "Scriptable Objects/InputReader")]
-    public class InputReader : ScriptableObject, GameInputs.IInterfaceActions, GameInputs.IGameplayActions, GameInputs.IInventoryActions
+    public class InputReader : ScriptableObject, GameInputs.IUIActions, GameInputs.IGameplayActions
     {
         private GameInputs _gameInputs;
 
@@ -16,6 +16,7 @@ namespace PlayerInputSystem
         public Action InteractEvent;
         public Action OpenInventoryEvent;
         public Action CloseInventoryEvent;
+        public Action PressedEvent;
         public Action PauseEvent;
         public Action ResumeEvent;
 
@@ -26,29 +27,27 @@ namespace PlayerInputSystem
                 _gameInputs = new GameInputs();
 
                 _gameInputs.Gameplay.SetCallbacks(this);
-                _gameInputs.Interface.SetCallbacks(this);
-                _gameInputs.Inventory.SetCallbacks(this);
+                _gameInputs.UI.SetCallbacks(this);
 
                 SetGameplay();
             }
         }
 
+        private void OnDisable()
+        {
+            _gameInputs.Gameplay.Disable();
+            _gameInputs.UI.Disable();
+        }
+
         public void SetGameplay()
         {
             _gameInputs.Gameplay.Enable();
-            _gameInputs.Interface.Disable();
-            _gameInputs.Inventory.Disable();
+            _gameInputs.UI.Disable();
         }
 
-        public void SetInterface()
+        public void SetUI()
         {
-            _gameInputs.Interface.Enable();
-            _gameInputs.Gameplay.Disable();
-        }
-
-        public void SetInventory()
-        { 
-            _gameInputs.Inventory.Enable();
+            _gameInputs.UI.Enable();
             _gameInputs.Gameplay.Disable();
         }
 
@@ -78,7 +77,8 @@ namespace PlayerInputSystem
         #region Interaction (J)
         public void OnInteract(InputAction.CallbackContext context)
         {
-            //if in talking radius
+            //probably can remove this, later add an interaction radius to Attack
+            //if in talking radius 
             if (context.phase == InputActionPhase.Started)
             {
                 InteractEvent?.Invoke();
@@ -86,13 +86,15 @@ namespace PlayerInputSystem
         }
         #endregion
 
+        #region User Interface
+
         #region Inventory (I)
         public void OnOpenInventory(InputAction.CallbackContext context)
         {
             if (context.phase == InputActionPhase.Started)
             {
                 OpenInventoryEvent?.Invoke();
-                SetInventory();
+                SetUI();
             }
         }
 
@@ -100,7 +102,7 @@ namespace PlayerInputSystem
         {
             if (context.phase == InputActionPhase.Started)
             {
-                OpenInventoryEvent?.Invoke();
+                CloseInventoryEvent?.Invoke();
                 SetGameplay();
             }
         }
@@ -112,7 +114,7 @@ namespace PlayerInputSystem
             if (context.phase == InputActionPhase.Started)
             {
                 PauseEvent?.Invoke();
-                SetInterface();
+                //SetUI();
             }
         }
 
@@ -121,8 +123,29 @@ namespace PlayerInputSystem
             if (context.phase == InputActionPhase.Started)
             {
                 ResumeEvent?.Invoke();
+                CloseInventoryEvent?.Invoke();
+
                 SetGameplay();
             }
+        }
+        #endregion
+
+        //Move Around Buttons
+        public void OnNavigate(InputAction.CallbackContext context)
+        {
+
+        }
+
+        //Choose (J)
+        public void OnSubmit(InputAction.CallbackContext context)
+        {
+
+        }
+
+        //Cancel Chosen Action (N)
+        public void OnCancel(InputAction.CallbackContext context)
+        {
+            
         }
         #endregion
     }
