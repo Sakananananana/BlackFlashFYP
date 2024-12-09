@@ -87,7 +87,7 @@ public class PlayerControls : MonoBehaviour
         AttackPerformed = true;
 
         //Movements
-        _rBody.velocity = Vector2.zero;
+        _rBody.linearVelocity = Vector2.zero;
         CanMove = false;
         
         //Animations
@@ -106,7 +106,7 @@ public class PlayerControls : MonoBehaviour
     private void Movement()
     {
         //Movements
-        _rBody.velocity = MoveDir * MoveSpeed;
+        _rBody.linearVelocity = MoveDir * MoveSpeed;
 
         //Movements? Because it change the direction
         CharacterFacing();
@@ -122,7 +122,7 @@ public class PlayerControls : MonoBehaviour
             CanMove = false;
 
             //Movement, only need this to run in fixed update
-            _rBody.velocity = _dashDir * DashForce;
+            _rBody.linearVelocity = _dashDir * DashForce;
 
             //Control
             StartCoroutine(DashCooldown());
@@ -161,7 +161,7 @@ public class PlayerControls : MonoBehaviour
 
     private IEnumerator TakeDamageCooldown(Vector2 dmgDir)
     {
-        _rBody.velocity = dmgDir * 2f;  
+        _rBody.linearVelocity = dmgDir * 2f;  
 
         yield return new WaitForSeconds(0.2f);
 
