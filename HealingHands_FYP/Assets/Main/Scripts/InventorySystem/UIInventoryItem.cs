@@ -54,7 +54,6 @@ namespace Inventory.UI
             OnItemSelected?.Invoke(this);
         }
 
-
         public void ShowMovingItemPointer(bool val)
         {
             _animator.SetBool("MovingItem", val);

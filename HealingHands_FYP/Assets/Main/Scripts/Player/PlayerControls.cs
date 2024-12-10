@@ -15,6 +15,7 @@ public class PlayerControls : MonoBehaviour
     public bool AttackPerformed = false;
 
     [SerializeField] private GameObject _meleeAim;
+    [SerializeField] private PolygonCollider2D _meeleCollider;
     private Vector3 _attackDir;
 
     //Movement
@@ -67,9 +68,7 @@ public class PlayerControls : MonoBehaviour
         if (CanMove) 
         { 
             Movement();
-
-            if (MoveDir != Vector2.zero)
-            { SetAttackDirection(); }
+            SetAttackDirection();
         }
 
         Dashing(DashPerformed);
@@ -147,7 +146,6 @@ public class PlayerControls : MonoBehaviour
             _anim.SetBool("IsAttacking", attackBool);
 
             //Controls
-            //StartCoroutine(AttackDuration());
             StartCoroutine(PauseMovement());
         }
     }
@@ -169,25 +167,22 @@ public class PlayerControls : MonoBehaviour
     //When Attack Cannot Move
     private IEnumerator PauseMovement()
     {
-        _meleeAim.SetActive(true);
-
-        yield return new WaitForSeconds(0.3f);
-        Debug.Log("hi");
-        _meleeAim.SetActive(false);
+        _meeleCollider.enabled = true;
+        yield return new WaitForSeconds(0.1f);
 
         //Attack Performed
         while (AttackPerformed)
-        { 
+        {
+            if (_meeleCollider.enabled == true)
+            {
+                _meeleCollider.enabled = false;
+            }
+
             yield return null;
         }
         _anim.SetBool("IsAttacking", false);
         CanMove = true;
     }
-
-    //private IEnumerator AttackDuration()
-    //{
-       
-    //}
 
     private IEnumerator TakeDamageCooldown(Vector2 dmgDir)
     {
@@ -200,9 +195,15 @@ public class PlayerControls : MonoBehaviour
     }
 
     private void SetAttackDirection()
-    { 
-        
-        _attackDir = Vector3.left * MoveDir.x + Vector3.down * MoveDir.y;
+    {
+        if (MoveDir != Vector2.zero)
+        {
+            _attackDir = Vector3.left * MoveDir.x + Vector3.down * MoveDir.y;
+        }
+        else
+        {
+            _attackDir = Vector3.left * LastMoveDir.x + Vector3.down * LastMoveDir.y;
+        }
 
         if (_attackDir.y <= -0.1f)
         {

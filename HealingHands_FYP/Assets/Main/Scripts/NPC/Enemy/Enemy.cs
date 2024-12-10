@@ -6,8 +6,11 @@ public class Enemy : MonoBehaviour, IDamageable
     [SerializeField] private GameObject _projectile;
     [SerializeField] private float _enemyHealth = 20;
 
-    //need to change orientation based on character facing
+    //Need to change orientation based on character facing
     [SerializeField] private Transform _projectileOrigin;
+
+    //Damage
+    private bool _canTakeDamange = true;
 
     void Start()
     {
@@ -16,7 +19,14 @@ public class Enemy : MonoBehaviour, IDamageable
 
     public void RecieveDamage(float damage, Vector3 dmgDir)
     {
-        _enemyHealth -= damage;
+        if (_canTakeDamange == true)
+        {
+            _canTakeDamange = false;
+            Debug.Log("Cannot Take Damage" + _canTakeDamange);
+
+            _enemyHealth -= damage;
+            StartCoroutine(DamageRecieveCooldown());
+        }
 
         if (_enemyHealth <= 0)
         {
@@ -37,6 +47,12 @@ public class Enemy : MonoBehaviour, IDamageable
 
             var projectile = Instantiate(_projectile, _projectileOrigin.position, Quaternion.identity);
         }
+    }
+
+    private IEnumerator DamageRecieveCooldown()
+    {
+        yield return new WaitForSeconds(1f);
+        _canTakeDamange = true;
     }
 
 }

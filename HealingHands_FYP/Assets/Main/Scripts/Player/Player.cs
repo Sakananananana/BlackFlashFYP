@@ -1,3 +1,4 @@
+using NUnit.Framework.Constraints;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -16,6 +17,7 @@ public class Player : MonoBehaviour, IDamageable
     public Action<float> HealthChange;
     public Action<Vector2> TakeDamage;
 
+    public bool _canTakeDamage;
 
     void Awake()
     {
@@ -24,10 +26,16 @@ public class Player : MonoBehaviour, IDamageable
 
     public void RecieveDamage(float damage, Vector3 dmgDir)
     {
-        _currentHealth -= damage;
-        HealthChange?.Invoke(damage);
-        TakeDamage?.Invoke(dmgDir);
-        StartCoroutine(DamageFlash());
+        if (_canTakeDamage == true) 
+        { 
+            _currentHealth -= damage;
+            StartCoroutine(DamageRecieveCooldown());
+
+            HealthChange?.Invoke(damage);
+            TakeDamage?.Invoke(dmgDir);
+
+            StartCoroutine(DamageFlash());
+        }
     }
 
     public void Death()
@@ -40,6 +48,14 @@ public class Player : MonoBehaviour, IDamageable
         _characterSprite.color = Color.red;
         yield return new WaitForSeconds(0.1f);
         _characterSprite.color = Color.white;
+    }
+
+    private IEnumerator DamageRecieveCooldown()
+    {
+        _canTakeDamage= false;
+
+        yield return new WaitForSeconds(0.5f);
+        _canTakeDamage = true;
     }
 
 }
