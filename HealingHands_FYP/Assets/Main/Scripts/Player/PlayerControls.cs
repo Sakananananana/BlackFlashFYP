@@ -19,7 +19,7 @@ public class PlayerControls : MonoBehaviour
     private Vector3 _attackDir;
 
     //Movement
-    private Rigidbody2D _rBody;
+    private Rigidbody2D _rb2D;
     public bool CanMove = true;
     private Vector2 _dashDir;
 
@@ -52,7 +52,7 @@ public class PlayerControls : MonoBehaviour
     private void Awake()
     {
         _spRenderer = GetComponent<SpriteRenderer>();
-        _rBody = GetComponent<Rigidbody2D>();
+        _rb2D = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
         _player = GetComponent<Player>();
     }
@@ -105,7 +105,7 @@ public class PlayerControls : MonoBehaviour
     private void Movement()
     {
         //Movements
-        _rBody.linearVelocity = MoveDir * MoveSpeed;
+        _rb2D.linearVelocity = MoveDir * MoveSpeed;
 
         //Movements? Because it change the direction
         CharacterFacing();
@@ -121,7 +121,7 @@ public class PlayerControls : MonoBehaviour
             CanMove = false;
 
             //Movement, only need this to run in fixed update
-            _rBody.linearVelocity = _dashDir * DashForce;
+            _rb2D.linearVelocity = _dashDir * DashForce;
 
             //Control
             StartCoroutine(DashCooldown());
@@ -138,7 +138,7 @@ public class PlayerControls : MonoBehaviour
         if (attackBool == true)
         {
             //Movements
-            _rBody.linearVelocity = Vector2.zero;
+            _rb2D.linearVelocity = Vector2.zero;
             CanMove = false;
 
 
@@ -187,7 +187,7 @@ public class PlayerControls : MonoBehaviour
     private IEnumerator TakeDamageCooldown(Vector2 dmgDir)
     {
         //TODO: disable collider
-        _rBody.linearVelocity = dmgDir * 5f;  
+        _rb2D.linearVelocity = dmgDir * 5f;  
 
         yield return new WaitForSeconds(0.1f);
 

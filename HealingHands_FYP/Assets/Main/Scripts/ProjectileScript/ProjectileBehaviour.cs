@@ -4,16 +4,19 @@ using UnityEngine;
 public class ProjectileBehaviour : MonoBehaviour
 {
     public float TravelSpeed;
+    private Rigidbody2D _rb2D;
 
     private void Awake()
     {
+        _rb2D = GetComponent<Rigidbody2D>();
         StartCoroutine(AutoDestroyProjectile());
     }
 
     private void FixedUpdate()
     {
         //change send in target position
-        transform.position = transform.position - transform.right * TravelSpeed * Time.deltaTime;
+        _rb2D.linearVelocity = transform.right * TravelSpeed;
+        //transform.position = transform.position - transform.right * TravelSpeed * Time.deltaTime;
     }
 
     private IEnumerator AutoDestroyProjectile()
