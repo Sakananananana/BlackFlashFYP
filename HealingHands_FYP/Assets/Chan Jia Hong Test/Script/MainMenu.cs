@@ -12,7 +12,7 @@ public class MainMenu : MonoBehaviour
     EventSystem _eventSystem;
     [SerializeField] GameObject[] arrow;
 
-    GameObject sel = EventSystem.current.currentSelectedGameObject;
+    //GameObject sel = EventSystem.current.currentSelectedGameObject;
 
     // Start is called before the first frame update
     public void Start()
@@ -42,6 +42,24 @@ public class MainMenu : MonoBehaviour
         options.SetActive(false);
         EventSystem.current.SetSelectedGameObject(firstButtons[0]);
 
+    }
+    public void Select1() 
+    { 
+        arrow[0].gameObject.SetActive(true);
+        arrow[1].gameObject.SetActive(false);
+        arrow[2].gameObject.SetActive(false);
+    }
+    public void Select2()
+    {
+        arrow[0].gameObject.SetActive(false);
+        arrow[1].gameObject.SetActive(true);
+        arrow[2].gameObject.SetActive(false);
+    }
+    public void Select3()
+    {
+        arrow[0].gameObject.SetActive(false);
+        arrow[1].gameObject.SetActive(false);
+        arrow[2].gameObject.SetActive(true);
     }
 }
 
