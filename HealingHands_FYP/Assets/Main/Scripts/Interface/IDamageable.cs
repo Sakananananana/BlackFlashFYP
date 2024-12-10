@@ -2,7 +2,7 @@ using UnityEngine;
 
 public interface IDamageable
 {
-    void RecieveDamage(float damage, Vector2 dmgDir) { }
+    public void RecieveDamage(float damage, Vector3 dmgDir);
 
-    void Death() { }
+    public void Death();
 }

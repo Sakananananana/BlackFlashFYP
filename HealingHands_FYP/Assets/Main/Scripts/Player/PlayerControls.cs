@@ -14,6 +14,9 @@ public class PlayerControls : MonoBehaviour
     public bool DashPerformed = false;
     public bool AttackPerformed = false;
 
+    [SerializeField] private GameObject _meleeAim;
+    private Vector3 _attackDir;
+
     //Movement
     private Rigidbody2D _rBody;
     public bool CanMove = true;
@@ -25,8 +28,7 @@ public class PlayerControls : MonoBehaviour
 
     //Animation
     private Animator _anim;
-    private bool _isFacingRight = true;
-    
+    private SpriteRenderer _spRenderer;
 
     private void OnEnable()
     {
@@ -48,9 +50,10 @@ public class PlayerControls : MonoBehaviour
 
     private void Awake()
     {
-        _player = GetComponent<Player>();
+        _spRenderer = GetComponent<SpriteRenderer>();
         _rBody = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
+        _player = GetComponent<Player>();
     }
 
     private void Update()
@@ -61,9 +64,16 @@ public class PlayerControls : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (CanMove) { Movement(); }
+        if (CanMove) 
+        { 
+            Movement();
+
+            if (MoveDir != Vector2.zero)
+            { SetAttackDirection(); }
+        }
 
         Dashing(DashPerformed);
+        Attacking(AttackPerformed);
     }
 
     private void MovementHandler(Vector2 inputVector)
@@ -85,16 +95,6 @@ public class PlayerControls : MonoBehaviour
     private void AttackHandler()
     {
         AttackPerformed = true;
-
-        //Movements
-        _rBody.linearVelocity = Vector2.zero;
-        CanMove = false;
-        
-        //Animations
-        _anim.SetBool("IsAttacking", AttackPerformed);
-
-        //Controls
-        StartCoroutine(AttackCooldown());
     }
 
     private void TakeDamageHandler(Vector2 dmgDir)
@@ -134,10 +134,29 @@ public class PlayerControls : MonoBehaviour
         }
     }
 
+    private void Attacking(bool attackBool)
+    {
+        if (attackBool == true)
+        {
+            //Movements
+            _rBody.linearVelocity = Vector2.zero;
+            CanMove = false;
+
+
+            //Animations
+            _anim.SetBool("IsAttacking", attackBool);
+
+            //Controls
+            //StartCoroutine(AttackDuration());
+            StartCoroutine(PauseMovement());
+        }
+    }
+
     private IEnumerator DashCooldown()
     {
         _inputReader.DashEvent -= DashHandler;
 
+        //TODO: disable collider
         yield return new WaitForSeconds(0.3f);
         DashPerformed = false;
         _anim.SetBool("IsDashing", false);
@@ -147,34 +166,67 @@ public class PlayerControls : MonoBehaviour
         _inputReader.DashEvent += DashHandler;
     }
 
-    private IEnumerator AttackCooldown()
+    //When Attack Cannot Move
+    private IEnumerator PauseMovement()
     {
+        _meleeAim.SetActive(true);
+
+        yield return new WaitForSeconds(0.3f);
+        Debug.Log("hi");
+        _meleeAim.SetActive(false);
+
         //Attack Performed
         while (AttackPerformed)
         { 
             yield return null;
         }
-
         _anim.SetBool("IsAttacking", false);
         CanMove = true;
     }
 
+    //private IEnumerator AttackDuration()
+    //{
+       
+    //}
+
     private IEnumerator TakeDamageCooldown(Vector2 dmgDir)
     {
-        _rBody.linearVelocity = dmgDir * 2f;  
+        //TODO: disable collider
+        _rBody.linearVelocity = dmgDir * 5f;  
 
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.1f);
 
         CanMove = true;
+    }
+
+    private void SetAttackDirection()
+    { 
+        
+        _attackDir = Vector3.left * MoveDir.x + Vector3.down * MoveDir.y;
+
+        if (_attackDir.y <= -0.1f)
+        {
+            _attackDir.y = -1;
+            _attackDir.x = 0;
+        }
+        else if (_attackDir.y >= 0.1f)
+        {
+            _attackDir.y = 1;
+            _attackDir.x = 0;
+        }
+        _meleeAim.transform.rotation = Quaternion.LookRotation(Vector3.forward, _attackDir);
     }
 
     //Considered as Movements? Changing Direction of the Player
     private void CharacterFacing()
     {
-        if (MoveDir.x < 0 && _isFacingRight || MoveDir.x > 0 && !_isFacingRight)
+        if (MoveDir.x < 0)
+        {
+            _spRenderer.flipX = true;
+        }
+        else if (MoveDir.x > 0 )
         { 
-            _isFacingRight = !_isFacingRight;
-            transform.Rotate(new Vector3(0, 180, 0));
+            _spRenderer.flipX = false;
         }
     }
 
@@ -197,4 +249,5 @@ public class PlayerControls : MonoBehaviour
     {
         AttackPerformed = false;
     }
+
 }
