@@ -10,6 +10,9 @@ public class MainMenu : MonoBehaviour
     [SerializeField] GameObject mainmenu, options;
     [SerializeField]GameObject[] firstButtons;
     EventSystem _eventSystem;
+    [SerializeField] GameObject[] arrow;
+
+    GameObject sel = EventSystem.current.currentSelectedGameObject;
 
     // Start is called before the first frame update
     public void Start()
