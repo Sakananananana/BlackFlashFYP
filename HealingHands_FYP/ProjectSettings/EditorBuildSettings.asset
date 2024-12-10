@@ -4,7 +4,16 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Main/Scene/Menu/MainMenu.unity
+    guid: c52a70c4befe76e4caf3177986dd0d1e
+  - enabled: 1
+    path: Assets/Main/Scene/Tutorial/Tutorial.unity
+    guid: 29b4c7cd36acb974996cf6fda145082f
+  - enabled: 1
+    path: Assets/Main/Scene/Mountain/Mountain01.unity
+    guid: 613949d904bf5ec4aa8f08be101378c4
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100,
       type: 3}

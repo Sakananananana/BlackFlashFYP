@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] GameObject Mode, mainmenu, options;
-
+    [SerializeField] GameObject mainmenu, options;
+    [SerializeField]GameObject[] firstButtons;
+    EventSystem _eventSystem;
 
     // Start is called before the first frame update
     public void Start()
     {
         mainmenu.SetActive(true);
-        Mode.SetActive(false);
         options.SetActive(false);
     }
     public void LoadLevel(string levelName)
@@ -25,24 +26,19 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();
     }
-
-    public void mode1()
-    {
-        mainmenu.SetActive(false);
-        Mode.gameObject.SetActive(true);
-
-    }
-    public void option()
+    public void Option()
     {
         mainmenu.SetActive(false);
         options.gameObject.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(firstButtons[1]);
 
     }
-    public void back()
+    public void Back()
     {
         mainmenu.SetActive(true);
-        Mode.SetActive(false);
         options.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(firstButtons[0]);
+
     }
 }
 
