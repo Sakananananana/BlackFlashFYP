@@ -435,7 +435,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      boar_idle_back_0: 7198666303695237877
+      boar_idle_back_1: 5020524928917531049
+      boar_idle_back_10: 2577607009139376242
+      boar_idle_back_11: -2644980949770784770
+      boar_idle_back_2: 7423441922556180553
+      boar_idle_back_3: -1045042679445075659
+      boar_idle_back_4: -3544760801972836446
+      boar_idle_back_5: 2560875072036580988
+      boar_idle_back_6: 8061091721261859323
+      boar_idle_back_7: -8860401403627188245
+      boar_idle_back_8: -6276386867052157579
+      boar_idle_back_9: -1637529355192017995
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

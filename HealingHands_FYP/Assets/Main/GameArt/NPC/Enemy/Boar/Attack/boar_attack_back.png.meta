@@ -535,7 +535,23 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      boar_attack_back_0: 1228358798537828007
+      boar_attack_back_1: 435450750921749242
+      boar_attack_back_10: 5629263000059001621
+      boar_attack_back_11: -3417880082224895348
+      boar_attack_back_12: -3719298752096804084
+      boar_attack_back_13: -7145561006150565628
+      boar_attack_back_14: 3600408510174600782
+      boar_attack_back_15: 6096671877633707135
+      boar_attack_back_2: -2607699733435132072
+      boar_attack_back_3: -8521659006238845080
+      boar_attack_back_4: 2543567778078887863
+      boar_attack_back_5: 7987306117714743681
+      boar_attack_back_6: 7886111123949438431
+      boar_attack_back_7: 8507430209780217957
+      boar_attack_back_8: -7129819688528019254
+      boar_attack_back_9: 2796818841300780155
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
