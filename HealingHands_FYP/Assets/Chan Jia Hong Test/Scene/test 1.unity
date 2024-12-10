@@ -212,7 +212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newMinPos: {x: 0, y: 11.5}
   newMaxPos: {x: 0, y: 11.5}
-  movePlayer: {x: 0, y: 0, z: 0}
+  movePlayer: {x: 0, y: 2.1, z: 0}
 --- !u!1 &351218162
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,6 +272,8 @@ MonoBehaviour:
   _player: {fileID: 0}
   DashPerformed: 0
   AttackPerformed: 0
+  _meleeAim: {fileID: 0}
+  _meeleCollider: {fileID: 0}
   CanMove: 1
   MoveSpeed: 4
   DashForce: 8
@@ -410,6 +412,8 @@ MonoBehaviour:
   _characterSprite: {fileID: 351218168}
   _maxHealth: 20
   _currentHealth: 0
+  AttackDamage: 0
+  _canTakeDamage: 0
 --- !u!58 &351218171
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5470,6 +5474,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectile: {fileID: 6840371985563148475, guid: f13f71aa28237e842a045ac68195396d,
     type: 3}
+  _enemyHealth: 20
   _projectileOrigin: {fileID: 605066570}
 --- !u!212 &599455217
 SpriteRenderer:
@@ -6619,7 +6624,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 351218165}
-  smoothing: 0
+  smoothing: 0.1
   minPosition: {x: 0, y: 0}
   maxPosition: {x: 0, y: 0}
 --- !u!1 &1414641345
@@ -6826,7 +6831,7 @@ Transform:
   m_GameObject: {fileID: 2048080821}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.54, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6846,7 +6851,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newMinPos: {x: 0, y: 0}
   newMaxPos: {x: 0, y: 0}
-  movePlayer: {x: 0, y: 0, z: 0}
+  movePlayer: {x: 0, y: -2.1, z: 0}
 --- !u!61 &2048080824
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -28,6 +28,7 @@ public class AreaTransition : MonoBehaviour
             Debug.Log("enter");
             cam.minPosition = newMinPos;
             cam.maxPosition = newMaxPos;
+            other.transform.position += movePlayer;
         }
     }
 }
