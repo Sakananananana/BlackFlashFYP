@@ -16,11 +16,6 @@ public class AreaTransition : MonoBehaviour
         cam = Camera.main.GetComponent<CameraController>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player") 
@@ -28,6 +23,7 @@ public class AreaTransition : MonoBehaviour
             Debug.Log("enter");
             cam.minPosition = newMinPos;
             cam.maxPosition = newMaxPos;
+            other.transform.position += movePlayer;
         }
     }
 }
