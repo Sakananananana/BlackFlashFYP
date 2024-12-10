@@ -10,6 +10,8 @@ public class Player : MonoBehaviour, IDamageable
     private float _maxHealth;
     [SerializeField]
     private float _currentHealth;
+    [SerializeField]
+    public float AttackDamage;
 
     public Action<float> HealthChange;
     public Action<Vector2> TakeDamage;
@@ -20,7 +22,7 @@ public class Player : MonoBehaviour, IDamageable
         _currentHealth = _maxHealth;
     }
 
-    public void RecieveDamage(float damage, Vector2 dmgDir)
+    public void RecieveDamage(float damage, Vector3 dmgDir)
     {
         _currentHealth -= damage;
         HealthChange?.Invoke(damage);
@@ -39,4 +41,5 @@ public class Player : MonoBehaviour, IDamageable
         yield return new WaitForSeconds(0.1f);
         _characterSprite.color = Color.white;
     }
+
 }

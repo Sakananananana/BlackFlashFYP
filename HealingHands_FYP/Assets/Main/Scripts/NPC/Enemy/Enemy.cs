@@ -1,9 +1,10 @@
 using System.Collections;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, IDamageable
 {
     [SerializeField] private GameObject _projectile;
+    [SerializeField] private float _enemyHealth = 20;
 
     //need to change orientation based on character facing
     [SerializeField] private Transform _projectileOrigin;
@@ -11,6 +12,21 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         StartCoroutine(FireProjectile());
+    }
+
+    public void RecieveDamage(float damage, Vector3 dmgDir)
+    {
+        _enemyHealth -= damage;
+
+        if (_enemyHealth <= 0)
+        {
+            Death();
+        }
+    }
+
+    public void Death()
+    {
+        Destroy(gameObject);
     }
 
     private IEnumerator FireProjectile()
@@ -22,4 +38,5 @@ public class Enemy : MonoBehaviour
             var projectile = Instantiate(_projectile, _projectileOrigin.position, Quaternion.identity);
         }
     }
+
 }
