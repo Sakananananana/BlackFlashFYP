@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ProjectileBehaviour : MonoBehaviour
@@ -32,7 +31,7 @@ public class ProjectileBehaviour : MonoBehaviour
     {
         IDamageable damageable = collision.GetComponent<IDamageable>();
 
-        if (damageable != null)
+        if (damageable != null && collision.CompareTag("Player"))
         {
             Vector2 dir = (collision.transform.position - transform.position).normalized;
 
