@@ -16,7 +16,6 @@ public class ProjectileBehaviour : MonoBehaviour
     {
         //change send in target position
         _rb2D.linearVelocity = transform.right * TravelSpeed;
-        //transform.position = transform.position - transform.right * TravelSpeed * Time.deltaTime;
     }
 
     private IEnumerator AutoDestroyProjectile()
@@ -34,11 +33,16 @@ public class ProjectileBehaviour : MonoBehaviour
     {
         IDamageable damageable = collision.GetComponent<IDamageable>();
 
-        if (damageable != null && collision.CompareTag("Player"))
+        if (damageable != null && collision.CompareTag("Player")) 
         {
             Vector2 dir = (collision.transform.position - transform.position).normalized;
 
             damageable.RecieveDamage(2, dir);
+            DestroyProjectile();
+        }
+
+        if (collision.CompareTag("Boundary"))
+        {
             DestroyProjectile();
         }
     }

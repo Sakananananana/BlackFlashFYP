@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Xml.Serialization;
 using UnityEngine;
 
 public class Toad : MonoBehaviour, IDamageable
@@ -19,7 +18,7 @@ public class Toad : MonoBehaviour, IDamageable
     private SpriteRenderer _sprRenderer;
 
     //Player Reference
-    [SerializeField] GameObject _player;
+    private GameObject _player;
     private Vector2 _direction;
     private float _angle;
 
@@ -27,6 +26,11 @@ public class Toad : MonoBehaviour, IDamageable
     {
         _anim = GetComponent<Animator>();   
         _sprRenderer = GetComponent<SpriteRenderer>();
+
+        if (_player == null)
+        {
+            _player = GameObject.FindGameObjectWithTag("Player");
+        }
     }
 
     private void Start()
@@ -61,6 +65,7 @@ public class Toad : MonoBehaviour, IDamageable
 
             _enemyHealth -= damage;
             StartCoroutine(DamageRecieveCooldown());
+            StartCoroutine(DamageFlash());
         }
 
         if (_enemyHealth <= 0)
@@ -97,6 +102,19 @@ public class Toad : MonoBehaviour, IDamageable
         { _projectileOrigin.transform.position = (Vector2)transform.position - Vector2.up; }
     }
 
+
+
+    public void FireProjectile()
+    {
+        Quaternion angle = Quaternion.Euler(0, 0, 90);   
+        var projectile = Instantiate(_projectile, _projectileOrigin.position, Quaternion.LookRotation(Vector3.forward, _direction) * angle);
+    }
+
+    public void FinishAttack()
+    { 
+        _isAttacking = false;
+    }
+
     private IEnumerator AttackCycle()
     {
         while (_projectile != null)
@@ -115,21 +133,17 @@ public class Toad : MonoBehaviour, IDamageable
         }
     }
 
-    public void FireProjectile()
-    {
-        Quaternion angle = Quaternion.Euler(0, 0, 90);   
-        var projectile = Instantiate(_projectile, _projectileOrigin.position, Quaternion.LookRotation(Vector3.forward, _direction) * angle);
-    }
-
-    public void FinishAttack()
-    { 
-        _isAttacking = false;
-    }
-
     private IEnumerator DamageRecieveCooldown()
     {
         yield return new WaitForSeconds(1f);
         _canTakeDamange = true;
+    }
+
+    private IEnumerator DamageFlash()
+    {
+        _sprRenderer.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        _sprRenderer.color = Color.white;
     }
 
 }

@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4984628743810550187}
   - component: {fileID: 9064390893053709255}
-  - component: {fileID: 6297606316527392258}
   - component: {fileID: 227286260609907585}
   - component: {fileID: 2499032920412905275}
+  - component: {fileID: -1732701506936570717}
+  - component: {fileID: 6297606316527392258}
   m_Layer: 0
   m_Name: Projectile
   m_TagString: Untagged
@@ -79,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 8006041075925505415, guid: f73187fe5b92517449952b0b4c609095,
+  m_Sprite: {fileID: -1648588926201042164, guid: 98440419c4aafa8438cbf74af2d4363d,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -91,19 +92,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6297606316527392258
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6840371985563148475}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02ad0c3e2b564354ba50526d0fe62193, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TravelSpeed: 3
 --- !u!58 &227286260609907585
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -167,3 +155,38 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &-1732701506936570717
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6840371985563148475}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 04195abd714bfda4a9500bd450bb77fe, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6297606316527392258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6840371985563148475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02ad0c3e2b564354ba50526d0fe62193, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TravelSpeed: 3

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9831586136a06e243b4f170c0042eb2f
+guid: ddd4fa8233245ac4a8facb81ec9aa27f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5739265522754725322
-    second: LeafArrow_0
+      213: 2036652677935873260
+    second: DummyItem01_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,17 +96,43 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: LeafArrow_0
+      name: DummyItem01_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 11
-        width: 42
-        height: 48
+        x: 0
+        y: 0
+        width: 32
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 63ade8c3a680a50b0800000000000000
-      internalID: -5739265522754725322
+      spriteID: cec3737e1d4a34c10800000000000000
+      internalID: 2036652677935873260
       vertices: []
       indices: 
       edges: []
@@ -135,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      LeafArrow_0: -5739265522754725322
+      DummyItem01_0: 2036652677935873260
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
