@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6862746706723049078
 Transform:
   m_ObjectHideFlags: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 09c0ffabe50dba2449423f828d63133a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -199,6 +199,7 @@ GameObject:
   - component: {fileID: 148951071885628695}
   - component: {fileID: 995255118568367993}
   - component: {fileID: 5819735592412609805}
+  - component: {fileID: -60097484219637705}
   m_Layer: 6
   m_Name: PROTAGONIST
   m_TagString: Player
@@ -265,7 +266,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 3004729617175235868, guid: cc4d04da6b4231148805ae9b078fa9c6,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -379,7 +380,7 @@ MonoBehaviour:
   _maxHealth: 20
   _currentHealth: 0
   AttackDamage: 5
-  _canTakeDamage: 0
+  _canTakeDamage: 1
 --- !u!114 &995255118568367993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -421,3 +422,16 @@ MonoBehaviour:
     Item: {fileID: 11400000, guid: e4e53901d36cd4042a6366f8ffe0b219, type: 2}
   - ItemQuantity: 10
     Item: {fileID: 11400000, guid: 0d0f8298b6b1e0c41828b20f3db92705, type: 2}
+--- !u!114 &-60097484219637705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6730967558029425401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2162c234dcb72fe4685ddd6093926d48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _inventoryData: {fileID: 11400000, guid: c96a0e360e2af054abdea78fdf139a17, type: 2}

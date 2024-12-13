@@ -1,7 +1,6 @@
 using PlayerInputSystem;
 using System;
 using System.Collections;
-using System.Xml.Serialization;
 using UnityEngine;
 
 public class PlayerControls : MonoBehaviour
@@ -167,9 +166,10 @@ public class PlayerControls : MonoBehaviour
     //When Attack Cannot Move
     private IEnumerator PauseMovement()
     {
+        yield return new WaitForSeconds(0.4f);
         _meeleCollider.enabled = true;
-        yield return new WaitForSeconds(0.1f);
 
+        yield return new WaitForSeconds(0.1f);
         //Attack Performed
         while (AttackPerformed)
         {

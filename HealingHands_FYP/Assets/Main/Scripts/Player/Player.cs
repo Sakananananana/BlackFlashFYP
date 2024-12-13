@@ -2,6 +2,7 @@ using NUnit.Framework.Constraints;
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour, IDamageable
 {
@@ -16,12 +17,15 @@ public class Player : MonoBehaviour, IDamageable
 
     public Action<float> HealthChange;
     public Action<Vector2> TakeDamage;
+    [SerializeField] private GameObject _damageScreen;
+    //[SerializeField] private Image _damageScreenImageColor;
 
     public bool _canTakeDamage;
 
     void Awake()
     {
         _currentHealth = _maxHealth;
+        
     }
 
     public void RecieveDamage(float damage, Vector3 dmgDir)
@@ -46,8 +50,13 @@ public class Player : MonoBehaviour, IDamageable
     private IEnumerator DamageFlash()
     {
         _characterSprite.color = Color.red;
+        _damageScreen.SetActive(true);
+
         yield return new WaitForSeconds(0.1f);
+
         _characterSprite.color = Color.white;
+        _damageScreen.SetActive(false);
+
     }
 
     private IEnumerator DamageRecieveCooldown()
