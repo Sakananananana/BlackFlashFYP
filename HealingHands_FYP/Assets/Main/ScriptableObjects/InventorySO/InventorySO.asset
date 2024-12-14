@@ -15,14 +15,12 @@ MonoBehaviour:
   _inventoryItems:
   - ItemQuantity: 0
     Item: {fileID: 0}
-  - ItemQuantity: 5
+  - ItemQuantity: 2
     Item: {fileID: 11400000, guid: 0d0f8298b6b1e0c41828b20f3db92705, type: 2}
   - ItemQuantity: 0
     Item: {fileID: 0}
   - ItemQuantity: 0
     Item: {fileID: 0}
-  - ItemQuantity: 7
-    Item: {fileID: 11400000, guid: e4e53901d36cd4042a6366f8ffe0b219, type: 2}
   - ItemQuantity: 0
     Item: {fileID: 0}
   - ItemQuantity: 0
@@ -43,4 +41,11 @@ MonoBehaviour:
     Item: {fileID: 0}
   - ItemQuantity: 0
     Item: {fileID: 0}
+  - ItemQuantity: 0
+    Item: {fileID: 0}
+  - ItemQuantity: 0
+    Item: {fileID: 0}
+  ItemIDList:
+  - {fileID: 11400000, guid: 0d0f8298b6b1e0c41828b20f3db92705, type: 2}
+  - {fileID: 11400000, guid: e4e53901d36cd4042a6366f8ffe0b219, type: 2}
   <InventorySize>k__BackingField: 15

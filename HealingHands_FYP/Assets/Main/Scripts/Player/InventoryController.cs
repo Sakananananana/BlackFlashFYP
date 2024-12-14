@@ -4,7 +4,6 @@ using Inventory.UI;
 using Inventory.Model;
 using PlayerInputSystem;
 using System.Collections.Generic;
-using static UnityEditor.Progress;
 
 namespace Inventory
 {
@@ -19,8 +18,11 @@ namespace Inventory
         [SerializeField]
         private InventorySO _inventoryData;
 
+        [SerializeField]
+        private SaveController _saveController;
+
         //remove later
-        public List<InventoryItem> InitialItems = new List<InventoryItem>();
+        //public List<InventoryItem> InitialItems = new List<InventoryItem>();
 
         private void Awake()
         {
@@ -52,15 +54,18 @@ namespace Inventory
 
         private void PrepareInventoryData()
         {
-            _inventoryData.Initialize();
-            foreach (var item in InitialItems) 
-            {
-                if (item.IsEmpty)
-                {
-                    continue;
-                }
-                _inventoryData.AddItem(item);
-            }
+            _inventoryData.Initialize(); 
+            
+            //get from save data
+
+            //foreach (var item in InitialItems) 
+            //{
+            //    if (item.IsEmpty)
+            //    {
+            //        continue;
+            //    }
+            //    _inventoryData.AddItem(item);
+            //}
         }
 
         private void InventoryControl()

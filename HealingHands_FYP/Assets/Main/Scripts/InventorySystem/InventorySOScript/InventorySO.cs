@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
 namespace Inventory.Model
@@ -12,10 +13,27 @@ namespace Inventory.Model
         [SerializeField]
         private List<InventoryItem> _inventoryItems;
 
+        public List<ItemSOBase> ItemIDList = new List<ItemSOBase>();
+        private Dictionary<int, ItemSOBase> instanceIDItem;
+
         [field: SerializeField]
         public int InventorySize { get; private set; } = 15;
 
         public Action<Dictionary<int, InventoryItem>> OnInventoryUpdated;
+
+        private void OnEnable()
+        {
+            //Retrieve Instance ID 
+            instanceIDItem = new Dictionary<int, ItemSOBase>();
+
+            foreach (var so in ItemIDList)
+            {
+                if (so != null)
+                {
+                    instanceIDItem[so.ID] = so;
+                }
+            }
+        }
 
         public void Initialize()
         {
@@ -23,7 +41,7 @@ namespace Inventory.Model
             for (int i = 0; i < InventorySize; i++)
             {
                 _inventoryItems.Add(InventoryItem.GetEmptyItem());
-            }
+            } 
         }
 
         internal InventoryItem GetItemAt(int itemIndex)
@@ -50,6 +68,35 @@ namespace Inventory.Model
             quantity = AddStackableItem(item, quantity);
             UpdateInventoryList();
             return quantity;
+        }
+
+        public void AddItemFromSaveFile(int index, int itemID, int itemQuantity)
+        {
+            for (int i = 0; i < _inventoryItems.Count; i++)
+            {
+                if (i != index)
+                { continue; }
+                else
+                {
+                    InventoryItem item = new InventoryItem 
+                    { 
+                        Item = GetItemByID(itemID),
+                        ItemQuantity = itemQuantity, 
+                    };
+
+                    _inventoryItems.Insert(index, item);
+                }  
+            }
+            
+            UpdateInventoryList();
+        }
+
+        //Get SO by Instance ID
+        public ItemSOBase GetItemByID(int instanceId)
+        {
+            instanceIDItem.TryGetValue(instanceId, out ItemSOBase item);
+            Debug.Log(item);
+            return item;
         }
 
         private int AddItemToFirstFreeSlot(ItemSOBase item, int quantity)
