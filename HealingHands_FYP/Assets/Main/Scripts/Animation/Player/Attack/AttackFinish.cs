@@ -12,6 +12,8 @@ public class AttackFinish : StateMachineBehaviour
         _playerControls = animator.GetComponent<PlayerControls>();
         _duration = stateInfo.length;
         _clipHasEnded = false;
+
+        
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

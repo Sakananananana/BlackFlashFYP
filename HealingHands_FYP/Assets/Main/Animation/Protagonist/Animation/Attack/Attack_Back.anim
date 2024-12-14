@@ -31,6 +31,15 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
+        time: 0.35
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
         time: 0.36666667
         value: 1
         inSlope: Infinity
@@ -40,7 +49,16 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.5
+        time: 0.41666666
+        value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.43333334
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -78,12 +96,6 @@ AnimationClip:
       value: {fileID: -7833244329559628812, guid: ec241f3fc5584664d9b9cdfc5ad3c410,
         type: 3}
     - time: 0.36666667
-      value: {fileID: 992102832948525904, guid: ec241f3fc5584664d9b9cdfc5ad3c410,
-        type: 3}
-    - time: 0.41666666
-      value: {fileID: 992102832948525904, guid: ec241f3fc5584664d9b9cdfc5ad3c410,
-        type: 3}
-    - time: 0.43333334
       value: {fileID: 992102832948525904, guid: ec241f3fc5584664d9b9cdfc5ad3c410,
         type: 3}
     - time: 0.5
@@ -130,8 +142,6 @@ AnimationClip:
     - {fileID: -9159255048652769343, guid: ec241f3fc5584664d9b9cdfc5ad3c410, type: 3}
     - {fileID: -7833244329559628812, guid: ec241f3fc5584664d9b9cdfc5ad3c410, type: 3}
     - {fileID: 992102832948525904, guid: ec241f3fc5584664d9b9cdfc5ad3c410, type: 3}
-    - {fileID: 992102832948525904, guid: ec241f3fc5584664d9b9cdfc5ad3c410, type: 3}
-    - {fileID: 992102832948525904, guid: ec241f3fc5584664d9b9cdfc5ad3c410, type: 3}
     - {fileID: -2856989064801912531, guid: ec241f3fc5584664d9b9cdfc5ad3c410, type: 3}
     - {fileID: -4205405808162920953, guid: ec241f3fc5584664d9b9cdfc5ad3c410, type: 3}
     - {fileID: -4421331166208488154, guid: ec241f3fc5584664d9b9cdfc5ad3c410, type: 3}
@@ -170,6 +180,15 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
+        time: 0.35
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
         time: 0.36666667
         value: 1
         inSlope: Infinity
@@ -179,7 +198,16 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.5
+        time: 0.41666666
+        value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.43333334
         value: 0
         inSlope: Infinity
         outSlope: Infinity

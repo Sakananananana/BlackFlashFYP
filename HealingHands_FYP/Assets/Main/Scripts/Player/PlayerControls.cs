@@ -14,7 +14,6 @@ public class PlayerControls : MonoBehaviour
     public bool AttackPerformed = false;
 
     [SerializeField] private GameObject _meleeAim;
-    [SerializeField] private PolygonCollider2D _meeleCollider;
     private Vector3 _attackDir;
 
     //Movement
@@ -171,6 +170,7 @@ public class PlayerControls : MonoBehaviour
         {
             yield return null;
         }
+
         _anim.SetBool("IsAttacking", false);
         CanMove = true;
     }

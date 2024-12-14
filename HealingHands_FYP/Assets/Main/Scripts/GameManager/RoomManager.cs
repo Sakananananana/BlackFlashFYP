@@ -11,6 +11,9 @@ public class RoomManager : MonoBehaviour
     [SerializeField] private Collider2D[] _colliders;
     [SerializeField] private Transform _enemyPool;
 
+    //inherit from game manager
+    //game manager have an event to call when a fights end and can collect things
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (_enteredRoom == false)
