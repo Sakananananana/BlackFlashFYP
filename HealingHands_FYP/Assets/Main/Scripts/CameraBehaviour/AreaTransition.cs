@@ -9,11 +9,7 @@ public class AreaTransition : MonoBehaviour
     [SerializeField] private PolygonCollider2D _mapBoundary;
     private CinemachineConfiner _cineConfiner;
 
-    //private CameraController cam;
     //private CinemachineVirtualCameraBase _vCamBase;
-
-    //public Vector2 newMinPos;
-    //public Vector2 newMaxPos;
     public Vector3 movePlayer;
     
     void Awake()
