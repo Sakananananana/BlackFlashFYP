@@ -7,7 +7,7 @@ public class PlayerControls : MonoBehaviour
 {
     //Controls
     [SerializeField] private InputReader _inputReader;
-    [SerializeField] private Player _player;
+    private Player _player;
     [NonSerialized] public Vector2 MoveDir;
     [NonSerialized] public Vector2 LastMoveDir = Vector2.down;
     public bool DashPerformed = false;
@@ -166,18 +166,9 @@ public class PlayerControls : MonoBehaviour
     //When Attack Cannot Move
     private IEnumerator PauseMovement()
     {
-        yield return new WaitForSeconds(0.4f);
-        _meeleCollider.enabled = true;
-
-        yield return new WaitForSeconds(0.1f);
         //Attack Performed
         while (AttackPerformed)
         {
-            if (_meeleCollider.enabled == true)
-            {
-                _meeleCollider.enabled = false;
-            }
-
             yield return null;
         }
         _anim.SetBool("IsAttacking", false);
@@ -205,6 +196,7 @@ public class PlayerControls : MonoBehaviour
             _attackDir = Vector3.left * LastMoveDir.x + Vector3.down * LastMoveDir.y;
         }
 
+        //to make sure attack happens in 4 directions only
         if (_attackDir.y <= -0.1f)
         {
             _attackDir.y = -1;
@@ -215,6 +207,7 @@ public class PlayerControls : MonoBehaviour
             _attackDir.y = 1;
             _attackDir.x = 0;
         }
+
         _meleeAim.transform.rotation = Quaternion.LookRotation(Vector3.forward, _attackDir);
     }
 

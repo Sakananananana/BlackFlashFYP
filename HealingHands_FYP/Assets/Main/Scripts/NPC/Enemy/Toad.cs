@@ -61,7 +61,6 @@ public class Toad : MonoBehaviour, IDamageable
         if (_canTakeDamange == true)
         {
             _canTakeDamange = false;
-            Debug.Log("Cannot Take Damage" + _canTakeDamange);
 
             _enemyHealth -= damage;
             StartCoroutine(DamageRecieveCooldown());
@@ -135,7 +134,7 @@ public class Toad : MonoBehaviour, IDamageable
 
     private IEnumerator DamageRecieveCooldown()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.8f);
         _canTakeDamange = true;
     }
 
