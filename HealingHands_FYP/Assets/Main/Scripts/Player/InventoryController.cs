@@ -18,12 +18,6 @@ namespace Inventory
         [SerializeField]
         private InventorySO _inventoryData;
 
-        [SerializeField]
-        private SaveController _saveController;
-
-        //remove later
-        //public List<InventoryItem> InitialItems = new List<InventoryItem>();
-
         private void Awake()
         {
             _inventoryPage.InitializeInventoryUI(_inventoryData.InventorySize);
@@ -55,17 +49,6 @@ namespace Inventory
         private void PrepareInventoryData()
         {
             _inventoryData.Initialize(); 
-            
-            //get from save data
-
-            //foreach (var item in InitialItems) 
-            //{
-            //    if (item.IsEmpty)
-            //    {
-            //        continue;
-            //    }
-            //    _inventoryData.AddItem(item);
-            //}
         }
 
         private void InventoryControl()

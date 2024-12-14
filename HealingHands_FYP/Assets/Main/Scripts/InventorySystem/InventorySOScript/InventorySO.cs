@@ -95,7 +95,6 @@ namespace Inventory.Model
         public ItemSOBase GetItemByID(int instanceId)
         {
             instanceIDItem.TryGetValue(instanceId, out ItemSOBase item);
-            Debug.Log(item);
             return item;
         }
 
