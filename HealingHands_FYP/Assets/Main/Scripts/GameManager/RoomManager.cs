@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 
 public class RoomManager : MonoBehaviour
 {
@@ -9,19 +10,6 @@ public class RoomManager : MonoBehaviour
     [SerializeField] private List<EnemyToSpawn> _enemyToSpawn = new List<EnemyToSpawn>();
     [SerializeField] private Collider2D[] _colliders;
     [SerializeField] private Transform _enemyPool;
-    
-    void Update()
-    {
-        if (_enemyPool.childCount == 0)
-        { 
-            _inFight = false;
-
-            for (int i = 0; i < _colliders.Length; i++)
-            {
-                _colliders[i].isTrigger = true;
-            }
-        }
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -40,7 +28,24 @@ public class RoomManager : MonoBehaviour
 
             _enteredRoom = true;
             _inFight = true;
+
+            StartCoroutine(BattleFinished());
         }
+    }
+
+    private IEnumerator BattleFinished()
+    {
+        while (_enemyPool.childCount > 0)
+        { 
+            yield return null;
+        }
+
+        _inFight = false;
+        for (int i = 0; i < _colliders.Length; i++)
+        {
+            _colliders[i].isTrigger = true;
+        }
+
     }
 }
 
