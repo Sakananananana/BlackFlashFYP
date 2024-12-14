@@ -70,10 +70,16 @@ namespace Inventory.Model
             return quantity;
         }
 
+        //send in the whole list
         public void AddItemFromSaveFile(int index, int itemID, int itemQuantity)
         {
+            //for (int i = 0; i < ListPassedIn.Count; i++)
+            //{
+            //  Pasted in the below insert
+            //}
             for (int i = 0; i < _inventoryItems.Count; i++)
             {
+                
                 if (i != index)
                 { continue; }
                 else
@@ -88,6 +94,21 @@ namespace Inventory.Model
                 }  
             }
             
+            UpdateInventoryList();
+        }
+        public void AddItemFromSavedFile(List<InventorySaveData> invData)
+        {
+            for (int i = 0; i < invData.Count; i++)
+            {
+                InventoryItem item = new InventoryItem
+                {
+                    Item = GetItemByID(invData[i].ItemID),
+                    ItemQuantity = invData[i].ItemQuantity,
+                };
+
+                _inventoryItems.Insert(invData[i].SlotIndex, item);
+            }
+
             UpdateInventoryList();
         }
 

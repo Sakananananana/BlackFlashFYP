@@ -1,7 +1,6 @@
 using System.IO;
 using UnityEngine;
 using Inventory.Model;
-using Newtonsoft.Json;
 using System.Collections.Generic;
 
 public class SaveController : MonoBehaviour
@@ -28,20 +27,35 @@ public class SaveController : MonoBehaviour
 
     public void SaveInventory(Dictionary<int, InventoryItem> obj)
     {
-        List<SaveData> saveDatas = new List<SaveData>();
+        List<InventorySaveData> invData = new List<InventorySaveData>();
 
         foreach (var item in obj)
         {
-            saveDatas.Add(new SaveData
-            {
-                SlotIndex = item.Key,
-                ItemID = item.Value.Item.ID,
-                ItemQuantity = item.Value.ItemQuantity,
-            });
+            invData.Add(new InventorySaveData { SlotIndex = item.Key, ItemID = item.Value.Item.ID, ItemQuantity = item.Value.ItemQuantity });
+            //saveData = new InventorySaveData
+            //{
+            //    SlotIndex = item.Key,
+            //    ItemID = item.Value.Item.ID,
+            //    ItemQuantity = item.Value.ItemQuantity,
+            //};
+
+
         }
 
-        string json = JsonConvert.SerializeObject(saveDatas, Formatting.Indented);
-        File.WriteAllText(_savePath, json);
+        SaveData saveData = new SaveData
+        {
+            InventorySavedData = invData,
+        };
+
+        
+
+        File.WriteAllText(_savePath, JsonUtility.ToJson(saveData));
+        //SaveData saveData = new SaveData
+        //{ 
+        //    InventorySavedData = invData
+        //};
+
+
     }
 
     public void LoadInventory()
@@ -49,14 +63,10 @@ public class SaveController : MonoBehaviour
 
         if (File.Exists(_savePath))
         {
-            string json = File.ReadAllText(_savePath);
+            SaveData saveData = JsonUtility.FromJson<SaveData>(File.ReadAllText(_savePath));
 
-            List<SaveData> saveDatas = JsonConvert.DeserializeObject<List<SaveData>>(json);
+            _invetorySO.AddItemFromSavedFile(saveData.InventorySavedData);
 
-            foreach (var saveData in saveDatas)
-            {
-                _invetorySO.AddItemFromSaveFile(saveData.SlotIndex, saveData.ItemID, saveData.ItemQuantity);
-            }
         }
         else
         { SaveInventory(_invetorySO.GetCurrentInventoryState()); }
