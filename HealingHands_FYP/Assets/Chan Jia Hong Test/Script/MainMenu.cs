@@ -4,6 +4,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
@@ -60,6 +61,20 @@ public class MainMenu : MonoBehaviour
         arrow[0].gameObject.SetActive(false);
         arrow[1].gameObject.SetActive(false);
         arrow[2].gameObject.SetActive(true);
+    }
+    public void Select4()
+    {
+        arrow[3].gameObject.SetActive(true);
+        arrow[4].gameObject.SetActive(false);
+    }
+    public void Select5()
+    {
+        arrow[3].gameObject.SetActive(false);
+        arrow[4].gameObject.SetActive(true);
+    }
+    public void OnSelect(Button button)
+    {
+        Debug.Log(this.gameObject.name + " was selected");
     }
 }
 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -5,6 +6,7 @@ public class Toad : MonoBehaviour, IDamageable
 {
     [SerializeField] private GameObject _projectile;
     [SerializeField] private float _enemyHealth = 20;
+    public Action<float> enemyHealthChange;
 
     //Need to change orientation based on character facing
     [SerializeField] private Transform _projectileOrigin;
@@ -63,6 +65,7 @@ public class Toad : MonoBehaviour, IDamageable
             _canTakeDamange = false;
 
             _enemyHealth -= damage;
+            enemyHealthChange?.Invoke(damage);
             StartCoroutine(DamageRecieveCooldown());
             StartCoroutine(DamageFlash());
         }
