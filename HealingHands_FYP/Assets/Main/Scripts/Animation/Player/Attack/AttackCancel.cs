@@ -3,11 +3,17 @@ using UnityEngine;
 public class AttackCancel : StateMachineBehaviour
 {
     private PlayerControls _playerControls;
+    private PlayerAudio _playerAudio;
 
     //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         _playerControls = animator.GetComponent<PlayerControls>();
+        _playerAudio = animator.GetComponent<PlayerAudio>();
+
+        _playerAudio.PlayDashAudio();
+
+        if (_playerControls.AttackPerformed == true)
         _playerControls.CancelAttackInput();
     }
 

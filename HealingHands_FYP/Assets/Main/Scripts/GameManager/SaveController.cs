@@ -32,14 +32,6 @@ public class SaveController : MonoBehaviour
         foreach (var item in obj)
         {
             invData.Add(new InventorySaveData { SlotIndex = item.Key, ItemID = item.Value.Item.ID, ItemQuantity = item.Value.ItemQuantity });
-            //saveData = new InventorySaveData
-            //{
-            //    SlotIndex = item.Key,
-            //    ItemID = item.Value.Item.ID,
-            //    ItemQuantity = item.Value.ItemQuantity,
-            //};
-
-
         }
 
         SaveData saveData = new SaveData
@@ -47,20 +39,11 @@ public class SaveController : MonoBehaviour
             InventorySavedData = invData,
         };
 
-        
-
         File.WriteAllText(_savePath, JsonUtility.ToJson(saveData));
-        //SaveData saveData = new SaveData
-        //{ 
-        //    InventorySavedData = invData
-        //};
-
-
     }
 
     public void LoadInventory()
     {
-
         if (File.Exists(_savePath))
         {
             SaveData saveData = JsonUtility.FromJson<SaveData>(File.ReadAllText(_savePath));

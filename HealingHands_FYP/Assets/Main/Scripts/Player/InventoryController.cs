@@ -9,6 +9,10 @@ namespace Inventory
 {
     public class InventoryController : MonoBehaviour
     {
+        //remove later audio reference
+        [SerializeField]
+        private PlayerAudio _playerAudio;
+
         [SerializeField]
         private InputReader _inputReader;
 
@@ -61,11 +65,13 @@ namespace Inventory
                 }
 
                 _inventoryPage.ShowInventoryPanel();
+                _playerAudio.PlayInventoryAudio();
                 _inputReader.CloseInventoryEvent += InventoryControl;
             }
             else
             {
                 _inventoryPage.HideInventoryPanel();
+                _playerAudio.PlayInventoryAudio();
                 _inputReader.CloseInventoryEvent -= InventoryControl;
             }
         }

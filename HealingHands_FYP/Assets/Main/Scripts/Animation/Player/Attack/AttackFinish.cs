@@ -3,6 +3,7 @@ using UnityEngine;
 public class AttackFinish : StateMachineBehaviour
 {
     private PlayerControls _playerControls;
+    private PlayerAudio _playerAudio;
     private bool _clipHasEnded;
     private float _duration;
 
@@ -10,10 +11,11 @@ public class AttackFinish : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         _playerControls = animator.GetComponent<PlayerControls>();
+        _playerAudio = animator.GetComponent<PlayerAudio>();
         _duration = stateInfo.length;
         _clipHasEnded = false;
 
-        
+        _playerAudio.PlaySlashAudio();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

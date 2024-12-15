@@ -1,16 +1,17 @@
+using System;
 using UnityEngine;
 
 public class PlayerAudio : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] AudioData _dashAudio;
+    [SerializeField] AudioData _slashAudio;
+    [SerializeField] AudioData _footstepAudio;
+    [SerializeField] AudioData _inventoryAudio;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] AudioConfiguration _audioConfig;
+    
+    public void PlayFootstepAudio() => AudioManager.Instance.PlayRaisedAudio(_footstepAudio, _audioConfig);
+    public void PlayInventoryAudio() => AudioManager.Instance.PlayRaisedAudio(_inventoryAudio, _audioConfig);
+    public void PlaySlashAudio() => AudioManager.Instance.PlayRaisedAudio(_slashAudio, _audioConfig);
+    public void PlayDashAudio() => AudioManager.Instance.PlayRaisedAudio(_dashAudio, _audioConfig);
 }
