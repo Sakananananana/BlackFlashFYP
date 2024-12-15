@@ -1,6 +1,8 @@
 using System;
-using System.Collections;
 using UnityEngine;
+using System.Collections;
+using UnityEngine.SceneManagement;
+
 
 public class Player : MonoBehaviour, IDamageable
 {
@@ -15,14 +17,16 @@ public class Player : MonoBehaviour, IDamageable
 
     public Action<float> HealthChange;
     public Action<Vector2> TakeDamage;
+    public Action DeathEvent;
     [SerializeField] private GameObject _damageScreen;
   
     public bool _canTakeDamage;
+    string _lvlName;
 
     void Awake()
     {
-        _currentHealth = _maxHealth;
         
+        _currentHealth = _maxHealth; 
     }
 
     public void RecieveDamage(float damage, Vector3 dmgDir)
@@ -37,11 +41,34 @@ public class Player : MonoBehaviour, IDamageable
 
             StartCoroutine(DamageFlash());
         }
+
+        if (_currentHealth <= 0)
+        {
+            Death();
+            
+        }
     }
 
     public void Death()
     {
-        Destroy(gameObject, 1.5f);
+        DeathEvent.Invoke();
+        gameObject.SetActive(false);
+        _damageScreen.SetActive(false);
+
+        Invoke("LoadScene", 1.5f);
+        
+    }
+
+    private void LoadScene()
+    {
+        if (SceneManager.GetActiveScene().name == "Tutorial")
+        {
+            SceneManager.LoadScene("Tutorial");
+        }
+        if (SceneManager.GetActiveScene().name == "Mountain01")
+        {
+            SceneManager.LoadScene("Village");
+        }
     }
 
     private IEnumerator DamageFlash()

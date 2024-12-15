@@ -189,4 +189,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02ad0c3e2b564354ba50526d0fe62193, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _splashAudio: {fileID: 11400000, guid: 8572b902c2cda6742ba5978f0cb9ca94, type: 2}
+  _audioConfig: {fileID: 11400000, guid: 0d856fbfc57e03e4cb5f55add5e60595, type: 2}
   TravelSpeed: 3

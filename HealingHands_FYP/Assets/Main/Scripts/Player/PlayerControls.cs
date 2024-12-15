@@ -5,13 +5,16 @@ using UnityEngine;
 
 public class PlayerControls : MonoBehaviour
 {
+    private Player _player;
+
     //Controls
     [SerializeField] private InputReader _inputReader;
-    private Player _player;
     [NonSerialized] public Vector2 MoveDir;
     [NonSerialized] public Vector2 LastMoveDir = Vector2.down;
     public bool DashPerformed = false;
     public bool AttackPerformed = false;
+
+    [SerializeField] private CircleCollider2D _playerCollider;
 
     [SerializeField] private GameObject _meleeAim;
     private Vector3 _attackDir;
@@ -151,9 +154,10 @@ public class PlayerControls : MonoBehaviour
     private IEnumerator DashCooldown()
     {
         _inputReader.DashEvent -= DashHandler;
-
+        _playerCollider.enabled = false;
         //TODO: disable collider
         yield return new WaitForSeconds(0.3f);
+        _playerCollider.enabled = true;
         DashPerformed = false;
         _anim.SetBool("IsDashing", false);
         CanMove = true;
@@ -179,9 +183,11 @@ public class PlayerControls : MonoBehaviour
     {
         //TODO: disable collider
         _rb2D.linearVelocity = dmgDir * 5f;  
+        _playerCollider.enabled = false;
 
         yield return new WaitForSeconds(0.1f);
 
+        _playerCollider.enabled = true;
         CanMove = true;
     }
 

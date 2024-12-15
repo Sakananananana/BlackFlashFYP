@@ -198,6 +198,138 @@ namespace PlayerInputSystem
             ]
         },
         {
+            ""name"": ""Inventory"",
+            ""id"": ""94976eeb-1c68-4de0-a5ce-d0299ba40bac"",
+            ""actions"": [
+                {
+                    ""name"": ""Navigate"",
+                    ""type"": ""Value"",
+                    ""id"": ""97a7dc39-cc4b-43e0-b58d-827b68b777cc"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Submit"",
+                    ""type"": ""Button"",
+                    ""id"": ""1c3a60e3-bbc4-4bbc-afc4-cbfcb7358b8c"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Cancel"",
+                    ""type"": ""Button"",
+                    ""id"": ""8403b905-b0d0-4031-8747-c1b15e0cf38c"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Close Inventory"",
+                    ""type"": ""Button"",
+                    ""id"": ""7f4029a7-8448-4088-9b49-408cd2684951"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""91a60c01-4fb7-4d27-86c9-7fcda26da578"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Close Inventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Keyboard"",
+                    ""id"": ""c5dd2e16-ff58-4381-81a2-d612c26050fd"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""74af09fb-1158-4429-aed4-61a85ad01bae"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""5d1a93a1-f4f5-4e0f-b4e8-866a58f95354"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""9964ada1-0e5f-49d6-8c13-680859576ab5"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""3a9878b6-ec90-43c6-882b-31b8cf7ba582"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1e350060-e3bc-4939-94b1-a82758db48e8"",
+                    ""path"": ""<Keyboard>/j"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Submit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d263ea6b-9e6b-4047-8336-7c47cf881dac"",
+                    ""path"": ""<Keyboard>/n"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Cancel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
             ""name"": ""UI"",
             ""id"": ""272f6d14-89ba-496f-b7ff-215263d3219f"",
             ""actions"": [
@@ -236,15 +368,6 @@ namespace PlayerInputSystem
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Close Inventory"",
-                    ""type"": ""Button"",
-                    ""id"": ""5204ca9c-5f31-4305-b25e-d791b5902383"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -256,17 +379,6 @@ namespace PlayerInputSystem
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse;Gamepad;Touch;Joystick;XR"",
                     ""action"": ""Resume"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""49c1234e-65ec-4704-b45e-52938849ca62"",
-                    ""path"": ""<Keyboard>/i"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Close Inventory"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -421,18 +533,24 @@ namespace PlayerInputSystem
             m_Gameplay_Interact = m_Gameplay.FindAction("Interact", throwIfNotFound: true);
             m_Gameplay_OpenInventory = m_Gameplay.FindAction("Open Inventory", throwIfNotFound: true);
             m_Gameplay_Pause = m_Gameplay.FindAction("Pause", throwIfNotFound: true);
+            // Inventory
+            m_Inventory = asset.FindActionMap("Inventory", throwIfNotFound: true);
+            m_Inventory_Navigate = m_Inventory.FindAction("Navigate", throwIfNotFound: true);
+            m_Inventory_Submit = m_Inventory.FindAction("Submit", throwIfNotFound: true);
+            m_Inventory_Cancel = m_Inventory.FindAction("Cancel", throwIfNotFound: true);
+            m_Inventory_CloseInventory = m_Inventory.FindAction("Close Inventory", throwIfNotFound: true);
             // UI
             m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
             m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
             m_UI_Submit = m_UI.FindAction("Submit", throwIfNotFound: true);
             m_UI_Cancel = m_UI.FindAction("Cancel", throwIfNotFound: true);
             m_UI_Resume = m_UI.FindAction("Resume", throwIfNotFound: true);
-            m_UI_CloseInventory = m_UI.FindAction("Close Inventory", throwIfNotFound: true);
         }
 
         ~@GameInputs()
         {
             UnityEngine.Debug.Assert(!m_Gameplay.enabled, "This will cause a leak and performance issues, GameInputs.Gameplay.Disable() has not been called.");
+            UnityEngine.Debug.Assert(!m_Inventory.enabled, "This will cause a leak and performance issues, GameInputs.Inventory.Disable() has not been called.");
             UnityEngine.Debug.Assert(!m_UI.enabled, "This will cause a leak and performance issues, GameInputs.UI.Disable() has not been called.");
         }
 
@@ -578,6 +696,76 @@ namespace PlayerInputSystem
         }
         public GameplayActions @Gameplay => new GameplayActions(this);
 
+        // Inventory
+        private readonly InputActionMap m_Inventory;
+        private List<IInventoryActions> m_InventoryActionsCallbackInterfaces = new List<IInventoryActions>();
+        private readonly InputAction m_Inventory_Navigate;
+        private readonly InputAction m_Inventory_Submit;
+        private readonly InputAction m_Inventory_Cancel;
+        private readonly InputAction m_Inventory_CloseInventory;
+        public struct InventoryActions
+        {
+            private @GameInputs m_Wrapper;
+            public InventoryActions(@GameInputs wrapper) { m_Wrapper = wrapper; }
+            public InputAction @Navigate => m_Wrapper.m_Inventory_Navigate;
+            public InputAction @Submit => m_Wrapper.m_Inventory_Submit;
+            public InputAction @Cancel => m_Wrapper.m_Inventory_Cancel;
+            public InputAction @CloseInventory => m_Wrapper.m_Inventory_CloseInventory;
+            public InputActionMap Get() { return m_Wrapper.m_Inventory; }
+            public void Enable() { Get().Enable(); }
+            public void Disable() { Get().Disable(); }
+            public bool enabled => Get().enabled;
+            public static implicit operator InputActionMap(InventoryActions set) { return set.Get(); }
+            public void AddCallbacks(IInventoryActions instance)
+            {
+                if (instance == null || m_Wrapper.m_InventoryActionsCallbackInterfaces.Contains(instance)) return;
+                m_Wrapper.m_InventoryActionsCallbackInterfaces.Add(instance);
+                @Navigate.started += instance.OnNavigate;
+                @Navigate.performed += instance.OnNavigate;
+                @Navigate.canceled += instance.OnNavigate;
+                @Submit.started += instance.OnSubmit;
+                @Submit.performed += instance.OnSubmit;
+                @Submit.canceled += instance.OnSubmit;
+                @Cancel.started += instance.OnCancel;
+                @Cancel.performed += instance.OnCancel;
+                @Cancel.canceled += instance.OnCancel;
+                @CloseInventory.started += instance.OnCloseInventory;
+                @CloseInventory.performed += instance.OnCloseInventory;
+                @CloseInventory.canceled += instance.OnCloseInventory;
+            }
+
+            private void UnregisterCallbacks(IInventoryActions instance)
+            {
+                @Navigate.started -= instance.OnNavigate;
+                @Navigate.performed -= instance.OnNavigate;
+                @Navigate.canceled -= instance.OnNavigate;
+                @Submit.started -= instance.OnSubmit;
+                @Submit.performed -= instance.OnSubmit;
+                @Submit.canceled -= instance.OnSubmit;
+                @Cancel.started -= instance.OnCancel;
+                @Cancel.performed -= instance.OnCancel;
+                @Cancel.canceled -= instance.OnCancel;
+                @CloseInventory.started -= instance.OnCloseInventory;
+                @CloseInventory.performed -= instance.OnCloseInventory;
+                @CloseInventory.canceled -= instance.OnCloseInventory;
+            }
+
+            public void RemoveCallbacks(IInventoryActions instance)
+            {
+                if (m_Wrapper.m_InventoryActionsCallbackInterfaces.Remove(instance))
+                    UnregisterCallbacks(instance);
+            }
+
+            public void SetCallbacks(IInventoryActions instance)
+            {
+                foreach (var item in m_Wrapper.m_InventoryActionsCallbackInterfaces)
+                    UnregisterCallbacks(item);
+                m_Wrapper.m_InventoryActionsCallbackInterfaces.Clear();
+                AddCallbacks(instance);
+            }
+        }
+        public InventoryActions @Inventory => new InventoryActions(this);
+
         // UI
         private readonly InputActionMap m_UI;
         private List<IUIActions> m_UIActionsCallbackInterfaces = new List<IUIActions>();
@@ -585,7 +773,6 @@ namespace PlayerInputSystem
         private readonly InputAction m_UI_Submit;
         private readonly InputAction m_UI_Cancel;
         private readonly InputAction m_UI_Resume;
-        private readonly InputAction m_UI_CloseInventory;
         public struct UIActions
         {
             private @GameInputs m_Wrapper;
@@ -594,7 +781,6 @@ namespace PlayerInputSystem
             public InputAction @Submit => m_Wrapper.m_UI_Submit;
             public InputAction @Cancel => m_Wrapper.m_UI_Cancel;
             public InputAction @Resume => m_Wrapper.m_UI_Resume;
-            public InputAction @CloseInventory => m_Wrapper.m_UI_CloseInventory;
             public InputActionMap Get() { return m_Wrapper.m_UI; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -616,9 +802,6 @@ namespace PlayerInputSystem
                 @Resume.started += instance.OnResume;
                 @Resume.performed += instance.OnResume;
                 @Resume.canceled += instance.OnResume;
-                @CloseInventory.started += instance.OnCloseInventory;
-                @CloseInventory.performed += instance.OnCloseInventory;
-                @CloseInventory.canceled += instance.OnCloseInventory;
             }
 
             private void UnregisterCallbacks(IUIActions instance)
@@ -635,9 +818,6 @@ namespace PlayerInputSystem
                 @Resume.started -= instance.OnResume;
                 @Resume.performed -= instance.OnResume;
                 @Resume.canceled -= instance.OnResume;
-                @CloseInventory.started -= instance.OnCloseInventory;
-                @CloseInventory.performed -= instance.OnCloseInventory;
-                @CloseInventory.canceled -= instance.OnCloseInventory;
             }
 
             public void RemoveCallbacks(IUIActions instance)
@@ -709,13 +889,19 @@ namespace PlayerInputSystem
             void OnOpenInventory(InputAction.CallbackContext context);
             void OnPause(InputAction.CallbackContext context);
         }
+        public interface IInventoryActions
+        {
+            void OnNavigate(InputAction.CallbackContext context);
+            void OnSubmit(InputAction.CallbackContext context);
+            void OnCancel(InputAction.CallbackContext context);
+            void OnCloseInventory(InputAction.CallbackContext context);
+        }
         public interface IUIActions
         {
             void OnNavigate(InputAction.CallbackContext context);
             void OnSubmit(InputAction.CallbackContext context);
             void OnCancel(InputAction.CallbackContext context);
             void OnResume(InputAction.CallbackContext context);
-            void OnCloseInventory(InputAction.CallbackContext context);
         }
     }
 }

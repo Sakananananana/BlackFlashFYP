@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c151a2d2bbaf54246bfc7496fbf50c94, type: 3}
+  m_Name: Isatidis
+  m_EditorClassIdentifier: 
+  <IsStackable>k__BackingField: 1
+  <MaxStackSize>k__BackingField: 10
+  <ItemImage>k__BackingField: {fileID: 21300000, guid: 5cf9635880e338a43bd30f5d3b52d93d,
+    type: 3}
+  <ItemName>k__BackingField: Isatidis Root
+  <ItemDescription>k__BackingField: "\"Isatidis Root, known as the Guardian\u2019s
+    Spine lies heavy in your hand, its gnarled form radiating a quiet power. Boil
+    it into a tincture, and it will cleanse the most insidious of ailments, though
+    its bitterness is a test of endurance for even the bravest of heroes.\""
