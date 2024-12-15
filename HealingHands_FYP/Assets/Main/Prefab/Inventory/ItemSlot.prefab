@@ -349,6 +349,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemImage: {fileID: 8652063324192964661}
   _itemQuantityTxt: {fileID: 6538846625581350831}
+  IsSlotEmpty: 1
 --- !u!95 &4619401536050971762
 Animator:
   serializedVersion: 7
@@ -361,7 +362,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 5a5461021b566004aad2b85ef0978d07, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0

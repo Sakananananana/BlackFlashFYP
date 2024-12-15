@@ -6,7 +6,7 @@ namespace PlayerInputSystem
 {
 
     [CreateAssetMenu(fileName = "InputReader", menuName = "Scriptable Objects/InputReader")]
-    public class InputReader : ScriptableObject, GameInputs.IUIActions, GameInputs.IGameplayActions
+    public class InputReader : ScriptableObject, GameInputs.IUIActions, GameInputs.IGameplayActions, GameInputs.IInventoryActions
     {
         private GameInputs _gameInputs;
 
@@ -26,6 +26,7 @@ namespace PlayerInputSystem
             { 
                 _gameInputs = new GameInputs();
 
+                _gameInputs.Inventory.SetCallbacks(this);
                 _gameInputs.Gameplay.SetCallbacks(this);
                 _gameInputs.UI.SetCallbacks(this);
 
@@ -35,6 +36,7 @@ namespace PlayerInputSystem
 
         private void OnDisable()
         {
+            _gameInputs.Inventory.Disable();
             _gameInputs.Gameplay.Disable();
             _gameInputs.UI.Disable();
         }
@@ -42,13 +44,25 @@ namespace PlayerInputSystem
         public void SetGameplay()
         {
             _gameInputs.Gameplay.Enable();
+
+            _gameInputs.Inventory.Disable();
             _gameInputs.UI.Disable();
         }
 
         public void SetUI()
         {
             _gameInputs.UI.Enable();
+
+            _gameInputs.Inventory.Disable();
             _gameInputs.Gameplay.Disable();
+        }
+
+        public void SetInventory()
+        {
+            _gameInputs.Inventory.Enable();
+
+            _gameInputs.Gameplay.Disable();
+            _gameInputs.UI.Disable();
         }
 
         #region Gameplay Move(WASD), Attack(J), Dash( )
@@ -94,7 +108,7 @@ namespace PlayerInputSystem
             if (context.phase == InputActionPhase.Started)
             {
                 OpenInventoryEvent?.Invoke();
-                SetUI();
+                SetInventory();
             }
         }
 
@@ -114,7 +128,7 @@ namespace PlayerInputSystem
             if (context.phase == InputActionPhase.Started)
             {
                 PauseEvent?.Invoke();
-                //SetUI();
+                SetUI();
             }
         }
 
@@ -123,8 +137,6 @@ namespace PlayerInputSystem
             if (context.phase == InputActionPhase.Started)
             {
                 ResumeEvent?.Invoke();
-                CloseInventoryEvent?.Invoke();
-
                 SetGameplay();
             }
         }

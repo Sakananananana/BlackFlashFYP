@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class ProjectileBehaviour : MonoBehaviour
 {
+    [SerializeField] AudioData _splashAudio;
+    [SerializeField] AudioConfiguration _audioConfig;
+
     public float TravelSpeed;
     private Rigidbody2D _rb2D;
 
@@ -37,6 +40,7 @@ public class ProjectileBehaviour : MonoBehaviour
         {
             Vector2 dir = (collision.transform.position - transform.position).normalized;
 
+            PlayHitProjectileAudio();
             damageable.RecieveDamage(2, dir);
             DestroyProjectile();
         }
@@ -46,4 +50,6 @@ public class ProjectileBehaviour : MonoBehaviour
             DestroyProjectile();
         }
     }
+
+    private void PlayHitProjectileAudio() => AudioManager.Instance.PlayRaisedAudio(_splashAudio, _audioConfig);
 }

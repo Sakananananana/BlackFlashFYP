@@ -1,21 +1,24 @@
 using PlayerInputSystem;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    [SerializeField]private InputReader _inputReader;
+    [SerializeField] private InputReader _inputReader;
+    [SerializeField] GameObject _firstButton;
     [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject[] arrow;
-    private bool isGamePaused;
 
     private void OnEnable()
     {
         _inputReader.PauseEvent += PauseGame;
+        _inputReader.ResumeEvent += ContinueGame;
     }
     private void OnDisable()
     {
         _inputReader.PauseEvent -= PauseGame;
+        _inputReader.ResumeEvent -= ContinueGame;
     }
     private void Start()
     {
@@ -27,34 +30,17 @@ public class PauseMenu : MonoBehaviour
     }
     public void PauseGame()
     {
+        EventSystem.current.SetSelectedGameObject(_firstButton);
         pauseMenu.gameObject.SetActive(true);
         Time.timeScale = 0;
-        isGamePaused = true;
-
     }
     public void ContinueGame()
     {
         pauseMenu.gameObject.SetActive(false);
+        _inputReader.SetGameplay();
         Time.timeScale = 1;
-        isGamePaused = false;
     }
-    // Update is called once per frame
-    //public void Update()
-    //{
-    //    if (Input.GetKeyDown(KeyCode.Escape))
-    //    {
-    //        if (isGamePaused)
-    //        {
-    //            ContinueGame();
-    //            Debug.Log("Game should NOT be paused rn");
-    //        }
-    //        else
-    //        {
-    //            PauseGame();
-    //            Debug.Log("Game should be paused rn");
-    //        }
-    //    }
-    //}
+
     public void Select1()
     {
         arrow[0].gameObject.SetActive(true);
@@ -73,8 +59,11 @@ public class PauseMenu : MonoBehaviour
         arrow[1].gameObject.SetActive(false);
         arrow[2].gameObject.SetActive(true);
     }
+
     public void LoadLevel(string levelName)
     {
         SceneManager.LoadScene(levelName);
+        _inputReader.SetGameplay();
+        Time.timeScale = 1;
     }
 }

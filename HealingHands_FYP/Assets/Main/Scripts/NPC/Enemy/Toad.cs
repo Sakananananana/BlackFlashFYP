@@ -1,6 +1,7 @@
 using System;
-using System.Collections;
 using UnityEngine;
+using Unity.Cinemachine;
+using System.Collections;
 
 public class Toad : MonoBehaviour, IDamageable
 {
@@ -27,15 +28,19 @@ public class Toad : MonoBehaviour, IDamageable
     private Vector2 _direction;
     private float _angle;
 
+    private CinemachineImpulseSource _impulseSource;
+
     private void Awake()
     {
         _anim = GetComponent<Animator>();   
         _sprRenderer = GetComponent<SpriteRenderer>();
+        _impulseSource = GetComponent<CinemachineImpulseSource>();
 
         if (_player == null)
         {
             _player = GameObject.FindGameObjectWithTag("Player");
         }
+
     }
 
     private void Start()
@@ -69,6 +74,8 @@ public class Toad : MonoBehaviour, IDamageable
 
             _enemyHealth -= damage;
             enemyHealthChange?.Invoke(damage);
+
+            CameraShakeManager.CameraShakeInstance.CameraShake(_impulseSource);
             StartCoroutine(DamageRecieveCooldown());
             StartCoroutine(DamageFlash());
         }

@@ -398,6 +398,7 @@ MonoBehaviour:
   _inputReader: {fileID: 11400000, guid: 415aeb03029feca43b600e9ed9218756, type: 2}
   DashPerformed: 0
   AttackPerformed: 0
+  _playerCollider: {fileID: 932691550731633721}
   _meleeAim: {fileID: 1375189502604888421}
   CanMove: 1
   MoveSpeed: 4

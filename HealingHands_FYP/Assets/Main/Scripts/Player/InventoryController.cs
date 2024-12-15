@@ -22,8 +22,12 @@ namespace Inventory
         [SerializeField]
         private InventorySO _inventoryData;
 
+        private Player _player;
+
         private void Awake()
         {
+            _player = GetComponent<Player>();
+
             _inventoryPage.InitializeInventoryUI(_inventoryData.InventorySize);
             PrepareInventoryData();
         }
@@ -37,6 +41,8 @@ namespace Inventory
             _inventoryPage.OnSwapItems += SwapItemHandler;
 
             _inventoryData.OnInventoryUpdated += UpdateInventoryPage;
+
+            _player.DeathEvent += RemoveItemsOnDeath;
         }
 
         private void OnDisable()
@@ -48,6 +54,8 @@ namespace Inventory
             _inventoryPage.OnSwapItems -= SwapItemHandler;
 
             _inventoryData.OnInventoryUpdated -= UpdateInventoryPage;
+
+            _player.DeathEvent += RemoveItemsOnDeath;
         }
 
         private void PrepareInventoryData()
@@ -65,12 +73,17 @@ namespace Inventory
                 }
 
                 _inventoryPage.ShowInventoryPanel();
+
+                Time.timeScale = 0;
                 _playerAudio.PlayInventoryAudio();
                 _inputReader.CloseInventoryEvent += InventoryControl;
             }
             else
             {
                 _inventoryPage.HideInventoryPanel();
+
+                Time.timeScale = 1;
+                _inputReader.SetGameplay();
                 _playerAudio.PlayInventoryAudio();
                 _inputReader.CloseInventoryEvent -= InventoryControl;
             }
@@ -117,6 +130,11 @@ namespace Inventory
 
             ItemSOBase item = inventoryItem.Item;
             _inventoryPage.UpdateDescriptionPanel(itemIndex, item.ItemName, item.ItemImage, item.ItemDescription);
+        }
+
+        private void RemoveItemsOnDeath()
+        {
+            _inventoryData.RemoveAllItems();
         }
     }
 }
