@@ -84,9 +84,6 @@ public class PlayerControls : MonoBehaviour
     private void DashHandler()
     {
         DashPerformed = true;
-
-        //Animation
-        _anim.SetBool("IsDashing", DashPerformed);
     }
 
     private void AttackHandler()
@@ -117,6 +114,9 @@ public class PlayerControls : MonoBehaviour
         if (dashBool)
         {
             CanMove = false;
+
+            //Animation
+            _anim.SetBool("IsDashing", true);
 
             //Movement, only need this to run in fixed update
             _rb2D.linearVelocity = _dashDir * DashForce;
