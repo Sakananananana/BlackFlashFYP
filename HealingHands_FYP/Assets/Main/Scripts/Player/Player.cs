@@ -1,8 +1,6 @@
-using NUnit.Framework.Constraints;
 using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Player : MonoBehaviour, IDamageable
 {
@@ -18,8 +16,7 @@ public class Player : MonoBehaviour, IDamageable
     public Action<float> HealthChange;
     public Action<Vector2> TakeDamage;
     [SerializeField] private GameObject _damageScreen;
-    //[SerializeField] private Image _damageScreenImageColor;
-
+  
     public bool _canTakeDamage;
 
     void Awake()
