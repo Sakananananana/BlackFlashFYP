@@ -200,6 +200,7 @@ GameObject:
   - component: {fileID: 995255118568367993}
   - component: {fileID: 5819735592412609805}
   - component: {fileID: -60097484219637705}
+  - component: {fileID: 2126520854685727094}
   m_Layer: 6
   m_Name: PROTAGONIST
   m_TagString: Player
@@ -380,6 +381,7 @@ MonoBehaviour:
   _maxHealth: 20
   _currentHealth: 0
   AttackDamage: 5
+  _damageScreen: {fileID: 0}
   _canTakeDamage: 1
 --- !u!114 &995255118568367993
 MonoBehaviour:
@@ -394,11 +396,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inputReader: {fileID: 11400000, guid: 415aeb03029feca43b600e9ed9218756, type: 2}
-  _player: {fileID: 0}
   DashPerformed: 0
   AttackPerformed: 0
   _meleeAim: {fileID: 1375189502604888421}
-  _meeleCollider: {fileID: 158606209779224003}
   CanMove: 1
   MoveSpeed: 4
   DashForce: 8
@@ -414,14 +414,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20e3bc68b6e05c9498b9e499ce09509e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerAudio: {fileID: 2126520854685727094}
   _inputReader: {fileID: 11400000, guid: 415aeb03029feca43b600e9ed9218756, type: 2}
   _inventoryPage: {fileID: 0}
   _inventoryData: {fileID: 11400000, guid: c96a0e360e2af054abdea78fdf139a17, type: 2}
-  InitialItems:
-  - ItemQuantity: 9
-    Item: {fileID: 11400000, guid: e4e53901d36cd4042a6366f8ffe0b219, type: 2}
-  - ItemQuantity: 10
-    Item: {fileID: 11400000, guid: 0d0f8298b6b1e0c41828b20f3db92705, type: 2}
 --- !u!114 &-60097484219637705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -435,3 +431,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inventoryData: {fileID: 11400000, guid: c96a0e360e2af054abdea78fdf139a17, type: 2}
+--- !u!114 &2126520854685727094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6730967558029425401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75947aa0ddc531d40a91bbe47c8146cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dashAudio: {fileID: 11400000, guid: 8f2f64a3d600b4b44863609983a7d103, type: 2}
+  _slashAudio: {fileID: 11400000, guid: 1596ee7df7c41d7408012b4dae4da1b6, type: 2}
+  _footstepAudio: {fileID: 11400000, guid: b9b046223b862034795574a244856a42, type: 2}
+  _inventoryAudio: {fileID: 11400000, guid: 89210ae67916f1c48bc2932636e64010, type: 2}
+  _audioConfig: {fileID: 11400000, guid: 0d856fbfc57e03e4cb5f55add5e60595, type: 2}

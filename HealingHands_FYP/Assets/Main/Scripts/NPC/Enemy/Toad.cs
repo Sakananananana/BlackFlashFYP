@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Toad : MonoBehaviour, IDamageable
 {
+    [SerializeField] private AudioData _spitAudio;
+    [SerializeField] private AudioConfiguration _audioConfig;
+
     [SerializeField] private GameObject _projectile;
     [SerializeField] private float _enemyHealth = 20;
     public Action<float> enemyHealthChange;
@@ -104,10 +107,11 @@ public class Toad : MonoBehaviour, IDamageable
         { _projectileOrigin.transform.position = (Vector2)transform.position - Vector2.up; }
     }
 
-
+    
 
     public void FireProjectile()
     {
+        PlayFireProjectileAudio();
         Quaternion angle = Quaternion.Euler(0, 0, 90);   
         var projectile = Instantiate(_projectile, _projectileOrigin.position, Quaternion.LookRotation(Vector3.forward, _direction) * angle);
     }
@@ -116,6 +120,8 @@ public class Toad : MonoBehaviour, IDamageable
     { 
         _isAttacking = false;
     }
+
+    public void PlayFireProjectileAudio() => AudioManager.Instance.PlayRaisedAudio(_spitAudio, _audioConfig, transform.position);
 
     private IEnumerator AttackCycle()
     {

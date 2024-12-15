@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34ec0e4fe4e0b904ab512e2be21c0c1e, type: 3}
+  m_Name: Slash
+  m_EditorClassIdentifier: 
+  ChoosePlayMode: 1
+  ApplyLoop: 0
+  AudioClips:
+  - {fileID: 8300000, guid: e040fa5cf7be31546bb05ed9d9b24eda, type: 3}
+  - {fileID: 8300000, guid: a687ea910996ac8498d88ad282dad1d7, type: 3}
+  - {fileID: 8300000, guid: 9b57d098acd3c7d4ba427afeb74240ca, type: 3}

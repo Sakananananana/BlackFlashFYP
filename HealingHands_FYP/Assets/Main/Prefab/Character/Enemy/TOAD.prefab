@@ -311,6 +311,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc3549242cb9bed4c9c8b9dacb96c735, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _spitAudio: {fileID: 11400000, guid: 746da037f88b5a749af68094b85f8cf5, type: 2}
+  _audioConfig: {fileID: 11400000, guid: 0d856fbfc57e03e4cb5f55add5e60595, type: 2}
   _projectile: {fileID: 6840371985563148475, guid: f13f71aa28237e842a045ac68195396d,
     type: 3}
   _enemyHealth: 35

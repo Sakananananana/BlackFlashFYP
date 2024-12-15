@@ -1,27 +1,26 @@
 using UnityEngine;
 
-public class AttackCancel : StateMachineBehaviour
+public class WalkSound : StateMachineBehaviour
 {
-    private PlayerControls _playerControls;
-    private PlayerAudio _playerAudio;
+    PlayerAudio _playerAudio;
+    private float nextPlayTime = 0f;
+    public float interval = 0.3f;
 
-    //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
+    // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        _playerControls = animator.GetComponent<PlayerControls>();
         _playerAudio = animator.GetComponent<PlayerAudio>();
-
-        _playerAudio.PlayDashAudio();
-
-        if (_playerControls.AttackPerformed == true)
-        _playerControls.CancelAttackInput();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
-    //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    
-    //}
+    override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        if (Time.time >= nextPlayTime)
+        {
+            _playerAudio.PlayFootstepAudio();
+            nextPlayTime = Time.time + interval; // Set the next play time
+        }
+    }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
