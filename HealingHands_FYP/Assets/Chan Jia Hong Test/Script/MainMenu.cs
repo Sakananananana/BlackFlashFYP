@@ -1,10 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
@@ -22,9 +18,17 @@ public class MainMenu : MonoBehaviour
         options.SetActive(false);
     }
 
-    public void LoadLevel(string levelName)
+    public void LoadLevel()
     {
-        SceneManager.LoadScene(levelName);
+        if (TutorialManager.instance.IsTutorialCompleted() == true)
+        {
+            SceneManager.LoadScene("Village");
+        }
+        else 
+        {
+            SceneManager.LoadScene("Tutorial");
+            TutorialManager.instance.OnTutorialComplete();
+        }
     }
 
     public void Quit()
