@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class HealthPointUI : MonoBehaviour
 {
     [SerializeField] private Slider _slider;
-    [SerializeField] private Player _player;
+    [SerializeField] private Protagonist _player;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void OnEnable()

@@ -22,11 +22,11 @@ namespace Inventory
         [SerializeField]
         private InventorySO _inventoryData;
 
-        private Player _player;
+        private Protagonist _player;
 
         private void Awake()
         {
-            _player = GetComponent<Player>();
+            _player = GetComponent<Protagonist>();
 
             _inventoryPage.InitializeInventoryUI(_inventoryData.InventorySize);
             PrepareInventoryData();

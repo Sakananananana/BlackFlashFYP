@@ -3,8 +3,10 @@ using UnityEngine;
 using Unity.Cinemachine;
 using System.Collections;
 
-public class Toad : MonoBehaviour, IDamageable
+public class Toad : AnimationController, IDamageable
 {
+    //Move To Audio Script Later
+    [SerializeField] private AudioChannelSO _audioChannelSO;
     [SerializeField] private AudioData _spitAudio;
     [SerializeField] private AudioConfiguration _audioConfig;
 
@@ -20,19 +22,18 @@ public class Toad : MonoBehaviour, IDamageable
     private bool _isAttacking = false;
 
     //Animation & Sprite
-    private Animator _anim;
     private SpriteRenderer _sprRenderer;
 
     //Player Reference
     private GameObject _player;
-    private Vector2 _direction;
     private float _angle;
 
     private CinemachineImpulseSource _impulseSource;
 
-    private void Awake()
+    protected override void Awake()
     {
-        _anim = GetComponent<Animator>();   
+        base.Awake();
+        
         _sprRenderer = GetComponent<SpriteRenderer>();
         _impulseSource = GetComponent<CinemachineImpulseSource>();
 
@@ -46,6 +47,11 @@ public class Toad : MonoBehaviour, IDamageable
     private void Start()
     {
         StartCoroutine(AttackCycle());
+    }
+
+    protected override void Update()
+    {
+        base.Update();
     }
 
     private void FixedUpdate()
@@ -62,8 +68,31 @@ public class Toad : MonoBehaviour, IDamageable
 
     private void SetAnimationFloat()
     {
-        _anim.SetFloat("XDir", _direction.x);
-        _anim.SetFloat("YDir", _direction.y);
+
+        ////If _direction's Vec2 is equal to zero this will not be called!
+        if (_direction != Vector2.zero)
+        {
+            if (45 >= _angle && _angle >= -45)
+            { _dirUp = 1; }
+            else { _dirUp = 0; }
+
+            if (-135 >= _angle && _angle >= -180 || 135 <= _angle && _angle <= 180)
+            { _dirDown = 1; }
+            else { _dirDown = 0; }
+
+            if (135 >= _angle && _angle >= 45)
+            { _dirRight = 1; }
+            else { _dirRight = 0; }
+
+            if (-135 <= _angle && _angle <= -45)
+            { _dirLeft = 1; }
+            else { _dirLeft = 0; }
+
+            _anim.SetFloat("Up", _dirUp);
+            _anim.SetFloat("Down", _dirDown);
+            _anim.SetFloat("Left", _dirLeft);
+            _anim.SetFloat("Right", _dirRight);
+        }
     }
 
     public void RecieveDamage(float damage, Vector3 dmgDir)
@@ -128,7 +157,7 @@ public class Toad : MonoBehaviour, IDamageable
         _isAttacking = false;
     }
 
-    public void PlayFireProjectileAudio() => AudioManager.Instance.PlayRaisedAudio(_spitAudio, _audioConfig, transform.position);
+    public void PlayFireProjectileAudio() => _audioChannelSO.OnAudioPlayRequested(_spitAudio, _audioConfig, transform.position);
 
     private IEnumerator AttackCycle()
     {

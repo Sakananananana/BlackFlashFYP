@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class ProjectileBehaviour : MonoBehaviour
 {
+    //Move to Audio Later
+    [SerializeField] AudioChannelSO _audioChannelSO;
     [SerializeField] AudioData _splashAudio;
     [SerializeField] AudioConfiguration _audioConfig;
 
@@ -51,5 +53,5 @@ public class ProjectileBehaviour : MonoBehaviour
         }
     }
 
-    private void PlayHitProjectileAudio() => AudioManager.Instance.PlayRaisedAudio(_splashAudio, _audioConfig);
+    private void PlayHitProjectileAudio() => _audioChannelSO.OnAudioPlayRequested(_splashAudio, _audioConfig);
 }

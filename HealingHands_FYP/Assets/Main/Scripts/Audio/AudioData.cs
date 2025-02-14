@@ -8,6 +8,7 @@ public class AudioData : ScriptableObject
 
     [Header("Audio Properties")]
     public bool ApplyLoop = false;
+    public bool ApplyPitchChange = false;
 
     [Header("Audio Album")]
     public AudioClip[] AudioClips;

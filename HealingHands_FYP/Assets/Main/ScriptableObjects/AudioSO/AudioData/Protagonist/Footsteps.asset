@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ChoosePlayMode: 0
   ApplyLoop: 0
+  ApplyPitchChange: 1
   AudioClips:
   - {fileID: 8300000, guid: fcb1de4e38e67ca4ba6991f0af50e7cc, type: 3}
-  - {fileID: 8300000, guid: 7ad26f32c6a801242bc51e99f48cf162, type: 3}
+  - {fileID: 8300000, guid: 0939df341d3c3af489462994b3761ead, type: 3}

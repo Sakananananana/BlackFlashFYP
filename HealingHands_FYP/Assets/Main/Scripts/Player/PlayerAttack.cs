@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    private Player _player;
+    private Protagonist _player;
 
     private void OnEnable()
     {
-        _player = GetComponentInParent<Player>();
+        _player = GetComponentInParent<Protagonist>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

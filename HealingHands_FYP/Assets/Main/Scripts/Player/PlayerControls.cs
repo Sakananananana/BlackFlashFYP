@@ -3,9 +3,9 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class PlayerControls : MonoBehaviour
+public class PlayerControls : AnimationController
 {
-    private Player _player;
+    private Protagonist _player;
 
     //Controls
     [SerializeField] private InputReader _inputReader;
@@ -29,7 +29,6 @@ public class PlayerControls : MonoBehaviour
     public float DashForce;
 
     //Animation
-    private Animator _anim;
     private SpriteRenderer _spRenderer;
 
     private void OnEnable()
@@ -50,18 +49,23 @@ public class PlayerControls : MonoBehaviour
         _player.TakeDamage -= TakeDamageHandler;
     }
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         _spRenderer = GetComponent<SpriteRenderer>();
         _rb2D = GetComponent<Rigidbody2D>();
-        _anim = GetComponent<Animator>();
-        _player = GetComponent<Player>();
+        _player = GetComponent<Protagonist>();
     }
 
-    private void Update()
+    protected override void Update()
     {
+        base.Update();
+
+        SetDirection();
+
         if (CanMove)
-        AnimatorSetFloat();
+        { _direction = MoveDir; }
     }
 
     private void FixedUpdate()
@@ -89,6 +93,7 @@ public class PlayerControls : MonoBehaviour
         DashPerformed = true;
     }
 
+    //Key J is Pressed set AttackPerformed = true
     private void AttackHandler()
     {
         AttackPerformed = true;
@@ -142,7 +147,6 @@ public class PlayerControls : MonoBehaviour
             _rb2D.linearVelocity = Vector2.zero;
             CanMove = false;
 
-
             //Animations
             _anim.SetBool("IsAttacking", attackBool);
 
@@ -155,7 +159,7 @@ public class PlayerControls : MonoBehaviour
     {
         _inputReader.DashEvent -= DashHandler;
         _playerCollider.enabled = false;
-        //TODO: disable collider
+
         yield return new WaitForSeconds(0.3f);
         _playerCollider.enabled = true;
         DashPerformed = false;
@@ -166,7 +170,7 @@ public class PlayerControls : MonoBehaviour
         _inputReader.DashEvent += DashHandler;
     }
 
-    //When Attack Cannot Move
+    //When Attacking Pause Player Input Movement
     private IEnumerator PauseMovement()
     {
         //Attack Performed
@@ -230,24 +234,40 @@ public class PlayerControls : MonoBehaviour
         }
     }
 
-    //Animations
-    private void AnimatorSetFloat()
-    {
-        if (MoveDir != Vector2.zero)
-        {
-            _anim.SetFloat("XDir", MoveDir.x);
-            _anim.SetFloat("YDir", MoveDir.y);
-        }
-        else if (MoveDir == Vector2.zero)
-        {
-            _anim.SetFloat("LastXDir", LastMoveDir.x);
-            _anim.SetFloat("LastYDir", LastMoveDir.y);
-        }
-    }
-
     public void CancelAttackInput()
     {
         AttackPerformed = false;
     }
 
+    private void SetDirection()
+    {
+        //If _direction's Vec2 is equal to zero this will not be called!
+        if (_direction != Vector2.zero)
+        {
+            if (_direction.y > 0 || (_direction.y > 0 && Mathf.Abs(_direction.x) > 0))
+            { _dirUp = 1; }
+            else
+            { _dirUp = 0; }
+
+            if (_direction.y < 0 || (_direction.y < 0 && Mathf.Abs(_direction.x) > 0))
+            { _dirDown = 1; }
+            else
+            { _dirDown = 0; }
+
+            if (_direction.x > 0.8)
+            { _dirRight = 1; }
+            else
+            { _dirRight = 0; }
+
+            if (_direction.x < -0.8)
+            { _dirLeft = 1; }
+            else
+            { _dirLeft = 0; }
+
+            _anim.SetFloat("Up", _dirUp);
+            _anim.SetFloat("Down", _dirDown);
+            _anim.SetFloat("Left", _dirLeft);
+            _anim.SetFloat("Right", _dirRight);
+        }
+    }
 }

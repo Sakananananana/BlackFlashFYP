@@ -3,8 +3,8 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-
-public class Player : MonoBehaviour, IDamageable
+//Need to make this Singleton, since only one controllable char
+public class Protagonist : MonoBehaviour, IDamageable
 {
     [SerializeField]
     private SpriteRenderer _characterSprite;
@@ -18,7 +18,8 @@ public class Player : MonoBehaviour, IDamageable
     public Action<float> HealthChange;
     public Action<Vector2> TakeDamage;
     public Action DeathEvent;
-    [SerializeField] private GameObject _damageScreen;
+    //this should be in UI related
+    //[SerializeField] private GameObject _damageScreen;
   
     public bool _canTakeDamage;
     string _lvlName;
@@ -53,7 +54,7 @@ public class Player : MonoBehaviour, IDamageable
     {
         DeathEvent.Invoke();
         gameObject.SetActive(false);
-        _damageScreen.SetActive(false);
+        //_damageScreen.SetActive(false);
 
         Invoke("LoadScene", 1.5f);
         
@@ -74,12 +75,12 @@ public class Player : MonoBehaviour, IDamageable
     private IEnumerator DamageFlash()
     {
         _characterSprite.color = Color.red;
-        _damageScreen.SetActive(true);
+        //_damageScreen.SetActive(true);
 
         yield return new WaitForSeconds(0.1f);
 
         _characterSprite.color = Color.white;
-        _damageScreen.SetActive(false);
+        //_damageScreen.SetActive(false);
 
     }
 
