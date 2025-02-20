@@ -198,7 +198,6 @@ GameObject:
   - component: {fileID: 3281437517430367309}
   - component: {fileID: 148951071885628695}
   - component: {fileID: 995255118568367993}
-  - component: {fileID: 5819735592412609805}
   - component: {fileID: -60097484219637705}
   - component: {fileID: 2126520854685727094}
   m_Layer: 6
@@ -381,7 +380,6 @@ MonoBehaviour:
   _maxHealth: 20
   _currentHealth: 0
   AttackDamage: 5
-  _damageScreen: {fileID: 0}
   _canTakeDamage: 1
 --- !u!114 &995255118568367993
 MonoBehaviour:
@@ -403,22 +401,6 @@ MonoBehaviour:
   CanMove: 1
   MoveSpeed: 4
   DashForce: 8
---- !u!114 &5819735592412609805
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6730967558029425401}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20e3bc68b6e05c9498b9e499ce09509e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerAudio: {fileID: 2126520854685727094}
-  _inputReader: {fileID: 11400000, guid: 415aeb03029feca43b600e9ed9218756, type: 2}
-  _inventoryPage: {fileID: 0}
-  _inventoryData: {fileID: 11400000, guid: c96a0e360e2af054abdea78fdf139a17, type: 2}
 --- !u!114 &-60097484219637705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -444,6 +426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75947aa0ddc531d40a91bbe47c8146cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _audioChannelSO: {fileID: 0}
   _dashAudio: {fileID: 11400000, guid: 8f2f64a3d600b4b44863609983a7d103, type: 2}
   _slashAudio: {fileID: 11400000, guid: 1596ee7df7c41d7408012b4dae4da1b6, type: 2}
   _footstepAudio: {fileID: 11400000, guid: b9b046223b862034795574a244856a42, type: 2}

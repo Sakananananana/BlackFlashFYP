@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class PickUpSystem : MonoBehaviour
 {
-    [SerializeField]
-    private InventorySO _inventoryData;
+    //Have a Item Pick Up Braodcast, Pick up By Manager and Manager updates the data
+    [SerializeField] private InventorySO _inventoryData;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

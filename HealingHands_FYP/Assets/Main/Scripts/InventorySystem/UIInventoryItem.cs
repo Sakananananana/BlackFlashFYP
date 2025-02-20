@@ -1,4 +1,4 @@
-using UnityEngine.EventSystems;
+using Inventory.Model;
 using UnityEngine.UI;
 using UnityEngine;
 using System;
@@ -10,11 +10,9 @@ namespace Inventory.UI
     {
         private Animator _animator;
 
-        [SerializeField]
-        private Image _itemImage;
-
-        [SerializeField]
-        private TMP_Text _itemQuantityTxt;
+        [SerializeField] private Image _itemImage;
+        [SerializeField] private Image _selIndicator;
+        [SerializeField] private TMP_Text _itemQuantityTxt;
 
         public bool IsSlotEmpty = true;
 
@@ -33,19 +31,21 @@ namespace Inventory.UI
             IsSlotEmpty = true;
         }
 
-        public void SetData(Sprite sprite, int quantity)
+        public void SetData(InventoryItem item)
         {
             _itemImage.gameObject.SetActive(true);
-            _itemImage.sprite = sprite;
-            _itemQuantityTxt.text = quantity.ToString();
+            _itemImage.sprite = item.Item.ItemImage;
+            _itemQuantityTxt.text = item.ItemQuantity.ToString();
             IsSlotEmpty = false;
         }
 
         public void OnItemSlotPressed()
         {
-            //if (_isSlotEmpty)
-            //{ return; }
+            if (IsSlotEmpty)
+            { return; }
 
+            //selected animation
+            SelectedForAction(true);
             OnItemPressed?.Invoke(this);
         }
 
@@ -54,9 +54,10 @@ namespace Inventory.UI
             OnItemSelected?.Invoke(this);
         }
 
-        public void ShowMovingItemPointer(bool val)
+        public void SelectedForAction(bool val)
         {
-            _animator.SetBool("MovingItem", val);
+            _selIndicator.enabled = val;
+            //_animator.SetBool("MovingItem", val);
         }
 
     }

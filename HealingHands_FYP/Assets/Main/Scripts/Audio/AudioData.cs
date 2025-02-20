@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "AudioData", menuName = "Scriptable Objects/AudioData")]
+[CreateAssetMenu(fileName = "AudioData", menuName = "Scriptable Objects /Audio /AudioData")]
 public class AudioData : ScriptableObject
 {
     [Header("Audio Playing Mode")]

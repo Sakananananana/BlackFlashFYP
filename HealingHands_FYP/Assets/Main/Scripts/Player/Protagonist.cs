@@ -6,16 +6,15 @@ using UnityEngine.SceneManagement;
 //Need to make this Singleton, since only one controllable char
 public class Protagonist : MonoBehaviour, IDamageable
 {
-    [SerializeField]
-    private SpriteRenderer _characterSprite;
-    [SerializeField]
-    private float _maxHealth;
-    [SerializeField]
-    private float _currentHealth;
-    [SerializeField]
-    public float AttackDamage;
+    [SerializeField] private SpriteRenderer _characterSprite;
+    [SerializeField] private float _maxHealth;
+    [SerializeField] private float _currentHealth;
+    [SerializeField] public float AttackDamage;
 
-    public Action<float> HealthChange;
+    [Header("Broadcasting on...")]
+    [SerializeField] private FloatEventChannelSO _onTakeDamage;
+
+
     public Action<Vector2> TakeDamage;
     public Action DeathEvent;
     //this should be in UI related
@@ -26,7 +25,6 @@ public class Protagonist : MonoBehaviour, IDamageable
 
     void Awake()
     {
-        
         _currentHealth = _maxHealth; 
     }
 
@@ -37,7 +35,7 @@ public class Protagonist : MonoBehaviour, IDamageable
             _currentHealth -= damage;
             StartCoroutine(DamageRecieveCooldown());
 
-            HealthChange?.Invoke(damage);
+            _onTakeDamage.RaiseEvent(damage);
             TakeDamage?.Invoke(dmgDir);
 
             StartCoroutine(DamageFlash());
@@ -45,8 +43,7 @@ public class Protagonist : MonoBehaviour, IDamageable
 
         if (_currentHealth <= 0)
         {
-            Death();
-            
+            Death(); 
         }
     }
 
@@ -60,6 +57,7 @@ public class Protagonist : MonoBehaviour, IDamageable
         
     }
 
+    //need to have a scene manager
     private void LoadScene()
     {
         if (SceneManager.GetActiveScene().name == "Tutorial")

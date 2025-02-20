@@ -2,7 +2,7 @@ using UnityEngine;
 using HH.Pool;
 using HH.Factory;
 
-[CreateAssetMenu(fileName = "NewAudioEmitterPool", menuName = "Pool /AudioEmitter Pool")]
+[CreateAssetMenu(fileName = "NewAudioEmitterPool", menuName = "Scriptable Objects /Pool /AudioEmitter Pool")]
 public class AudioEmitterPoolSO : ComponentPoolSO<AudioEmitter>
 {
     [SerializeField] private AudioEmitterFactorySO _factory;

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "AudioChannelSO", menuName = "Scriptable Objects/AudioChannelSO")]
+[CreateAssetMenu(fileName = "AudioChannelSO", menuName = "Scriptable Objects /Channels /AudioChannelSO")]
 public class AudioChannelSO : ScriptableObject
 {
     public AudioPlayAction OnAudioPlayRequested;
