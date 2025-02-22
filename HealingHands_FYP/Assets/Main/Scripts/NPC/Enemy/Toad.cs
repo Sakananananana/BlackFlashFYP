@@ -28,14 +28,14 @@ public class Toad : AnimationController, IDamageable
     private GameObject _player;
     private float _angle;
 
-    private CinemachineImpulseSource _impulseSource;
+    //private CinemachineImpulseSource _impulseSource;
 
     protected override void Awake()
     {
         base.Awake();
         
         _sprRenderer = GetComponent<SpriteRenderer>();
-        _impulseSource = GetComponent<CinemachineImpulseSource>();
+        //_impulseSource = GetComponent<CinemachineImpulseSource>();
 
         if (_player == null)
         {
@@ -68,7 +68,6 @@ public class Toad : AnimationController, IDamageable
 
     private void SetAnimationFloat()
     {
-
         ////If _direction's Vec2 is equal to zero this will not be called!
         if (_direction != Vector2.zero)
         {
@@ -104,7 +103,6 @@ public class Toad : AnimationController, IDamageable
             _enemyHealth -= damage;
             enemyHealthChange?.Invoke(damage);
 
-            CameraShakeManager.CameraShakeInstance.CameraShake(_impulseSource);
             StartCoroutine(DamageRecieveCooldown());
             StartCoroutine(DamageFlash());
         }

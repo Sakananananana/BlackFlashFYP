@@ -14,14 +14,12 @@ public class Protagonist : MonoBehaviour, IDamageable
     [Header("Broadcasting on...")]
     [SerializeField] private FloatEventChannelSO _onTakeDamage;
 
-
     public Action<Vector2> TakeDamage;
     public Action DeathEvent;
     //this should be in UI related
     //[SerializeField] private GameObject _damageScreen;
   
     public bool _canTakeDamage;
-    string _lvlName;
 
     void Awake()
     {
@@ -49,7 +47,10 @@ public class Protagonist : MonoBehaviour, IDamageable
 
     public void Death()
     {
-        DeathEvent.Invoke();
+        //Remove ALL Items Death Event
+        //DeathEvent.Invoke();
+
+
         gameObject.SetActive(false);
         //_damageScreen.SetActive(false);
 
@@ -57,7 +58,7 @@ public class Protagonist : MonoBehaviour, IDamageable
         
     }
 
-    //need to have a scene manager
+    //Move to Scene Manager
     private void LoadScene()
     {
         if (SceneManager.GetActiveScene().name == "Tutorial")

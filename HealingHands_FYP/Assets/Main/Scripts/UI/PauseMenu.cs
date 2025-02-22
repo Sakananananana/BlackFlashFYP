@@ -5,21 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    [SerializeField] private InputReader _inputReader;
     [SerializeField] GameObject _firstButton;
     [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject[] arrow;
 
-    private void OnEnable()
-    {
-        _inputReader.PauseEvent += PauseGame;
-        _inputReader.ResumeEvent += ContinueGame;
-    }
-    private void OnDisable()
-    {
-        _inputReader.PauseEvent -= PauseGame;
-        _inputReader.ResumeEvent -= ContinueGame;
-    }
     private void Start()
     {
         pauseMenu.gameObject.SetActive(false);
@@ -37,7 +26,6 @@ public class PauseMenu : MonoBehaviour
     public void ContinueGame()
     {
         pauseMenu.gameObject.SetActive(false);
-        _inputReader.SetGameplay();
         Time.timeScale = 1;
     }
 
@@ -58,12 +46,5 @@ public class PauseMenu : MonoBehaviour
         arrow[0].gameObject.SetActive(false);
         arrow[1].gameObject.SetActive(false);
         arrow[2].gameObject.SetActive(true);
-    }
-
-    public void LoadLevel(string levelName)
-    {
-        SceneManager.LoadScene(levelName);
-        _inputReader.SetGameplay();
-        Time.timeScale = 1;
     }
 }

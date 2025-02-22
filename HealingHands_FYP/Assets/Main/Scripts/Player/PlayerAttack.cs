@@ -4,6 +4,9 @@ public class PlayerAttack : MonoBehaviour
 {
     private Protagonist _player;
 
+    [Header("Broadcasting on...")]
+    [SerializeField] private VoidEventChannelSO _raiseCamShake;
+
     private void OnEnable()
     {
         _player = GetComponentInParent<Protagonist>();
@@ -18,6 +21,8 @@ public class PlayerAttack : MonoBehaviour
             Vector2 dir = (collision.transform.position - transform.position).normalized;
 
             damageable.RecieveDamage(_player.AttackDamage, dir);
+
+            _raiseCamShake?.RaiseEvent();
         }
     }
 

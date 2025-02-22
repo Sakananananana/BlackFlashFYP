@@ -314,7 +314,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: -0.55811346}
-  m_Radius: 0.3307755
+  m_Radius: 0.33
 --- !u!50 &2561801424925880336
 Rigidbody2D:
   serializedVersion: 5
@@ -380,6 +380,7 @@ MonoBehaviour:
   _maxHealth: 20
   _currentHealth: 0
   AttackDamage: 5
+  _onTakeDamage: {fileID: 11400000, guid: e67f5811d148d694e8994c3878b97359, type: 2}
   _canTakeDamage: 1
 --- !u!114 &995255118568367993
 MonoBehaviour:
@@ -426,7 +427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75947aa0ddc531d40a91bbe47c8146cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audioChannelSO: {fileID: 0}
+  _audioChannelSO: {fileID: 11400000, guid: a41776bc57db1674d88d6fbc275a365c, type: 2}
   _dashAudio: {fileID: 11400000, guid: 8f2f64a3d600b4b44863609983a7d103, type: 2}
   _slashAudio: {fileID: 11400000, guid: 1596ee7df7c41d7408012b4dae4da1b6, type: 2}
   _footstepAudio: {fileID: 11400000, guid: b9b046223b862034795574a244856a42, type: 2}

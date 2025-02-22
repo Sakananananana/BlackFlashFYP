@@ -8,15 +8,18 @@ public class UIManager : MonoBehaviour
 
     //All the User Interfaces
     [SerializeField] private UIInventoryPage _inventoryPanel;
+    [SerializeField] private PauseMenu _pauseMenu;
 
     private void OnEnable()
     {
         _inputReader.OpenInventoryEvent += OpenInventoryScreen;
+        _inputReader.PauseEvent += Pause;
     }
 
     private void OnDisable()
     {
         _inputReader.OpenInventoryEvent -= OpenInventoryScreen;
+        _inputReader.PauseEvent -= Pause;
     }
 
     void OpenInventoryScreen()
@@ -38,5 +41,21 @@ public class UIManager : MonoBehaviour
 
         Time.timeScale = 1;
         _inventoryPanel.CloseInventory();
+    }
+
+    void Pause()
+    {
+        _inputReader.ResumeEvent += Resume;
+
+        _inputReader.SetUI();
+        _pauseMenu.PauseGame(); 
+    }
+
+    void Resume()
+    {
+        _inputReader.ResumeEvent -= Resume;
+
+        _pauseMenu.ContinueGame();
+        _inputReader.SetGameplay();
     }
 }
