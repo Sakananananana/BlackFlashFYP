@@ -20,20 +20,7 @@ SpriteAtlas:
       readable: 0
       crunchedCompression: 0
       sRGB: 1
-    platformSettings:
-    - serializedVersion: 4
-      m_BuildTarget: DefaultTexturePlatform
-      m_MaxTextureSize: 2048
-      m_ResizeAlgorithm: 0
-      m_TextureFormat: -1
-      m_TextureCompression: 0
-      m_CompressionQuality: 50
-      m_CrunchedCompression: 0
-      m_AllowsAlphaSplitting: 0
-      m_Overridden: 0
-      m_IgnorePlatformSupport: 0
-      m_AndroidETC2FallbackOverride: 0
-      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    platformSettings: []
     packingSettings:
       serializedVersion: 2
       padding: 4
@@ -45,15 +32,17 @@ SpriteAtlas:
     secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
+    - {fileID: 2800000, guid: 51f98e206f124434cbb4ffdb0d87a52d, type: 3}
     - {fileID: 2800000, guid: 407f668435dbcd347bd6e337057f07bf, type: 3}
+    - {fileID: 2800000, guid: 5c19ae183a16ad1489351798de303688, type: 3}
     - {fileID: 2800000, guid: ff807e08ba5ca09419dd35acd60d079c, type: 3}
     - {fileID: 2800000, guid: 329c2f20b04dda445b4ebc00556370af, type: 3}
-    - {fileID: 2800000, guid: 5c19ae183a16ad1489351798de303688, type: 3}
     - {fileID: 2800000, guid: e1c3609d5e8cf4f4babafe3bced55589, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
     packedSpriteRenderDataKeys:
+    - 51f98e206f124434cbb4ffdb0d87a52d: 21300000
     - 329c2f20b04dda445b4ebc00556370af: -1253927573
     - 329c2f20b04dda445b4ebc00556370af: -1458834487
     - 329c2f20b04dda445b4ebc00556370af: -506221862
@@ -136,6 +125,7 @@ SpriteAtlas:
     - e1c3609d5e8cf4f4babafe3bced55589: 326378360
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: 21300000, guid: 51f98e206f124434cbb4ffdb0d87a52d, type: 3}
   - {fileID: -1253927573, guid: 329c2f20b04dda445b4ebc00556370af, type: 3}
   - {fileID: -1458834487, guid: 329c2f20b04dda445b4ebc00556370af, type: 3}
   - {fileID: -506221862, guid: 329c2f20b04dda445b4ebc00556370af, type: 3}
@@ -217,6 +207,7 @@ SpriteAtlas:
   - {fileID: 4740699884089718573, guid: e1c3609d5e8cf4f4babafe3bced55589, type: 3}
   - {fileID: 326378360, guid: e1c3609d5e8cf4f4babafe3bced55589, type: 3}
   m_PackedSpriteNamesToIndex:
+  - SingleStone
   - TilemapGrassConvert_14
   - TilemapGrassConvert_15
   - TilemapGrassConvert_10

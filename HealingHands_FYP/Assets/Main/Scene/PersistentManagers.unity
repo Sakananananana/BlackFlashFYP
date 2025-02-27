@@ -175,6 +175,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1788331622}
+  - component: {fileID: 1788331623}
   m_Layer: 0
   m_Name: Scene_Loader
   m_TagString: Untagged
@@ -197,6 +198,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1788331623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788331621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 011b85424094e574fb1a1a433f127745, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameplayScene: {fileID: 11400000, guid: 54c50f67bb0536645aa3ac2fc68adccf, type: 2}
+  _inputReader: {fileID: 11400000, guid: 415aeb03029feca43b600e9ed9218756, type: 2}
+  _onEditorStartup: {fileID: 11400000, guid: a366418d78be1ce478def8e246d0bd85, type: 2}
+  _loadLocation: {fileID: 11400000, guid: b769200f62001e040aabd9621e541c7a, type: 2}
+  _loadMenu: {fileID: 0}
+  _onSceneReady: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

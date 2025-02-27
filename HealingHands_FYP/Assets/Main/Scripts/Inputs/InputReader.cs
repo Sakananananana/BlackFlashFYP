@@ -41,6 +41,13 @@ namespace PlayerInputSystem
             _gameInputs.UI.Disable();
         }
 
+        internal void DisableAllInput()
+        {
+            _gameInputs.Gameplay.Disable();
+            _gameInputs.Inventory.Disable();
+            _gameInputs.UI.Disable();
+        }
+
         public void SetGameplay()
         {
             _gameInputs.Gameplay.Enable();

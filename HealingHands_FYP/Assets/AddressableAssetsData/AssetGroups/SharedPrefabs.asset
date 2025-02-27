@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: SharedPrefabs
+  m_EditorClassIdentifier: 
+  m_GroupName: SharedPrefabs
+  m_GUID: 79a0916143a8a8a4e884beb6d4ddd1c5
+  m_SerializeEntries:
+  - m_GUID: 1e8ca1ca95266f648aa63d9e70927107
+    m_Address: Assets/Main/Prefab/UI
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 21669aa36d33e8544b427d41a9da1bd8
+    m_Address: Assets/Main/Prefab/Character
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2211b4202eae29c4a82ed8611a927f3e
+    m_Address: Assets/Main/Prefab/Gameplay
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4be58c3d139577a4089db9505409dd35
+    m_Address: Assets/Main/Prefab/Audio
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 137262d78c9ce704ebdb5a6179167354, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 90cef08f7a796384fb3669bd5a97531d, type: 2}
+    - {fileID: 11400000, guid: c0c440b51dc7fed46958a5a7152cb08c, type: 2}

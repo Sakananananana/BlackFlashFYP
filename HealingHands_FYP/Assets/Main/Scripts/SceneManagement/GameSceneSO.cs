@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEditor;
+using UnityEngine.AddressableAssets;
 
 [CreateAssetMenu(fileName = "NewSceneData", menuName = "Scriptable Objects /Scene Data")]
 /// <summary>
@@ -8,7 +8,7 @@ using UnityEditor;
 public class GameSceneSO : ScriptableObject
 {
     public GameSceneType sceneType;
-    public SceneAsset sceneReference; //Used at runtime to load the scene from the right AssetBundle
+    public AssetReference sceneReference; //Used at runtime to load the scene from the right AssetBundle
     public AudioData musicTrack;
 
     /// <summary>
@@ -24,8 +24,5 @@ public class GameSceneSO : ScriptableObject
         Initialisation,
         PersistentManagers,
         Gameplay,
-
-        //Work in progress scenes that don't need to be played
-        Art,
     }
 }

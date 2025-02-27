@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cafdc2b1b18f16b4e816196f81aa46ff, type: 3}
+  m_Name: TopRight
+  m_EditorClassIdentifier: 
+  RoomPrefab: {fileID: 3302867916618709884, guid: 46f0720f5dee39541872f1b46c1eff00,
+    type: 3}
+  RoomObjType: 0
+  RoomExits: 0000000003000000

@@ -5,30 +5,18 @@ using Unity.Cinemachine;
 
 public class AreaTransition : MonoBehaviour
 {
-    
-    [SerializeField] private PolygonCollider2D _mapBoundary;
-    private CinemachineConfiner _cineConfiner;
+    [SerializeField] private PolygonCollider2D _mapBoundary; //remove later
+    [SerializeField] private BoxCollider2D _mapBoundaryBox;
 
-    //private CinemachineVirtualCameraBase _vCamBase;
+    [Header("Broadcasting On...")]
+    [SerializeField] private ColliderEventChannelSO _onNewRoomEntered;
     public Vector3 movePlayer;
-    
-    void Awake()
-    {
-        if (_cineConfiner == null)
-            _cineConfiner = FindAnyObjectByType<CinemachineConfiner>();
-
-        //if (_vCamBase == null)
-        //    _vCamBase = FindAnyObjectByType<CinemachineVirtualCameraBase>();
-        //cam = Camera.main.GetComponent<CameraController>();
-    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Player") 
         {
-            
-            _cineConfiner.m_BoundingShape2D = _mapBoundary;
-            
+            _onNewRoomEntered.RaiseEvent(_mapBoundaryBox);
             other.transform.position += movePlayer;
         }
     }

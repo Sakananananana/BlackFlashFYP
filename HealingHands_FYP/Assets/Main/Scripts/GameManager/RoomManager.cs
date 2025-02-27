@@ -5,7 +5,6 @@ using System.Collections;
 
 public class RoomManager : MonoBehaviour
 {
-    [SerializeField] private bool _inFight = false;
     [SerializeField] private bool _enteredRoom = false;
     [SerializeField] private List<EnemyToSpawn> _enemyToSpawn = new List<EnemyToSpawn>();
     [SerializeField] private Collider2D[] _colliders;
@@ -30,7 +29,6 @@ public class RoomManager : MonoBehaviour
             }
 
             _enteredRoom = true;
-            _inFight = true;
 
             StartCoroutine(BattleFinished());
         }
@@ -43,7 +41,6 @@ public class RoomManager : MonoBehaviour
             yield return null;
         }
 
-        _inFight = false;
         for (int i = 0; i < _colliders.Length; i++)
         {
             _colliders[i].isTrigger = true;

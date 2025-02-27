@@ -148,6 +148,7 @@ public class Toad : AnimationController, IDamageable
         PlayFireProjectileAudio();
         Quaternion angle = Quaternion.Euler(0, 0, 90);   
         var projectile = Instantiate(_projectile, _projectileOrigin.position, Quaternion.LookRotation(Vector3.forward, _direction) * angle);
+        projectile.transform.SetParent(transform);
     }
 
     public void FinishAttack()
