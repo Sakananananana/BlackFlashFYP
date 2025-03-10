@@ -121,7 +121,7 @@ public class SceneLoader : MonoBehaviour
         SceneManager.SetActiveScene(newScene);
 
         //Later Move to Spawn System Ensure Protagonist is Spawned before enabling
-        _inputReader.SetGameplay();
+        _onSceneReady.RaiseEvent();
     }
 
     private void ExitGame()

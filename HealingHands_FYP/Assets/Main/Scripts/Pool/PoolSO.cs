@@ -32,7 +32,6 @@ namespace HH.Pool
             return Available.Count > 0 ? Available.Pop() : Create();
         }
 
-
         public virtual void Return(T member)
         {
             Available.Push(member);

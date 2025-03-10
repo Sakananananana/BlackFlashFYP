@@ -4,8 +4,11 @@ using System.Collections.Generic;
 [CreateAssetMenu(fileName = "new RoomData", menuName = "Scriptable Objects /DungeonRoomSO")]
 public class RoomData : ScriptableObject
 {
-    public GameObject RoomPrefab;
+    [Header("Room Object")]
+    public RoomManager RoomPrefab;
     public RoomType RoomObjType;
+
+    [Header("Room Exit(s)")]
     public List<Direction> RoomExits;
 }
 
@@ -17,7 +20,6 @@ public enum Direction
 public enum RoomType
 {
     Normal,
-    StartRoom,
     BossRoom,
     SafeRoom,
 }

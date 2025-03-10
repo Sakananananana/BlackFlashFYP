@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cafdc2b1b18f16b4e816196f81aa46ff, type: 3}
   m_Name: Bottom
   m_EditorClassIdentifier: 
-  RoomPrefab: {fileID: 810489937011560195, guid: 9fd6baf8aa229704087a7da8940416ec,
+  RoomPrefab: {fileID: 3476463682391589353, guid: 9fd6baf8aa229704087a7da8940416ec,
     type: 3}
   RoomObjType: 0
   RoomExits: 01000000

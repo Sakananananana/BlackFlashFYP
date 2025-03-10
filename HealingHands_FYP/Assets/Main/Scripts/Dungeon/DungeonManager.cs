@@ -2,10 +2,9 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class SpawnRoom : MonoBehaviour
+public class DungeonManager : MonoBehaviour
 {
     [SerializeField] private int _minRoom;
-    [SerializeField] private int _maxRoom;
     [SerializeField] private List<RoomData> _roomDataList = new List<RoomData>();
 
     //private parameters
@@ -15,13 +14,13 @@ public class SpawnRoom : MonoBehaviour
     private Dictionary<Vector2Int, RoomData> _dungeonLayout = new Dictionary<Vector2Int, RoomData>();
     //To add unprocessed position in grid
     private Queue<Vector2Int> _roomToProcess = new Queue<Vector2Int>();
-    
+
     //Generate Async later 
     void Start() => GenerateDungeon();
 
     private void GenerateDungeon()
     {
-    
+
         GenerateCorePath();
 
         foreach (var room in _dungeonLayout)
@@ -49,52 +48,22 @@ public class SpawnRoom : MonoBehaviour
                     }
                     else
                     {
-                        int rand = Random.Range(0, 2);
 
-                        switch (rand)
+                        List<Direction> dirList = new List<Direction>();
+                        for (int i = 0; i < curentRoom.RoomExits.Count; i++)
                         {
-                            case 0:
-                                {
-                                    List<Direction> tempDir = new List<Direction>();
-                                    for (int i = 0; i < temp.RoomExits.Count; i++)
-                                    {
-                                        tempDir.Add(temp.RoomExits[i]);
-                                    }
-                                    tempDir.Add(requiredEntry);
+                            dirList.Add(curentRoom.RoomExits[i]);
+                        }
+                        dirList.Remove(exitDir);
 
-                                    for (int i = 0; i < _roomDataList.Count; i++)
-                                    {
-                                        if (AreListsEqual(_roomDataList[i].RoomExits, tempDir))
-                                        {
-                                            _dungeonLayout[newPos] = _roomDataList[i];
-                                            continue;
-                                        }
-                                    }
-
-                                    break;
-                                }
-
-                            case 1:
-                                {
-                                    List<Direction> tempDirList = new List<Direction>();
-                                    for (int i = 0; i < curentRoom.RoomExits.Count; i++)
-                                    {
-                                        tempDirList.Add(curentRoom.RoomExits[i]);
-                                    }
-                                    tempDirList.Remove(exitDir);
-
-                                    for (int i = 0; i < _roomDataList.Count; i++)
-                                    {
-                                        if (AreListsEqual(_roomDataList[i].RoomExits, tempDirList))
-                                        {
-                                            _dungeonLayout[currentPos] = _roomDataList[i];
-                                            _roomToProcess.Enqueue(currentPos);
-                                            continue;
-                                        }
-                                    }
-
-                                    break;
-                                }
+                        for (int i = 0; i < _roomDataList.Count; i++)
+                        {
+                            if (AreListsEqual(_roomDataList[i].RoomExits, dirList))
+                            {
+                                _dungeonLayout[currentPos] = _roomDataList[i];
+                                _roomToProcess.Enqueue(currentPos);
+                                continue;
+                            }
                         }
 
                     }
@@ -124,27 +93,29 @@ public class SpawnRoom : MonoBehaviour
         InstantiateRooms();
     }
 
+
+
     bool AreListsEqual<T>(List<T> list1, List<T> list2)
     {
         if (list1.Count != list2.Count) return false;
 
-        return list1.All(list2.Contains);        
+        return list1.All(list2.Contains);
     }
 
     //check if the entry has valid path if not replace with other room
     private void GenerateCorePath()
     {
-        _startRoom = _roomDataList[Random.Range(0, _roomDataList.Count + 1)];
+        _startRoom = _roomDataList[Random.Range(0, _roomDataList.Count)];
 
         _dungeonLayout.Add(_startPos, _startRoom);
         _roomToProcess.Enqueue(_startPos);
 
         while (_dungeonLayout.Count < _minRoom && _roomToProcess.Count > 0)
-        { 
+        {
             Vector2Int pos = _roomToProcess.Dequeue();
             RoomData currentRoom = _dungeonLayout[pos];
 
-            foreach (Direction dir in currentRoom.RoomExits.OrderByDescending(d => IsForwardDirection(d)))
+            foreach (Direction dir in currentRoom.RoomExits)
             {
                 Vector2Int newPos = GetNewPosition(pos, dir);
                 if (_dungeonLayout.ContainsKey(newPos))
@@ -156,11 +127,7 @@ public class SpawnRoom : MonoBehaviour
                 if (validRooms.Count == 0)
                 { continue; }
 
-                validRooms = validRooms.OrderByDescending(r => r.RoomExits.Count).ToList();
                 RoomData selectedRoom = validRooms[Random.Range(0, 2)];
-                //.First();
-
-                //RoomData selectedRoom = validRooms.First();
 
                 _dungeonLayout.Add(newPos, selectedRoom);
                 _roomToProcess.Enqueue(newPos);
@@ -170,11 +137,6 @@ public class SpawnRoom : MonoBehaviour
         }
 
         _roomToProcess.Clear();
-    }
-
-    bool IsForwardDirection(Direction dir)
-    { 
-        return dir == Direction.Right || dir == Direction.Top;
     }
 
     Direction GetOppositeDirection(Direction dir)
@@ -189,7 +151,7 @@ public class SpawnRoom : MonoBehaviour
                 {
                     Debug.LogWarning($"Direction passed in has no exit");
                     return dir;
-                } 
+                }
         }
     }
     Vector2Int GetNewPosition(Vector2Int currentPos, Direction dir)
@@ -206,12 +168,17 @@ public class SpawnRoom : MonoBehaviour
 
     private void InstantiateRooms()
     {
-        foreach(var roomToSpawn in _dungeonLayout)
+        foreach (var roomToSpawn in _dungeonLayout)
         {
             Vector2Int gridPos = roomToSpawn.Key;
             Vector3 spawnPos = new Vector3(gridPos.x * 20, gridPos.y * 12, 0);
-            GameObject room = Instantiate(roomToSpawn.Value.RoomPrefab, spawnPos, Quaternion.identity);
+            RoomManager room = Instantiate(roomToSpawn.Value.RoomPrefab, spawnPos, Quaternion.identity);
             room.transform.SetParent(transform);
+
+            if (gridPos == Vector2Int.zero)
+            {
+                room.IsSpecialRoom = true;
+            }
         }
     }
 
@@ -226,10 +193,10 @@ public class SpawnRoom : MonoBehaviour
                 validRooms.Add(_roomDataList[i]);
             }
         }
-        
+
+        validRooms = validRooms.OrderByDescending(r => r.RoomExits.Count).ToList();
         return validRooms;
     }
 
 }
-
 

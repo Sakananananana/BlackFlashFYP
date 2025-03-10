@@ -36,12 +36,14 @@ public class Toad : AnimationController, IDamageable
         
         _sprRenderer = GetComponent<SpriteRenderer>();
         //_impulseSource = GetComponent<CinemachineImpulseSource>();
+    }
 
+    private void OnEnable()
+    {
         if (_player == null)
         {
             _player = GameObject.FindGameObjectWithTag("Player");
         }
-
     }
 
     private void Start()

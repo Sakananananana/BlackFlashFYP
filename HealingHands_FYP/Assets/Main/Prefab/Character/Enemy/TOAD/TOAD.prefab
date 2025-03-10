@@ -200,7 +200,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: -3703026558840970320, guid: 6c02d762ec924744dac62236c7e3b21d,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -315,5 +315,5 @@ MonoBehaviour:
   _audioConfig: {fileID: 11400000, guid: 0d856fbfc57e03e4cb5f55add5e60595, type: 2}
   _projectile: {fileID: 6840371985563148475, guid: f13f71aa28237e842a045ac68195396d,
     type: 3}
-  _enemyHealth: 35
+  _enemyHealth: 10
   _projectileOrigin: {fileID: 1777552558694563116}

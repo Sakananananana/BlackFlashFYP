@@ -35,10 +35,10 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - Up
+  - Down
+  - Left
+  - Right
   m_SortingLayers:
   - name: Default
     uniqueID: 0

@@ -164,10 +164,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acfe362637071e545802921197465666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mapBoundary: {fileID: 0}
   _mapBoundaryBox: {fileID: 1443362892}
+  _exits: {fileID: 0}
   _onNewRoomEntered: {fileID: 11400000, guid: 5ead0f4bd4b83f14e9b569d1d1c16af9, type: 2}
-  movePlayer: {x: 5, y: 0, z: 0}
 --- !u!61 &14844101
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -500,10 +499,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acfe362637071e545802921197465666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mapBoundary: {fileID: 952838039}
   _mapBoundaryBox: {fileID: 0}
+  _exits: {fileID: 0}
   _onNewRoomEntered: {fileID: 0}
-  movePlayer: {x: 0, y: 5, z: 0}
 --- !u!61 &162606781
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -680,10 +678,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acfe362637071e545802921197465666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mapBoundary: {fileID: 2064726163}
   _mapBoundaryBox: {fileID: 0}
+  _exits: {fileID: 0}
   _onNewRoomEntered: {fileID: 0}
-  movePlayer: {x: 0, y: -5, z: 0}
 --- !u!61 &291122959
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1052,59 +1049,6 @@ MonoBehaviour:
   - {fileID: 1924820734}
   - {fileID: 505709961}
   _enemyPool: {fileID: 2066067371}
---- !u!1 &417388073
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 417388074}
-  - component: {fileID: 417388075}
-  m_Layer: 0
-  m_Name: Editor_Initializer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &417388074
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 417388073}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &417388075
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 417388073}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cf8b0689d698fb48bbd467ad1f77977, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _currentSceneSO: {fileID: 11400000, guid: fa76fe0c10f873c478733b7729780d51, type: 2}
-  _persistentManagerSO: {fileID: 11400000, guid: c5bbd87140d1a1143a891c9d7485d41f,
-    type: 2}
-  _onEditorStartup:
-    m_AssetGUID: a366418d78be1ce478def8e246d0bd85
-    m_SubObjectName: 
-    m_SubObjectGUID: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
 --- !u!1001 &456825884
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1224,10 +1168,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acfe362637071e545802921197465666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mapBoundary: {fileID: 0}
   _mapBoundaryBox: {fileID: 1527361952}
+  _exits: {fileID: 0}
   _onNewRoomEntered: {fileID: 11400000, guid: 5ead0f4bd4b83f14e9b569d1d1c16af9, type: 2}
-  movePlayer: {x: -8, y: 0, z: 0}
 --- !u!61 &458130134
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1319,10 +1262,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acfe362637071e545802921197465666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mapBoundary: {fileID: 2064726163}
   _mapBoundaryBox: {fileID: 0}
+  _exits: {fileID: 0}
   _onNewRoomEntered: {fileID: 0}
-  movePlayer: {x: 5, y: 0, z: 0}
 --- !u!61 &505709961
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8689,10 +8631,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acfe362637071e545802921197465666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mapBoundary: {fileID: 1198818207}
   _mapBoundaryBox: {fileID: 0}
+  _exits: {fileID: 0}
   _onNewRoomEntered: {fileID: 0}
-  movePlayer: {x: 0, y: 5, z: 0}
 --- !u!61 &526440013
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9010,10 +8951,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acfe362637071e545802921197465666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mapBoundary: {fileID: 398730456}
   _mapBoundaryBox: {fileID: 0}
+  _exits: {fileID: 0}
   _onNewRoomEntered: {fileID: 0}
-  movePlayer: {x: 5, y: 0, z: 0}
 --- !u!61 &696893038
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9066,18 +9006,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 356325153}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &710603027 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 148951071885628695, guid: ddd94e6f3e82ea74caf9b89687433080,
-    type: 3}
-  m_PrefabInstance: {fileID: 356325153}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad4dd7a354bc43a4d8dd15f81935b5a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &803003749
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9275,10 +9203,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acfe362637071e545802921197465666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mapBoundary: {fileID: 280398625}
   _mapBoundaryBox: {fileID: 0}
+  _exits: {fileID: 0}
   _onNewRoomEntered: {fileID: 0}
-  movePlayer: {x: 0, y: -5, z: 0}
 --- !u!61 &889199782
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9370,10 +9297,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acfe362637071e545802921197465666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mapBoundary: {fileID: 1906375987}
   _mapBoundaryBox: {fileID: 0}
+  _exits: {fileID: 0}
   _onNewRoomEntered: {fileID: 0}
-  movePlayer: {x: 0, y: 5, z: 0}
 --- !u!61 &902049866
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9465,10 +9391,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acfe362637071e545802921197465666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mapBoundary: {fileID: 0}
   _mapBoundaryBox: {fileID: 0}
+  _exits: {fileID: 0}
   _onNewRoomEntered: {fileID: 0}
-  movePlayer: {x: 5, y: 0, z: 0}
 --- !u!61 &904829874
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9765,10 +9690,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acfe362637071e545802921197465666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mapBoundary: {fileID: 398730456}
   _mapBoundaryBox: {fileID: 0}
+  _exits: {fileID: 0}
   _onNewRoomEntered: {fileID: 11400000, guid: 5ead0f4bd4b83f14e9b569d1d1c16af9, type: 2}
-  movePlayer: {x: -5, y: 0, z: 0}
 --- !u!61 &1027445658
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10158,10 +10082,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acfe362637071e545802921197465666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mapBoundary: {fileID: 412759047}
   _mapBoundaryBox: {fileID: 0}
+  _exits: {fileID: 0}
   _onNewRoomEntered: {fileID: 0}
-  movePlayer: {x: 0, y: -5, z: 0}
 --- !u!61 &1219802722
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10224,7 +10147,7 @@ PrefabInstance:
     - target: {fileID: 4666538479134983041, guid: 974ca2a0e85bd86428cd1deda8121630,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 29.2
+      value: 48.5
       objectReference: {fileID: 0}
     - target: {fileID: 4666538479134983041, guid: 974ca2a0e85bd86428cd1deda8121630,
         type: 3}
@@ -10327,8 +10250,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inputReader: {fileID: 11400000, guid: 415aeb03029feca43b600e9ed9218756, type: 2}
-  _playerPrefab: {fileID: 710603027}
+  _playerPrefab: {fileID: 0}
   _onSceneReady: {fileID: 0}
+  _setCameraPosition: {fileID: 0}
 --- !u!1 &1299209551
 GameObject:
   m_ObjectHideFlags: 0
@@ -10411,10 +10335,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acfe362637071e545802921197465666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mapBoundary: {fileID: 412759047}
   _mapBoundaryBox: {fileID: 0}
+  _exits: {fileID: 0}
   _onNewRoomEntered: {fileID: 0}
-  movePlayer: {x: -5, y: 0, z: 0}
 --- !u!61 &1339301121
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10745,10 +10668,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acfe362637071e545802921197465666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mapBoundary: {fileID: 280398625}
   _mapBoundaryBox: {fileID: 0}
+  _exits: {fileID: 0}
   _onNewRoomEntered: {fileID: 0}
-  movePlayer: {x: 5, y: 0, z: 0}
 --- !u!61 &1479503601
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -42293,10 +42215,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acfe362637071e545802921197465666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mapBoundary: {fileID: 952838039}
   _mapBoundaryBox: {fileID: 0}
+  _exits: {fileID: 0}
   _onNewRoomEntered: {fileID: 0}
-  movePlayer: {x: -5, y: 0, z: 0}
 --- !u!61 &1607884339
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -42493,10 +42414,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acfe362637071e545802921197465666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mapBoundary: {fileID: 1365722487}
   _mapBoundaryBox: {fileID: 0}
+  _exits: {fileID: 0}
   _onNewRoomEntered: {fileID: 0}
-  movePlayer: {x: 0, y: -5, z: 0}
 --- !u!61 &1828024593
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -42769,10 +42689,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acfe362637071e545802921197465666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mapBoundary: {fileID: 1365722487}
   _mapBoundaryBox: {fileID: 0}
+  _exits: {fileID: 0}
   _onNewRoomEntered: {fileID: 0}
-  movePlayer: {x: 0, y: 5, z: 0}
 --- !u!61 &1924820734
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -43012,10 +42931,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acfe362637071e545802921197465666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mapBoundary: {fileID: 2064726163}
   _mapBoundaryBox: {fileID: 0}
+  _exits: {fileID: 0}
   _onNewRoomEntered: {fileID: 0}
-  movePlayer: {x: -5, y: 0, z: 0}
 --- !u!61 &2034441897
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -43179,6 +43097,74 @@ Transform:
   m_Children: []
   m_Father: {fileID: 412759046}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &5387028738131202321
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3454892430832211147, guid: d5085722ba0fe4449a1cef3a60e6d6ae,
+        type: 3}
+      propertyPath: m_Name
+      value: Editor_Initializer
+      objectReference: {fileID: 0}
+    - target: {fileID: 3673979755610386248, guid: d5085722ba0fe4449a1cef3a60e6d6ae,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3673979755610386248, guid: d5085722ba0fe4449a1cef3a60e6d6ae,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3673979755610386248, guid: d5085722ba0fe4449a1cef3a60e6d6ae,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3673979755610386248, guid: d5085722ba0fe4449a1cef3a60e6d6ae,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3673979755610386248, guid: d5085722ba0fe4449a1cef3a60e6d6ae,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3673979755610386248, guid: d5085722ba0fe4449a1cef3a60e6d6ae,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3673979755610386248, guid: d5085722ba0fe4449a1cef3a60e6d6ae,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3673979755610386248, guid: d5085722ba0fe4449a1cef3a60e6d6ae,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3673979755610386248, guid: d5085722ba0fe4449a1cef3a60e6d6ae,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3673979755610386248, guid: d5085722ba0fe4449a1cef3a60e6d6ae,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d5085722ba0fe4449a1cef3a60e6d6ae, type: 3}
 --- !u!1001 &8974807632000429327
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43262,6 +43248,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Camera_System
       objectReference: {fileID: 0}
+    - target: {fileID: 6928576409865528154, guid: 4c48c12b07cba944d827e34df48df0ae,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 46.172215
+      objectReference: {fileID: 0}
+    - target: {fileID: 6928576409865528154, guid: 4c48c12b07cba944d827e34df48df0ae,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 13.9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -43274,7 +43270,7 @@ SceneRoots:
   - {fileID: 1114961626}
   - {fileID: 619394802}
   - {fileID: 1299209552}
-  - {fileID: 417388074}
+  - {fileID: 5387028738131202321}
   - {fileID: 8974807632000429327}
   - {fileID: 1280274775}
   - {fileID: 1715366269}
