@@ -488,6 +488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00c0190c35415004285e34a0cea59ea0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AudioChnlSO: {fileID: 0}
   _audioEmitterPrefab: {fileID: 2078737616166248899, guid: b5a84193241cc214992d9b5fdafa9371,
     type: 3}
   _audioMixer: {fileID: 24100000, guid: 310a9e4a5d478254295ef7058f4a7cb4, type: 2}
@@ -2809,6 +2810,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7759d89d5e96f844ca172390536c9e48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _audioChannelSO: {fileID: 11400000, guid: a41776bc57db1674d88d6fbc275a365c, type: 2}
   _audioData: {fileID: 11400000, guid: 1ec11fb34e9fbd94ea6247a8b7bc51ca, type: 2}
   _audioConfig: {fileID: 11400000, guid: 0d856fbfc57e03e4cb5f55add5e60595, type: 2}
 --- !u!1 &1948478682
@@ -3129,6 +3131,7 @@ MonoBehaviour:
   - {fileID: 1661041346}
   - {fileID: 519673355}
   - {fileID: 674982440}
+  _audioChannelSO: {fileID: 11400000, guid: a41776bc57db1674d88d6fbc275a365c, type: 2}
   _selectedAudio: {fileID: 11400000, guid: b5e13ec471b2c5046864b1508e65958e, type: 2}
   _audioConfig: {fileID: 11400000, guid: 0d856fbfc57e03e4cb5f55add5e60595, type: 2}
 --- !u!4 &2083780764

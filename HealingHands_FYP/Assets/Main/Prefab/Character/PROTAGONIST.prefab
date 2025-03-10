@@ -183,6 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b79d7c801cd59945b469c422b43a6a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _raiseCamShake: {fileID: 11400000, guid: f0b1513586fd753418e6c7f8af4fd31f, type: 2}
 --- !u!1 &6730967558029425401
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,7 +199,6 @@ GameObject:
   - component: {fileID: 3281437517430367309}
   - component: {fileID: 148951071885628695}
   - component: {fileID: 995255118568367993}
-  - component: {fileID: 5819735592412609805}
   - component: {fileID: -60097484219637705}
   - component: {fileID: 2126520854685727094}
   m_Layer: 6
@@ -267,7 +267,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 3004729617175235868, guid: cc4d04da6b4231148805ae9b078fa9c6,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -315,7 +315,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: -0.55811346}
-  m_Radius: 0.3307755
+  m_Radius: 0.33
 --- !u!50 &2561801424925880336
 Rigidbody2D:
   serializedVersion: 5
@@ -381,7 +381,7 @@ MonoBehaviour:
   _maxHealth: 20
   _currentHealth: 0
   AttackDamage: 5
-  _damageScreen: {fileID: 0}
+  _onTakeDamage: {fileID: 11400000, guid: e67f5811d148d694e8994c3878b97359, type: 2}
   _canTakeDamage: 1
 --- !u!114 &995255118568367993
 MonoBehaviour:
@@ -403,22 +403,6 @@ MonoBehaviour:
   CanMove: 1
   MoveSpeed: 4
   DashForce: 8
---- !u!114 &5819735592412609805
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6730967558029425401}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20e3bc68b6e05c9498b9e499ce09509e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerAudio: {fileID: 2126520854685727094}
-  _inputReader: {fileID: 11400000, guid: 415aeb03029feca43b600e9ed9218756, type: 2}
-  _inventoryPage: {fileID: 0}
-  _inventoryData: {fileID: 11400000, guid: c96a0e360e2af054abdea78fdf139a17, type: 2}
 --- !u!114 &-60097484219637705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -444,6 +428,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75947aa0ddc531d40a91bbe47c8146cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _audioChannelSO: {fileID: 11400000, guid: a41776bc57db1674d88d6fbc275a365c, type: 2}
   _dashAudio: {fileID: 11400000, guid: 8f2f64a3d600b4b44863609983a7d103, type: 2}
   _slashAudio: {fileID: 11400000, guid: 1596ee7df7c41d7408012b4dae4da1b6, type: 2}
   _footstepAudio: {fileID: 11400000, guid: b9b046223b862034795574a244856a42, type: 2}

@@ -1,10 +1,13 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(AudioSource))]
 public class AudioEmitter : MonoBehaviour
 {
     [SerializeField] private AudioSource _audioSource;
+    public event UnityAction<AudioEmitter> OnSoundFinishedPlaying;
+
     private Coroutine _playAudioCoroutine;
 
     private void Awake()
@@ -21,7 +24,6 @@ public class AudioEmitter : MonoBehaviour
         }
 
         _audioSource.Stop();
-        AudioManager.Instance.ReturnToPool(this);
     }
 
     public void Play(AudioData data, AudioConfiguration audioCofig, Vector3 position)
@@ -32,16 +34,40 @@ public class AudioEmitter : MonoBehaviour
         _audioSource.clip = data.GetAudioClip();
         _audioSource.loop = data.ApplyLoop;
 
-        _audioSource.Play();
+        //Remember to Check how this affects the Looping BGM
         if (!_audioSource.loop)
         {
+            //if the requested audio is playing stop the coroutine and reset it
+            if (_playAudioCoroutine != null)
+            {
+                StopCoroutine(_playAudioCoroutine);
+            }
+
+            if (data.ApplyPitchChange)
+            { _audioSource.pitch += Random.Range(-0.05f, 0.05f); }
+
+            _audioSource.Play();
             _playAudioCoroutine = StartCoroutine(WaitForAudioEnds(_audioSource.clip.length));
         }
+        else
+        {
+            _audioSource.Play();
+        }
+    }
+
+    public bool IsLooping()
+    {
+        return _audioSource.loop;
     }
 
     private IEnumerator WaitForAudioEnds(float audioLength)
     {
         yield return new WaitForSeconds(audioLength);
-        AudioManager.Instance.ReturnToPool(this);
+        NotifyBeingDone();
+    }
+
+    private void NotifyBeingDone()
+    {
+        OnSoundFinishedPlaying.Invoke(this);
     }
 }

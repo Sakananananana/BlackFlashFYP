@@ -8,6 +8,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] GameObject[] firstButtons;
     [SerializeField] GameObject[] arrow;
 
+    [SerializeField] AudioChannelSO _audioChannelSO;
     [SerializeField] AudioData _selectedAudio;
     [SerializeField] AudioConfiguration _audioConfig;
 
@@ -85,7 +86,7 @@ public class MainMenu : MonoBehaviour
 
     public void OnSelect()
     {
-        AudioManager.Instance.PlayRaisedAudio(_selectedAudio, _audioConfig);
+        _audioChannelSO.OnAudioPlayRequested(_selectedAudio, _audioConfig);
     }
 }
 

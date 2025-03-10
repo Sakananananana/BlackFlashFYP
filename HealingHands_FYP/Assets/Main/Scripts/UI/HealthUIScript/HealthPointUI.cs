@@ -3,23 +3,31 @@ using UnityEngine.UI;
 
 public class HealthPointUI : MonoBehaviour
 {
+    [SerializeField] private HealthSO _protagonistHealth;
     [SerializeField] private Slider _slider;
-    [SerializeField] private Player _player;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] private FloatEventChannelSO _onProtagonistHealthChange;
+    [SerializeField] private VoidEventChannelSO _healthChanges;
+
     void OnEnable()
     {
-        _player.HealthChange += SetUIHealth;
+        //_healthChanges.OnEventRaised += SetHealth;
+        _onProtagonistHealthChange.OnEventRaised += SetUIHealth;
         _slider.value = 20;
     }
 
     private void OnDisable()
     {
-        _player.HealthChange -= SetUIHealth;
+        _onProtagonistHealthChange.OnEventRaised -= SetUIHealth;
     }
 
     private void SetUIHealth(float value)
     { 
         _slider.value -= value;
     }
+
+    //private void SetHealth(float He)
+    //{
+    //    _slider.value = _protagonistHealth.CurrentHealth;
+    //}
 }

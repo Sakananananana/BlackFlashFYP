@@ -2,11 +2,14 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    private Player _player;
+    private Protagonist _player;
+
+    [Header("Broadcasting on...")]
+    [SerializeField] private VoidEventChannelSO _raiseCamShake;
 
     private void OnEnable()
     {
-        _player = GetComponentInParent<Player>();
+        _player = GetComponentInParent<Protagonist>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -18,6 +21,8 @@ public class PlayerAttack : MonoBehaviour
             Vector2 dir = (collision.transform.position - transform.position).normalized;
 
             damageable.RecieveDamage(_player.AttackDamage, dir);
+
+            _raiseCamShake?.RaiseEvent();
         }
     }
 

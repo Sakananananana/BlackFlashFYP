@@ -3,13 +3,14 @@ using UnityEngine.SceneManagement;
 
 public class ChangeScene : MonoBehaviour
 {
-    public string LevelName;
+    [SerializeField] private GameSceneSO _sceneToLoad;
+    [SerializeField] private LoadEventChannelSO _raiseLoadEvent;
 
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("Player"))
         {
-            SceneManager.LoadScene(LevelName);
+            _raiseLoadEvent.OnLoadingRequested(_sceneToLoad);
         }
     }
 }

@@ -17,12 +17,12 @@ public class SaveController : MonoBehaviour
 
     private void OnEnable()
     {
-        _invetorySO.OnInventoryUpdated += SaveInventory;
+        //_invetorySO.OnInventoryUpdated += SaveInventory;
     }
 
     private void OnDisable()
     {
-        _invetorySO.OnInventoryUpdated -= SaveInventory;
+        //_invetorySO.OnInventoryUpdated -= SaveInventory;
     }
 
     public void SaveInventory(Dictionary<int, InventoryItem> obj)
