@@ -14,11 +14,8 @@ public class AudioManager : MonoBehaviour
 
     private int _initNum = 10;
 
-
     private void Awake()
     {
-        DontDestroyOnLoad(this);
-
         _audioEmitterPool.Prewarm(_initNum);
         _audioEmitterPool.SetParent(this.transform);
     }

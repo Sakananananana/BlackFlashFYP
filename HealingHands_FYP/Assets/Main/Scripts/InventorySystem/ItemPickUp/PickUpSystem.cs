@@ -6,11 +6,14 @@ public class PickUpSystem : MonoBehaviour
     //Have a Item Pick Up Braodcast, Pick up By Manager and Manager updates the data
     [SerializeField] private InventorySO _inventoryData;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        ItemBehaviour item = collision.GetComponent<ItemBehaviour>();
+        //ItemBehaviour item = other.GetComponent<ItemBehaviour>();
+        //if (item != null)
+        //{
 
-        if (item != null)
+        //}
+        if (other.TryGetComponent(out ItemBehaviour item))
         {
             int remainder = _inventoryData.AddItem(item.InventoryItem, item.Quantity);
 
@@ -18,7 +21,6 @@ public class PickUpSystem : MonoBehaviour
             { item.DestroyItem(); }
             else
             { item.Quantity = remainder; }
-        }
-        
+        } 
     }
 }

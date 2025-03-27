@@ -39,7 +39,7 @@ namespace PlayerInputSystem
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Attack"",
+                    ""name"": ""Interact"",
                     ""type"": ""Button"",
                     ""id"": ""6c2ab1b8-8984-453a-af3d-a3c78ae1679a"",
                     ""expectedControlType"": """",
@@ -54,15 +54,6 @@ namespace PlayerInputSystem
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Interact"",
-                    ""type"": ""Button"",
-                    ""id"": ""852140f2-7766-474d-8707-702459ba45f3"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": ""Hold"",
                     ""initialStateCheck"": false
                 },
                 {
@@ -147,7 +138,7 @@ namespace PlayerInputSystem
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Attack"",
+                    ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -159,17 +150,6 @@ namespace PlayerInputSystem
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Dash"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""1c04ea5f-b012-41d1-a6f7-02e963b52893"",
-                    ""path"": ""<Keyboard>/j"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -528,9 +508,8 @@ namespace PlayerInputSystem
             // Gameplay
             m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
             m_Gameplay_Move = m_Gameplay.FindAction("Move", throwIfNotFound: true);
-            m_Gameplay_Attack = m_Gameplay.FindAction("Attack", throwIfNotFound: true);
-            m_Gameplay_Dash = m_Gameplay.FindAction("Dash", throwIfNotFound: true);
             m_Gameplay_Interact = m_Gameplay.FindAction("Interact", throwIfNotFound: true);
+            m_Gameplay_Dash = m_Gameplay.FindAction("Dash", throwIfNotFound: true);
             m_Gameplay_OpenInventory = m_Gameplay.FindAction("Open Inventory", throwIfNotFound: true);
             m_Gameplay_Pause = m_Gameplay.FindAction("Pause", throwIfNotFound: true);
             // Inventory
@@ -614,9 +593,8 @@ namespace PlayerInputSystem
         private readonly InputActionMap m_Gameplay;
         private List<IGameplayActions> m_GameplayActionsCallbackInterfaces = new List<IGameplayActions>();
         private readonly InputAction m_Gameplay_Move;
-        private readonly InputAction m_Gameplay_Attack;
-        private readonly InputAction m_Gameplay_Dash;
         private readonly InputAction m_Gameplay_Interact;
+        private readonly InputAction m_Gameplay_Dash;
         private readonly InputAction m_Gameplay_OpenInventory;
         private readonly InputAction m_Gameplay_Pause;
         public struct GameplayActions
@@ -624,9 +602,8 @@ namespace PlayerInputSystem
             private @GameInputs m_Wrapper;
             public GameplayActions(@GameInputs wrapper) { m_Wrapper = wrapper; }
             public InputAction @Move => m_Wrapper.m_Gameplay_Move;
-            public InputAction @Attack => m_Wrapper.m_Gameplay_Attack;
-            public InputAction @Dash => m_Wrapper.m_Gameplay_Dash;
             public InputAction @Interact => m_Wrapper.m_Gameplay_Interact;
+            public InputAction @Dash => m_Wrapper.m_Gameplay_Dash;
             public InputAction @OpenInventory => m_Wrapper.m_Gameplay_OpenInventory;
             public InputAction @Pause => m_Wrapper.m_Gameplay_Pause;
             public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
@@ -641,15 +618,12 @@ namespace PlayerInputSystem
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
-                @Attack.started += instance.OnAttack;
-                @Attack.performed += instance.OnAttack;
-                @Attack.canceled += instance.OnAttack;
-                @Dash.started += instance.OnDash;
-                @Dash.performed += instance.OnDash;
-                @Dash.canceled += instance.OnDash;
                 @Interact.started += instance.OnInteract;
                 @Interact.performed += instance.OnInteract;
                 @Interact.canceled += instance.OnInteract;
+                @Dash.started += instance.OnDash;
+                @Dash.performed += instance.OnDash;
+                @Dash.canceled += instance.OnDash;
                 @OpenInventory.started += instance.OnOpenInventory;
                 @OpenInventory.performed += instance.OnOpenInventory;
                 @OpenInventory.canceled += instance.OnOpenInventory;
@@ -663,15 +637,12 @@ namespace PlayerInputSystem
                 @Move.started -= instance.OnMove;
                 @Move.performed -= instance.OnMove;
                 @Move.canceled -= instance.OnMove;
-                @Attack.started -= instance.OnAttack;
-                @Attack.performed -= instance.OnAttack;
-                @Attack.canceled -= instance.OnAttack;
-                @Dash.started -= instance.OnDash;
-                @Dash.performed -= instance.OnDash;
-                @Dash.canceled -= instance.OnDash;
                 @Interact.started -= instance.OnInteract;
                 @Interact.performed -= instance.OnInteract;
                 @Interact.canceled -= instance.OnInteract;
+                @Dash.started -= instance.OnDash;
+                @Dash.performed -= instance.OnDash;
+                @Dash.canceled -= instance.OnDash;
                 @OpenInventory.started -= instance.OnOpenInventory;
                 @OpenInventory.performed -= instance.OnOpenInventory;
                 @OpenInventory.canceled -= instance.OnOpenInventory;
@@ -883,9 +854,8 @@ namespace PlayerInputSystem
         public interface IGameplayActions
         {
             void OnMove(InputAction.CallbackContext context);
-            void OnAttack(InputAction.CallbackContext context);
-            void OnDash(InputAction.CallbackContext context);
             void OnInteract(InputAction.CallbackContext context);
+            void OnDash(InputAction.CallbackContext context);
             void OnOpenInventory(InputAction.CallbackContext context);
             void OnPause(InputAction.CallbackContext context);
         }

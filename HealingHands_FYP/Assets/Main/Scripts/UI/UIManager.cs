@@ -5,21 +5,33 @@ using Inventory.UI;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private InputReader _inputReader = default;
+    [SerializeField] private BoolEventChannelSO _onCraftingStarted;
 
     //All the User Interfaces
     [SerializeField] private UIInventoryPage _inventoryPanel;
     [SerializeField] private PauseMenu _pauseMenu;
 
+    bool _isCrafting = false;
+
     private void OnEnable()
     {
+        _onCraftingStarted.OnEventRaised += OpenInventoryForCrafting;
+
         _inputReader.OpenInventoryEvent += OpenInventoryScreen;
-        _inputReader.PauseEvent += Pause;
+        _inputReader.PauseEvent += OpenSettingScreen;
     }
 
     private void OnDisable()
     {
+        _onCraftingStarted.OnEventRaised -= OpenInventoryForCrafting;
+
         _inputReader.OpenInventoryEvent -= OpenInventoryScreen;
-        _inputReader.PauseEvent -= Pause;
+        _inputReader.PauseEvent -= OpenSettingScreen;
+    }
+
+    void OpenInventoryForCrafting(bool val)
+    { 
+        _isCrafting = val;
     }
 
     void OpenInventoryScreen()
@@ -27,10 +39,19 @@ public class UIManager : MonoBehaviour
         _inputReader.CloseInventoryEvent += CloseInventoryScreen;
         _inputReader.SetInventory();
 
-        //if crafting deh deh deh
         Time.timeScale = 0;
 
-        _inventoryPanel.FillInventory();
+        if (_isCrafting)
+        {
+            _inventoryPanel.FillInventory();
+            _inventoryPanel.SetInspector(InspectorType.Crafting);
+        }
+        else
+        {
+            _inventoryPanel.FillInventory();
+            _inventoryPanel.SetInspector();
+        }
+        
         _inventoryPanel.gameObject.SetActive(true);
     }
 
@@ -40,20 +61,21 @@ public class UIManager : MonoBehaviour
         _inputReader.SetGameplay();
 
         Time.timeScale = 1;
+
         _inventoryPanel.CloseInventory();
     }
 
-    void Pause()
+    void OpenSettingScreen()
     {
-        _inputReader.ResumeEvent += Resume;
+        _inputReader.ResumeEvent += CloseSettingScreen;
 
         _inputReader.SetUI();
         _pauseMenu.PauseGame(); 
     }
 
-    void Resume()
+    void CloseSettingScreen()
     {
-        _inputReader.ResumeEvent -= Resume;
+        _inputReader.ResumeEvent -= CloseSettingScreen;
 
         _pauseMenu.ContinueGame();
         _inputReader.SetGameplay();

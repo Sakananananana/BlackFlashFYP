@@ -6,9 +6,9 @@ public class ChangeScene : MonoBehaviour
     [SerializeField] private GameSceneSO _sceneToLoad;
     [SerializeField] private LoadEventChannelSO _raiseLoadEvent;
 
-    private void OnTriggerEnter2D(Collider2D col)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (col.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
             _raiseLoadEvent.OnLoadingRequested(_sceneToLoad);
         }

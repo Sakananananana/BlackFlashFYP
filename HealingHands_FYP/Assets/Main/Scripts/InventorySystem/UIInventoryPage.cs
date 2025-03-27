@@ -13,35 +13,44 @@ namespace Inventory.UI
 
         [Header("Inventory Content")]
         [SerializeField] private RectTransform _contentPanel;
-        [SerializeField] private UIInventoryItem _itemPrefab;
+        [SerializeField] private UIItemSlot _itemPrefab;
         [SerializeField] private UIInventoryAction _itemAction;
-        [SerializeField] private UIInventoryDescription _itemDescription;
+        [SerializeField] private UIInventoryInspector _inspector;
 
         [Header("Broadcasting to...")]
         [SerializeField] private IntEventChannelSO _onSlotPressed;
 
         [Header("Listening to...")]
         [SerializeField] private IntEventChannelSO _slotEventEnded;
+        [SerializeField] private BoolEventChannelSO _onActionStarted;
+        [SerializeField] private VoidEventChannelSO _craftingUpdates;
 
-        List<UIInventoryItem> _listOfUIItems;
+        private List<UIInventoryItem> _listOfUIItems;
+        private InspectorType _currentInspector;
         private bool _isPeformingAction = false;
         private int _currentPressedItem = 0;
 
         private void OnEnable()
         {
+            _onActionStarted.OnEventRaised += ButtonNavigationToggle;
+            _craftingUpdates.OnEventRaised += FillInventory;
+
             for (int i = 0; i < _listOfUIItems.Count; i++)
             {
                 _listOfUIItems[i].OnItemPressed += SlotEventStarted;
                 _listOfUIItems[i].OnItemSelected += SlotSelectedAction;
+
+                _listOfUIItems[i].GetInspector(_currentInspector);
             }
 
             EventSystem.current.SetSelectedGameObject(_listOfUIItems[0].gameObject);
+            SetItemDescription(0);
         }
 
         private void OnDisable()
         {
-            if (EventSystem.current.currentSelectedGameObject != null)
-            { EventSystem.current.SetSelectedGameObject(null); }
+            _onActionStarted.OnEventRaised -= ButtonNavigationToggle;
+            _craftingUpdates.OnEventRaised -= FillInventory;
 
             for (int i = 0; i < _listOfUIItems.Count; i++)
             {
@@ -54,7 +63,7 @@ namespace Inventory.UI
         {
             for (int i = 0; i < 15; i++)
             {
-                UIInventoryItem uiItem = Instantiate(_itemPrefab, Vector3.zero, Quaternion.identity);
+                UIItemSlot uiItem = Instantiate(_itemPrefab, Vector3.zero, Quaternion.identity);
                 uiItem.transform.SetParent(_contentPanel);
                 _listOfUIItems.Add(uiItem);
             }
@@ -69,11 +78,37 @@ namespace Inventory.UI
             }
 
             ResetCurrentPage();
-            _itemDescription.ResetDescription();
+            _inspector.FillDescription(null);
 
             foreach (var item in _inventoryData.GetCurrentInventoryState())
             {
                 UpdateInventorySlot(item.Key, item.Value);
+            }
+        }
+
+        public void SetInspector(InspectorType type = InspectorType.Normal)
+        {
+            _currentInspector = type;
+
+            switch (type)
+            {
+                case InspectorType.Crafting:
+                    {
+                        if (_inspector._descPanel.gameObject.activeSelf)
+                        { _inspector._descPanel.gameObject.SetActive(false); }
+
+                        _inspector._craftingPanel.gameObject.SetActive(true);
+                        break;
+                    }
+
+                default:
+                    {
+                        if (_inspector._craftingPanel.gameObject.activeSelf)
+                        { _inspector._craftingPanel.gameObject.SetActive(false); }
+
+                        _inspector._descPanel.gameObject.SetActive(true);
+                        break;
+                    }
             }
         }
 
@@ -99,22 +134,21 @@ namespace Inventory.UI
             int index = _listOfUIItems.IndexOf(obj);
             SetItemDescription(index);
         }
-
-        //When Slot is Being Pressed
-        void SlotEventStarted(UIInventoryItem obj)
+        
+        void SlotEventStarted(UIInventoryItem obj, BtnInteractionType type) //When Slot is Being Pressed
         {
             _slotEventEnded.OnEventRaised += SlotEventEnded;
             _isPeformingAction = true;
+            _onActionStarted.RaiseEvent(_isPeformingAction);
 
             int index = _listOfUIItems.IndexOf(obj);
             _currentPressedItem = index;
 
-            _itemAction.OpenActionPanel();
+            _itemAction.OpenActionPanel(type);
             _onSlotPressed.RaiseEvent(index);
         }
-
-        //When Slot Action Finished
-        public void SlotEventEnded(int index)
+        
+        public void SlotEventEnded(int index) //When Slot Action Finished
         {
             _slotEventEnded.OnEventRaised -= SlotEventEnded;
             _itemAction.CloseActionPanel();
@@ -125,20 +159,24 @@ namespace Inventory.UI
             SetItemDescription(index);
 
             _isPeformingAction = false;
+            _onActionStarted.RaiseEvent(_isPeformingAction);
+        }
+
+        private void ButtonNavigationToggle(bool val)
+        {
+            for (int i = 0; i < _listOfUIItems.Count; i++)
+            { _listOfUIItems[i].ButtonNavigation(val); }
         }
 
         void SetItemDescription(int index)
         {
             InventoryItem inventoryItem = _inventoryData.GetItemAt(index);
+            _inspector.FillDescription(null);
+
             if (!inventoryItem.IsEmpty)
             {
                 ItemSOBase item = inventoryItem.Item;
-                _itemDescription.SetDescription(item);
-            }
-            else
-            {
-                _itemDescription.ResetDescription();
-                return;
+                _inspector.FillDescription(item, false);
             }
         }
 
@@ -150,53 +188,14 @@ namespace Inventory.UI
                 _currentPressedItem = 0;
             }
 
+            _inspector.OnInventoryClose();
             gameObject.SetActive(false);
         }
+    }
 
-        #region Moving & Swapping Items (Just in Case Need)
-
-        //private void HandleShowItemActions(UIInventoryItem obj)
-        //{
-        //    int index = _listOfUIItems.IndexOf(obj);
-
-        //_inventoryData.RemoveItem(index);
-
-        //if (_isMovingItem == false && _listOfUIItems[index].IsSlotEmpty == false)
-        //{
-        //    _isMovingItem = true;
-        //    _currentMovingItem = index;
-
-        //    //set to show moving pointer
-        //    _listOfUIItems[index].ShowMovingItemPointer(_isMovingItem);
-
-        //    //remove press listener, change to swap listener
-        //    foreach (var item in _listOfUIItems)
-        //    {
-        //        item.OnItemPressed -= HandleShowItemActions;
-        //        item.OnItemPressed += HandleSwap;  
-        //    }
-        //}
-        //}
-
-        //private void HandleSwap(UIInventoryItem obj)
-        //{
-        //    int index = _listOfUIItems.IndexOf(obj);
-
-        //    _isMovingItem = false;
-
-        //    _inventoryData.SwapItems(_currentMovingItem, index);
-        //    OnSwapItems?.Invoke(_currentMovingItem, index);
-        //    _listOfUIItems[index].ShowMovingItemPointer(_isMovingItem);
-
-        //    _currentMovingItem = -1;
-
-        //    foreach (var item in _listOfUIItems)
-        //    {
-        //        item.OnItemPressed += HandleShowItemActions;
-        //        item.OnItemPressed -= HandleSwap;
-        //    } 
-        //}
-
-        #endregion
+    public enum InspectorType 
+    {
+        Normal,
+        Crafting,
     }
 }
