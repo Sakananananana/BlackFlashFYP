@@ -57,6 +57,7 @@ public class SceneLoader : MonoBehaviour
             _gameplaySceneLoadingOpHandle = _gameplayScene.sceneReference.LoadSceneAsync(LoadSceneMode.Additive);
             _gameplaySceneLoadingOpHandle.WaitForCompletion();
             _gameplaySceneInstance = _gameplaySceneLoadingOpHandle.Result;
+            _onSceneReady.RaiseEvent();
         }
     }
 #endif
@@ -77,7 +78,7 @@ public class SceneLoader : MonoBehaviour
 
     private void LoadMenu(GameSceneSO scene)
     { 
-        
+        //unload previous scene and gameplay scene
     }
 
     private void OnGameplayManagerLoaded(AsyncOperationHandle<SceneInstance> obj)

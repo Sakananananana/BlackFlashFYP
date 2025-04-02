@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6176127793712490495}
   m_Layer: 0
   m_Name: Boundary
-  m_TagString: Untagged
+  m_TagString: Boundary
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3653,8 +3653,11 @@ MonoBehaviour:
   _mapBoundaryBox: {fileID: 1577721216082515783}
   _exits: {fileID: 6274329318498265464}
   _onNewRoomEntered: {fileID: 11400000, guid: 5ead0f4bd4b83f14e9b569d1d1c16af9, type: 2}
+  _exitsObj: {fileID: 0}
   _enemyList:
   - {fileID: 8278052125973401609, guid: 371b4f07da3e3fc4aa0c864d39a88ebe, type: 3}
+  IsStartRoom: 0
+  IsEndRoom: 0
 --- !u!1 &3669391220263872407
 GameObject:
   m_ObjectHideFlags: 0

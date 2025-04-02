@@ -22,12 +22,6 @@ public class RoomExit : MonoBehaviour
         }
     }
 
-    private void Teleport()
-    {
-        _collider.transform.position += TeleportDirection(_exitDirection);
-        _collider = null;
-    }
-
     private Vector3 TeleportDirection(Direction dir)
     {
         switch (dir)

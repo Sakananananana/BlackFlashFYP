@@ -10,19 +10,109 @@ public class DungeonManager : MonoBehaviour
     //private parameters
     private RoomData _startRoom;
     private Vector2Int _startPos = Vector2Int.zero;
+    private Vector2Int _endPos;
     //To store processed room data & spawned position
     private Dictionary<Vector2Int, RoomData> _dungeonLayout = new Dictionary<Vector2Int, RoomData>();
     //To add unprocessed position in grid
     private Queue<Vector2Int> _roomToProcess = new Queue<Vector2Int>();
+    private Stack<Vector2Int> _roomToProc = new Stack<Vector2Int>();
 
     //Generate Async later 
     void Start() => GenerateDungeon();
 
     private void GenerateDungeon()
     {
-
         GenerateCorePath();
+        RoomValidCheck();
+        GetFinalRoom();
+        SpawnRooms();
+    }
 
+    private void SpawnRooms()
+    {
+        foreach (var roomToSpawn in _dungeonLayout)
+        {
+            Vector2Int gridPos = roomToSpawn.Key;
+            Vector3 spawnPos = new Vector3(gridPos.x * 20, gridPos.y * 12, 0);
+            RoomManager room = Instantiate(roomToSpawn.Value.RoomPrefab, spawnPos, Quaternion.identity);
+            room.transform.SetParent(transform);
+
+            if (gridPos == Vector2Int.zero)
+            {
+                room.IsStartRoom = true;
+            }
+
+            if (gridPos == _endPos)
+            { 
+                room.IsEndRoom = true;
+            }
+        }
+    }
+
+    private void GetFinalRoom()
+    {
+        int longestDist = 0;
+        int currentDist;
+
+        foreach (var room in _dungeonLayout)
+        {
+            currentDist = (int)(room.Key - _startPos).magnitude;
+            if (currentDist > longestDist)
+            { 
+                longestDist = currentDist;
+                _endPos = room.Key;
+            }
+        }
+    }
+
+    private void GenerateCorePath()
+    {
+        _startRoom = _roomDataList[Random.Range(0, _roomDataList.Count)];
+        while (_startRoom.RoomExits.Contains(Direction.Bottom))
+        { _startRoom = _roomDataList[Random.Range(0, _roomDataList.Count)]; }
+
+        _dungeonLayout.Add(_startPos, _startRoom);
+        _roomToProc.Push(_startPos);
+        //_roomToProcess.Enqueue(_startPos);
+
+        while (_dungeonLayout.Count < _minRoom && _roomToProc.Count > 0)
+        {
+            //Vector2Int pos = _roomToProcess.Dequeue();
+            Vector2Int pos = _roomToProc.Pop();
+            RoomData currentRoom = _dungeonLayout[pos];
+
+            foreach (Direction dir in currentRoom.RoomExits)
+            {
+                Vector2Int newPos = GetNewPosition(pos, dir);
+                if (_dungeonLayout.ContainsKey(newPos) || newPos.y < 0) { continue; }
+
+                Direction requiredEntry = GetOppositeDirection(dir);
+                List<RoomData> validRooms = GetRoomsWithEntry(requiredEntry);
+                if (validRooms.Count == 0) { continue; }
+
+                RoomData selectedRoom;
+                if (_roomToProc.Count <= 0)
+                {
+                    selectedRoom = validRooms.First();
+                    if (selectedRoom == _dungeonLayout[pos]) { selectedRoom = validRooms[Random.Range(1, 3)]; }
+                    _dungeonLayout.Add(newPos, selectedRoom);
+                }
+                else
+                {
+                    selectedRoom = validRooms[Random.Range(0, 2)];
+                    _dungeonLayout.Add(newPos, selectedRoom);
+                }
+                _roomToProc.Push(newPos);
+                //_roomToProcess.Enqueue(newPos);
+
+                if (_dungeonLayout.Count >= _minRoom) break;
+            }
+        }
+        _roomToProc.Clear();
+    }
+
+    private void RoomValidCheck()
+    {
         foreach (var room in _dungeonLayout)
         {
             _roomToProcess.Enqueue(room.Key);
@@ -31,9 +121,9 @@ public class DungeonManager : MonoBehaviour
         while (_roomToProcess.Count > 0)
         {
             Vector2Int currentPos = _roomToProcess.Dequeue();
-            RoomData curentRoom = _dungeonLayout[currentPos];
+            RoomData currentRoom = _dungeonLayout[currentPos];
 
-            foreach (Direction exitDir in curentRoom.RoomExits)
+            foreach (Direction exitDir in currentRoom.RoomExits)
             {
                 Vector2Int newPos = GetNewPosition(currentPos, exitDir); //Get position of the new room
                 Direction requiredEntry = GetOppositeDirection(exitDir);
@@ -42,101 +132,39 @@ public class DungeonManager : MonoBehaviour
                 {
                     RoomData temp = _dungeonLayout[newPos]; //Get the existed room data from the dictionary
 
-                    if (temp.RoomExits.Contains(requiredEntry)) //check if the new pos's room has the entry to the current room
-                    {
-                        continue;
-                    }
-                    else
-                    {
-
-                        List<Direction> dirList = new List<Direction>();
-                        for (int i = 0; i < curentRoom.RoomExits.Count; i++)
-                        {
-                            dirList.Add(curentRoom.RoomExits[i]);
-                        }
-                        dirList.Remove(exitDir);
-
-                        for (int i = 0; i < _roomDataList.Count; i++)
-                        {
-                            if (AreListsEqual(_roomDataList[i].RoomExits, dirList))
-                            {
-                                _dungeonLayout[currentPos] = _roomDataList[i];
-                                _roomToProcess.Enqueue(currentPos);
-                                continue;
-                            }
-                        }
-
-                    }
+                    if (temp.RoomExits.Contains(requiredEntry)) { continue; } //check if the new pos's room has the entry to the current room{ continue; }
+                    else { EditRoomExit(currentPos, exitDir); }
                 }
-                else
-                {
-                    List<Direction> tempDirList = new List<Direction>();
-                    for (int i = 0; i < curentRoom.RoomExits.Count; i++)
-                    {
-                        tempDirList.Add(curentRoom.RoomExits[i]);
-                    }
-                    tempDirList.Remove(exitDir);
-
-                    for (int i = 0; i < _roomDataList.Count; i++)
-                    {
-                        if (AreListsEqual(_roomDataList[i].RoomExits, tempDirList))
-                        {
-                            _dungeonLayout[currentPos] = _roomDataList[i];
-                            _roomToProcess.Enqueue(currentPos);
-                            continue;
-                        }
-                    }
-                }
+                else { EditRoomExit(currentPos , exitDir); }
             }
         }
-
-        InstantiateRooms();
     }
 
+    private void EditRoomExit(Vector2Int pos, Direction dir)
+    {
+        List<Direction> dirList = new List<Direction>();
+        for (int i = 0; i < _dungeonLayout[pos].RoomExits.Count; i++)
+        {
+            dirList.Add(_dungeonLayout[pos].RoomExits[i]);
+        }
+        dirList.Remove(dir);
 
+        for (int i = 0; i < _roomDataList.Count; i++)
+        {
+            if (AreListsEqual(_roomDataList[i].RoomExits, dirList))
+            {
+                _dungeonLayout[pos] = _roomDataList[i];
+                _roomToProcess.Enqueue(pos);
+                break;
+            }
+        }
+    }
 
     bool AreListsEqual<T>(List<T> list1, List<T> list2)
     {
         if (list1.Count != list2.Count) return false;
 
         return list1.All(list2.Contains);
-    }
-
-    //check if the entry has valid path if not replace with other room
-    private void GenerateCorePath()
-    {
-        _startRoom = _roomDataList[Random.Range(0, _roomDataList.Count)];
-
-        _dungeonLayout.Add(_startPos, _startRoom);
-        _roomToProcess.Enqueue(_startPos);
-
-        while (_dungeonLayout.Count < _minRoom && _roomToProcess.Count > 0)
-        {
-            Vector2Int pos = _roomToProcess.Dequeue();
-            RoomData currentRoom = _dungeonLayout[pos];
-
-            foreach (Direction dir in currentRoom.RoomExits)
-            {
-                Vector2Int newPos = GetNewPosition(pos, dir);
-                if (_dungeonLayout.ContainsKey(newPos))
-                { continue; }
-
-                Direction requiredEntry = GetOppositeDirection(dir);
-                List<RoomData> validRooms = GetRoomsWithEntry(requiredEntry, RoomType.Normal);
-
-                if (validRooms.Count == 0)
-                { continue; }
-
-                RoomData selectedRoom = validRooms[Random.Range(0, 2)];
-
-                _dungeonLayout.Add(newPos, selectedRoom);
-                _roomToProcess.Enqueue(newPos);
-
-                if (_dungeonLayout.Count >= _minRoom) break;
-            }
-        }
-
-        _roomToProcess.Clear();
     }
 
     Direction GetOppositeDirection(Direction dir)
@@ -154,6 +182,7 @@ public class DungeonManager : MonoBehaviour
                 }
         }
     }
+
     Vector2Int GetNewPosition(Vector2Int currentPos, Direction dir)
     {
         switch (dir)
@@ -166,29 +195,13 @@ public class DungeonManager : MonoBehaviour
         }
     }
 
-    private void InstantiateRooms()
-    {
-        foreach (var roomToSpawn in _dungeonLayout)
-        {
-            Vector2Int gridPos = roomToSpawn.Key;
-            Vector3 spawnPos = new Vector3(gridPos.x * 20, gridPos.y * 12, 0);
-            RoomManager room = Instantiate(roomToSpawn.Value.RoomPrefab, spawnPos, Quaternion.identity);
-            room.transform.SetParent(transform);
-
-            if (gridPos == Vector2Int.zero)
-            {
-                room.IsSpecialRoom = true;
-            }
-        }
-    }
-
-    private List<RoomData> GetRoomsWithEntry(Direction requiredEntry, RoomType normal)
+    private List<RoomData> GetRoomsWithEntry(Direction requiredEntry, RoomType type = RoomType.Normal)
     {
         List<RoomData> validRooms = new List<RoomData>();
 
         for (int i = 0; i < _roomDataList.Count; i++)
         {
-            if (_roomDataList[i].RoomExits.Contains(requiredEntry) && _roomDataList[i].RoomObjType == normal)
+            if (_roomDataList[i].RoomExits.Contains(requiredEntry) && _roomDataList[i].RoomObjType == type)
             {
                 validRooms.Add(_roomDataList[i]);
             }
@@ -197,6 +210,5 @@ public class DungeonManager : MonoBehaviour
         validRooms = validRooms.OrderByDescending(r => r.RoomExits.Count).ToList();
         return validRooms;
     }
-
 }
 

@@ -24,11 +24,6 @@ public class SpawnSystem : MonoBehaviour
         _onSceneReady.OnEventRaised -= SpawnProtagonist;   
     }
 
-    private void Start()
-    {
-        SpawnProtagonist();
-    }
-
     private void SpawnProtagonist()
     {
         //get the previous path (path = from where to current location)

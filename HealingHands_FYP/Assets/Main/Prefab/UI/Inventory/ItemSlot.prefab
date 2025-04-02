@@ -164,8 +164,8 @@ GameObject:
   - component: {fileID: 7373914208054640231}
   - component: {fileID: 1571360564917898835}
   - component: {fileID: 6442365711518672895}
-  - component: {fileID: 7581822424697957248}
   - component: {fileID: 4619401536050971762}
+  - component: {fileID: 8191217333458384100}
   m_Layer: 5
   m_Name: ItemSlot
   m_TagString: Untagged
@@ -278,8 +278,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7581822424697957248}
-        m_TargetAssemblyTypeName: UIInventoryItem, Assembly-CSharp
+      - m_Target: {fileID: 8191217333458384100}
+        m_TargetAssemblyTypeName: Inventory.UI.UIInventoryItem, Assembly-CSharp
         m_MethodName: OnItemSlotPressed
         m_Mode: 1
         m_Arguments:
@@ -307,8 +307,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 7581822424697957248}
-          m_TargetAssemblyTypeName: UIInventoryItem, Assembly-CSharp
+        - m_Target: {fileID: 8191217333458384100}
+          m_TargetAssemblyTypeName: Inventory.UI.UIInventoryItem, Assembly-CSharp
           m_MethodName: OnItemSlotSelected
           m_Mode: 1
           m_Arguments:
@@ -323,8 +323,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 7581822424697957248}
-          m_TargetAssemblyTypeName: UIInventoryItem, Assembly-CSharp
+        - m_Target: {fileID: 8191217333458384100}
+          m_TargetAssemblyTypeName: Inventory.UI.UIInventoryItem, Assembly-CSharp
           m_MethodName: OnItemSlotSelected
           m_Mode: 1
           m_Arguments:
@@ -335,22 +335,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &7581822424697957248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2630264209785010818}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0f294db208f08d4f9d89a8fa17a2382, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _itemImage: {fileID: 8652063324192964661}
-  _selIndicator: {fileID: 9031859550174269792}
-  _itemQuantityTxt: {fileID: 6538846625581350831}
-  IsSlotEmpty: 1
 --- !u!95 &4619401536050971762
 Animator:
   serializedVersion: 7
@@ -373,6 +357,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8191217333458384100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2630264209785010818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b5ddafa0e86ecb42ba3aaaceffb8904, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemSlot: {fileID: 1571360564917898835}
+  _itemImage: {fileID: 8652063324192964661}
+  _pressedIndicator: {fileID: 9031859550174269792}
+  IsSlotEmpty: 1
+  _itemQuantityTxt: {fileID: 6538846625581350831}
 --- !u!1 &7681000730080055862
 GameObject:
   m_ObjectHideFlags: 0

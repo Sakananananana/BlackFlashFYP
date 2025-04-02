@@ -206,18 +206,6 @@ namespace Inventory.Model
 
             return returnValue;
         }
-
-        #region Swapping Items (Just in Case Need)
-
-        //public void SwapItems(int itemIndex1, int itemIndex2)
-        //{
-        //    InventoryItem item1 = _inventoryItems[itemIndex1];
-        //    _inventoryItems[itemIndex1] = _inventoryItems[itemIndex2];
-        //    _inventoryItems[itemIndex2] = item1;
-        //    UpdateInventoryList();
-        //}
-
-        #endregion
     }
 
     [Serializable]

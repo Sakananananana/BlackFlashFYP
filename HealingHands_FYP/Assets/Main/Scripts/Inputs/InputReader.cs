@@ -8,6 +8,9 @@ namespace PlayerInputSystem
     [CreateAssetMenu(fileName = "InputReader", menuName = "Scriptable Objects/InputReader")]
     public class InputReader : ScriptableObject, GameInputs.IUIActions, GameInputs.IGameplayActions, GameInputs.IInventoryActions
     {
+        //Listens to interaction events
+        [SerializeField] private BoolEventChannelSO _interactionEvent; 
+        private bool _interactionEnabled;
         private GameInputs _gameInputs;
 
         public Action<Vector2> MoveEvent;
@@ -22,6 +25,8 @@ namespace PlayerInputSystem
 
         private void OnEnable()
         {
+            _interactionEvent.OnEventRaised += IsInteraction;
+
             if (_gameInputs == null)
             { 
                 _gameInputs = new GameInputs();
@@ -36,6 +41,8 @@ namespace PlayerInputSystem
 
         private void OnDisable()
         {
+            _interactionEvent.OnEventRaised -= IsInteraction;
+
             _gameInputs.Inventory.Disable();
             _gameInputs.Gameplay.Disable();
             _gameInputs.UI.Disable();
@@ -72,18 +79,24 @@ namespace PlayerInputSystem
             _gameInputs.UI.Disable();
         }
 
-        #region Gameplay Move(WASD), Attack(J), Dash( )
+        #region Gameplay Move(WASD), Attack/Interact(J), Dash( )
         public void OnMove(InputAction.CallbackContext context)
         {
             MoveEvent?.Invoke(context.ReadValue<Vector2>());
         }
 
-        public void OnAttack(InputAction.CallbackContext context)
+        public void OnInteract(InputAction.CallbackContext context)
         {
             if (context.phase == InputActionPhase.Started)
             {
-                AttackEvent?.Invoke();
+                if (_interactionEnabled) { InteractEvent?.Invoke(); }
+                else { AttackEvent?.Invoke(); }
             }
+        }
+
+        private void IsInteraction(bool val)
+        {
+            _interactionEnabled = (val) ? _interactionEnabled = true : _interactionEnabled = false;
         }
 
         public void OnDash(InputAction.CallbackContext context)
@@ -91,18 +104,6 @@ namespace PlayerInputSystem
             if (context.phase == InputActionPhase.Started)
             {
                 DashEvent?.Invoke();
-            }
-        }
-        #endregion
-
-        #region Interaction (J)
-        public void OnInteract(InputAction.CallbackContext context)
-        {
-            //probably can remove this, later add an interaction radius to Attack
-            //if in talking radius 
-            if (context.phase == InputActionPhase.Started)
-            {
-                InteractEvent?.Invoke();
             }
         }
         #endregion

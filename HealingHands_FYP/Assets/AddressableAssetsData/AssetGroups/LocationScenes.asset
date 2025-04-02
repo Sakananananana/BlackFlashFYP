@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: LocationScenes
   m_GUID: 99e255eb3cd98cc4b8280225a6061e7c
   m_SerializeEntries:
+  - m_GUID: 022294b40c15e234d861b78cc7e1a17a
+    m_Address: Assets/Main/Scene/Mountain/Mountain.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 613949d904bf5ec4aa8f08be101378c4
     m_Address: Assets/Main/Scene/Mountain/Mountain01.unity
     m_ReadOnly: 0
