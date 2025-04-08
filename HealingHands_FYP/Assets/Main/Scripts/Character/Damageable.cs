@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 public class Damageable : MonoBehaviour
 {
+    [SerializeField] private HealthConfigSO _healthConfigSO;
     [SerializeField] private HealthSO _currentHealthSO;
 
     [Header("Broadcasting on...")]
@@ -10,11 +11,18 @@ public class Damageable : MonoBehaviour
     [Header("Listening to...")]
     [SerializeField] private IntEventChannelSO _restoreHealth;
 
+    public Vector2 HitDirection { get; set; }
     public bool GetHit { get; set; }
     public bool IsDead { get; set; }
-
+    
     private void Awake()
     {
+        if (_currentHealthSO == null)
+            _currentHealthSO = ScriptableObject.CreateInstance<HealthSO>();
+
+        _currentHealthSO.SetMaxHealth(_healthConfigSO.InitialHealth);
+        _currentHealthSO.SetCurrentHealth(_healthConfigSO.InitialHealth);
+
         if (_updateHealthUI != null)
         { _updateHealthUI.RaiseEvent(); }
     }
@@ -34,22 +42,24 @@ public class Damageable : MonoBehaviour
     public void ReceiveHeal(int amount)
     {
         if (IsDead)
-        { return; }
+            return; 
 
         _currentHealthSO.RestoreHealth(amount);
     }
 
-    public void RecieveAttack(int damage)
+    public void RecieveAttack(int damage, Vector2 dmgDir = default)
     {
         if (IsDead || GetHit)
-        { return; }
+            return; 
 
         _currentHealthSO.InflictDamage(damage);
+        HitDirection = dmgDir;
+        GetHit = true;
+
+        Debug.Log(gameObject.name);
 
         if (_updateHealthUI != null)
         { _updateHealthUI.RaiseEvent(); }
-
-        StartCoroutine(AttackRecieveCD());
 
         if (_currentHealthSO.CurrentHealth <= 0)
         { 
@@ -69,14 +79,5 @@ public class Damageable : MonoBehaviour
     }
 
     public void Death()
-    { }
-
-    private IEnumerator AttackRecieveCD()
-    {
-        GetHit = true;
-
-        yield return new WaitForSeconds(0.5f);
-        GetHit = false;
-    }
-
+    { Debug.Log(gameObject.name + " is dead"); }
 }

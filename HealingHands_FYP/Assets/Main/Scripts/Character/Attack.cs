@@ -12,10 +12,10 @@ public class Attack : MonoBehaviour
     {
         if (!other.CompareTag(gameObject.tag))
         {
-            if (other.TryGetComponent(out IDamageable damageable))
+            if (other.TryGetComponent(out Damageable damageable))
             {
                 Vector2 dir = (other.transform.position - transform.position).normalized;
-                damageable.RecieveDamage(_attackConfig.AttackDamage, dir);
+                damageable.RecieveAttack(_attackConfig.AttackDamage, dir);
 
                 //move to state action later
                 _raiseCamShake?.RaiseEvent();

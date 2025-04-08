@@ -5140,7 +5140,8 @@ GameObject:
   - component: {fileID: 932691550731633721}
   - component: {fileID: 2561801424925880336}
   - component: {fileID: 3281437517430367309}
-  - component: {fileID: 148951071885628695}
+  - component: {fileID: 2044294029778467741}
+  - component: {fileID: 8439053524378262786}
   - component: {fileID: 995255118568367993}
   - component: {fileID: 2126520854685727094}
   - component: {fileID: 3723338242225842288}
@@ -5311,7 +5312,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &148951071885628695
+--- !u!114 &2044294029778467741
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5320,14 +5321,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 6730967558029425401}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad4dd7a354bc43a4d8dd15f81935b5a2, type: 3}
+  m_Script: {fileID: 11500000, guid: 9e84111ae66ea6e4a9ce34a642789dcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _characterSprite: {fileID: 2747891321043606743}
-  _maxHealth: 20
-  _currentHealth: 0
-  _onTakeDamage: {fileID: 11400000, guid: e67f5811d148d694e8994c3878b97359, type: 2}
-  _canTakeDamage: 1
+  _initialState: {fileID: 11400000, guid: 5e5c785ae4ce8b94b8e2e08f7eaebeff, type: 2}
+  CurrentStateName: 
+--- !u!114 &8439053524378262786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6730967558029425401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3f03b33135c2534d89269f604e777de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _healthConfigSO: {fileID: 0}
+  _currentHealthSO: {fileID: 0}
+  _updateHealthUI: {fileID: 0}
+  _restoreHealth: {fileID: 0}
 --- !u!114 &995255118568367993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5347,6 +5361,7 @@ MonoBehaviour:
   _attacker: {fileID: 1375189502604888421}
   _interactor: {fileID: 3638485648320794358}
   CanMove: 1
+  CanDash: 1
   MoveSpeed: 4
   DashForce: 8
 --- !u!114 &2126520854685727094

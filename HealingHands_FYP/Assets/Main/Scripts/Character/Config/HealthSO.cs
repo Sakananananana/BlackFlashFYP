@@ -10,6 +10,9 @@ public class HealthSO : ScriptableObject
     public int MaxHealth => _maxHealth;
     public int CurrentHealth => _currentHealth;
 
+    //Use to apply get hit effect
+    [SerializeField] private SpriteRenderer _characterSprite;
+
     public void SetMaxHealth(int newValue)
     {
         _maxHealth = newValue;

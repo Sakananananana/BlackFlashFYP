@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: LogicScriptableObjects
   m_GUID: e0e21e5464bdc214e909072c38117cd7
   m_SerializeEntries:
+  - m_GUID: 016208788963f8d47ad235a1c9c70d9b
+    m_Address: Assets/Main/ScriptableObjects/StateMachine
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2a33ed134c9dcda48b3d40a512a4445d
     m_Address: Assets/Main/ScriptableObjects/Input
     m_ReadOnly: 0

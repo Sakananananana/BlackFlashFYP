@@ -143,8 +143,7 @@ public class Toad : AnimationController, IDamageable
         { _projectileOrigin.transform.position = (Vector2)transform.position - Vector2.up; }
     }
 
-    
-
+    public void PlayFireProjectileAudio() => _audioChannelSO.OnAudioPlayRequested(_spitAudio, _audioConfig, transform.position);
     public void FireProjectile()
     {
         PlayFireProjectileAudio();
@@ -157,8 +156,6 @@ public class Toad : AnimationController, IDamageable
     { 
         _isAttacking = false;
     }
-
-    public void PlayFireProjectileAudio() => _audioChannelSO.OnAudioPlayRequested(_spitAudio, _audioConfig, transform.position);
 
     private IEnumerator AttackCycle()
     {

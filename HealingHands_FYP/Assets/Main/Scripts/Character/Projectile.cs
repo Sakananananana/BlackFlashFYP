@@ -12,7 +12,7 @@ public class Projectile : Attack
 
         if (!other.CompareTag(gameObject.tag))
         {
-            if (other.TryGetComponent(out IDamageable damageable))
+            if (other.TryGetComponent(out Damageable damageable))
             {
                 PlayHitProjectileAudio();
                 Destroy(gameObject);

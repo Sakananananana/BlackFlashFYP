@@ -133,6 +133,8 @@ GameObject:
   - component: {fileID: 9174055356384083300}
   - component: {fileID: 7956073504076399236}
   - component: {fileID: 2915384225508096553}
+  - component: {fileID: 8884170669376303920}
+  - component: {fileID: -8789179555895173788}
   m_Layer: 7
   m_Name: TOAD
   m_TagString: Enemy
@@ -317,3 +319,33 @@ MonoBehaviour:
     type: 3}
   _enemyHealth: 10
   _projectileOrigin: {fileID: 1777552558694563116}
+--- !u!114 &8884170669376303920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8278052125973401609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3f03b33135c2534d89269f604e777de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _healthConfigSO: {fileID: 0}
+  _currentHealthSO: {fileID: 0}
+  _updateHealthUI: {fileID: 0}
+  _restoreHealth: {fileID: 0}
+--- !u!114 &-8789179555895173788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8278052125973401609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e84111ae66ea6e4a9ce34a642789dcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _initialState: {fileID: 0}
+  CurrentStateName: 
