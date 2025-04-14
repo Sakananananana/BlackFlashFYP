@@ -130,6 +130,17 @@ namespace Inventory.Model
 
         #region Remove Item Logic
 
+        public void RemoveSpecificItem(ItemSOBase item)
+        {
+            for (int i = 0; i < _inventoryItems.Count; i++)
+            {
+                if (_inventoryItems[i].Item == item)
+                {
+                    RemoveItem(i);
+                }
+            }
+        }
+
         public void RemoveItem(int slotIndex)
         {
             if (_inventoryItems[slotIndex].ItemQuantity > 0)
