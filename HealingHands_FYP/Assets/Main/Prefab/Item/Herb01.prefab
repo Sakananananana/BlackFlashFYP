@@ -4969,9 +4969,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bb51421c49cb3b4eb13026fb7687f1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <InventoryItem>k__BackingField: {fileID: 11400000, guid: ef1b50c79f2215b4c9b28099c04004c9,
+  <InventoryItem>k__BackingField: {fileID: 11400000, guid: 11aa2dcb33b317940b0366936404b21f,
     type: 2}
-  <Quantity>k__BackingField: 1
+  <Quantity>k__BackingField: 2
 --- !u!58 &5002496386444513888
 CircleCollider2D:
   m_ObjectHideFlags: 0

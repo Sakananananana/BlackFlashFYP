@@ -30,6 +30,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d79f3712d9877eb4d857d0b0d180d7ca
+    m_Address: Assets/Main/ScriptableObjects/Dungeon/DungeonSO.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 137262d78c9ce704ebdb5a6179167354, type: 2}
   m_SchemaSet:

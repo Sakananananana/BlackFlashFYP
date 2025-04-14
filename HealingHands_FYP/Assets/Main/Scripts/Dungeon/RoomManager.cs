@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 //Room Manager
 public class RoomManager : MonoBehaviour
@@ -20,7 +21,7 @@ public class RoomManager : MonoBehaviour
     private bool _enteredRoom;
     private Transform _enemyPool;
     private Dictionary<Vector2Int, GameObject> _enemyToSpawn = new Dictionary<Vector2Int, GameObject>();
-
+    private List<Damageable> _damageables = new List<Damageable>();
 
     private void Start()
     {
@@ -78,13 +79,17 @@ public class RoomManager : MonoBehaviour
         {
             GameObject enemyObj = Instantiate(item.Value.gameObject, new Vector2(item.Key.x, item.Key.y), Quaternion.identity);
             enemyObj.transform.SetParent(_enemyPool);
+            if (enemyObj.TryGetComponent(out Damageable damageable))
+            {
+                _damageables.Add(damageable);
+            }
             enemyObj.SetActive(false);
         }
     }
 
     private IEnumerator BattleFinished()
     {
-        while (_enemyPool.childCount > 0)
+        while (_damageables.Any(e => !e.IsDead))
         {
             yield return null;
         }

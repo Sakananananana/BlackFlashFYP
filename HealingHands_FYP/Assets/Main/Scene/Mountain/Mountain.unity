@@ -176,18 +176,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d25fc2f8cba56234abc04ac78750b5a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minRoom: 5
+  _dungeonSO: {fileID: 11400000, guid: d79f3712d9877eb4d857d0b0d180d7ca, type: 2}
   _roomDataList:
-  - {fileID: 11400000, guid: 1646306893ef3e64098eff9a873baa9b, type: 2}
-  - {fileID: 11400000, guid: d09b9376a31c9d04e9580e927dd840bb, type: 2}
-  - {fileID: 11400000, guid: 214bb21d3c98d3442a3517df5f027e57, type: 2}
-  - {fileID: 11400000, guid: 1d34a05dbe120ad45b60e71f4a7c4873, type: 2}
-  - {fileID: 11400000, guid: 775509d4f8ce9b646a4f759c7a98acd1, type: 2}
-  - {fileID: 11400000, guid: 77ea81b9da79fe747b23075b96618fee, type: 2}
-  - {fileID: 11400000, guid: b9ae0b1e23baead498155a3f963d1465, type: 2}
-  - {fileID: 11400000, guid: 9abb365bbe7f32c4d884d87a0e2df0ca, type: 2}
-  - {fileID: 11400000, guid: 48ccaf784b124f44caa8840616943a5f, type: 2}
-  - {fileID: 11400000, guid: 96a116212a0e1ec4ea3cd1e47aa72ed4, type: 2}
+  - RoomPrefab: {fileID: 2919908996589659243, guid: 46f0720f5dee39541872f1b46c1eff00,
+      type: 3}
+    RoomExits: 0000000003000000
+  - RoomPrefab: {fileID: 3384128242609773387, guid: 8ea7f223254a5de43af6797a6716c8cc,
+      type: 3}
+    RoomExits: 0100000002000000
+  - RoomPrefab: {fileID: 9081799215868548449, guid: 06f82a47bd8071444bdbd02720f979b7,
+      type: 3}
+    RoomExits: 0100000003000000
+  - RoomPrefab: {fileID: 885871406365168220, guid: d99ac6e9d6dabf3448d4fbe5290cfc3f,
+      type: 3}
+    RoomExits: 0200000003000000
+  - RoomPrefab: {fileID: 7781988421736189245, guid: 34b1447404d726d45a36d5b9150894d3,
+      type: 3}
+    RoomExits: 0000000001000000
+  - RoomPrefab: {fileID: 7934154275397194740, guid: 921d1d98fb36d9a469018a9e9dc63d81,
+      type: 3}
+    RoomExits: 0000000002000000
+  - RoomPrefab: {fileID: 3476463682391589353, guid: 9fd6baf8aa229704087a7da8940416ec,
+      type: 3}
+    RoomExits: 01000000
+  - RoomPrefab: {fileID: 2103158484145638898, guid: cea39862670dbed419fcff0fd86c48fe,
+      type: 3}
+    RoomExits: 02000000
+  - RoomPrefab: {fileID: 3885754589487812098, guid: e09835be6e6e0114ca35686c359bd18b,
+      type: 3}
+    RoomExits: 03000000
+  - RoomPrefab: {fileID: 2407617256734837893, guid: f80e7f04120a49e4598de19fb545dc5c,
+      type: 3}
+    RoomExits: 00000000
 --- !u!1001 &367453206
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -264,16 +284,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1050801101763449463, guid: 4c48c12b07cba944d827e34df48df0ae,
-        type: 3}
-      propertyPath: m_CropFrame
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1050801101763449463, guid: 4c48c12b07cba944d827e34df48df0ae,
-        type: 3}
-      propertyPath: m_GridSnapping
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5869827385216056860, guid: 4c48c12b07cba944d827e34df48df0ae,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -332,7 +342,7 @@ PrefabInstance:
     - target: {fileID: 9163928801413157576, guid: 4c48c12b07cba944d827e34df48df0ae,
         type: 3}
       propertyPath: orthographic size
-      value: 5.142857
+      value: 6.857143
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -355,7 +365,7 @@ PrefabInstance:
     - target: {fileID: 8627595327455141252, guid: c4f9de49347b62c4fae464f9c9d3ab5c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -3.94
       objectReference: {fileID: 0}
     - target: {fileID: 8627595327455141252, guid: c4f9de49347b62c4fae464f9c9d3ab5c,
         type: 3}

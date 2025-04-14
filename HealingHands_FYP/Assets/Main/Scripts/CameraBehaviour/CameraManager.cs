@@ -13,6 +13,7 @@ public class CameraManager : MonoBehaviour
     [SerializeField] private VoidEventChannelSO _camShakeEvent = default;
     [SerializeField] private ColliderEventChannelSO _repositionCam;
     [SerializeField] private TransformEventChannelSO _onSetCameraPos;
+    [SerializeField] private VoidEventChannelSO _playerDeathEvent;
 
     private void OnEnable()
     {
@@ -43,5 +44,10 @@ public class CameraManager : MonoBehaviour
     private void SetCameraPosition(Transform target)
     {
         _vCam.Target.TrackingTarget = target;
+    }
+
+    private void DeathEvent()
+    {
+        _vCam.Lens.FieldOfView = Mathf.Lerp(_vCam.Lens.FieldOfView, _vCam.Lens.FieldOfView - 5, 3 * Time.deltaTime);
     }
 }

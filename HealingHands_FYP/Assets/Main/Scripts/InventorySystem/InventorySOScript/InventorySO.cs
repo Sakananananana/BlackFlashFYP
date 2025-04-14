@@ -10,7 +10,6 @@ namespace Inventory.Model
     public class InventorySO : ScriptableObject
     {
         [SerializeField] private List<InventoryItem> _inventoryItems;
-        [SerializeField] private ItemEventChannelSO _onInventoryUpdated;
 
         [field: SerializeField] public int InventorySize { get; private set; } = 15;
 

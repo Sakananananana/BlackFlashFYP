@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5171535740909419195}
   - component: {fileID: 158606209779224003}
   - component: {fileID: 6168430836547342168}
-  - component: {fileID: 669297593920491693}
+  - component: {fileID: 5882445163892416236}
   m_Layer: 6
   m_Name: Attacker
   m_TagString: Player
@@ -111,7 +111,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &669297593920491693
+--- !u!114 &5882445163892416236
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1375189502604888421}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b79d7c801cd59945b469c422b43a6a8, type: 3}
+  m_Script: {fileID: 11500000, guid: 3f01129c0d2b8c44e89ce23e0e6ddc95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _attackConfig: {fileID: 11400000, guid: 441958c489cd5b941adc9682554e99ae, type: 2}
@@ -175,7 +175,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 4026531840
+    m_Bits: 4160749568
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -289,7 +289,7 @@ Transform:
   m_GameObject: {fileID: 3920671899508071846}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.03, y: 0.02, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -926,15 +926,15 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 19
+    type: 10
     angle: 10
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
     donutRadius: 0.2
-    m_Position: {x: 0, y: 0, z: 0}
-    m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 0.8, y: 0.25, z: 0}
+    m_Position: {x: 0, y: -0.88, z: 0}
+    m_Rotation: {x: 0, y: 0, z: 70}
+    m_Scale: {x: 0.42, y: 0.42, z: 1}
     placementMode: 1
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -1070,7 +1070,7 @@ ParticleSystem:
           m_PostInfinity: 2
           m_RotationOrder: 4
     arc:
-      value: 360
+      value: 40
       mode: 0
       spread: 0
       speed:
@@ -1185,7 +1185,7 @@ ParticleSystem:
     rateOverDistance:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 2.5
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -5120,7 +5120,7 @@ Transform:
   m_GameObject: {fileID: 4908654016697056622}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.85, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5140,8 +5140,9 @@ GameObject:
   - component: {fileID: 932691550731633721}
   - component: {fileID: 2561801424925880336}
   - component: {fileID: 3281437517430367309}
-  - component: {fileID: 148951071885628695}
-  - component: {fileID: 995255118568367993}
+  - component: {fileID: 7922092038681136910}
+  - component: {fileID: 2044294029778467741}
+  - component: {fileID: 8439053524378262786}
   - component: {fileID: 2126520854685727094}
   - component: {fileID: 3723338242225842288}
   - component: {fileID: -60097484219637705}
@@ -5260,8 +5261,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.55811346}
-  m_Radius: 0.33
+  m_Offset: {x: 0, y: -0.4}
+  m_Radius: 0.3
 --- !u!50 &2561801424925880336
 Rigidbody2D:
   serializedVersion: 5
@@ -5311,7 +5312,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &148951071885628695
+--- !u!114 &7922092038681136910
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5323,12 +5324,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad4dd7a354bc43a4d8dd15f81935b5a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _characterSprite: {fileID: 2747891321043606743}
-  _maxHealth: 20
-  _currentHealth: 0
-  _onTakeDamage: {fileID: 11400000, guid: e67f5811d148d694e8994c3878b97359, type: 2}
-  _canTakeDamage: 1
---- !u!114 &995255118568367993
+  _inputReader: {fileID: 11400000, guid: 415aeb03029feca43b600e9ed9218756, type: 2}
+  DashPerformed: 0
+  AttackPerformed: 0
+  _playerCollider: {fileID: 932691550731633721}
+  _attacker: {fileID: 1375189502604888421}
+  _interactor: {fileID: 3638485648320794358}
+  CanMove: 1
+  CanDash: 1
+  MoveSpeed: 4
+  DashForce: 8
+--- !u!114 &2044294029778467741
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5337,18 +5343,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 6730967558029425401}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d60a10cc4192504db7eb794dd9a3026, type: 3}
+  m_Script: {fileID: 11500000, guid: 9e84111ae66ea6e4a9ce34a642789dcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _inputReader: {fileID: 11400000, guid: 415aeb03029feca43b600e9ed9218756, type: 2}
-  DashPerformed: 0
-  AttackPerformed: 0
-  _playerCollider: {fileID: 932691550731633721}
-  _attacker: {fileID: 1375189502604888421}
-  _interactor: {fileID: 3638485648320794358}
-  CanMove: 1
-  MoveSpeed: 4
-  DashForce: 8
+  _initialState: {fileID: 11400000, guid: 5e5c785ae4ce8b94b8e2e08f7eaebeff, type: 2}
+  CurrentStateName: 
+--- !u!114 &8439053524378262786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6730967558029425401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3f03b33135c2534d89269f604e777de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _healthConfigSO: {fileID: 11400000, guid: 16828352ec28aa143b4791d94169d903, type: 2}
+  _currentHealthSO: {fileID: 11400000, guid: f76bef832f627e949a5caf94911dec64, type: 2}
+  _updateHealthUI: {fileID: 11400000, guid: b8dbf5983ec02924a87d31904ba767dd, type: 2}
+  _restoreHealth: {fileID: 0}
 --- !u!114 &2126520854685727094
 MonoBehaviour:
   m_ObjectHideFlags: 0

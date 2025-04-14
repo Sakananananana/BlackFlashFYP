@@ -3,31 +3,39 @@ using UnityEngine.UI;
 
 public class HealthPointUI : MonoBehaviour
 {
-    [SerializeField] private HealthSO _protagonistHealth;
+    [SerializeField] private HealthSO _healthSO;
     [SerializeField] private Slider _slider;
 
-    [SerializeField] private FloatEventChannelSO _onProtagonistHealthChange;
     [SerializeField] private VoidEventChannelSO _healthChanges;
+
+
+    void Awake()
+    {
+        if (_healthSO == null)
+        {
+            _healthSO = GetComponentInParent<Damageable>()._currentHealthSO;
+            _healthChanges = GetComponentInParent<Damageable>()._updateHealthUI;
+        }
+    }
 
     void OnEnable()
     {
-        //_healthChanges.OnEventRaised += SetHealth;
-        _onProtagonistHealthChange.OnEventRaised += SetUIHealth;
-        _slider.value = 20;
+        _healthChanges.OnEventRaised += SetHealth;
+
+        _slider.maxValue = _healthSO.MaxHealth;
+        SetHealth();
     }
 
     private void OnDisable()
     {
-        _onProtagonistHealthChange.OnEventRaised -= SetUIHealth;
+        _healthChanges.OnEventRaised -= SetHealth;
     }
 
-    private void SetUIHealth(float value)
-    { 
-        _slider.value -= value;
-    }
+    private void SetHealth()
+    {
+        _slider.value = _healthSO.CurrentHealth;
 
-    //private void SetHealth(float He)
-    //{
-    //    _slider.value = _protagonistHealth.CurrentHealth;
-    //}
+        if (_healthSO.CurrentHealth <= 0)
+            gameObject.SetActive(false);
+    }
 }

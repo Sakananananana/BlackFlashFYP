@@ -101,7 +101,7 @@ namespace PlayerInputSystem
 
         public void OnDash(InputAction.CallbackContext context)
         {
-            if (context.phase == InputActionPhase.Started)
+            if (context.phase == InputActionPhase.Performed)
             {
                 DashEvent?.Invoke();
             }
