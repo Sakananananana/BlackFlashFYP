@@ -1,17 +1,21 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "MovementActionSO", menuName = "Scriptable Objects /State Machine /Actions /MovementActionSO")]
-public class MovementActionSO : StateAction
+public class MovementActionSO: StateActionSO
+{
+    protected override StateAction CreateAction() => new MovementAction();
+}
+public class MovementAction : StateAction
 {
     Rigidbody2D _rb2D;
-    PlayerControls _protagonist;
+    Protagonist _protagonist;
 
     public override void OnStateEnter(StateMachine stateMachine)
     {
         base.OnStateEnter(stateMachine);
 
         _rb2D = stateMachine.GetComponent<Rigidbody2D>();
-        _protagonist= stateMachine.GetComponent<PlayerControls>();
+        _protagonist= stateMachine.GetComponent<Protagonist>();
     }
 
     public override void OnFixedUpdate()

@@ -9,27 +9,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bafe798968ccee3458989d87b7cc520e, type: 3}
+  m_Script: {fileID: 11500000, guid: 4bd970c5eb1e3b8479943c38da5a9eec, type: 3}
   m_Name: Dash_State
   m_EditorClassIdentifier: 
-  Actions:
+  _actions:
+  - {fileID: 11400000, guid: 4524d510e3426bc48a66e84f3219db7a, type: 2}
   - {fileID: 11400000, guid: 0d3c9ccda805e8442b2a6ff6e7d54c3f, type: 2}
+  - {fileID: 11400000, guid: af8b53f969ed5c2459a100f678573ae1, type: 2}
   - {fileID: 11400000, guid: 12d26037afc566a459d5a7521bd26744, type: 2}
   - {fileID: 11400000, guid: c1e51a685782cd849be43f1d96851419, type: 2}
-  - {fileID: 11400000, guid: af8b53f969ed5c2459a100f678573ae1, type: 2}
   - {fileID: 11400000, guid: 1d58f2a9d61a5b34597cf759490ca0fd, type: 2}
   - {fileID: 11400000, guid: 30beea36fb2bdc44b9632a961ed9bb61, type: 2}
-  Transitions:
-  - ToState: {fileID: 11400000, guid: 5e5c785ae4ce8b94b8e2e08f7eaebeff, type: 2}
+  _transitions:
+  - _targetState: {fileID: 11400000, guid: 5e5c785ae4ce8b94b8e2e08f7eaebeff, type: 2}
     Decisions:
     - Decision: {fileID: 11400000, guid: 898075fa5fe374a49b75403491c97a20, type: 2}
       ExpectedResult: 1
       Operator: 0
-  - ToState: {fileID: 11400000, guid: 9e09328b49cf40b4e85a6fdc1ffe66b3, type: 2}
+  - _targetState: {fileID: 11400000, guid: 9e09328b49cf40b4e85a6fdc1ffe66b3, type: 2}
     Decisions:
     - Decision: {fileID: 11400000, guid: 898075fa5fe374a49b75403491c97a20, type: 2}
       ExpectedResult: 1
       Operator: 0
-    - Decision: {fileID: 11400000, guid: 0b366bfcd77fff14f9ac9e064bba0e36, type: 2}
+    - Decision: {fileID: 11400000, guid: 8c7928fdfdf3c5b49800e3d9fd3eb938, type: 2}
       ExpectedResult: 0
       Operator: 0

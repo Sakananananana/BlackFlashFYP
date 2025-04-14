@@ -9,16 +9,36 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bafe798968ccee3458989d87b7cc520e, type: 3}
+  m_Script: {fileID: 11500000, guid: 4bd970c5eb1e3b8479943c38da5a9eec, type: 3}
   m_Name: Attack_State
   m_EditorClassIdentifier: 
-  Actions:
-  - {fileID: 11400000, guid: 9d1aa76885d878144b6125ec1eb49e21, type: 2}
+  _actions:
   - {fileID: 11400000, guid: 44926b22e21c5db4a89113529ccc5f5b, type: 2}
+  - {fileID: 11400000, guid: 0d3c9ccda805e8442b2a6ff6e7d54c3f, type: 2}
+  - {fileID: 11400000, guid: 9d1aa76885d878144b6125ec1eb49e21, type: 2}
+  - {fileID: 11400000, guid: 30beea36fb2bdc44b9632a961ed9bb61, type: 2}
   - {fileID: 11400000, guid: 7231393b47d667e4889b055d17ae0c11, type: 2}
-  Transitions:
-  - ToState: {fileID: 11400000, guid: 5e5c785ae4ce8b94b8e2e08f7eaebeff, type: 2}
+  _transitions:
+  - _targetState: {fileID: 11400000, guid: 5f7a519997fcbb54ca5bc0002acdc869, type: 2}
+    Decisions:
+    - Decision: {fileID: 11400000, guid: 898075fa5fe374a49b75403491c97a20, type: 2}
+      ExpectedResult: 0
+      Operator: 0
+    - Decision: {fileID: 11400000, guid: 0c2c07c1f22136b4085f378402c1abf0, type: 2}
+      ExpectedResult: 0
+      Operator: 0
+  - _targetState: {fileID: 11400000, guid: 5e5c785ae4ce8b94b8e2e08f7eaebeff, type: 2}
     Decisions:
     - Decision: {fileID: 11400000, guid: ff7ff6c87f65f4646ac03044678aff9f, type: 2}
       ExpectedResult: 1
+      Operator: 0
+  - _targetState: {fileID: 11400000, guid: c8946ee1ca966e047bfd1f36addf6f89, type: 2}
+    Decisions:
+    - Decision: {fileID: 11400000, guid: af9724ee616c4f3429ecfdc6488704e6, type: 2}
+      ExpectedResult: 0
+      Operator: 0
+  - _targetState: {fileID: 11400000, guid: 06919dabfb5cd6c4f96ebe3069f32098, type: 2}
+    Decisions:
+    - Decision: {fileID: 11400000, guid: 13146fc9309e2274fbb01c4fd0f4fbfe, type: 2}
+      ExpectedResult: 0
       Operator: 0

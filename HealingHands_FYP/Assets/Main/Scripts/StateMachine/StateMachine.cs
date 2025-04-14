@@ -1,28 +1,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using UnityEngine.InputSystem.LowLevel;
 
 public class StateMachine : MonoBehaviour
 {
-    [SerializeField] private State _initialState;
+    [SerializeField] private StateSO _initialState;
+
+    public State _currentState { get; set; }
+    private Dictionary<Type, Component> _cachedComponent = new Dictionary<Type, Component>();
+    public Dictionary<ScriptableObject, object> _createdInstances = new Dictionary<ScriptableObject, object>();
 
     public string CurrentStateName;
-    private State _currentState { get; set; }
-    private Dictionary<Type, Component> _cachedComponent = new Dictionary<Type, Component>();
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        _currentState = _initialState;
-        _currentState.OnStateEnter(this);
+        _currentState = _initialState.GetState(this, _createdInstances);
+        _currentState.OnStateEnter();
     }
 
     // Update is called once per frame
     void Update()
     {
-        _currentState.OnUpdate();
-        CurrentStateName = _currentState.name;
+        _currentState.OnUpdate();  
     }
 
     private void FixedUpdate()
@@ -47,9 +45,10 @@ public class StateMachine : MonoBehaviour
 
     public void ChangeState(State transitionState)
     {
-        Debug.Log($"Changing State: {_currentState?.name} => {transitionState.name}");
         _currentState.OnStateExit();
+        Debug.Log($"From {_currentState._originSO.name} to {transitionState._originSO.name}");
         _currentState = transitionState;
-        _currentState.OnStateEnter(this);
+        CurrentStateName = _currentState._originSO.name;
+        _currentState.OnStateEnter();
     }
 }

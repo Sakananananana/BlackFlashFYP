@@ -180,12 +180,12 @@ TextureImporter:
       name: mc_die_side_0
       rect:
         serializedVersion: 2
-        x: 20
+        x: 21
         y: 0
         width: 82
         height: 127
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -203,11 +203,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 141
-        y: 0
-        width: 90
-        height: 126
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 1
+        width: 102
+        height: 127
+      alignment: 9
+      pivot: {x: 0.49019608, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -225,11 +225,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 262
-        y: 0
-        width: 94
-        height: 118
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 1
+        width: 114
+        height: 120
+      alignment: 9
+      pivot: {x: 0.4385965, y: 0.52916664}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -243,81 +243,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mc_die_side_3
-      rect:
-        serializedVersion: 2
-        x: 264
-        y: 101
-        width: 15
-        height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6e0919deb5f9c6bb0800000000000000
-      internalID: -4941399473955696410
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mc_die_side_4
-      rect:
-        serializedVersion: 2
-        x: 353
-        y: 108
-        width: 10
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 85eaa4ca729d0fab0800000000000000
-      internalID: -4976238823826870696
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mc_die_side_5
-      rect:
-        serializedVersion: 2
-        x: 388
-        y: 97
-        width: 13
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 421dad9b7a05e08b0800000000000000
-      internalID: -5184117439748976348
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: mc_die_side_6
       rect:
         serializedVersion: 2
-        x: 392
+        x: 388
         y: 0
-        width: 90
+        width: 118
         height: 118
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.42372882, y: 0.5381356}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -331,37 +265,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mc_die_side_7
-      rect:
-        serializedVersion: 2
-        x: 484
-        y: 105
-        width: 9
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1cb07f89b690b52f0800000000000000
-      internalID: -983181735917843519
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: mc_die_side_8
       rect:
         serializedVersion: 2
-        x: 520
-        y: 0
-        width: 90
+        x: 517
+        y: 2
+        width: 105
         height: 118
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.47619048, y: 0.5381356}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -379,11 +291,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 629
-        y: 0
+        y: 2
         width: 109
         height: 118
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5963303, y: 0.5381356}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -401,11 +313,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 904
-        y: 0
+        y: 1
         width: 90
         height: 118
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.51111114, y: 0.5381356}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -426,8 +338,8 @@ TextureImporter:
         y: 0
         width: 90
         height: 118
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.51111114, y: 0.5381356}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -449,7 +361,7 @@ TextureImporter:
         width: 90
         height: 118
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -462,121 +374,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: mc_die_side_13
-      rect:
-        serializedVersion: 2
-        x: 516
-        y: 92
-        width: 9
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4c649ba60d91b3840800000000000000
-      internalID: 5204782177291159236
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mc_die_side_14
-      rect:
-        serializedVersion: 2
-        x: 616
-        y: 101
-        width: 6
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b1091db0cae282f50800000000000000
-      internalID: 6856781749139116059
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mc_die_side_15
-      rect:
-        serializedVersion: 2
-        x: 235
-        y: 86
-        width: 9
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 483896e9581e5b7b0800000000000000
-      internalID: -5209009429979495548
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mc_die_side_16
-      rect:
-        serializedVersion: 2
-        x: 369
-        y: 91
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8dd91f885b29d2ed0800000000000000
-      internalID: -2437130514953298472
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mc_die_side_17
-      rect:
-        serializedVersion: 2
-        x: 499
-        y: 84
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 164de0232f2be7220800000000000000
-      internalID: 2485620797646754913
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 7f063b3478331de489d3c2e3989abc5a
     internalID: 0
     vertices: []
     indices: 

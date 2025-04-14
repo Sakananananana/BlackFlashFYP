@@ -2,6 +2,6 @@ using UnityEngine;
 
 interface IStateComponent
 {
-    void OnStateEnter();
+    void OnStateEnter(StateMachine stateMachine);
     void OnStateExit();
 }

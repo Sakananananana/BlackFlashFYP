@@ -1,7 +1,11 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "InvincibleFrameActionSO", menuName = "Scriptable Objects /State Machine /Actions /InvincibleFrameActionSO")]
-public class InvincibleFrameActionSO : StateAction
+public class InvincibleFrameActionSO : StateActionSO
+{
+    protected override StateAction CreateAction() => new InvincibleFrameAction();
+}
+public class InvincibleFrameAction : StateAction
 {
     private CircleCollider2D _collider;
 

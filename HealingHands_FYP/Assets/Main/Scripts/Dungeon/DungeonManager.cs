@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class DungeonManager : MonoBehaviour
 {
-    [SerializeField] private int _minRoom;
+    [SerializeField] private DungeonSO _dungeonSO;
     [SerializeField] private List<RoomData> _roomDataList = new List<RoomData>();
 
     //private parameters
     private RoomData _startRoom;
     private Vector2Int _startPos = Vector2Int.zero;
     private Vector2Int _endPos;
+
     //To store processed room data & spawned position
     private Dictionary<Vector2Int, RoomData> _dungeonLayout = new Dictionary<Vector2Int, RoomData>();
+
     //To add unprocessed position in grid
     private Queue<Vector2Int> _roomToProcess = new Queue<Vector2Int>();
     private Stack<Vector2Int> _roomToProc = new Stack<Vector2Int>();
@@ -22,6 +24,8 @@ public class DungeonManager : MonoBehaviour
 
     private void GenerateDungeon()
     {
+        _dungeonSO.DungeonProgress();
+        Debug.Log(_dungeonSO.RoomCount);
         GenerateCorePath();
         RoomValidCheck();
         GetFinalRoom();
@@ -73,11 +77,9 @@ public class DungeonManager : MonoBehaviour
 
         _dungeonLayout.Add(_startPos, _startRoom);
         _roomToProc.Push(_startPos);
-        //_roomToProcess.Enqueue(_startPos);
 
-        while (_dungeonLayout.Count < _minRoom && _roomToProc.Count > 0)
+        while (_dungeonLayout.Count < _dungeonSO.RoomCount && _roomToProc.Count > 0)
         {
-            //Vector2Int pos = _roomToProcess.Dequeue();
             Vector2Int pos = _roomToProc.Pop();
             RoomData currentRoom = _dungeonLayout[pos];
 
@@ -94,7 +96,7 @@ public class DungeonManager : MonoBehaviour
                 if (_roomToProc.Count <= 0)
                 {
                     selectedRoom = validRooms.First();
-                    if (selectedRoom == _dungeonLayout[pos]) { selectedRoom = validRooms[Random.Range(1, 3)]; }
+                    if (selectedRoom == _dungeonLayout[pos]) { selectedRoom = validRooms[Random.Range(0, 2)]; }
                     _dungeonLayout.Add(newPos, selectedRoom);
                 }
                 else
@@ -103,9 +105,8 @@ public class DungeonManager : MonoBehaviour
                     _dungeonLayout.Add(newPos, selectedRoom);
                 }
                 _roomToProc.Push(newPos);
-                //_roomToProcess.Enqueue(newPos);
 
-                if (_dungeonLayout.Count >= _minRoom) break;
+                if (_dungeonLayout.Count >= _dungeonSO.RoomCount) break;
             }
         }
         _roomToProc.Clear();
@@ -195,13 +196,13 @@ public class DungeonManager : MonoBehaviour
         }
     }
 
-    private List<RoomData> GetRoomsWithEntry(Direction requiredEntry, RoomType type = RoomType.Normal)
+    private List<RoomData> GetRoomsWithEntry(Direction requiredEntry)
     {
         List<RoomData> validRooms = new List<RoomData>();
 
         for (int i = 0; i < _roomDataList.Count; i++)
         {
-            if (_roomDataList[i].RoomExits.Contains(requiredEntry) && _roomDataList[i].RoomObjType == type)
+            if (_roomDataList[i].RoomExits.Contains(requiredEntry))
             {
                 validRooms.Add(_roomDataList[i]);
             }
@@ -210,5 +211,14 @@ public class DungeonManager : MonoBehaviour
         validRooms = validRooms.OrderByDescending(r => r.RoomExits.Count).ToList();
         return validRooms;
     }
+
+    private RoomData GetRoom()
+    {
+        int i = 0;
+
+        return _roomDataList[i];
+    }
 }
 
+public enum GetRoomMode
+{ Specific, Random}

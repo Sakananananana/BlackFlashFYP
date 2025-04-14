@@ -9,8 +9,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bafe798968ccee3458989d87b7cc520e, type: 3}
+  m_Script: {fileID: 11500000, guid: 4bd970c5eb1e3b8479943c38da5a9eec, type: 3}
   m_Name: Toad_Idle
   m_EditorClassIdentifier: 
-  Actions: []
-  Transitions: []
+  _actions: []
+  _transitions:
+  - _targetState: {fileID: 11400000, guid: 45c25dc472d5beb4db882cbfe53d7314, type: 2}
+    Decisions:
+    - Decision: {fileID: 11400000, guid: 23840ac75997eb240a6109fc64c9769f, type: 2}
+      ExpectedResult: 0
+      Operator: 0
+  - _targetState: {fileID: 11400000, guid: ad51bc205b1601c419968f8559610754, type: 2}
+    Decisions:
+    - Decision: {fileID: 11400000, guid: b1d655bfd14bb794e9905af9d3b0e649, type: 2}
+      ExpectedResult: 0
+      Operator: 0
+  - _targetState: {fileID: 11400000, guid: 198febbfd9915bb4a803397400a2118f, type: 2}
+    Decisions:
+    - Decision: {fileID: 11400000, guid: 45b13c135cd4ebc40a8e96a4ebbc1c46, type: 2}
+      ExpectedResult: 0
+      Operator: 0

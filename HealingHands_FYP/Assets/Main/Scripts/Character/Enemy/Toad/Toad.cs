@@ -3,7 +3,7 @@ using UnityEngine;
 using Unity.Cinemachine;
 using System.Collections;
 
-public class Toad : AnimationController, IDamageable
+public class Toad : AnimationController
 {
     //Move To Audio Script Later
     [SerializeField] private AudioChannelSO _audioChannelSO;
@@ -11,15 +11,14 @@ public class Toad : AnimationController, IDamageable
     [SerializeField] private AudioConfiguration _audioConfig;
 
     [SerializeField] private GameObject _projectile;
-    [SerializeField] private float _enemyHealth = 20;
     public Action<float> enemyHealthChange;
 
     //Need to change orientation based on character facing
     [SerializeField] private Transform _projectileOrigin;
 
     //Damage
-    private bool _canTakeDamange = true;
-    private bool _isAttacking = false;
+    public bool CanTakeDamange = true;
+    public bool IsAttacking = false;
 
     //Animation & Sprite
     private SpriteRenderer _sprRenderer;
@@ -28,14 +27,11 @@ public class Toad : AnimationController, IDamageable
     private GameObject _player;
     private float _angle;
 
-    //private CinemachineImpulseSource _impulseSource;
-
     protected override void Awake()
     {
         base.Awake();
         
         _sprRenderer = GetComponent<SpriteRenderer>();
-        //_impulseSource = GetComponent<CinemachineImpulseSource>();
     }
 
     private void OnEnable()
@@ -60,64 +56,12 @@ public class Toad : AnimationController, IDamageable
     {
         _direction = (_player.transform.position - transform.position).normalized;
 
-        if (_isAttacking == false)
+        if (IsAttacking == false)
         {
             SetAnimationFloat();
             Flip();
             SetProjectileOrigin();
         }      
-    }
-
-    private void SetAnimationFloat()
-    {
-        ////If _direction's Vec2 is equal to zero this will not be called!
-        if (_direction != Vector2.zero)
-        {
-            if (45 >= _angle && _angle >= -45)
-            { _dirUp = 1; }
-            else { _dirUp = 0; }
-
-            if (-135 >= _angle && _angle >= -180 || 135 <= _angle && _angle <= 180)
-            { _dirDown = 1; }
-            else { _dirDown = 0; }
-
-            if (135 >= _angle && _angle >= 45)
-            { _dirRight = 1; }
-            else { _dirRight = 0; }
-
-            if (-135 <= _angle && _angle <= -45)
-            { _dirLeft = 1; }
-            else { _dirLeft = 0; }
-
-            _anim.SetFloat("Up", _dirUp);
-            _anim.SetFloat("Down", _dirDown);
-            _anim.SetFloat("Left", _dirLeft);
-            _anim.SetFloat("Right", _dirRight);
-        }
-    }
-
-    public void RecieveDamage(float damage, Vector3 dmgDir)
-    {
-        if (_canTakeDamange == true)
-        {
-            _canTakeDamange = false;
-
-            _enemyHealth -= damage;
-            enemyHealthChange?.Invoke(damage);
-
-            StartCoroutine(DamageRecieveCooldown());
-            StartCoroutine(DamageFlash());
-        }
-
-        if (_enemyHealth <= 0)
-        {
-            Death();
-        }
-    }
-
-    public void Death()
-    {
-        Destroy(gameObject);
     }
 
     private void Flip()
@@ -143,6 +87,34 @@ public class Toad : AnimationController, IDamageable
         { _projectileOrigin.transform.position = (Vector2)transform.position - Vector2.up; }
     }
 
+    private void SetAnimationFloat()
+    {
+        //If _direction's Vec2 is equal to zero this will not be called!
+        if (_direction != Vector2.zero)
+        {
+            if (45 >= _angle && _angle >= -45)
+            { _dirUp = 1; }
+            else { _dirUp = 0; }
+
+            if (-135 >= _angle && _angle >= -180 || 135 <= _angle && _angle <= 180)
+            { _dirDown = 1; }
+            else { _dirDown = 0; }
+
+            if (135 >= _angle && _angle >= 45)
+            { _dirRight = 1; }
+            else { _dirRight = 0; }
+
+            if (-135 <= _angle && _angle <= -45)
+            { _dirLeft = 1; }
+            else { _dirLeft = 0; }
+
+            _anim.SetFloat("Up", _dirUp);
+            _anim.SetFloat("Down", _dirDown);
+            _anim.SetFloat("Left", _dirLeft);
+            _anim.SetFloat("Right", _dirRight);
+        }
+    }
+
     public void PlayFireProjectileAudio() => _audioChannelSO.OnAudioPlayRequested(_spitAudio, _audioConfig, transform.position);
     public void FireProjectile()
     {
@@ -154,31 +126,22 @@ public class Toad : AnimationController, IDamageable
 
     public void FinishAttack()
     { 
-        _isAttacking = false;
+        IsAttacking = false;
     }
 
     private IEnumerator AttackCycle()
     {
         while (_projectile != null)
         {
-            _isAttacking = false;
             yield return new WaitForSeconds(3);
-
-            _isAttacking = true;
-            _anim.SetBool("IsAttacking", true);
-
-            while (_isAttacking == true)
-            {
-                yield return null;
-            }
-            _anim.SetBool("IsAttacking", false);
+            IsAttacking = true;
         }
     }
 
     private IEnumerator DamageRecieveCooldown()
     {
         yield return new WaitForSeconds(0.8f);
-        _canTakeDamange = true;
+        CanTakeDamange = true;
     }
 
     private IEnumerator DamageFlash()

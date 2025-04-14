@@ -87,7 +87,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 20
   m_WholeNumbers: 0
-  m_Value: 20
+  m_Value: 2.78
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -103,10 +103,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348bb4c400acca04abfcde90ff73307b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _protagonistHealth: {fileID: 11400000, guid: f76bef832f627e949a5caf94911dec64, type: 2}
+  _healthSO: {fileID: 11400000, guid: f76bef832f627e949a5caf94911dec64, type: 2}
   _slider: {fileID: 271776223586020400}
-  _onProtagonistHealthChange: {fileID: 11400000, guid: e67f5811d148d694e8994c3878b97359,
-    type: 2}
   _healthChanges: {fileID: 11400000, guid: b8dbf5983ec02924a87d31904ba767dd, type: 2}
 --- !u!1 &3495141928828924432
 GameObject:
@@ -251,7 +249,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: -8227546954408941770, guid: 316f7e0c655c7ac4ea024cd2698cc0ac,
     type: 3}
-  m_Type: 1
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -318,7 +316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.761823, g: 1, b: 0.39811313, a: 1}
+  m_Color: {r: 1, g: 0.437445, b: 0.3254717, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

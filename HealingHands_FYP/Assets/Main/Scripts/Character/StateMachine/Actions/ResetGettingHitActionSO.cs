@@ -1,7 +1,12 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "ResetGettingHitActionSO", menuName = "Scriptable Objects /State Machine /Actions /ResetGettingHitActionSO")]
-public class ResetGettingHitActionSO : StateAction
+public class ResetGettingHitActionSO : StateActionSO
+{
+    protected override StateAction CreateAction() => new ResetGettingHitAction();
+}
+
+public class ResetGettingHitAction : StateAction
 {
     Damageable _damageable;
 

@@ -8,12 +8,13 @@ public class Projectile : Attack
 
     protected override void OnTriggerEnter2D(Collider2D other)
     {
-        base.OnTriggerEnter2D(other);
-
         if (!other.CompareTag(gameObject.tag))
         {
             if (other.TryGetComponent(out Damageable damageable))
             {
+                Vector2 dir = (other.transform.position - transform.position).normalized;
+                damageable.RecieveAttack(_attackConfig.AttackDamage, dir);
+
                 PlayHitProjectileAudio();
                 Destroy(gameObject);
             } 

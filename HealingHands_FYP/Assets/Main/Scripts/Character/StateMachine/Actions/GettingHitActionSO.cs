@@ -1,7 +1,12 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "GettingHitActionSO", menuName = "Scriptable Objects /State Machine /Actions /GettingHitActionSO")]
-public class GettingHitActionSO : StateAction
+public class GettingHitActionSO : StateActionSO
+{
+    protected override StateAction CreateAction() => new GettingHitAction();
+}
+
+public class GettingHitAction : StateAction
 {
     private Rigidbody2D _rb2D;
     private Damageable _damageable;
