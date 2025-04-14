@@ -13,6 +13,12 @@ MonoBehaviour:
   m_Name: InventorySO
   m_EditorClassIdentifier: 
   _inventoryItems:
+  - ItemQuantity: 1
+    Item: {fileID: 11400000, guid: 11aa2dcb33b317940b0366936404b21f, type: 2}
+  - ItemQuantity: 6
+    Item: {fileID: 11400000, guid: c869e2df7b939de45a3125c0bfc1f89d, type: 2}
+  - ItemQuantity: 3
+    Item: {fileID: 11400000, guid: 86add08bc2217444aaf7b030701cc765, type: 2}
   - ItemQuantity: 0
     Item: {fileID: 0}
   - ItemQuantity: 0
@@ -37,17 +43,9 @@ MonoBehaviour:
     Item: {fileID: 0}
   - ItemQuantity: 0
     Item: {fileID: 0}
-  - ItemQuantity: 0
-    Item: {fileID: 0}
-  - ItemQuantity: 0
-    Item: {fileID: 0}
-  - ItemQuantity: 0
-    Item: {fileID: 0}
-  _onInventoryUpdated: {fileID: 11400000, guid: 4a5f219cc086c12449fe10afbcf38cfc,
-    type: 2}
   <InventorySize>k__BackingField: 15
   ItemIDList:
-  - {fileID: 11400000, guid: 0d0f8298b6b1e0c41828b20f3db92705, type: 2}
-  - {fileID: 11400000, guid: e4e53901d36cd4042a6366f8ffe0b219, type: 2}
-  - {fileID: 11400000, guid: 63e7b4b9608fa8e4eaf985f74f39bf19, type: 2}
-  - {fileID: 11400000, guid: ef1b50c79f2215b4c9b28099c04004c9, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
