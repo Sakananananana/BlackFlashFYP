@@ -40,6 +40,7 @@ public class TaskUIManager : MonoBehaviour
     public List<ItemSOBase> itemPool; // Assign item SOs in Inspector
     public GameObject[] taskSlots; // UI panels with Text & Icon child
     public GameObject taskUIPrefab;
+    public ShopManager shopManager;
 
     private List<Task> activeTasks = new List<Task>();
 
@@ -109,6 +110,27 @@ public class TaskUIManager : MonoBehaviour
             requiredAmount = randomAmount
         };
     }
+    public void CompleteTaskItem(int index)
+    {
+        if (index < 0 || index >= activeTasks.Count) return;
+
+        Task task = activeTasks[index];
+
+        shopManager.SellItem(task.requiredItem, task.requiredAmount);
+        bool success = playerInventory.RemoveTaskItem(task.requiredItem, task.requiredAmount);
+        // Example call
+
+        if (success)
+        {
+            Debug.Log("Task completed and items removed!");
+            CompleteTask(index);
+        }
+        else
+        {
+            Debug.Log("Task not completed. Not enough items.");
+        }
+    }
+
 }
 
 

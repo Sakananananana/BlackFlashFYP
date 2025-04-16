@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
 
-public enum InteractionType { None, PickUp, Craft}
+public enum InteractionType { None, PickUp, Craft,Shop}
 
 public class Interaction 
 {
@@ -22,6 +22,7 @@ public class InterectionManager : MonoBehaviour
 {
     [SerializeField] private InputReader _inputReader;
     [SerializeField] private BoolEventChannelSO _onCraftingStarted;
+    [SerializeField] private BoolEventChannelSO _onShoppingStarted;
 
     private LinkedList<Interaction> _interactable = new LinkedList<Interaction>();
     private InteractionType _currentInteraction;
@@ -39,13 +40,18 @@ public class InterectionManager : MonoBehaviour
         Interaction newPotentialInteraction = new Interaction(InteractionType.None, obj);
 
         if (obj.CompareTag("Pickable"))
-        { 
-            newPotentialInteraction._type = InteractionType.PickUp; 
+        {
+            newPotentialInteraction._type = InteractionType.PickUp;
         }
         else if (obj.CompareTag("CraftingPlace"))
-        { 
+        {
             newPotentialInteraction._type = InteractionType.Craft;
             _onCraftingStarted.RaiseEvent(true);
+        }
+        else if (obj.CompareTag("Shop"))
+        {
+            newPotentialInteraction._type = InteractionType.Shop;
+            _onShoppingStarted.RaiseEvent(true);
         }
 
         if (newPotentialInteraction._type != InteractionType.None)

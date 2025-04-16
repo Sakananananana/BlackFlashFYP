@@ -139,6 +139,49 @@ namespace Inventory.Model
                 }
             }
         }
+        public bool RemoveTaskItem(ItemSOBase item, int amountToRemove)
+        {
+            int totalAvailable = 0;
+
+            // First pass: count how many are available
+            for (int i = 0; i < _inventoryItems.Count; i++)
+            {
+                if (_inventoryItems[i].Item == item)
+                {
+                    totalAvailable += _inventoryItems[i].ItemQuantity;
+                }
+            }
+
+            // Not enough items
+            if (totalAvailable < amountToRemove)
+            {
+                Debug.Log($"Not enough {item.ItemName} to complete the task. Needed: {amountToRemove}, Available: {totalAvailable}");
+                return false;
+            }
+
+            // Second pass: remove items
+            for (int i = 0; i < _inventoryItems.Count && amountToRemove > 0; i++)
+            {
+                if (_inventoryItems[i].Item == item)
+                {
+                    int quantityInSlot = _inventoryItems[i].ItemQuantity;
+
+                    if (quantityInSlot <= amountToRemove)
+                    {
+                        amountToRemove -= quantityInSlot;
+                        _inventoryItems[i] = InventoryItem.GetEmptyItem();
+                    }
+                    else
+                    {
+                        _inventoryItems[i] = _inventoryItems[i].ChangeQuantity(quantityInSlot - amountToRemove);
+                        amountToRemove = 0;
+                    }
+                }
+            }
+
+            return true;
+        }
+
 
         public void RemoveItem(int slotIndex)
         {
