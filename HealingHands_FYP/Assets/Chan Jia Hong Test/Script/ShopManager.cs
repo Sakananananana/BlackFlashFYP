@@ -1,10 +1,30 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using Inventory.Model;
 
 public class ShopManager : MonoBehaviour
 {
     public InventorySO inventory;
     public int totalCoins;
+    [SerializeField] GameObject _firstButton;
+    [SerializeField] private GameObject shopPanel;
+
+    public void OpenShop()
+    {
+        if (shopPanel != null)
+        {
+            EventSystem.current.SetSelectedGameObject(_firstButton);
+            shopPanel.SetActive(true);
+        }
+    }
+
+    public void CloseShop()
+    {
+        if (shopPanel != null)
+        {
+            shopPanel.SetActive(false);
+        }
+    }
 
     public void SellItem(ItemSOBase itemToSell, int quantity)
     {

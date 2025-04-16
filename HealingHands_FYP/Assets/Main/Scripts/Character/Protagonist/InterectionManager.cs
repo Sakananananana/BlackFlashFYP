@@ -23,6 +23,7 @@ public class InterectionManager : MonoBehaviour
     [SerializeField] private InputReader _inputReader;
     [SerializeField] private BoolEventChannelSO _onCraftingStarted;
     [SerializeField] private BoolEventChannelSO _onShoppingStarted;
+    [SerializeField] private BoolEventChannelSO _interactionEvent;
 
     private LinkedList<Interaction> _interactable = new LinkedList<Interaction>();
     private InteractionType _currentInteraction;
@@ -51,6 +52,7 @@ public class InterectionManager : MonoBehaviour
         else if (obj.CompareTag("Shop"))
         {
             newPotentialInteraction._type = InteractionType.Shop;
+            _interactionEvent.RaiseEvent(true);
             _onShoppingStarted.RaiseEvent(true);
         }
 
@@ -70,6 +72,10 @@ public class InterectionManager : MonoBehaviour
                 if (currentNode.Value._type == InteractionType.Craft)
                 { _onCraftingStarted.RaiseEvent(false); }
 
+                if (currentNode.Value._type == InteractionType.Shop)
+                { _onShoppingStarted.RaiseEvent(false);
+                    _interactionEvent.RaiseEvent(false);
+                }
                 _interactable.Remove(currentNode);
                 break;
             }

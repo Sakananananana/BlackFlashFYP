@@ -19,6 +19,8 @@ namespace PlayerInputSystem
         public Action InteractEvent;
         public Action OpenInventoryEvent;
         public Action CloseInventoryEvent;
+        public Action OpenShopEvent;
+        public Action CloseShopEvent;
         public Action PressedEvent;
         public Action PauseEvent;
         public Action ResumeEvent;
@@ -129,6 +131,25 @@ namespace PlayerInputSystem
             }
         }
         #endregion
+
+        public void OnOpenShop(InputAction.CallbackContext context)
+        {
+            if (context.phase == InputActionPhase.Started)
+            {
+                OpenShopEvent?.Invoke();
+                SetUI(); // Optional: switch to inventory input map if needed
+            }
+        }
+
+        public void OnCloseShop(InputAction.CallbackContext context)
+        {
+            if (context.phase == InputActionPhase.Started)
+            {
+                OpenShopEvent?.Invoke();
+                SetGameplay(); // Optional: switch to inventory input map if needed
+            }
+        }
+
 
         #region Pause/Resume (Escape)
         public void OnPause(InputAction.CallbackContext context)
