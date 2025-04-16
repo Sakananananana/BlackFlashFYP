@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a324e691e5fc55f46a83107286feb3cf, type: 3}
   m_Name: DungeonSO
   m_EditorClassIdentifier: 
-  _baseRoomCount: 5
+  CurrentLvL: 2
+  BaseRoomCount: 5
+  CurrentRoomCount: 9
+  HasBossFightComplete: 0
   _roomDataList:
   - RoomPrefab: {fileID: 3476463682391589353, guid: 9fd6baf8aa229704087a7da8940416ec,
       type: 3}
@@ -44,6 +47,15 @@ MonoBehaviour:
   - RoomPrefab: {fileID: 2407617256734837893, guid: f80e7f04120a49e4598de19fb545dc5c,
       type: 3}
     RoomExits: 00000000
-  - RoomPrefab: {fileID: 2407617256734837893, guid: f80e7f04120a49e4598de19fb545dc5c,
+  - RoomPrefab: {fileID: 7781988421736189245, guid: 34b1447404d726d45a36d5b9150894d3,
       type: 3}
-    RoomExits: 00000000
+    RoomExits: 0000000001000000
+  - RoomPrefab: {fileID: 7934154275397194740, guid: 921d1d98fb36d9a469018a9e9dc63d81,
+      type: 3}
+    RoomExits: 0000000002000000
+  - RoomPrefab: {fileID: 1131255594674117706, guid: bbe281d99696f8a459809afad6955704,
+      type: 3}
+    RoomExits: 000000000200000003000000
+  - RoomPrefab: {fileID: 2919908996589659243, guid: 46f0720f5dee39541872f1b46c1eff00,
+      type: 3}
+    RoomExits: 0000000003000000
