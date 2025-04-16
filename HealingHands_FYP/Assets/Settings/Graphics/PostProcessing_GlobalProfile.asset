@@ -14,20 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   postExposure:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 0.5
   contrast:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 4.8
   colorFilter:
-    m_OverrideState: 0
-    m_Value: {r: 1, g: 1, b: 1, a: 1}
+    m_OverrideState: 1
+    m_Value: {r: 0.8018868, g: 0.8018868, b: 0.8018868, a: 1}
   hueShift:
     m_OverrideState: 0
     m_Value: 0
   saturation:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 1
 --- !u!114 &-5295712149672619773
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -43,13 +43,13 @@ MonoBehaviour:
   active: 1
   shadows:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.9726514, z: 0.92006284, w: 0.099585064}
+    m_Value: {x: 1, y: 0.9726514, z: 0.92006284, w: 0.037809003}
   midtones:
     m_OverrideState: 1
-    m_Value: {x: 0.9451737, y: 1, z: 0.7496779, w: 0}
+    m_Value: {x: 0.98669815, y: 1, z: 0.970934, w: 0}
   highlights:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.99468505, z: 0.6321019, w: 0.44813278}
+    m_Value: {x: 1, y: 0.77954876, z: 0, w: 0.06203241}
   shadowsStart:
     m_OverrideState: 1
     m_Value: 0
@@ -79,6 +79,7 @@ MonoBehaviour:
   - {fileID: -8780549830121506466}
   - {fileID: -5295712149672619773}
   - {fileID: 8635338788416280180}
+  - {fileID: 4531948651015412314}
 --- !u!114 &2005881692311750794
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -119,6 +120,46 @@ MonoBehaviour:
   maxNits:
     m_OverrideState: 0
     m_Value: 1000
+--- !u!114 &4531948651015412314
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdfbdbb87d3286943a057f7791b43141, type: 3}
+  m_Name: ChannelMixer
+  m_EditorClassIdentifier: 
+  active: 1
+  redOutRedIn:
+    m_OverrideState: 1
+    m_Value: 100
+  redOutGreenIn:
+    m_OverrideState: 1
+    m_Value: -19
+  redOutBlueIn:
+    m_OverrideState: 1
+    m_Value: 0
+  greenOutRedIn:
+    m_OverrideState: 1
+    m_Value: 18
+  greenOutGreenIn:
+    m_OverrideState: 1
+    m_Value: 64
+  greenOutBlueIn:
+    m_OverrideState: 1
+    m_Value: 0
+  blueOutRedIn:
+    m_OverrideState: 1
+    m_Value: 0
+  blueOutGreenIn:
+    m_OverrideState: 1
+    m_Value: 0
+  blueOutBlueIn:
+    m_OverrideState: 1
+    m_Value: 100
 --- !u!114 &8635338788416280180
 MonoBehaviour:
   m_ObjectHideFlags: 3

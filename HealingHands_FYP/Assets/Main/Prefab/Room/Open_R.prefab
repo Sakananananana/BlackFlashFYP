@@ -80,7 +80,7 @@ MonoBehaviour:
   _mapBoundaryBox: {fileID: 4107106910860975909}
   _exits: {fileID: 8207319828910792321}
   _onNewRoomEntered: {fileID: 11400000, guid: 5ead0f4bd4b83f14e9b569d1d1c16af9, type: 2}
-  _exitsObj: {fileID: 4272104779137683802, guid: e0373d67151e30a4ebc2844b69d255a5,
+  _exitsObj: {fileID: 2198549174231714721, guid: e276d3bcd4e1b624e9ae6d5fe80b1542,
     type: 3}
   _enemyList:
   - {fileID: 8278052125973401609, guid: 371b4f07da3e3fc4aa0c864d39a88ebe, type: 3}
@@ -2395,7 +2395,7 @@ GameObject:
   - component: {fileID: 9065246958285379306}
   m_Layer: 0
   m_Name: Boundary
-  m_TagString: Untagged
+  m_TagString: Boundary
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

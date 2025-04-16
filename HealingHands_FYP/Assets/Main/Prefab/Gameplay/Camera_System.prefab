@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1478599624020816555}
   - component: {fileID: 3668609668914234624}
-  - component: {fileID: 4278347466298019760}
+  - component: {fileID: 8390685923425938992}
   - component: {fileID: 2656543268909788121}
   - component: {fileID: 4874048458882448934}
   - component: {fileID: 6354398861451935851}
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 6046498351345135867}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.00000023841858, y: 1.1600001, z: -10}
+  m_LocalPosition: {x: 0, y: 1.16, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -61,11 +61,11 @@ MonoBehaviour:
     CustomLookAtTarget: 0
   Lens:
     FieldOfView: 34
-    OrthographicSize: 5.5
+    OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 1000
-    Dutch: 0.1
-    ModeOverride: 0
+    Dutch: 0
+    ModeOverride: 1
     PhysicalProperties:
       GateFit: 2
       SensorSize: {x: 21.946, y: 16.002}
@@ -79,7 +79,7 @@ MonoBehaviour:
       BarrelClipping: 0.25
       Anamorphism: 0
   BlendHint: 0
---- !u!114 &4278347466298019760
+--- !u!114 &8390685923425938992
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -88,28 +88,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 6046498351345135867}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 886251e9a18ece04ea8e61686c173e1b, type: 3}
+  m_Script: {fileID: 11500000, guid: b617507da6d07e749b7efdb34e1173e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CameraDistance: 10
-  DeadZoneDepth: 0
-  Composition:
-    ScreenPosition: {x: 0, y: 0}
-    DeadZone:
-      Enabled: 1
-      Size: {x: 0.2, y: 0.2}
-    HardLimits:
-      Enabled: 0
-      Size: {x: 0.8, y: 0.8}
-      Offset: {x: 0, y: 0}
-  CenterOnActivate: 1
-  TargetOffset: {x: 0, y: 0, z: 0}
-  Damping: {x: 1, y: 1, z: 1}
-  Lookahead:
-    Enabled: 0
-    Time: 0
-    Smoothing: 0
-    IgnoreY: 0
+  TrackerSettings:
+    BindingMode: 0
+    PositionDamping: {x: 1, y: 1, z: 1}
+    AngularDampingMode: 0
+    RotationDamping: {x: 1, y: 1, z: 1}
+    QuaternionDamping: 1
+  FollowOffset: {x: 0, y: 0, z: -10}
 --- !u!114 &2656543268909788121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,13 +202,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _shakeForce: 0.35
+  _ppCam: {fileID: 6354398861451935851}
   _impulseSource: {fileID: 3015296028568170533}
   _confiner2D: {fileID: 4874048458882448934}
   _vCam: {fileID: 3668609668914234624}
   _camShakeEvent: {fileID: 11400000, guid: f0b1513586fd753418e6c7f8af4fd31f, type: 2}
   _repositionCam: {fileID: 11400000, guid: 5ead0f4bd4b83f14e9b569d1d1c16af9, type: 2}
   _onSetCameraPos: {fileID: 11400000, guid: cc53e1f5ce49161488e6291fa5dc01ea, type: 2}
-  _playerDeathEvent: {fileID: 0}
+  _playerDeathEvent: {fileID: 11400000, guid: 26bd76ad9378d3a4e8425cd731800f2f, type: 2}
 --- !u!1 &7048419912913063913
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,7 +239,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7048419912913063913}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.00087266456, w: 0.99999964}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.00000023841858, y: 1.1600001, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -285,7 +274,7 @@ MonoBehaviour:
   UpdateMethod: 2
   BlendUpdateMethod: 1
   LensModeOverride:
-    Enabled: 0
+    Enabled: 1
     DefaultMode: 1
   DefaultBlend:
     Style: 1
@@ -306,7 +295,7 @@ Camera:
   m_GameObject: {fileID: 7048419912913063913}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
+  m_ClearFlags: 4
   m_BackGroundColor: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -332,7 +321,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 6.8285713
+  orthographic size: 5.142857
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -408,8 +397,8 @@ MonoBehaviour:
   m_AssetsPPU: 35
   m_RefResolutionX: 1920
   m_RefResolutionY: 1080
-  m_CropFrame: 0
-  m_GridSnapping: 0
+  m_CropFrame: 2
+  m_GridSnapping: 1
   m_FilterMode: 0
   m_UpscaleRT: 0
   m_PixelSnapping: 0

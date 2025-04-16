@@ -17,24 +17,21 @@ public class DungeonManager : MonoBehaviour
 
     //To add unprocessed position in grid
     private Queue<Vector2Int> _roomToProcess = new Queue<Vector2Int>();
-    private Stack<Vector2Int> _roomToProc = new Stack<Vector2Int>();
 
     //Generate Async later 
     void Start() => GenerateDungeon();
 
     private void GenerateDungeon()
     {
-        _dungeonSO.DungeonProgress();
-        Debug.Log(_dungeonSO.RoomCount);
-        GenerateCorePath();
-        RoomValidCheck();
-        GetFinalRoom();
+        _dungeonSO.GetDungeonPath();
+        //RoomValidCheck();
+        //GetFinalRoom();
         SpawnRooms();
     }
 
     private void SpawnRooms()
     {
-        foreach (var roomToSpawn in _dungeonLayout)
+        foreach (var roomToSpawn in _dungeonSO._dungeonLayout)
         {
             Vector2Int gridPos = roomToSpawn.Key;
             Vector3 spawnPos = new Vector3(gridPos.x * 20, gridPos.y * 12, 0);
@@ -71,16 +68,14 @@ public class DungeonManager : MonoBehaviour
 
     private void GenerateCorePath()
     {
-        _startRoom = _roomDataList[Random.Range(0, _roomDataList.Count)];
-        while (_startRoom.RoomExits.Contains(Direction.Bottom))
-        { _startRoom = _roomDataList[Random.Range(0, _roomDataList.Count)]; }
+        _startRoom = GetRoomsWithEntry(Direction.Bottom, true);
 
         _dungeonLayout.Add(_startPos, _startRoom);
-        _roomToProc.Push(_startPos);
+        _roomToProcess.Enqueue(_startPos);
 
-        while (_dungeonLayout.Count < _dungeonSO.RoomCount && _roomToProc.Count > 0)
+        while (_dungeonLayout.Count < _dungeonSO.RoomCount && _roomToProcess.Count > 0)
         {
-            Vector2Int pos = _roomToProc.Pop();
+            Vector2Int pos = _roomToProcess.Dequeue();
             RoomData currentRoom = _dungeonLayout[pos];
 
             foreach (Direction dir in currentRoom.RoomExits)
@@ -89,27 +84,16 @@ public class DungeonManager : MonoBehaviour
                 if (_dungeonLayout.ContainsKey(newPos) || newPos.y < 0) { continue; }
 
                 Direction requiredEntry = GetOppositeDirection(dir);
-                List<RoomData> validRooms = GetRoomsWithEntry(requiredEntry);
-                if (validRooms.Count == 0) { continue; }
+                RoomData selectedRoom = GetRoomsWithEntry(requiredEntry);
+                if (selectedRoom == null) { continue; }
 
-                RoomData selectedRoom;
-                if (_roomToProc.Count <= 0)
-                {
-                    selectedRoom = validRooms.First();
-                    if (selectedRoom == _dungeonLayout[pos]) { selectedRoom = validRooms[Random.Range(0, 2)]; }
-                    _dungeonLayout.Add(newPos, selectedRoom);
-                }
-                else
-                {
-                    selectedRoom = validRooms[Random.Range(0, 2)];
-                    _dungeonLayout.Add(newPos, selectedRoom);
-                }
-                _roomToProc.Push(newPos);
-
+                _dungeonLayout.Add(newPos, selectedRoom);
+                _roomToProcess.Enqueue(newPos);
                 if (_dungeonLayout.Count >= _dungeonSO.RoomCount) break;
             }
         }
-        _roomToProc.Clear();
+
+        _roomToProcess.Clear();
     }
 
     private void RoomValidCheck()
@@ -196,29 +180,33 @@ public class DungeonManager : MonoBehaviour
         }
     }
 
-    private List<RoomData> GetRoomsWithEntry(Direction requiredEntry)
+    private RoomData GetRoomsWithEntry(Direction requiredEntry, bool exclude = false)
     {
         List<RoomData> validRooms = new List<RoomData>();
+        RoomData room = null;
 
-        for (int i = 0; i < _roomDataList.Count; i++)
+        if (exclude == true)
         {
-            if (_roomDataList[i].RoomExits.Contains(requiredEntry))
+            for (int i = 0; i < _roomDataList.Count; i++)
             {
-                validRooms.Add(_roomDataList[i]);
+                if (!_roomDataList[i].RoomExits.Contains(requiredEntry) && _roomDataList[i].RoomExits.Count > 1)
+                {
+                    validRooms.Add(_roomDataList[i]);
+                }
+            }
+        }
+        else
+        {
+            for (int i = 0; i < _roomDataList.Count; i++)
+            {
+                if (_roomDataList[i].RoomExits.Contains(requiredEntry) && _roomDataList[i].RoomExits.Count > 1)
+                {
+                    validRooms.Add(_roomDataList[i]);
+                }
             }
         }
 
-        validRooms = validRooms.OrderByDescending(r => r.RoomExits.Count).ToList();
-        return validRooms;
-    }
-
-    private RoomData GetRoom()
-    {
-        int i = 0;
-
-        return _roomDataList[i];
+        room = validRooms[Random.Range(0, validRooms.Count)];
+        return room;
     }
 }
-
-public enum GetRoomMode
-{ Specific, Random}

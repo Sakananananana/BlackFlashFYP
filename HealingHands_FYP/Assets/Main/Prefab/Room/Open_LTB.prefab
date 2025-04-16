@@ -2106,7 +2106,7 @@ GameObject:
   - component: {fileID: 5870375823602504047}
   m_Layer: 0
   m_Name: Boundary
-  m_TagString: Untagged
+  m_TagString: Boundary
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3350,7 +3350,7 @@ GameObject:
   - component: {fileID: 2344647232451764099}
   - component: {fileID: 6714289332255421930}
   - component: {fileID: 6265700522526267730}
-  m_Layer: 0
+  m_Layer: 28
   m_Name: Top
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -3442,7 +3442,7 @@ GameObject:
   - component: {fileID: 4135699333953633225}
   - component: {fileID: 5072526107279877160}
   - component: {fileID: 5182087437022347696}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -3601,7 +3601,8 @@ MonoBehaviour:
   _mapBoundaryBox: {fileID: 169755617973500597}
   _exits: {fileID: 4650009541659732022}
   _onNewRoomEntered: {fileID: 11400000, guid: 5ead0f4bd4b83f14e9b569d1d1c16af9, type: 2}
-  _exitsObj: {fileID: 0}
+  _exitsObj: {fileID: 2198549174231714721, guid: e276d3bcd4e1b624e9ae6d5fe80b1542,
+    type: 3}
   _enemyList:
   - {fileID: 8278052125973401609, guid: 371b4f07da3e3fc4aa0c864d39a88ebe, type: 3}
   IsStartRoom: 0
@@ -3617,7 +3618,7 @@ GameObject:
   - component: {fileID: 791246970426920456}
   - component: {fileID: 7250666638788700302}
   - component: {fileID: 7782498736035298037}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Bottom
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}

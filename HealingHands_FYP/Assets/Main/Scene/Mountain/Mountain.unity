@@ -208,6 +208,18 @@ MonoBehaviour:
   - RoomPrefab: {fileID: 2407617256734837893, guid: f80e7f04120a49e4598de19fb545dc5c,
       type: 3}
     RoomExits: 00000000
+  - RoomPrefab: {fileID: 7370486419485541960, guid: 189604b8dbfa20145bce020c6d3cbcbe,
+      type: 3}
+    RoomExits: 010000000200000003000000
+  - RoomPrefab: {fileID: 833696709714144854, guid: a165b729d96ce844e87bce26203f80dc,
+      type: 3}
+    RoomExits: 020000000000000001000000
+  - RoomPrefab: {fileID: 4849373253204293544, guid: f04f451621127f54d89ff33fbfc2a9a1,
+      type: 3}
+    RoomExits: 030000000000000001000000
+  - RoomPrefab: {fileID: 1131255594674117706, guid: bbe281d99696f8a459809afad6955704,
+      type: 3}
+    RoomExits: 000000000200000003000000
 --- !u!1001 &367453206
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -339,11 +351,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Camera_System
       objectReference: {fileID: 0}
-    - target: {fileID: 9163928801413157576, guid: 4c48c12b07cba944d827e34df48df0ae,
-        type: 3}
-      propertyPath: orthographic size
-      value: 6.857143
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -365,7 +372,7 @@ PrefabInstance:
     - target: {fileID: 8627595327455141252, guid: c4f9de49347b62c4fae464f9c9d3ab5c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.94
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8627595327455141252, guid: c4f9de49347b62c4fae464f9c9d3ab5c,
         type: 3}
@@ -423,5 +430,5 @@ SceneRoots:
   m_Roots:
   - {fileID: 367453206}
   - {fileID: 1178548173}
-  - {fileID: 44181857}
   - {fileID: 4037688928001153391}
+  - {fileID: 44181857}

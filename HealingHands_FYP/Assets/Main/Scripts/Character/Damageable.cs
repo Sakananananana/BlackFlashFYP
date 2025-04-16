@@ -8,6 +8,7 @@ public class Damageable : MonoBehaviour
 
     [Header("Broadcasting on...")]
     [SerializeField] public VoidEventChannelSO _updateHealthUI;
+    [SerializeField] public VoidEventChannelSO _deathEvent;
 
     [Header("Listening to...")]
     [SerializeField] private IntEventChannelSO _restoreHealth;
@@ -33,8 +34,6 @@ public class Damageable : MonoBehaviour
 
     private void OnEnable()
     {
-
-
         if (_restoreHealth != null)
         { _restoreHealth.OnEventRaised += ReceiveHeal; }
     }
@@ -68,6 +67,9 @@ public class Damageable : MonoBehaviour
         if (_currentHealthSO.CurrentHealth <= 0)
         { 
             IsDead = true;
+
+            if (_deathEvent != null)
+                _deathEvent.RaiseEvent();
         }
     }
 
