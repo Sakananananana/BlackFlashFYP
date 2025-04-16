@@ -5,12 +5,12 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "DungeonSO", menuName = "Scriptable Objects/DungeonSO")]
 public class DungeonSO : ScriptableObject
 {
-    public int _baseRoomCount;
-    public int RoomCount {get; set;}
-    public int CurrentLvL { get; set; }
-    public bool CompleteBossFight { get; set; }
+    public int CurrentLvL;
+    public int BaseRoomCount;
+    public int CurrentRoomCount;
+    public bool HasBossFightComplete;
 
-    [SerializeField] private List<RoomData> _roomDataList = new List<RoomData>();
+    public List<RoomData> _roomDataList = new List<RoomData>();
 
     //private parameters
     private RoomData _startRoom;
@@ -24,32 +24,35 @@ public class DungeonSO : ScriptableObject
     private Queue<Vector2Int> _roomToProcess = new Queue<Vector2Int>();
 
     public void DungeonProgress()
-    { 
-        CurrentLvL = (CurrentLvL != 3) ? CurrentLvL++ : 0;
-        RoomCount = _baseRoomCount + (CurrentLvL * 2);
+    {
+        _dungeonLayout.Clear();
 
-        //if (CurrentLvL == 3)
-        //{ 
+        CurrentLvL = (CurrentLvL != 2) ? ++CurrentLvL : 0;
+        CurrentRoomCount = BaseRoomCount + (CurrentLvL * 2);
+    }
 
-        //}
+    public void ResetDungeonProgress()
+    {
+        _dungeonLayout.Clear();
+
+        CurrentLvL = 0;
+        CurrentRoomCount = BaseRoomCount;
     }
 
     public void GetDungeonPath()
     { 
-        GenerateCorePath();
-        RoomValidCheck();
-        GetFinalRoom();
+        CorePathGenerator();
+        RoomValidationCheck();
     }
-
 
     private void GetFinalRoom()
     {
-        int longestDist = 0;
-        int currentDist;
+        float longestDist = 0;
+        float currentDist;
 
         foreach (var room in _dungeonLayout)
         {
-            currentDist = (int)(room.Key - _startPos).magnitude;
+            currentDist = (room.Key - Vector2Int.zero).magnitude;
             if (currentDist > longestDist)
             {
                 longestDist = currentDist;
@@ -58,14 +61,14 @@ public class DungeonSO : ScriptableObject
         }
     }
 
-    private void GenerateCorePath()
+    private void CorePathGenerator()
     {
         _startRoom = GetRoomsWithEntry(Direction.Bottom, true);
 
         _dungeonLayout.Add(_startPos, _startRoom);
         _roomToProcess.Enqueue(_startPos);
 
-        while (_dungeonLayout.Count < RoomCount && _roomToProcess.Count > 0)
+        while (_dungeonLayout.Count < CurrentRoomCount && _roomToProcess.Count > 0)
         {
             Vector2Int pos = _roomToProcess.Dequeue();
             RoomData currentRoom = _dungeonLayout[pos];
@@ -81,14 +84,14 @@ public class DungeonSO : ScriptableObject
 
                 _dungeonLayout.Add(newPos, selectedRoom);
                 _roomToProcess.Enqueue(newPos);
-                if (_dungeonLayout.Count >= RoomCount) break;
+                if (_dungeonLayout.Count >= CurrentRoomCount) break;
             }
         }
 
         _roomToProcess.Clear();
     }
 
-    private void RoomValidCheck()
+    private void RoomValidationCheck()
     {
         foreach (var room in _dungeonLayout)
         {

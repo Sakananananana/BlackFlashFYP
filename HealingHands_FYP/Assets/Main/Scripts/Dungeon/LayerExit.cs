@@ -12,12 +12,11 @@ public class LayerExit : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             _dungeonSO.DungeonProgress();
-            Debug.Log(_dungeonSO.CurrentLvL);
 
-            if (_dungeonSO.CurrentLvL != 2)
-                _raiseLoadEvent.OnLoadingRequested(_sceneToLoad[1]);
-            else
+            if (_dungeonSO.HasBossFightComplete)
                 _raiseLoadEvent.OnLoadingRequested(_sceneToLoad[0]);
+            else
+                _raiseLoadEvent.OnLoadingRequested(_sceneToLoad[1]);
         }
     }
 }
