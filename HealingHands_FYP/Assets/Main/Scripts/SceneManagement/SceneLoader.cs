@@ -73,7 +73,9 @@ public class SceneLoader : MonoBehaviour
             _gameplaySceneLoadingOpHandle.Completed += OnGameplayManagerLoaded;
         }
         else
-        { StartCoroutine(UnloadPreviousScene()); }
+        { 
+            StartCoroutine(UnloadPreviousScene()); 
+        }
     }
 
     private void LoadMenu(GameSceneSO scene)

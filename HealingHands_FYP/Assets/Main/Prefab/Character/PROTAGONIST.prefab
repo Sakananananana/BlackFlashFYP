@@ -5163,8 +5163,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.16, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.85, y: 0.85, z: 0.85}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2711586520668870075}
   - {fileID: 5171535740909419195}
@@ -5261,7 +5261,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.4}
+  m_Offset: {x: 0, y: -0.6}
   m_Radius: 0.3
 --- !u!50 &2561801424925880336
 Rigidbody2D:
@@ -5363,6 +5363,7 @@ MonoBehaviour:
   _healthConfigSO: {fileID: 11400000, guid: 16828352ec28aa143b4791d94169d903, type: 2}
   _currentHealthSO: {fileID: 11400000, guid: f76bef832f627e949a5caf94911dec64, type: 2}
   _updateHealthUI: {fileID: 11400000, guid: b8dbf5983ec02924a87d31904ba767dd, type: 2}
+  _deathEvent: {fileID: 11400000, guid: 26bd76ad9378d3a4e8425cd731800f2f, type: 2}
   _restoreHealth: {fileID: 0}
 --- !u!114 &2126520854685727094
 MonoBehaviour:

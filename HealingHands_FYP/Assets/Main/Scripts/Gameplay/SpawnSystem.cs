@@ -26,7 +26,6 @@ public class SpawnSystem : MonoBehaviour
 
     private void SpawnProtagonist()
     {
-        //get the previous path (path = from where to current location)
         //spawn player at the location
         GameObject obj = Instantiate(_playerPrefab, transform.position, Quaternion.identity);
         _setCameraPosition.RaiseEvent(obj.transform);

@@ -62,13 +62,19 @@ public class RoomManager : MonoBehaviour
 
     private void PrewarmEnemyPool()
     {
-        _enemyCount = Random.Range(1, 3);
+        _enemyCount = Random.Range(1, 4);
 
         while (_enemyCount > 0)
         {
             Vector2Int spawnPos = new Vector2Int((int)transform.position.x + Random.Range(-6, 7), (int)transform.position.y + Random.Range(-2, 3));
 
             if (_enemyToSpawn.ContainsKey(spawnPos)) { continue; }
+
+            foreach (var obj in _enemyToSpawn)
+            { 
+                if ((obj.Key - spawnPos).magnitude < 2)
+                { continue; }
+            }
 
             GameObject enemyObj = _enemyList[Random.Range(0, _enemyList.Count)];
             _enemyToSpawn.Add(spawnPos, enemyObj);
@@ -79,10 +85,10 @@ public class RoomManager : MonoBehaviour
         {
             GameObject enemyObj = Instantiate(item.Value.gameObject, new Vector2(item.Key.x, item.Key.y), Quaternion.identity);
             enemyObj.transform.SetParent(_enemyPool);
+
             if (enemyObj.TryGetComponent(out Damageable damageable))
-            {
                 _damageables.Add(damageable);
-            }
+            
             enemyObj.SetActive(false);
         }
     }

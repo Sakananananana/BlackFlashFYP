@@ -12,3 +12,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a324e691e5fc55f46a83107286feb3cf, type: 3}
   m_Name: DungeonSO
   m_EditorClassIdentifier: 
+  _baseRoomCount: 5
+  _roomDataList:
+  - RoomPrefab: {fileID: 3476463682391589353, guid: 9fd6baf8aa229704087a7da8940416ec,
+      type: 3}
+    RoomExits: 01000000
+  - RoomPrefab: {fileID: 3384128242609773387, guid: 8ea7f223254a5de43af6797a6716c8cc,
+      type: 3}
+    RoomExits: 0100000002000000
+  - RoomPrefab: {fileID: 7370486419485541960, guid: 189604b8dbfa20145bce020c6d3cbcbe,
+      type: 3}
+    RoomExits: 010000000200000003000000
+  - RoomPrefab: {fileID: 9081799215868548449, guid: 06f82a47bd8071444bdbd02720f979b7,
+      type: 3}
+    RoomExits: 0100000003000000
+  - RoomPrefab: {fileID: 2103158484145638898, guid: cea39862670dbed419fcff0fd86c48fe,
+      type: 3}
+    RoomExits: 02000000
+  - RoomPrefab: {fileID: 885871406365168220, guid: d99ac6e9d6dabf3448d4fbe5290cfc3f,
+      type: 3}
+    RoomExits: 0200000003000000
+  - RoomPrefab: {fileID: 833696709714144854, guid: a165b729d96ce844e87bce26203f80dc,
+      type: 3}
+    RoomExits: 020000000000000001000000
+  - RoomPrefab: {fileID: 3885754589487812098, guid: e09835be6e6e0114ca35686c359bd18b,
+      type: 3}
+    RoomExits: 03000000
+  - RoomPrefab: {fileID: 4849373253204293544, guid: f04f451621127f54d89ff33fbfc2a9a1,
+      type: 3}
+    RoomExits: 030000000000000001000000
+  - RoomPrefab: {fileID: 2407617256734837893, guid: f80e7f04120a49e4598de19fb545dc5c,
+      type: 3}
+    RoomExits: 00000000
+  - RoomPrefab: {fileID: 2407617256734837893, guid: f80e7f04120a49e4598de19fb545dc5c,
+      type: 3}
+    RoomExits: 00000000

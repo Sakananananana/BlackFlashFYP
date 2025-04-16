@@ -38,3 +38,8 @@ MonoBehaviour:
     - Decision: {fileID: 11400000, guid: ff7ff6c87f65f4646ac03044678aff9f, type: 2}
       ExpectedResult: 0
       Operator: 0
+  - _targetState: {fileID: 11400000, guid: c8946ee1ca966e047bfd1f36addf6f89, type: 2}
+    Decisions:
+    - Decision: {fileID: 11400000, guid: af9724ee616c4f3429ecfdc6488704e6, type: 2}
+      ExpectedResult: 0
+      Operator: 0
