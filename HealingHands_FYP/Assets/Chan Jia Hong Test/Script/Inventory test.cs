@@ -10,7 +10,7 @@ public class Inventorytest : MonoBehaviour
     {
     
         inventory.RemoveItem(0);
-        updateInventory.RaiseEvent();
+        //updateInventory.RaiseEvent();
     }
 
     // Update is called once per frame
