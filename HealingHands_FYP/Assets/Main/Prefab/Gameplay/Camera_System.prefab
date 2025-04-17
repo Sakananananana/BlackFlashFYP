@@ -202,9 +202,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _shakeForce: 0.35
-  _ppCam: {fileID: 6354398861451935851}
   _impulseSource: {fileID: 3015296028568170533}
   _confiner2D: {fileID: 4874048458882448934}
+  _ppCam: {fileID: 6354398861451935851}
   _vCam: {fileID: 3668609668914234624}
   _camShakeEvent: {fileID: 11400000, guid: f0b1513586fd753418e6c7f8af4fd31f, type: 2}
   _repositionCam: {fileID: 11400000, guid: 5ead0f4bd4b83f14e9b569d1d1c16af9, type: 2}
@@ -397,7 +397,7 @@ MonoBehaviour:
   m_AssetsPPU: 35
   m_RefResolutionX: 1920
   m_RefResolutionY: 1080
-  m_CropFrame: 2
+  m_CropFrame: 0
   m_GridSnapping: 1
   m_FilterMode: 0
   m_UpscaleRT: 0

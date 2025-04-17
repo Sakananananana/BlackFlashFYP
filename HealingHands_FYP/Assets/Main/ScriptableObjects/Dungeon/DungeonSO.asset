@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a324e691e5fc55f46a83107286feb3cf, type: 3}
   m_Name: DungeonSO
   m_EditorClassIdentifier: 
-  CurrentLvL: 2
+  CurrentLvL: 0
   BaseRoomCount: 5
-  CurrentRoomCount: 9
+  CurrentRoomCount: 7
   HasBossFightComplete: 0
   _roomDataList:
   - RoomPrefab: {fileID: 3476463682391589353, guid: 9fd6baf8aa229704087a7da8940416ec,

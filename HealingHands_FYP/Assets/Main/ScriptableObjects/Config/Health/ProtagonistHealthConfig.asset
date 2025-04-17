@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 192da37d05c1958408b8f412bf53a692, type: 3}
-  m_Name: ToadAttack
+  m_Script: {fileID: 11500000, guid: 68d1e5f5980b82a4dbed40a8cebfb2e7, type: 3}
+  m_Name: ProtagonistHealthConfig
   m_EditorClassIdentifier: 
-  _attackDamage: 3
+  _initialHealth: 20

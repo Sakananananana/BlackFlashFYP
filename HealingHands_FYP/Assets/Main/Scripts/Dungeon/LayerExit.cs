@@ -14,7 +14,10 @@ public class LayerExit : MonoBehaviour
             _dungeonSO.DungeonProgress();
 
             if (_dungeonSO.HasBossFightComplete)
+            {
                 _raiseLoadEvent.OnLoadingRequested(_sceneToLoad[0]);
+                _dungeonSO.ResetDungeonProgress();
+            }  
             else
                 _raiseLoadEvent.OnLoadingRequested(_sceneToLoad[1]);
         }

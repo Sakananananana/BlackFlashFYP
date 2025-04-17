@@ -177,49 +177,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dungeonSO: {fileID: 11400000, guid: d79f3712d9877eb4d857d0b0d180d7ca, type: 2}
-  _roomDataList:
-  - RoomPrefab: {fileID: 2919908996589659243, guid: 46f0720f5dee39541872f1b46c1eff00,
-      type: 3}
-    RoomExits: 0000000003000000
-  - RoomPrefab: {fileID: 3384128242609773387, guid: 8ea7f223254a5de43af6797a6716c8cc,
-      type: 3}
-    RoomExits: 0100000002000000
-  - RoomPrefab: {fileID: 9081799215868548449, guid: 06f82a47bd8071444bdbd02720f979b7,
-      type: 3}
-    RoomExits: 0100000003000000
-  - RoomPrefab: {fileID: 885871406365168220, guid: d99ac6e9d6dabf3448d4fbe5290cfc3f,
-      type: 3}
-    RoomExits: 0200000003000000
-  - RoomPrefab: {fileID: 7781988421736189245, guid: 34b1447404d726d45a36d5b9150894d3,
-      type: 3}
-    RoomExits: 0000000001000000
-  - RoomPrefab: {fileID: 7934154275397194740, guid: 921d1d98fb36d9a469018a9e9dc63d81,
-      type: 3}
-    RoomExits: 0000000002000000
-  - RoomPrefab: {fileID: 3476463682391589353, guid: 9fd6baf8aa229704087a7da8940416ec,
-      type: 3}
-    RoomExits: 01000000
-  - RoomPrefab: {fileID: 2103158484145638898, guid: cea39862670dbed419fcff0fd86c48fe,
-      type: 3}
-    RoomExits: 02000000
-  - RoomPrefab: {fileID: 3885754589487812098, guid: e09835be6e6e0114ca35686c359bd18b,
-      type: 3}
-    RoomExits: 03000000
-  - RoomPrefab: {fileID: 2407617256734837893, guid: f80e7f04120a49e4598de19fb545dc5c,
-      type: 3}
-    RoomExits: 00000000
-  - RoomPrefab: {fileID: 7370486419485541960, guid: 189604b8dbfa20145bce020c6d3cbcbe,
-      type: 3}
-    RoomExits: 010000000200000003000000
-  - RoomPrefab: {fileID: 833696709714144854, guid: a165b729d96ce844e87bce26203f80dc,
-      type: 3}
-    RoomExits: 020000000000000001000000
-  - RoomPrefab: {fileID: 4849373253204293544, guid: f04f451621127f54d89ff33fbfc2a9a1,
-      type: 3}
-    RoomExits: 030000000000000001000000
-  - RoomPrefab: {fileID: 1131255594674117706, guid: bbe281d99696f8a459809afad6955704,
-      type: 3}
-    RoomExits: 000000000200000003000000
 --- !u!1001 &367453206
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -350,6 +307,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Camera_System
+      objectReference: {fileID: 0}
+    - target: {fileID: 9163928801413157576, guid: 4c48c12b07cba944d827e34df48df0ae,
+        type: 3}
+      propertyPath: orthographic size
+      value: 5.142857
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
