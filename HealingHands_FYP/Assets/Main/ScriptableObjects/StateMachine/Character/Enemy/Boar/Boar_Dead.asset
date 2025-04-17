@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bd970c5eb1e3b8479943c38da5a9eec, type: 3}
   m_Name: Boar_Dead
   m_EditorClassIdentifier: 
-  _actions: []
+  _actions:
+  - {fileID: 11400000, guid: c66282b4c3c5be74bb6784a254ad29f3, type: 2}
   _transitions:
   - _targetState: {fileID: 11400000, guid: 0ea44659ba4430142acca95c703a36e6, type: 2}
-    Decisions: []
+    Decisions:
+    - Decision: {fileID: 11400000, guid: 907a6593d0e94174b920d2ec2c2aa3fd, type: 2}
+      ExpectedResult: 1
+      Operator: 0

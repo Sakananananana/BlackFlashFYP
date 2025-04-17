@@ -15,8 +15,17 @@ MonoBehaviour:
   _actions: []
   _transitions:
   - _targetState: {fileID: 11400000, guid: fe0db30138641d742b3638735d3c8f4d, type: 2}
-    Decisions: []
+    Decisions:
+    - Decision: {fileID: 11400000, guid: 296f0da4a77e0244ab8821728f97258c, type: 2}
+      ExpectedResult: 0
+      Operator: 0
   - _targetState: {fileID: 11400000, guid: 816bd7a97ba1c534caf37ee5a59ae714, type: 2}
-    Decisions: []
+    Decisions:
+    - Decision: {fileID: 11400000, guid: af9724ee616c4f3429ecfdc6488704e6, type: 2}
+      ExpectedResult: 0
+      Operator: 0
   - _targetState: {fileID: 11400000, guid: b7184daa4c0bfb74f8d7a79ee74410f2, type: 2}
-    Decisions: []
+    Decisions:
+    - Decision: {fileID: 11400000, guid: 13146fc9309e2274fbb01c4fd0f4fbfe, type: 2}
+      ExpectedResult: 0
+      Operator: 0

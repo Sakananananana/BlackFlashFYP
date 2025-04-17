@@ -9,6 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb7386a4d7f1a0c4ebffbe5898746ebf, type: 3}
-  m_Name: IsToadDeadFinish
+  m_Script: {fileID: 11500000, guid: e88869b9005715e41867cf2ea79189d8, type: 3}
+  m_Name: PrepareAttack_False_OnExit
   m_EditorClassIdentifier: 
+  WhenToRun: 1
+  ParameterName: IsPreparing
+  parameterType: 2
+  BoolValue: 0
+  FloatValue: 0
+  IntValue: 0

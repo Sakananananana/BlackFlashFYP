@@ -12,9 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bd970c5eb1e3b8479943c38da5a9eec, type: 3}
   m_Name: Boar_PrepareAttack
   m_EditorClassIdentifier: 
-  _actions: []
+  _actions:
+  - {fileID: 11400000, guid: e545c17e6f65d704fb73dc16619a83fe, type: 2}
+  - {fileID: 11400000, guid: 52748ecd208239b4d845f08789d1a158, type: 2}
+  - {fileID: 11400000, guid: 7f147daddfeaf1a43a309c5355687d62, type: 2}
   _transitions:
   - _targetState: {fileID: 11400000, guid: b7184daa4c0bfb74f8d7a79ee74410f2, type: 2}
-    Decisions: []
+    Decisions:
+    - Decision: {fileID: 11400000, guid: 13146fc9309e2274fbb01c4fd0f4fbfe, type: 2}
+      ExpectedResult: 0
+      Operator: 0
   - _targetState: {fileID: 11400000, guid: c3d50800dfd9e284189efb684085a61a, type: 2}
-    Decisions: []
+    Decisions:
+    - Decision: {fileID: 11400000, guid: 296f0da4a77e0244ab8821728f97258c, type: 2}
+      ExpectedResult: 0
+      Operator: 0
