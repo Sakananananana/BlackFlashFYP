@@ -68,14 +68,17 @@ public class TaskUIManager : MonoBehaviour
 
     IEnumerator SpawnNewTaskAfterDelay()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSecondsRealtime(2f);
 
         if (activeTasks.Count < 3)
         {
-            activeTasks.Add(GenerateRandomTask());
+            Task newTask = GenerateRandomTask();
+            activeTasks.Add(newTask);
+            Debug.Log($"New Task: {newTask.GetDisplayText()}");
             UpdateUI();
         }
     }
+
 
     private void UpdateUI()
     {
@@ -101,12 +104,20 @@ public class TaskUIManager : MonoBehaviour
 
     private Task GenerateRandomTask()
     {
-        var randomItem = itemPool[Random.Range(0, itemPool.Count)];
+        //if (itemPool.Count == 0)
+        //    return null;
+
+        ItemSOBase selectedItem;
+        //do
+        //{
+           selectedItem = itemPool[Random.Range(0, itemPool.Count)];
+        //}
+        //while (activeTasks.Exists(task => task.requiredItem == selectedItem) && activeTasks.Count < itemPool.Count);
         int randomAmount = Random.Range(1, 4); 
 
         return new Task
         {
-            requiredItem = randomItem,
+            requiredItem = selectedItem,
             requiredAmount = randomAmount
         };
     }
@@ -116,13 +127,14 @@ public class TaskUIManager : MonoBehaviour
 
         Task task = activeTasks[index];
 
-        shopManager.SellItem(task.requiredItem, task.requiredAmount);
         bool success = playerInventory.RemoveTaskItem(task.requiredItem, task.requiredAmount);
+        shopManager.SellItem(task.requiredItem, task.requiredAmount);
         // Example call
 
         if (success)
         {
             Debug.Log("Task completed and items removed!");
+            
             CompleteTask(index);
         }
         else

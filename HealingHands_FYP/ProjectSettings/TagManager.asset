@@ -9,6 +9,7 @@ TagManager:
   - CraftingPlace
   - Pickable
   - Shop
+  - WeaponShop
   layers:
   - Default
   - TransparentFX
