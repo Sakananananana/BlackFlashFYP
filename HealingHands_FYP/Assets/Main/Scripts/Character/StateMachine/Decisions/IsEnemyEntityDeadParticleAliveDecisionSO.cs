@@ -8,13 +8,13 @@ public class IsEnemyEntityDeadParticleAliveDecisionSO : StateDecisionSO
 
 public class IsEnemyEntityDeadParticleAlive : Decision
 {
-    private ToadEffectController _effect;
+    private EffectController _effect;
 
     public override void OnStateEnter(StateMachine stateMachine)
     {
         base.OnStateEnter(stateMachine);
 
-        _effect = stateMachine.GetComponent<ToadEffectController>();
+        _effect = stateMachine.GetComponent<EffectController>();
     }
 
     public override void OnStateExit()

@@ -1,8 +1,10 @@
 using System;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class Boar : AnimationController
 {
+    private GameObject _player;
     private float _angle;
     private SpriteRenderer _spriteRenderer;
 
@@ -12,6 +14,13 @@ public class Boar : AnimationController
 
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
+    private void OnEnable()
+    {
+        if (_player == null)
+        {
+            _player = GameObject.FindGameObjectWithTag("Player");
+        }
+    }
 
     // Update is called once per frame
     protected override void Update()
@@ -19,6 +28,7 @@ public class Boar : AnimationController
         base.Update();
 
         Flip();
+        //SetAnimationFloat();
     }
 
     private void Flip()
@@ -30,8 +40,9 @@ public class Boar : AnimationController
         { _spriteRenderer.flipX = false; }
     }
 
-    private void SetAnimationFloat()
+    public void SetAnimationFloat()
     {
+        _direction = (_player.transform.position - transform.position).normalized;
         //If _direction's Vec2 is equal to zero this will not be called!
         if (_direction != Vector2.zero)
         {
