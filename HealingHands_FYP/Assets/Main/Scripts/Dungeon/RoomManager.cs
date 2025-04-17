@@ -15,8 +15,8 @@ public class RoomManager : MonoBehaviour
 
     [SerializeField] private GameObject _exitsObj;
     [SerializeField] private List<GameObject> _enemyList = new List<GameObject>();
-    public bool IsStartRoom = false;
-    public bool IsEndRoom = false;
+    [System.NonSerialized] public bool IsStartRoom = false;
+    [System.NonSerialized] public bool IsEndRoom = false;
     private int _enemyCount;
     private bool _enteredRoom;
     private Transform _enemyPool;
@@ -70,11 +70,18 @@ public class RoomManager : MonoBehaviour
 
             if (_enemyToSpawn.ContainsKey(spawnPos)) { continue; }
 
+            bool tooClose = false;
             foreach (var obj in _enemyToSpawn)
             { 
                 if ((obj.Key - spawnPos).magnitude < 2)
-                { continue; }
+                { 
+                    tooClose = true;
+                    break; 
+                }
             }
+
+            if (tooClose)
+                continue;
 
             GameObject enemyObj = _enemyList[Random.Range(0, _enemyList.Count)];
             _enemyToSpawn.Add(spawnPos, enemyObj);

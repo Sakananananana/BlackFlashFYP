@@ -15,28 +15,32 @@ public class DungeonSO : ScriptableObject
     //private parameters
     private RoomData _startRoom;
     private Vector2Int _startPos = Vector2Int.zero;
-    private Vector2Int _endPos;
 
     //To store processed room data & spawned position
-    public Dictionary<Vector2Int, RoomData> _dungeonLayout = new Dictionary<Vector2Int, RoomData>();
+    public Dictionary<Vector2Int, RoomData> DungeonLayout = new Dictionary<Vector2Int, RoomData>();
 
     //To add unprocessed position in grid
     private Queue<Vector2Int> _roomToProcess = new Queue<Vector2Int>();
 
     public void DungeonProgress()
     {
-        _dungeonLayout.Clear();
+        DungeonLayout.Clear();
 
-        CurrentLvL = (CurrentLvL != 2) ? ++CurrentLvL : 0;
-        CurrentRoomCount = BaseRoomCount + (CurrentLvL * 2);
+        if (CurrentLvL <= 1)
+            CurrentLvL++;
+        else
+        {
+            HasBossFightComplete = true;
+        }
     }
 
     public void ResetDungeonProgress()
     {
-        _dungeonLayout.Clear();
+        DungeonLayout.Clear();
 
         CurrentLvL = 0;
         CurrentRoomCount = BaseRoomCount;
+        HasBossFightComplete = false;
     }
 
     public void GetDungeonPath()
@@ -45,46 +49,31 @@ public class DungeonSO : ScriptableObject
         RoomValidationCheck();
     }
 
-    private void GetFinalRoom()
-    {
-        float longestDist = 0;
-        float currentDist;
-
-        foreach (var room in _dungeonLayout)
-        {
-            currentDist = (room.Key - Vector2Int.zero).magnitude;
-            if (currentDist > longestDist)
-            {
-                longestDist = currentDist;
-                _endPos = room.Key;
-            }
-        }
-    }
-
     private void CorePathGenerator()
     {
+        CurrentRoomCount = BaseRoomCount + (CurrentLvL * 2);
         _startRoom = GetRoomsWithEntry(Direction.Bottom, true);
 
-        _dungeonLayout.Add(_startPos, _startRoom);
+        DungeonLayout.Add(_startPos, _startRoom);
         _roomToProcess.Enqueue(_startPos);
 
-        while (_dungeonLayout.Count < CurrentRoomCount && _roomToProcess.Count > 0)
+        while (DungeonLayout.Count < CurrentRoomCount && _roomToProcess.Count > 0)
         {
             Vector2Int pos = _roomToProcess.Dequeue();
-            RoomData currentRoom = _dungeonLayout[pos];
+            RoomData currentRoom = DungeonLayout[pos];
 
             foreach (Direction dir in currentRoom.RoomExits)
             {
                 Vector2Int newPos = GetNewPosition(pos, dir);
-                if (_dungeonLayout.ContainsKey(newPos) || newPos.y < 0) { continue; }
+                if (DungeonLayout.ContainsKey(newPos) || newPos.y < 0) { continue; }
 
                 Direction requiredEntry = GetOppositeDirection(dir);
                 RoomData selectedRoom = GetRoomsWithEntry(requiredEntry);
                 if (selectedRoom == null) { continue; }
 
-                _dungeonLayout.Add(newPos, selectedRoom);
+                DungeonLayout.Add(newPos, selectedRoom);
                 _roomToProcess.Enqueue(newPos);
-                if (_dungeonLayout.Count >= CurrentRoomCount) break;
+                if (DungeonLayout.Count >= CurrentRoomCount) break;
             }
         }
 
@@ -93,7 +82,7 @@ public class DungeonSO : ScriptableObject
 
     private void RoomValidationCheck()
     {
-        foreach (var room in _dungeonLayout)
+        foreach (var room in DungeonLayout)
         {
             _roomToProcess.Enqueue(room.Key);
         }
@@ -101,16 +90,16 @@ public class DungeonSO : ScriptableObject
         while (_roomToProcess.Count > 0)
         {
             Vector2Int currentPos = _roomToProcess.Dequeue();
-            RoomData currentRoom = _dungeonLayout[currentPos];
+            RoomData currentRoom = DungeonLayout[currentPos];
 
             foreach (Direction exitDir in currentRoom.RoomExits)
             {
                 Vector2Int newPos = GetNewPosition(currentPos, exitDir); //Get position of the new room
                 Direction requiredEntry = GetOppositeDirection(exitDir);
 
-                if (_dungeonLayout.ContainsKey(newPos)) //Check if this position alrd contains a room
+                if (DungeonLayout.ContainsKey(newPos)) //Check if this position alrd contains a room
                 {
-                    RoomData temp = _dungeonLayout[newPos]; //Get the existed room data from the dictionary
+                    RoomData temp = DungeonLayout[newPos]; //Get the existed room data from the dictionary
 
                     if (temp.RoomExits.Contains(requiredEntry)) { continue; } //check if the new pos's room has the entry to the current room{ continue; }
                     else { EditRoomExit(currentPos, exitDir); }
@@ -123,9 +112,9 @@ public class DungeonSO : ScriptableObject
     private void EditRoomExit(Vector2Int pos, Direction dir)
     {
         List<Direction> dirList = new List<Direction>();
-        for (int i = 0; i < _dungeonLayout[pos].RoomExits.Count; i++)
+        for (int i = 0; i < DungeonLayout[pos].RoomExits.Count; i++)
         {
-            dirList.Add(_dungeonLayout[pos].RoomExits[i]);
+            dirList.Add(DungeonLayout[pos].RoomExits[i]);
         }
         dirList.Remove(dir);
 
@@ -133,7 +122,7 @@ public class DungeonSO : ScriptableObject
         {
             if (AreListsEqual(_roomDataList[i].RoomExits, dirList))
             {
-                _dungeonLayout[pos] = _roomDataList[i];
+                DungeonLayout[pos] = _roomDataList[i];
                 _roomToProcess.Enqueue(pos);
                 break;
             }

@@ -74,6 +74,7 @@ public class SceneLoader : MonoBehaviour
         }
         else
         { 
+            //if (_sceneToLoad.sceneReference.IsValid())
             StartCoroutine(UnloadPreviousScene()); 
         }
     }
@@ -99,11 +100,16 @@ public class SceneLoader : MonoBehaviour
         {
             if (_loadedScene.sceneReference.OperationHandle.IsValid())
             {
-                _loadedScene.sceneReference.UnLoadScene();
+
+                var unloadHandle = _loadedScene.sceneReference.UnLoadScene();
+                yield return unloadHandle;
             }
             else
             {
-                SceneManager.UnloadSceneAsync(_loadedScene.sceneReference.editorAsset.name);
+                var unloadOp = SceneManager.UnloadSceneAsync(_loadedScene.sceneReference.editorAsset.name);
+                if (unloadOp != null)
+                    yield return unloadOp;
+                //SceneManager.UnloadSceneAsync(_loadedScene.sceneReference.editorAsset.name);
             }
         }
 

@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class DungeonManager : MonoBehaviour
@@ -13,13 +11,14 @@ public class DungeonManager : MonoBehaviour
     private void GenerateDungeon()
     {
         _dungeonSO.GetDungeonPath();
-        GetFinalRoom();
         SpawnRooms();
     }
 
     private void SpawnRooms()
     {
-        foreach (var roomToSpawn in _dungeonSO._dungeonLayout)
+        GetFinalRoom();
+
+        foreach (var roomToSpawn in _dungeonSO.DungeonLayout)
         {
             Vector2Int gridPos = roomToSpawn.Key;
             Vector3 spawnPos = new Vector3(gridPos.x * 20, gridPos.y * 12, 0);
@@ -43,7 +42,7 @@ public class DungeonManager : MonoBehaviour
         float longestDist = 0;
         float currentDist;
 
-        foreach (var room in _dungeonSO._dungeonLayout)
+        foreach (var room in _dungeonSO.DungeonLayout)
         {
             currentDist = (room.Key - Vector2Int.zero).magnitude;
             if (currentDist > longestDist)
