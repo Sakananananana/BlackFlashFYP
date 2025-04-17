@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using Unity.Cinemachine;
 using System.Collections;
 
 public class Toad : AnimationController
@@ -137,18 +136,4 @@ public class Toad : AnimationController
             IsAttacking = true;
         }
     }
-
-    private IEnumerator DamageRecieveCooldown()
-    {
-        yield return new WaitForSeconds(0.8f);
-        CanTakeDamange = true;
-    }
-
-    private IEnumerator DamageFlash()
-    {
-        _sprRenderer.color = Color.red;
-        yield return new WaitForSeconds(0.1f);
-        _sprRenderer.color = Color.white;
-    }
-
 }
