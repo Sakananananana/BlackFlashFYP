@@ -7,11 +7,16 @@ public class UIManager : MonoBehaviour
     [SerializeField] private InputReader _inputReader = default;
     [SerializeField] private BoolEventChannelSO _onCraftingStarted;
     [SerializeField] private BoolEventChannelSO _onShoppingStarted;
+    [SerializeField] private BoolEventChannelSO _onWeaponShoppingStarted;
+    [SerializeField] private BoolEventChannelSO _onWeaponStarted;
+    [SerializeField] private InterectionManager _interactionManager;
+
 
     //All the User Interfaces
     [SerializeField] private UIInventoryPage _inventoryPanel;
     [SerializeField] private PauseMenu _pauseMenu;
     [SerializeField] private ShopManager _shopManager;
+    [SerializeField] private WeaponUpgradeButton _weaponManager;
     [SerializeField] private TaskUIManager _taskUIManager;
 
     bool _isCrafting = false;
@@ -20,22 +25,22 @@ public class UIManager : MonoBehaviour
     private void OnEnable()
     {
         _onCraftingStarted.OnEventRaised += OpenInventoryForCrafting;
-        //_onShoppingStarted.OnEventRaised += OpenInventoryForShopping;
+        _onShoppingStarted.OnEventRaised += OnShopRequested;
+        _onWeaponShoppingStarted.OnEventRaised += OnWeaponShopRequested;
 
         _inputReader.OpenInventoryEvent += OpenInventoryScreen;
         _inputReader.PauseEvent += OpenSettingScreen;
-        _inputReader.InteractEvent += OpenShopScreen;
-
+        // For regular shop.
     }
 
     private void OnDisable()
     {
         _onCraftingStarted.OnEventRaised -= OpenInventoryForCrafting;
-        //_onShoppingStarted.OnEventRaised -= OpenInventoryForShopping;
+        _onShoppingStarted.OnEventRaised -= OnShopRequested;
+        _onWeaponShoppingStarted.OnEventRaised -= OnWeaponShopRequested;
 
         _inputReader.OpenInventoryEvent -= OpenInventoryScreen;
         _inputReader.PauseEvent -= OpenSettingScreen;
-        _inputReader.InteractEvent -= OpenShopScreen;
     }
 
     void OpenInventoryForCrafting(bool val)
@@ -43,13 +48,34 @@ public class UIManager : MonoBehaviour
         _isCrafting = val;
     }
 
-    //void OpenInventoryForShopping(bool val)
-    //{
-    //    _isShopping = val;
 
-    //    if (val)
-    //        OpenShopScreen();
-    //}
+    void OnWeaponShopRequested(bool val)
+    {
+        if (val == true)
+        _inputReader.InteractEvent += OpenWeaponScreen;
+        else
+        _inputReader.InteractEvent -= OpenWeaponScreen;
+
+
+    }
+
+    //shop for player to sell things
+    void OnShopRequested(bool val)
+    {
+        if (val == true)
+            _inputReader.InteractEvent += OpenShopScreen;
+        else
+            _inputReader.InteractEvent -= OpenShopScreen;
+    }
+
+
+    void OpenInventoryForShopping(bool val)
+    {
+        _isShopping = val;
+
+        if (val)
+            OpenShopScreen();
+    }
 
     void OpenInventoryScreen()
     {
@@ -117,5 +143,22 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 1;
         _inputReader.SetGameplay();
     }
+    void OpenWeaponScreen()
+    {
 
+        _inputReader.ResumeEvent += CloseWeaponScreen;
+        _inputReader.SetUI();
+
+        Time.timeScale = 0;
+        _weaponManager.OpenWeapon();
+    }
+
+    void CloseWeaponScreen()
+    {
+        _inputReader.ResumeEvent -= CloseWeaponScreen;
+        _weaponManager.CloseWeapon();
+
+        Time.timeScale = 1;
+        _inputReader.SetGameplay();
+    }
 }

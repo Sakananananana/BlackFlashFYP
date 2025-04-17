@@ -5398,6 +5398,7 @@ MonoBehaviour:
   _inputReader: {fileID: 11400000, guid: 415aeb03029feca43b600e9ed9218756, type: 2}
   _onCraftingStarted: {fileID: 11400000, guid: 5fe2e28568490d34da515c8c9fde6650, type: 2}
   _onShoppingStarted: {fileID: 11400000, guid: b5bc8d0375f316349a4fc63b0b9c92ce, type: 2}
+  _onWeaponStarted: {fileID: 11400000, guid: 383f32740fe54184d88fceb28ee32f8a, type: 2}
   _interactionEvent: {fileID: 11400000, guid: 8ffcee524ea6d31479282bcc38c55068, type: 2}
 --- !u!114 &-60097484219637705
 MonoBehaviour:

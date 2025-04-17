@@ -21,6 +21,8 @@ namespace PlayerInputSystem
         public Action CloseInventoryEvent;
         public Action OpenShopEvent;
         public Action CloseShopEvent;
+        public Action OpenWeaponEvent;
+        public Action CloseWeaponEvent;
         public Action PressedEvent;
         public Action PauseEvent;
         public Action ResumeEvent;
@@ -136,6 +138,7 @@ namespace PlayerInputSystem
         {
             if (context.phase == InputActionPhase.Started)
             {
+                Debug.Log("Open Shop event triggered");
                 OpenShopEvent?.Invoke();
                 SetUI(); // Optional: switch to inventory input map if needed
             }
@@ -145,7 +148,25 @@ namespace PlayerInputSystem
         {
             if (context.phase == InputActionPhase.Started)
             {
-                OpenShopEvent?.Invoke();
+                CloseShopEvent?.Invoke();
+                SetGameplay(); // Optional: switch to inventory input map if needed
+            }
+        }
+        public void OnOpenWeapon(InputAction.CallbackContext context)
+        {
+            if (context.phase == InputActionPhase.Started)
+            {
+                Debug.Log("Open Weapon event triggered");
+                OpenWeaponEvent?.Invoke();
+                SetUI(); // Optional: switch to inventory input map if needed
+            }
+        }
+
+        public void OnCloseWeapon(InputAction.CallbackContext context)
+        {
+            if (context.phase == InputActionPhase.Started)
+            {
+                CloseWeaponEvent?.Invoke();
                 SetGameplay(); // Optional: switch to inventory input map if needed
             }
         }

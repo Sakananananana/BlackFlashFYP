@@ -638,9 +638,14 @@ MonoBehaviour:
   _inputReader: {fileID: 11400000, guid: 415aeb03029feca43b600e9ed9218756, type: 2}
   _onCraftingStarted: {fileID: 11400000, guid: 5fe2e28568490d34da515c8c9fde6650, type: 2}
   _onShoppingStarted: {fileID: 11400000, guid: b5bc8d0375f316349a4fc63b0b9c92ce, type: 2}
+  _onWeaponShoppingStarted: {fileID: 11400000, guid: 383f32740fe54184d88fceb28ee32f8a,
+    type: 2}
+  _onWeaponStarted: {fileID: 11400000, guid: 383f32740fe54184d88fceb28ee32f8a, type: 2}
+  _interactionManager: {fileID: 0}
   _inventoryPanel: {fileID: 321357316}
   _pauseMenu: {fileID: 1758775363}
   _shopManager: {fileID: 4193730493214022893}
+  _weaponManager: {fileID: 3544703213694263350}
   _taskUIManager: {fileID: 7147008367804302145}
 --- !u!1 &710329734 stripped
 GameObject:
@@ -2190,7 +2195,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 8712529199708303403}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 8712529199708303404}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
@@ -2203,7 +2208,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2890122138602404268}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c5f5424807188824ba171bcf3149607c, type: 3}
   m_Name: 
@@ -2267,11 +2272,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopManager: {fileID: 4193730493214022893}
+  attackConfig: {fileID: 11400000, guid: 441958c489cd5b941adc9682554e99ae, type: 2}
   upgradeManager: {fileID: 1864261008260490282}
   upgradeButton: {fileID: 1554844370555756104}
   priceText: {fileID: 7693283878721216721}
-  pricePerUpgrade: 1000
+  pricePerUpgrade: 1
   maxUpgradeLevel: 5
+  baseDamage: 5
+  damagePerLevel: 5
+  _firstButton: {fileID: 8712529199708303404}
+  weaponPanel: {fileID: 8712529199708303405}
 --- !u!114 &4193730493214022893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2408,6 +2418,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 670873544}
     m_Modifications:
+    - target: {fileID: 590167172109559934, guid: 70b53face960ff449b1f921b3b282492,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3544703213694263350}
+    - target: {fileID: 590167172109559934, guid: 70b53face960ff449b1f921b3b282492,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnUpgradeClicked
+      objectReference: {fileID: 0}
     - target: {fileID: 2529836372446032166, guid: 70b53face960ff449b1f921b3b282492,
         type: 3}
       propertyPath: m_Pivot.x
@@ -2518,11 +2538,33 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8580323927694466765, guid: 70b53face960ff449b1f921b3b282492,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8167077585033283544}
+    - target: {fileID: 8580323927694466765, guid: 70b53face960ff449b1f921b3b282492,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResetWeaponUpgrade
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70b53face960ff449b1f921b3b282492, type: 3}
+--- !u!1 &8712529199708303404 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5629293877631066833, guid: 70b53face960ff449b1f921b3b282492,
+    type: 3}
+  m_PrefabInstance: {fileID: 8712529199708303403}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8712529199708303405 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5465897970324733347, guid: 70b53face960ff449b1f921b3b282492,
+    type: 3}
+  m_PrefabInstance: {fileID: 8712529199708303403}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &8773592624669675057 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2399811374969044217, guid: 6a7ff5b9ac37a31459314d95730b7ca6,
