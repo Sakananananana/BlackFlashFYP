@@ -12,7 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bd970c5eb1e3b8479943c38da5a9eec, type: 3}
   m_Name: Boar_Dizzy
   m_EditorClassIdentifier: 
-  _actions: []
+  _actions:
+  - {fileID: 11400000, guid: 17a15adf9415a0346ae9af1ca5379055, type: 2}
+  - {fileID: 11400000, guid: 9d1aa76885d878144b6125ec1eb49e21, type: 2}
+  - {fileID: 11400000, guid: e66c38870b1493a4caaee9ccccf448d7, type: 2}
   _transitions:
   - _targetState: {fileID: 11400000, guid: 3397524f03e5ffe4688895200b570c3c, type: 2}
-    Decisions: []
+    Decisions:
+    - Decision: {fileID: 11400000, guid: 68980bf496278694d9a66dc77c8907ce, type: 2}
+      ExpectedResult: 1
+      Operator: 0

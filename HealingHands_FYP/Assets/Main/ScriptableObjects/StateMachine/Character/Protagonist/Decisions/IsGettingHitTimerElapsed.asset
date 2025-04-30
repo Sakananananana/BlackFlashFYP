@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5a2b44da4d382d4c9b972cbeace7f6d, type: 3}
   m_Name: IsGettingHitTimerElapsed
   m_EditorClassIdentifier: 
-  _duration: 0.33
+  _duration: 0.1

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: IsRandomTimeElapsed
   m_EditorClassIdentifier: 
   _minDuration: 3
-  _maxDuration: 8
+  _maxDuration: 5

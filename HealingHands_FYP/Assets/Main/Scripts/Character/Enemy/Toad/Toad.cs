@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using System.Collections;
 
-public class Toad : AnimationController
+public class Toad : MonoBehaviour
 {
     //Move To Audio Script Later
     [SerializeField] private AudioChannelSO _audioChannelSO;
@@ -14,23 +14,19 @@ public class Toad : AnimationController
 
     //Need to change orientation based on character facing
     [SerializeField] private Transform _projectileOrigin;
+    [NonSerialized] public Vector2 _direction;
 
     //Damage
     public bool CanTakeDamange = true;
     public bool IsAttacking = false;
 
-    //Animation & Sprite
-    private SpriteRenderer _sprRenderer;
-
     //Player Reference
     private GameObject _player;
     private float _angle;
 
-    protected override void Awake()
+    private void Awake()
     {
-        base.Awake();
-        
-        _sprRenderer = GetComponent<SpriteRenderer>();
+
     }
 
     private void OnEnable()
@@ -46,9 +42,8 @@ public class Toad : AnimationController
         StartCoroutine(AttackCycle());
     }
 
-    protected override void Update()
+    private void Update()
     {
-        base.Update();
     }
 
     private void FixedUpdate()
@@ -57,20 +52,10 @@ public class Toad : AnimationController
 
         if (IsAttacking == false)
         {
-            SetAnimationFloat();
-            Flip();
             SetProjectileOrigin();
         }      
     }
 
-    private void Flip()
-    {
-        if (_direction.x > 0)
-        { _sprRenderer.flipX = true; }
-
-        if (_direction.x < 0)
-        { _sprRenderer.flipX = false; }
-    }
 
     private void SetProjectileOrigin()
     {
@@ -84,34 +69,6 @@ public class Toad : AnimationController
         { _projectileOrigin.transform.position = (Vector2)transform.position + Vector2.left; }
         else
         { _projectileOrigin.transform.position = (Vector2)transform.position - Vector2.up; }
-    }
-
-    private void SetAnimationFloat()
-    {
-        //If _direction's Vec2 is equal to zero this will not be called!
-        if (_direction != Vector2.zero)
-        {
-            if (45 >= _angle && _angle >= -45)
-            { _dirUp = 1; }
-            else { _dirUp = 0; }
-
-            if (-135 >= _angle && _angle >= -180 || 135 <= _angle && _angle <= 180)
-            { _dirDown = 1; }
-            else { _dirDown = 0; }
-
-            if (135 >= _angle && _angle >= 45)
-            { _dirRight = 1; }
-            else { _dirRight = 0; }
-
-            if (-135 <= _angle && _angle <= -45)
-            { _dirLeft = 1; }
-            else { _dirLeft = 0; }
-
-            _anim.SetFloat("Up", _dirUp);
-            _anim.SetFloat("Down", _dirDown);
-            _anim.SetFloat("Left", _dirLeft);
-            _anim.SetFloat("Right", _dirRight);
-        }
     }
 
     public void PlayFireProjectileAudio() => _audioChannelSO.OnAudioPlayRequested(_spitAudio, _audioConfig, transform.position);

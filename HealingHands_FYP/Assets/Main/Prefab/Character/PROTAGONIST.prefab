@@ -5060,8 +5060,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -131961991
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -5212,8 +5212,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -131961991
+  m_SortingLayer: 4
   m_SortingOrder: 3
   m_Sprite: {fileID: 3004729617175235868, guid: cc4d04da6b4231148805ae9b078fa9c6,
     type: 3}
@@ -5400,6 +5400,7 @@ MonoBehaviour:
   _onShoppingStarted: {fileID: 11400000, guid: b5bc8d0375f316349a4fc63b0b9c92ce, type: 2}
   _onWeaponStarted: {fileID: 11400000, guid: 383f32740fe54184d88fceb28ee32f8a, type: 2}
   _interactionEvent: {fileID: 11400000, guid: 8ffcee524ea6d31479282bcc38c55068, type: 2}
+  _currentInteraction: 0
 --- !u!114 &-60097484219637705
 MonoBehaviour:
   m_ObjectHideFlags: 0

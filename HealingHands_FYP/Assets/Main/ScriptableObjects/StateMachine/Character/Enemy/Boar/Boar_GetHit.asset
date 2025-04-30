@@ -12,9 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bd970c5eb1e3b8479943c38da5a9eec, type: 3}
   m_Name: Boar_GetHit
   m_EditorClassIdentifier: 
-  _actions: []
+  _actions:
+  - {fileID: 11400000, guid: 01dfea97e4baf8940a5aace960bb145b, type: 2}
   _transitions:
   - _targetState: {fileID: 11400000, guid: 7e6de0af56c5a9f42ad1b309ff33c31c, type: 2}
-    Decisions: []
+    Decisions:
+    - Decision: {fileID: 11400000, guid: 6e67bdc48cc4d3f419c132a2f1a120d0, type: 2}
+      ExpectedResult: 0
+      Operator: 0
   - _targetState: {fileID: 11400000, guid: 3397524f03e5ffe4688895200b570c3c, type: 2}
-    Decisions: []
+    Decisions:
+    - Decision: {fileID: 11400000, guid: 211a306f9f39bdb4db7dc91528467322, type: 2}
+      ExpectedResult: 0
+      Operator: 0

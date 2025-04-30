@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bd970c5eb1e3b8479943c38da5a9eec, type: 3}
   m_Name: Toad_Idle
   m_EditorClassIdentifier: 
-  _actions: []
+  _actions:
+  - {fileID: 11400000, guid: 7f502428994fd5f40af3c8bf8935f6d8, type: 2}
   _transitions:
   - _targetState: {fileID: 11400000, guid: 45c25dc472d5beb4db882cbfe53d7314, type: 2}
     Decisions:

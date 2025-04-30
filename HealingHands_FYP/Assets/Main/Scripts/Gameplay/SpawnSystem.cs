@@ -5,6 +5,7 @@ using PlayerInputSystem;
 public class SpawnSystem : MonoBehaviour
 {
     [Header("Player")]
+    [SerializeField] private TransformAnchor _playerTrasformAnchor;
     [SerializeField] private InputReader _inputReader = default;
     [SerializeField] private GameObject _playerPrefab;
 
@@ -21,13 +22,15 @@ public class SpawnSystem : MonoBehaviour
 
     private void OnDisable()
     {
-        _onSceneReady.OnEventRaised -= SpawnProtagonist;   
+        _onSceneReady.OnEventRaised -= SpawnProtagonist;
+        _playerTrasformAnchor.Unset();
     }
 
     private void SpawnProtagonist()
     {
         //spawn player at the location
         GameObject obj = Instantiate(_playerPrefab, transform.position, Quaternion.identity);
+        _playerTrasformAnchor.Provide(obj.transform);
         _setCameraPosition.RaiseEvent(obj.transform);
         _inputReader.SetGameplay();
     }

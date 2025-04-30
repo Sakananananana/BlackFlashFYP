@@ -1,71 +1,62 @@
-using System;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
-public class Boar : AnimationController
+public class Boar : MonoBehaviour
 {
-    private GameObject _player;
+    [SerializeField] private TransformAnchor _protagonist;
+    [SerializeField] private Transform _attackOrigin;
+
+    public bool IsDizzy = false;
+    public bool IsAttackHit = false;
+    public bool IsAttacking = false;
+    public bool IsPreparingAttack = false;
+
+    private Ram_Attack _attack;
+    private Vector2 _direction;
     private float _angle;
-    private SpriteRenderer _spriteRenderer;
+    
 
-    protected override void Awake()
+    private void Awake()
     {
-        base.Awake();
-
-        _spriteRenderer = GetComponent<SpriteRenderer>();
+       _attack = GetComponentInChildren<Ram_Attack>();
     }
+
     private void OnEnable()
     {
-        if (_player == null)
-        {
-            _player = GameObject.FindGameObjectWithTag("Player");
-        }
+        _attack.IsCollidedWithTarget += AttackHit;
     }
 
-    // Update is called once per frame
-    protected override void Update()
+    private void OnDisable()
     {
-        base.Update();
-
-        Flip();
-        //SetAnimationFloat();
+        _attack.IsCollidedWithTarget -= AttackHit;
     }
 
-    private void Flip()
+    private void Update()
     {
-        if (_direction.x > 0)
-        { _spriteRenderer.flipX = true; }
+        _direction = (_protagonist.Value.position - transform.position).normalized;
+        _angle = Mathf.Atan2(_direction.x, _direction.y) * Mathf.Rad2Deg;
 
-        if (_direction.x < 0)
-        { _spriteRenderer.flipX = false; }
+        if (!IsAttacking)
+        SetAttackOrigin();
     }
 
-    public void SetAnimationFloat()
+    private void SetAttackOrigin()
     {
-        _direction = (_player.transform.position - transform.position).normalized;
-        //If _direction's Vec2 is equal to zero this will not be called!
-        if (_direction != Vector2.zero)
-        {
-            if (45 >= _angle && _angle >= -45)
-            { _dirUp = 1; }
-            else { _dirUp = 0; }
-
-            if (-135 >= _angle && _angle >= -180 || 135 <= _angle && _angle <= 180)
-            { _dirDown = 1; }
-            else { _dirDown = 0; }
-
-            if (135 >= _angle && _angle >= 45)
-            { _dirRight = 1; }
-            else { _dirRight = 0; }
-
-            if (-135 <= _angle && _angle <= -45)
-            { _dirLeft = 1; }
-            else { _dirLeft = 0; }
-
-            _anim.SetFloat("Up", _dirUp);
-            _anim.SetFloat("Down", _dirDown);
-            _anim.SetFloat("Left", _dirLeft);
-            _anim.SetFloat("Right", _dirRight);
-        }
+        if (45 >= _angle && _angle >= -45)
+        { _attackOrigin.transform.position = (Vector2)transform.position + new Vector2(0, 0.45f); }
+        else if (135 >= _angle && _angle >= 45)
+        { _attackOrigin.transform.position = (Vector2)transform.position + new Vector2(0.3f, -0.18f); }
+        else if (-135 <= _angle && _angle <= -45)
+        { _attackOrigin.transform.position = (Vector2)transform.position + new Vector2(-0.3f, -0.18f); }
+        else
+        { _attackOrigin.transform.position = (Vector2)transform.position + new Vector2(0, -0.45f); }
     }
+
+    public void AttackHandler() => IsAttacking = true;
+    public void CancelAttackInput() => IsAttacking = false; 
+
+    public void AttackHit() => IsAttackHit = true;
+    public void CancelAttackHit() => IsAttackHit = false;
+
+    public void IsPreparingAtk() => IsPreparingAttack = true;
+    public void CancelAttackPrepare() => IsPreparingAttack = false;
 }

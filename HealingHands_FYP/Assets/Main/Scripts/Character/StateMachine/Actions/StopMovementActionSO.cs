@@ -8,7 +8,6 @@ public class StopMovementActionSO : StateActionSO
 
 public class StopMovementAction : StateAction
 {
-    private Protagonist _protagonist;
     private Rigidbody2D _rb2D;
 
 
@@ -16,18 +15,14 @@ public class StopMovementAction : StateAction
     {
         base.OnStateEnter(stateMachine);
 
-        _protagonist = stateMachine.GetComponent<Protagonist>();
         _rb2D = stateMachine.GetComponent<Rigidbody2D>();  
     }
 
-    public override void OnUpdate()
-    {
-    }
+    public override void OnUpdate() { }
 
     public override void OnFixedUpdate()
     {
         _rb2D.linearVelocity = Vector2.zero;
-        _protagonist.MovementVector = Vector2.zero;
     }
 
     public override void OnStateExit()

@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a514533f316a94a448712c22c7263048, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerTrasformAnchor: {fileID: 11400000, guid: 9db3d989193252642aa4a6afb03839cc,
+    type: 2}
   _inputReader: {fileID: 11400000, guid: 415aeb03029feca43b600e9ed9218756, type: 2}
   _playerPrefab: {fileID: 6730967558029425401, guid: ddd94e6f3e82ea74caf9b89687433080,
     type: 3}
