@@ -20,6 +20,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 037fcff73246f1b45a66bcc16bb5f5c2
+    m_Address: Assets/Main/Scene/Village/ProtagonistRoom.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8c9cfa26abfee488c85f1582747f6a02
     m_Address: Assets/Main/Scene/Village/Village.unity
     m_ReadOnly: 0
