@@ -3,7 +3,24 @@ using UnityEngine;
 public class DungeonManager : MonoBehaviour
 {
     [SerializeField] private DungeonSO _dungeonSO;
+    [SerializeField] private VoidEventChannelSO _resetDungeonLayerOnPlayerDeath;
     private Vector2Int _endPos;
+
+
+    private void OnEnable()
+    {
+        _resetDungeonLayerOnPlayerDeath.OnEventRaised += ResetDungeonLayer;
+    }
+
+    private void OnDisable()
+    {
+        _resetDungeonLayerOnPlayerDeath.OnEventRaised -= ResetDungeonLayer;
+    }
+
+    private void ResetDungeonLayer()
+    { 
+        _dungeonSO.ResetDungeonProgress();
+    }
 
     //Generate Async later 
     void Start() => GenerateDungeon();
@@ -13,6 +30,8 @@ public class DungeonManager : MonoBehaviour
         _dungeonSO.GetDungeonPath();
         SpawnRooms();
     }
+
+
 
     private void SpawnRooms()
     {

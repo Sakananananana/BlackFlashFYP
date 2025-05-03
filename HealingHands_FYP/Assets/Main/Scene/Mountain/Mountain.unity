@@ -177,6 +177,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dungeonSO: {fileID: 11400000, guid: d79f3712d9877eb4d857d0b0d180d7ca, type: 2}
+  _resetDungeonLayerOnPlayerDeath: {fileID: 11400000, guid: 26bd76ad9378d3a4e8425cd731800f2f,
+    type: 2}
 --- !u!1001 &367453206
 PrefabInstance:
   m_ObjectHideFlags: 0

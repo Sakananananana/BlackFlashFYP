@@ -23,13 +23,18 @@ public class Damageable : MonoBehaviour
         {
             _currentHealthSO = ScriptableObject.CreateInstance<HealthSO>();
             _updateHealthUI = ScriptableObject.CreateInstance<VoidEventChannelSO>();
+
+            _currentHealthSO.SetMaxHealth(_healthConfigSO.InitialHealth);
+            _currentHealthSO.SetCurrentHealth(_healthConfigSO.InitialHealth);
         }
 
-        _currentHealthSO.SetMaxHealth(_healthConfigSO.InitialHealth);
-        _currentHealthSO.SetCurrentHealth(_healthConfigSO.InitialHealth);
-
         if (_updateHealthUI != null)
-        { _updateHealthUI.RaiseEvent(); }
+        {
+            if (_currentHealthSO.CurrentHealth <= 0)
+            { Revive(); }
+
+            _updateHealthUI.RaiseEvent(); 
+        }
     }
 
     private void OnEnable()

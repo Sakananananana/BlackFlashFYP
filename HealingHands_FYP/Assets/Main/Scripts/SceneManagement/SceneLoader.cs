@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
 using System;
+using UnityEngine.AddressableAssets;
 
 public class SceneLoader : MonoBehaviour
 {
@@ -74,7 +75,6 @@ public class SceneLoader : MonoBehaviour
         }
         else
         { 
-            //if (_sceneToLoad.sceneReference.IsValid())
             StartCoroutine(UnloadPreviousScene()); 
         }
     }
@@ -94,13 +94,12 @@ public class SceneLoader : MonoBehaviour
     {
         _inputReader.DisableAllInput();
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(2f);
 
         if (_loadedScene != null)
         {
             if (_loadedScene.sceneReference.OperationHandle.IsValid())
             {
-
                 var unloadHandle = _loadedScene.sceneReference.UnLoadScene();
                 yield return unloadHandle;
             }
@@ -109,15 +108,17 @@ public class SceneLoader : MonoBehaviour
                 var unloadOp = SceneManager.UnloadSceneAsync(_loadedScene.sceneReference.editorAsset.name);
                 if (unloadOp != null)
                     yield return unloadOp;
-                //SceneManager.UnloadSceneAsync(_loadedScene.sceneReference.editorAsset.name);
             }
-        }
 
-        LoadNewScene();
+            LoadNewScene();
+        }
     }
 
     private void LoadNewScene()
     {
+        if (_sceneToLoad.sceneReference.OperationHandle.IsValid())
+            return;
+
         _loadingOperationHandle = _sceneToLoad.sceneReference.LoadSceneAsync(LoadSceneMode.Additive);
         _loadingOperationHandle.Completed += OnNewSceneLoaded;
     }
@@ -132,6 +133,7 @@ public class SceneLoader : MonoBehaviour
         //Later Move to Spawn System Ensure Protagonist is Spawned before enabling
         _onSceneReady.RaiseEvent();
     }
+
 
     private void ExitGame()
     { 
