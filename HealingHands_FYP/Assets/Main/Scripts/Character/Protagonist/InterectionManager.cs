@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
 
-public enum InteractionType { None, PickUp, Craft,Shop,WeaponShop}
+public enum InteractionType { None, PickUp, Craft,Shop,WeaponShop,ProtagonistRoom}
 
 public class Interaction 
 {
@@ -25,6 +25,7 @@ public class InterectionManager : MonoBehaviour
     [SerializeField] private BoolEventChannelSO _onShoppingStarted;
     [SerializeField] private BoolEventChannelSO _onWeaponStarted;
     [SerializeField] private BoolEventChannelSO _interactionEvent;
+    [SerializeField] private BoolEventChannelSO _onOpenRoom;
 
     private LinkedList<Interaction> _interactable = new LinkedList<Interaction>();
     public InteractionType _currentInteraction;
@@ -63,8 +64,15 @@ public class InterectionManager : MonoBehaviour
             _interactionEvent.RaiseEvent(true);
             _onWeaponStarted.RaiseEvent(true);
         }
+        else if (obj.CompareTag("ProtagonistRoom"))
+        {
+            newPotentialInteraction._type = InteractionType.ProtagonistRoom;
+            _interactionEvent.RaiseEvent(true);
+            _onOpenRoom.RaiseEvent(true);
+            //Debug.Log("prtagonist room");
+        }
 
-        if (newPotentialInteraction._type != InteractionType.None)
+            if (newPotentialInteraction._type != InteractionType.None)
         {
             _interactable.AddFirst(newPotentialInteraction);
         }
@@ -87,6 +95,11 @@ public class InterectionManager : MonoBehaviour
                 if (currentNode.Value._type == InteractionType.WeaponShop)
                 {
                     _onWeaponStarted.RaiseEvent(false);
+                    _interactionEvent.RaiseEvent(false);
+                }
+                if (currentNode.Value._type == InteractionType.ProtagonistRoom)
+                {
+                    _onOpenRoom.RaiseEvent(false);
                     _interactionEvent.RaiseEvent(false);
                 }
                 _interactable.Remove(currentNode);

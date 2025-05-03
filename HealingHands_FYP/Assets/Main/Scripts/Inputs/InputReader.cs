@@ -22,6 +22,8 @@ namespace PlayerInputSystem
         public Action OpenShopEvent;
         public Action CloseShopEvent;
         public Action OpenWeaponEvent;
+        public Action OpenProtagonistRoomEvent;
+        //public Action CloseProtagonistRoomEvent;
         public Action CloseWeaponEvent;
         public Action PressedEvent;
         public Action PauseEvent;
@@ -171,6 +173,13 @@ namespace PlayerInputSystem
             }
         }
 
+        public void OnOpenProtagonistRoom(InputAction.CallbackContext context)
+        {
+            if (context.phase == InputActionPhase.Started)
+            {
+                OpenProtagonistRoomEvent?.Invoke();
+            }
+        }
 
         #region Pause/Resume (Escape)
         public void OnPause(InputAction.CallbackContext context)

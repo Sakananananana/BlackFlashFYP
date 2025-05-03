@@ -5400,6 +5400,7 @@ MonoBehaviour:
   _onShoppingStarted: {fileID: 11400000, guid: b5bc8d0375f316349a4fc63b0b9c92ce, type: 2}
   _onWeaponStarted: {fileID: 11400000, guid: 383f32740fe54184d88fceb28ee32f8a, type: 2}
   _interactionEvent: {fileID: 11400000, guid: 8ffcee524ea6d31479282bcc38c55068, type: 2}
+  _onOpenRoom: {fileID: 11400000, guid: 256115ad085a5e346862ccc04d1a04c7, type: 2}
   _currentInteraction: 0
 --- !u!114 &-60097484219637705
 MonoBehaviour:

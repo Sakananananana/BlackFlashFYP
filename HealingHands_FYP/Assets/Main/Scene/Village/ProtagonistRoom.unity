@@ -545,7 +545,7 @@ GameObject:
   - component: {fileID: 540829568}
   m_Layer: 0
   m_Name: PR_Shelf_0
-  m_TagString: Untagged
+  m_TagString: CraftingPlace
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -843,6 +843,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3668609668914234624, guid: 4c48c12b07cba944d827e34df48df0ae,
         type: 3}
+      propertyPath: Lens.OrthographicSize
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668609668914234624, guid: 4c48c12b07cba944d827e34df48df0ae,
+        type: 3}
       propertyPath: Target.TrackingTarget
       value: 
       objectReference: {fileID: 0}
@@ -914,7 +919,7 @@ PrefabInstance:
     - target: {fileID: 9163928801413157576, guid: 4c48c12b07cba944d827e34df48df0ae,
         type: 3}
       propertyPath: orthographic size
-      value: 7.1714287
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1155,7 +1160,7 @@ GameObject:
   - component: {fileID: 1286831722}
   m_Layer: 0
   m_Name: PR_TableFront_0
-  m_TagString: Untagged
+  m_TagString: Shop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2470,7 +2475,7 @@ GameObject:
   - component: {fileID: 2134582226}
   m_Layer: 0
   m_Name: PR_TableSide_0
-  m_TagString: Untagged
+  m_TagString: CraftingPlace
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

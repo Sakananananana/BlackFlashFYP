@@ -9,7 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 192da37d05c1958408b8f412bf53a692, type: 3}
-  m_Name: ProtagonistAttack
+  m_Script: {fileID: 11500000, guid: d092f7fab78fcdc49a6211732d160f73, type: 3}
+  m_Name: OpenProtagonistRoom
   m_EditorClassIdentifier: 
-  _attackDamage: 30

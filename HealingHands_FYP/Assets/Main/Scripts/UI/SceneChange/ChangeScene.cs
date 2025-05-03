@@ -13,4 +13,10 @@ public class ChangeScene : MonoBehaviour
             _raiseLoadEvent.OnLoadingRequested(_sceneToLoad);
         }
     }
+
+    public void TriggerSceneChange()
+    {
+        _raiseLoadEvent.OnLoadingRequested(_sceneToLoad);
+    }
+
 }

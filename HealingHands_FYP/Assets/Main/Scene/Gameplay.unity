@@ -818,12 +818,14 @@ MonoBehaviour:
   _onWeaponShoppingStarted: {fileID: 11400000, guid: 383f32740fe54184d88fceb28ee32f8a,
     type: 2}
   _onWeaponStarted: {fileID: 11400000, guid: 383f32740fe54184d88fceb28ee32f8a, type: 2}
+  _onOpenRoom: {fileID: 11400000, guid: 256115ad085a5e346862ccc04d1a04c7, type: 2}
   _interactionManager: {fileID: 0}
   _inventoryPanel: {fileID: 321357316}
   _pauseMenu: {fileID: 1758775363}
   _shopManager: {fileID: 4193730493214022893}
   _weaponManager: {fileID: 3544703213694263350}
   _taskUIManager: {fileID: 7147008367804302145}
+  _roomSceneChanger: {fileID: 725136772}
 --- !u!1 &710329734 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6037569262541766586, guid: 9c0d408a9cb04f94ba71576b5f046c15,
@@ -906,6 +908,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 710754341}
   m_CullTransparentMesh: 1
+--- !u!1 &725136771
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 725136773}
+  - component: {fileID: 725136772}
+  m_Layer: 5
+  m_Name: SceneChanger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &725136772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 725136771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95bbc6f2fdd06fe4da69485fac3026d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sceneToLoad: {fileID: 11400000, guid: b115c702de942994c841ecc0fa228660, type: 2}
+  _raiseLoadEvent: {fileID: 11400000, guid: b769200f62001e040aabd9621e541c7a, type: 2}
+--- !u!224 &725136773
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 725136771}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 960, y: 540}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &743707637
 GameObject:
   m_ObjectHideFlags: 0
@@ -3825,4 +3877,5 @@ SceneRoots:
   - {fileID: 595555349237472572}
   - {fileID: 5626073568020282159}
   - {fileID: 5587776530496259626}
+  - {fileID: 725136773}
   - {fileID: 670873544}

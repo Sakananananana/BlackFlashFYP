@@ -1,6 +1,7 @@
 using UnityEngine;
 using PlayerInputSystem;
 using Inventory.UI;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private BoolEventChannelSO _onShoppingStarted;
     [SerializeField] private BoolEventChannelSO _onWeaponShoppingStarted;
     [SerializeField] private BoolEventChannelSO _onWeaponStarted;
+    [SerializeField] private BoolEventChannelSO _onOpenRoom;
     [SerializeField] private InterectionManager _interactionManager;
 
 
@@ -18,6 +20,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private ShopManager _shopManager;
     [SerializeField] private WeaponUpgradeButton _weaponManager;
     [SerializeField] private TaskUIManager _taskUIManager;
+    [SerializeField] private ChangeScene _roomSceneChanger;
 
     bool _isCrafting = false;
     bool _isShopping = false;
@@ -26,6 +29,7 @@ public class UIManager : MonoBehaviour
     {
         _onCraftingStarted.OnEventRaised += OpenInventoryForCrafting;
         _onShoppingStarted.OnEventRaised += OnShopRequested;
+        _onOpenRoom.OnEventRaised += OnOpenRoomRequested;
         _onWeaponShoppingStarted.OnEventRaised += OnWeaponShopRequested;
 
         _inputReader.OpenInventoryEvent += OpenInventoryScreen;
@@ -37,6 +41,7 @@ public class UIManager : MonoBehaviour
     {
         _onCraftingStarted.OnEventRaised -= OpenInventoryForCrafting;
         _onShoppingStarted.OnEventRaised -= OnShopRequested;
+        _onOpenRoom.OnEventRaised-= OnOpenRoomRequested;
         _onWeaponShoppingStarted.OnEventRaised -= OnWeaponShopRequested;
 
         _inputReader.OpenInventoryEvent -= OpenInventoryScreen;
@@ -66,6 +71,18 @@ public class UIManager : MonoBehaviour
             _inputReader.InteractEvent += OpenShopScreen;
         else
             _inputReader.InteractEvent -= OpenShopScreen;
+    }
+
+    void OnOpenRoomRequested(bool val)
+    {
+        if ((val == true))
+        {
+            _inputReader.InteractEvent += OpenRoomUI;
+        }
+        else
+        {
+            _inputReader.InteractEvent-= OpenRoomUI;
+        }
     }
 
 
@@ -161,4 +178,24 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 1;
         _inputReader.SetGameplay();
     }
+
+    void OpenRoomUI()
+    {
+        //_inputReader.ResumeEvent += CloseRoomUI;
+        //_inputReader.SetUI();
+
+        //Time.timeScale = 0;
+        _roomSceneChanger.TriggerSceneChange();
+
+        _onOpenRoom.RaiseEvent(true);
+    }
+    void CloseRoomUI()
+    {
+        _inputReader.ResumeEvent -= CloseRoomUI;
+        _inputReader.SetGameplay();
+        Time.timeScale = 1;
+
+        _onOpenRoom.RaiseEvent(false);
+    }
+
 }
