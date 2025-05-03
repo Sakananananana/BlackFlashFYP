@@ -1,0 +1,578 @@
+fileFormatVersion: 2
+guid: 5bfbb50fdb8158041bad86ca15d984b9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3011908224432877308
+    second: Tilemap_StoneBridge 1_0
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Tilemap_StoneBridge 1_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 32
+        height: 64
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e60ea4ac0b77072439a62ba2db263431
+      internalID: -539163548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap_StoneBridge 1_16
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 256
+        width: 32
+        height: 64
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b51d6ee2329fa264786c7098d77e910d
+      internalID: 565536498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap_StoneBridge 1_25
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 256
+        width: 32
+        height: 64
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35e549023b3c930418e26fb5ec2d2dad
+      internalID: -798212225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap_StoneBridge 1_26
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 256
+        width: 32
+        height: 64
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69924d2cb2bd1c64585da7fc8ced618c
+      internalID: 649124204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap_StoneBridge 1_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 32
+        height: 64
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28b76537d4c650f448947ecb92ed1e5c
+      internalID: 993993866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap_StoneBridge 1_29
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 192
+        width: 32
+        height: 64
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39916ff723201174d836d9e1a3237f09
+      internalID: 2088317094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap_StoneBridge 1_38
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 192
+        width: 32
+        height: 64
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6e9fd98c8985994e8cb712626f92463
+      internalID: -475371797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap_StoneBridge 1_39
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 192
+        width: 32
+        height: 64
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d60822ffdc58fe4289fffa1b1ed44f4
+      internalID: 221389858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap_StoneBridge 1_41
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 32
+        height: 64
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ff053239c5752f45a9593e7c106d4db
+      internalID: 68519377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap_StoneBridge 1_42
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 128
+        width: 32
+        height: 64
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a54cf8633e81d545b9ad39451e2ec6c
+      internalID: 636458959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap_StoneBridge 1_51
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 128
+        width: 32
+        height: 64
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33f06ecf53aba82438d1d8d07588fc8c
+      internalID: 1673530674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap_StoneBridge 1_52
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 128
+        width: 32
+        height: 64
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6713caa4f5112a14a998b088adb8ee2d
+      internalID: 1994345617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap_StoneBridge 1_54
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 32
+        height: 64
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cc0d338481cc67499b31e54c164f2bd
+      internalID: 1061748035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap_StoneBridge 1_55
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 64
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 116597c505aa2c649a2713bc89e46516
+      internalID: 589261848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap_StoneBridge 1_64
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 64
+        width: 32
+        height: 64
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 371bcc0b2b96dd843b08a88f45905bce
+      internalID: 515642942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap_StoneBridge 1_65
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 64
+        width: 32
+        height: 64
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53ba08d9cd5fc114d83c301b3c06331a
+      internalID: 307443447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 9255be520b97cb0439cee741382a1772
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Tilemap_StoneBridge 1_0: 648279269
+      Tilemap_StoneBridge 1_1: -1252909700
+      Tilemap_StoneBridge 1_10: 421425206
+      Tilemap_StoneBridge 1_11: -408820554
+      Tilemap_StoneBridge 1_12: 1502871012
+      Tilemap_StoneBridge 1_13: -99522933
+      Tilemap_StoneBridge 1_14: -677018848
+      Tilemap_StoneBridge 1_15: -539163548
+      Tilemap_StoneBridge 1_16: 565536498
+      Tilemap_StoneBridge 1_17: 221852460
+      Tilemap_StoneBridge 1_18: 1273793883
+      Tilemap_StoneBridge 1_19: 1891471914
+      Tilemap_StoneBridge 1_2: 275526530
+      Tilemap_StoneBridge 1_20: 75110392
+      Tilemap_StoneBridge 1_21: 872067822
+      Tilemap_StoneBridge 1_22: -1541424656
+      Tilemap_StoneBridge 1_23: 1540866479
+      Tilemap_StoneBridge 1_24: 1001296062
+      Tilemap_StoneBridge 1_25: -798212225
+      Tilemap_StoneBridge 1_26: 649124204
+      Tilemap_StoneBridge 1_27: -505244290
+      Tilemap_StoneBridge 1_28: 993993866
+      Tilemap_StoneBridge 1_29: 2088317094
+      Tilemap_StoneBridge 1_3: -1234420389
+      Tilemap_StoneBridge 1_30: -358891329
+      Tilemap_StoneBridge 1_31: -1959766081
+      Tilemap_StoneBridge 1_32: -1142705429
+      Tilemap_StoneBridge 1_33: -1485199408
+      Tilemap_StoneBridge 1_34: 186090975
+      Tilemap_StoneBridge 1_35: 530426529
+      Tilemap_StoneBridge 1_36: -1477291690
+      Tilemap_StoneBridge 1_37: -1466887591
+      Tilemap_StoneBridge 1_38: -475371797
+      Tilemap_StoneBridge 1_39: 221389858
+      Tilemap_StoneBridge 1_4: 400150641
+      Tilemap_StoneBridge 1_40: -244601719
+      Tilemap_StoneBridge 1_41: 68519377
+      Tilemap_StoneBridge 1_42: 636458959
+      Tilemap_StoneBridge 1_43: 1713802447
+      Tilemap_StoneBridge 1_44: -783970488
+      Tilemap_StoneBridge 1_45: -306248210
+      Tilemap_StoneBridge 1_46: 873831339
+      Tilemap_StoneBridge 1_47: -1182102124
+      Tilemap_StoneBridge 1_48: 747629407
+      Tilemap_StoneBridge 1_49: 557192607
+      Tilemap_StoneBridge 1_5: 394962800
+      Tilemap_StoneBridge 1_50: -2091940147
+      Tilemap_StoneBridge 1_51: 1673530674
+      Tilemap_StoneBridge 1_52: 1994345617
+      Tilemap_StoneBridge 1_53: 1053308875
+      Tilemap_StoneBridge 1_54: 1061748035
+      Tilemap_StoneBridge 1_55: 589261848
+      Tilemap_StoneBridge 1_56: 1793124408
+      Tilemap_StoneBridge 1_57: -1624709154
+      Tilemap_StoneBridge 1_58: 972494692
+      Tilemap_StoneBridge 1_59: 307409213
+      Tilemap_StoneBridge 1_6: 366065103
+      Tilemap_StoneBridge 1_60: 1560684123
+      Tilemap_StoneBridge 1_61: 1597769476
+      Tilemap_StoneBridge 1_62: 1529654109
+      Tilemap_StoneBridge 1_63: 675564591
+      Tilemap_StoneBridge 1_64: 515642942
+      Tilemap_StoneBridge 1_65: 307443447
+      Tilemap_StoneBridge 1_66: -453663815
+      Tilemap_StoneBridge 1_67: -1417688407
+      Tilemap_StoneBridge 1_68: -1739935650
+      Tilemap_StoneBridge 1_69: -856058856
+      Tilemap_StoneBridge 1_7: 2002080481
+      Tilemap_StoneBridge 1_70: -1509338593
+      Tilemap_StoneBridge 1_71: 174540369
+      Tilemap_StoneBridge 1_72: 47386742
+      Tilemap_StoneBridge 1_73: 1730005768
+      Tilemap_StoneBridge 1_74: -4546562
+      Tilemap_StoneBridge 1_75: -321055256
+      Tilemap_StoneBridge 1_76: 797845008
+      Tilemap_StoneBridge 1_77: 1197618743
+      Tilemap_StoneBridge 1_78: 436294791
+      Tilemap_StoneBridge 1_79: 2028954722
+      Tilemap_StoneBridge 1_8: 1044282630
+      Tilemap_StoneBridge 1_9: 649306017
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

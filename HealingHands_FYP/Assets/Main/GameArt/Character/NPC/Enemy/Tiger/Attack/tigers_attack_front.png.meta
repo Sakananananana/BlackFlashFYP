@@ -1,0 +1,663 @@
+fileFormatVersion: 2
+guid: 8bec1a7b7c95557448f741c6f45d1ebc
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4268690188640870758
+    second: tigers_attack_front_0
+  - first:
+      213: 8379842139804863524
+    second: tigers_attack_front_1
+  - first:
+      213: -7899804998059457872
+    second: tigers_attack_front_2
+  - first:
+      213: 8460966424830717014
+    second: tigers_attack_front_3
+  - first:
+      213: -863222662011455665
+    second: tigers_attack_front_4
+  - first:
+      213: 5529394611542417976
+    second: tigers_attack_front_5
+  - first:
+      213: 8486212276145696130
+    second: tigers_attack_front_6
+  - first:
+      213: -7651351048710479162
+    second: tigers_attack_front_7
+  - first:
+      213: 1706580526852603668
+    second: tigers_attack_front_8
+  - first:
+      213: 4147475190899885720
+    second: tigers_attack_front_9
+  - first:
+      213: -5023198285044548456
+    second: tigers_attack_front_10
+  - first:
+      213: 7645894836763205037
+    second: tigers_attack_front_11
+  - first:
+      213: -8251749283066399948
+    second: tigers_attack_front_12
+  - first:
+      213: -1486272304051562273
+    second: tigers_attack_front_13
+  - first:
+      213: 7330934657544727504
+    second: tigers_attack_front_14
+  - first:
+      213: -7084790028953701981
+    second: tigers_attack_front_15
+  - first:
+      213: 669486219188969398
+    second: tigers_attack_front_16
+  - first:
+      213: -3347548998124268377
+    second: tigers_attack_front_17
+  - first:
+      213: -6987658441312475704
+    second: tigers_attack_front_18
+  - first:
+      213: -4578142424013577852
+    second: tigers_attack_front_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: tigers_attack_front_0
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 67
+        width: 172
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9e9dd1d3e092c4c0800000000000000
+      internalID: -4268690188640870758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tigers_attack_front_1
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 67
+        width: 172
+        height: 181
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42c0be0270e2b4470800000000000000
+      internalID: 8379842139804863524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tigers_attack_front_2
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 67
+        width: 172
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b28fcf85314e5290800000000000000
+      internalID: -7899804998059457872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tigers_attack_front_3
+      rect:
+        serializedVersion: 2
+        x: 586
+        y: 67
+        width: 172
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65caa80a2246b6570800000000000000
+      internalID: 8460966424830717014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tigers_attack_front_4
+      rect:
+        serializedVersion: 2
+        x: 717
+        y: 222
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f477dbcff873504f0800000000000000
+      internalID: -863222662011455665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tigers_attack_front_5
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 225
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 832e1fb6a1b5cbc40800000000000000
+      internalID: 5529394611542417976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tigers_attack_front_6
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 62
+        width: 172
+        height: 193
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28d29307a1515c570800000000000000
+      internalID: 8486212276145696130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tigers_attack_front_7
+      rect:
+        serializedVersion: 2
+        x: 970
+        y: 54
+        width: 172
+        height: 198
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c2acc182c0f0d590800000000000000
+      internalID: -7651351048710479162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tigers_attack_front_8
+      rect:
+        serializedVersion: 2
+        x: 1162
+        y: 21
+        width: 172
+        height: 227
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41ff5a382fdfea710800000000000000
+      internalID: 1706580526852603668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tigers_attack_front_9
+      rect:
+        serializedVersion: 2
+        x: 1354
+        y: 56
+        width: 172
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 896455c36bace8930800000000000000
+      internalID: 4147475190899885720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tigers_attack_front_10
+      rect:
+        serializedVersion: 2
+        x: 1546
+        y: 67
+        width: 172
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89c719716c30a4ab0800000000000000
+      internalID: -5023198285044548456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tigers_attack_front_11
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 48
+        width: 58
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dad934728dcab1a60800000000000000
+      internalID: 7645894836763205037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tigers_attack_front_12
+      rect:
+        serializedVersion: 2
+        x: 1396
+        y: 23
+        width: 88
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4333e372fb5eb7d80800000000000000
+      internalID: -8251749283066399948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tigers_attack_front_13
+      rect:
+        serializedVersion: 2
+        x: 653
+        y: 9
+        width: 38
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd8518dc633bf5be0800000000000000
+      internalID: -1486272304051562273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tigers_attack_front_14
+      rect:
+        serializedVersion: 2
+        x: 837
+        y: 10
+        width: 54
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0dbad86ea36bcb560800000000000000
+      internalID: 7330934657544727504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tigers_attack_front_15
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 7
+        width: 68
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a13cf76105cdad90800000000000000
+      internalID: -7084790028953701981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tigers_attack_front_16
+      rect:
+        serializedVersion: 2
+        x: 1193
+        y: 16
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bf17c45b2e7a4900800000000000000
+      internalID: 669486219188969398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tigers_attack_front_17
+      rect:
+        serializedVersion: 2
+        x: 1292
+        y: 16
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a4969a1ced1b81d0800000000000000
+      internalID: -3347548998124268377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tigers_attack_front_18
+      rect:
+        serializedVersion: 2
+        x: 1382
+        y: 15
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c56fc97ba9d60f90800000000000000
+      internalID: -6987658441312475704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tigers_attack_front_19
+      rect:
+        serializedVersion: 2
+        x: 1490
+        y: 15
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 481668da8bb2770c0800000000000000
+      internalID: -4578142424013577852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      tigers_attack_front_0: -4268690188640870758
+      tigers_attack_front_1: 8379842139804863524
+      tigers_attack_front_10: -5023198285044548456
+      tigers_attack_front_11: 7645894836763205037
+      tigers_attack_front_12: -8251749283066399948
+      tigers_attack_front_13: -1486272304051562273
+      tigers_attack_front_14: 7330934657544727504
+      tigers_attack_front_15: -7084790028953701981
+      tigers_attack_front_16: 669486219188969398
+      tigers_attack_front_17: -3347548998124268377
+      tigers_attack_front_18: -6987658441312475704
+      tigers_attack_front_19: -4578142424013577852
+      tigers_attack_front_2: -7899804998059457872
+      tigers_attack_front_3: 8460966424830717014
+      tigers_attack_front_4: -863222662011455665
+      tigers_attack_front_5: 5529394611542417976
+      tigers_attack_front_6: 8486212276145696130
+      tigers_attack_front_7: -7651351048710479162
+      tigers_attack_front_8: 1706580526852603668
+      tigers_attack_front_9: 4147475190899885720
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

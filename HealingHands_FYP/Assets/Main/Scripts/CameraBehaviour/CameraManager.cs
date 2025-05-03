@@ -8,7 +8,6 @@ public class CameraManager : MonoBehaviour
     [SerializeField] private float _shakeForce;
     [SerializeField] private CinemachineImpulseSource _impulseSource;
     [SerializeField] private CinemachineConfiner2D _confiner2D;
-    [SerializeField] private CinemachinePixelPerfect _ppCam;
     [SerializeField] private CinemachineCamera _vCam;
 
 
@@ -59,8 +58,6 @@ public class CameraManager : MonoBehaviour
 
     private IEnumerator CameraZooomIn()
     {
-        _ppCam.enabled = false;
-
         float initialSize = _vCam.Lens.OrthographicSize;
         float targetZoom = _vCam.Lens.OrthographicSize - 3;
         float duration = 1f;
@@ -73,7 +70,6 @@ public class CameraManager : MonoBehaviour
             yield return null;
         }
 
-        _ppCam.enabled = true;
         _vCam.Lens.OrthographicSize = targetZoom;
     }
 }
