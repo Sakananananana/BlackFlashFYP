@@ -7,7 +7,7 @@ public class HealthPointUI : MonoBehaviour
     [SerializeField] private Slider _slider;
 
     [SerializeField] private VoidEventChannelSO _healthChanges;
-
+    [SerializeField] private GameObject _healthIcon;
 
     void Awake()
     {
@@ -34,8 +34,21 @@ public class HealthPointUI : MonoBehaviour
     private void SetHealth()
     {
         _slider.value = _healthSO.CurrentHealth;
+        SetHealthIcon();
+    }
 
-        if (_healthSO.CurrentHealth <= 0)
-            gameObject.SetActive(false);
+    private void SetHealthIcon()
+    {
+        if (_healthIcon != null) 
+        {
+            if (0.5f > ((float)_healthSO.CurrentHealth / (float)_healthSO.MaxHealth))
+            {
+                _healthIcon.SetActive(true);
+            }
+            else
+            {
+                _healthIcon.SetActive(false);
+            }
+        }
     }
 }

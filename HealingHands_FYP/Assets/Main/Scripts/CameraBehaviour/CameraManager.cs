@@ -53,7 +53,7 @@ public class CameraManager : MonoBehaviour
 
     private void DeathEvent()
     {
-        StartCoroutine(CameraZooomIn());
+        //StartCoroutine(CameraZooomIn());
     }
 
     private IEnumerator CameraZooomIn()

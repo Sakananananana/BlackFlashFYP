@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 778a12d9f34d455409345c215826121f, type: 3}
+  m_Name: RespawnPlayerActionSO
+  m_EditorClassIdentifier: 
+  RespawnAtHome: {fileID: 11400000, guid: b769200f62001e040aabd9621e541c7a, type: 2}
+  Home: {fileID: 11400000, guid: b115c702de942994c841ecc0fa228660, type: 2}
