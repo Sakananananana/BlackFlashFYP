@@ -20,7 +20,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private ShopManager _shopManager;
     [SerializeField] private WeaponUpgradeButton _weaponManager;
     [SerializeField] private TaskUIManager _taskUIManager;
-    [SerializeField] private ChangeScene _roomSceneChanger;
+    [SerializeField] private GameObject _roomUIPanel;
+    //[SerializeField] private TriggerSceneChange _roomSceneChanger;
 
     bool _isCrafting = false;
     bool _isShopping = false;
@@ -29,7 +30,7 @@ public class UIManager : MonoBehaviour
     {
         _onCraftingStarted.OnEventRaised += OpenInventoryForCrafting;
         _onShoppingStarted.OnEventRaised += OnShopRequested;
-        _onOpenRoom.OnEventRaised += OnOpenRoomRequested;
+        _onOpenRoom.OnEventRaised += OpenRoomUI;
         _onWeaponShoppingStarted.OnEventRaised += OnWeaponShopRequested;
 
         _inputReader.OpenInventoryEvent += OpenInventoryScreen;
@@ -41,7 +42,7 @@ public class UIManager : MonoBehaviour
     {
         _onCraftingStarted.OnEventRaised -= OpenInventoryForCrafting;
         _onShoppingStarted.OnEventRaised -= OnShopRequested;
-        _onOpenRoom.OnEventRaised-= OnOpenRoomRequested;
+        _onOpenRoom.OnEventRaised-= OpenRoomUI;
         _onWeaponShoppingStarted.OnEventRaised -= OnWeaponShopRequested;
 
         _inputReader.OpenInventoryEvent -= OpenInventoryScreen;
@@ -73,17 +74,17 @@ public class UIManager : MonoBehaviour
             _inputReader.InteractEvent -= OpenShopScreen;
     }
 
-    void OnOpenRoomRequested(bool val)
-    {
-        if ((val == true))
-        {
-            _inputReader.InteractEvent += OpenRoomUI;
-        }
-        else
-        {
-            _inputReader.InteractEvent-= OpenRoomUI;
-        }
-    }
+    //void OnOpenRoomRequested(bool val)
+    //{
+    //    if ((val == true))
+    //    {
+    //        _inputReader.InteractEvent += OpenRoomUI;
+    //    }
+    //    else
+    //    {
+    //        _inputReader.InteractEvent -= OpenRoomUI;
+    //    }
+    //}
 
 
     void OpenInventoryForShopping(bool val)
@@ -179,23 +180,20 @@ public class UIManager : MonoBehaviour
         _inputReader.SetGameplay();
     }
 
-    void OpenRoomUI()
+    void OpenRoomUI(bool shouldShow)
     {
-        //_inputReader.ResumeEvent += CloseRoomUI;
-        //_inputReader.SetUI();
-
-        //Time.timeScale = 0;
-        _roomSceneChanger.TriggerSceneChange();
-
-        _onOpenRoom.RaiseEvent(true);
+        if (_roomUIPanel != null)
+        {
+            _roomUIPanel.SetActive(shouldShow);
+        }
     }
-    void CloseRoomUI()
-    {
-        _inputReader.ResumeEvent -= CloseRoomUI;
-        _inputReader.SetGameplay();
-        Time.timeScale = 1;
+    //void CloseRoomUI()
+    //{
+    //    _inputReader.ResumeEvent -= CloseRoomUI;
+    //    _inputReader.SetGameplay();
+    //    Time.timeScale = 1;
 
-        _onOpenRoom.RaiseEvent(false);
-    }
+    //    _onOpenRoom.RaiseEvent(false);
+    //}
 
 }

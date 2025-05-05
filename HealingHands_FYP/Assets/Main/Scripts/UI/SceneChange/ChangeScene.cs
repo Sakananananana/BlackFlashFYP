@@ -14,9 +14,5 @@ public class ChangeScene : MonoBehaviour
         }
     }
 
-    public void TriggerSceneChange()
-    {
-        _raiseLoadEvent.OnLoadingRequested(_sceneToLoad);
-    }
 
 }
