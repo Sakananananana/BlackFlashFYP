@@ -23,7 +23,7 @@ namespace PlayerInputSystem
         public Action CloseShopEvent;
         public Action OpenWeaponEvent;
         public Action OpenProtagonistRoomEvent;
-        //public Action CloseProtagonistRoomEvent;
+        public Action ReturnEvent;
         public Action CloseWeaponEvent;
         public Action PressedEvent;
         public Action PauseEvent;
@@ -85,7 +85,7 @@ namespace PlayerInputSystem
             _gameInputs.UI.Disable();
         }
 
-        #region Gameplay Move(WASD), Attack/Interact(J), Dash( )
+        #region Gameplay Move(WASD), Attack/Interact(J), Dash( ), 
         public void OnMove(InputAction.CallbackContext context)
         {
             MoveEvent?.Invoke(context.ReadValue<Vector2>());
@@ -110,6 +110,14 @@ namespace PlayerInputSystem
             if (context.phase == InputActionPhase.Performed)
             {
                 DashEvent?.Invoke();
+            }
+        }
+
+        public void OnReturn(InputAction.CallbackContext context)
+        {
+            if (context.phase == InputActionPhase.Performed)
+            { 
+                ReturnEvent?.Invoke();
             }
         }
         #endregion
