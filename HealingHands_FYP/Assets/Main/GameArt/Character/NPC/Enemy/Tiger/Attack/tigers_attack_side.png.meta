@@ -187,8 +187,8 @@ TextureImporter:
         y: 13
         width: 183
         height: 157
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.50955415}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -209,8 +209,8 @@ TextureImporter:
         y: 13
         width: 183
         height: 155
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.516129}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -228,11 +228,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 570
-        y: 13
+        y: 14
         width: 183
-        height: 147
+        height: 160
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -246,81 +246,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tigers_attack_side_3
-      rect:
-        serializedVersion: 2
-        x: 692
-        y: 151
-        width: 23
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4f831a0fb964f8f70800000000000000
-      internalID: 9191643000057444596
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tigers_attack_side_4
-      rect:
-        serializedVersion: 2
-        x: 947
-        y: 151
-        width: 23
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f803f90d1cccbc740800000000000000
-      internalID: 5173453729765994639
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tigers_attack_side_5
-      rect:
-        serializedVersion: 2
-        x: 1024
-        y: 125
-        width: 70
-        height: 43
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1b46f956aa07d0420800000000000000
-      internalID: 2597856437214340273
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: tigers_attack_side_6
       rect:
         serializedVersion: 2
-        x: 1083
+        x: 1024
         y: 13
-        width: 185
-        height: 144
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 244
+        height: 163
+      alignment: 9
+      pivot: {x: 0.45491803, y: 0.49079755}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -334,28 +268,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tigers_attack_side_7
-      rect:
-        serializedVersion: 2
-        x: 1202
-        y: 151
-        width: 23
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4843ac2612f179410800000000000000
-      internalID: 1483688830493668484
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: tigers_attack_side_8
       rect:
         serializedVersion: 2
@@ -363,8 +275,8 @@ TextureImporter:
         y: 13
         width: 243
         height: 169
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5761317, y: 0.4733728}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -384,9 +296,9 @@ TextureImporter:
         x: 1530
         y: 13
         width: 245
-        height: 154
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 163
+      alignment: 9
+      pivot: {x: 0.52244896, y: 0.49079755}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -400,28 +312,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tigers_attack_side_10
-      rect:
-        serializedVersion: 2
-        x: 1712
-        y: 151
-        width: 23
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 290331023f47878c0800000000000000
-      internalID: -4001319681354682222
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: tigers_attack_side_11
       rect:
         serializedVersion: 2
@@ -429,8 +319,8 @@ TextureImporter:
         y: 13
         width: 245
         height: 158
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5510204, y: 0.5063291}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -452,7 +342,7 @@ TextureImporter:
         width: 183
         height: 154
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -466,37 +356,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tigers_attack_side_13
-      rect:
-        serializedVersion: 2
-        x: 779
-        y: 127
-        width: 39
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 832400f5d930d9a20800000000000000
-      internalID: 3070614495375147576
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: tigers_attack_side_14
       rect:
         serializedVersion: 2
-        x: 828
+        x: 780
         y: 13
-        width: 183
-        height: 135
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 231
+        height: 162
+      alignment: 9
+      pivot: {x: 0.48051947, y: 0.49382716}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -509,99 +377,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: tigers_attack_side_15
-      rect:
-        serializedVersion: 2
-        x: 1788
-        y: 125
-        width: 12
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 697868d459f17b6e0800000000000000
-      internalID: -1821952798136825962
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tigers_attack_side_16
-      rect:
-        serializedVersion: 2
-        x: 1786
-        y: 79
-        width: 11
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 397d2f21e4d744a70800000000000000
-      internalID: 8810304545322358675
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tigers_attack_side_17
-      rect:
-        serializedVersion: 2
-        x: 791
-        y: 43
-        width: 34
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a8f1a92ef341e0c20800000000000000
-      internalID: 3174497051960024970
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tigers_attack_side_18
-      rect:
-        serializedVersion: 2
-        x: 1043
-        y: 25
-        width: 54
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5f82eb50d0bff0ed0800000000000000
-      internalID: -2445460039289394955
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 2998443c31c97124aa5c12c1828042f4
     internalID: 0
     vertices: []
     indices: 

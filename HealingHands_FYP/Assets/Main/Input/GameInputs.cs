@@ -73,6 +73,15 @@ namespace PlayerInputSystem
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Return"",
+                    ""type"": ""Button"",
+                    ""id"": ""936ae643-a580-4b8d-bc5a-4e41bace9771"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -172,6 +181,17 @@ namespace PlayerInputSystem
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4c98fe45-3b79-489e-bca9-6ebd4c21f10f"",
+                    ""path"": ""<Keyboard>/b"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Return"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -512,6 +532,7 @@ namespace PlayerInputSystem
             m_Gameplay_Dash = m_Gameplay.FindAction("Dash", throwIfNotFound: true);
             m_Gameplay_OpenInventory = m_Gameplay.FindAction("Open Inventory", throwIfNotFound: true);
             m_Gameplay_Pause = m_Gameplay.FindAction("Pause", throwIfNotFound: true);
+            m_Gameplay_Return = m_Gameplay.FindAction("Return", throwIfNotFound: true);
             // Inventory
             m_Inventory = asset.FindActionMap("Inventory", throwIfNotFound: true);
             m_Inventory_Navigate = m_Inventory.FindAction("Navigate", throwIfNotFound: true);
@@ -597,6 +618,7 @@ namespace PlayerInputSystem
         private readonly InputAction m_Gameplay_Dash;
         private readonly InputAction m_Gameplay_OpenInventory;
         private readonly InputAction m_Gameplay_Pause;
+        private readonly InputAction m_Gameplay_Return;
         public struct GameplayActions
         {
             private @GameInputs m_Wrapper;
@@ -606,6 +628,7 @@ namespace PlayerInputSystem
             public InputAction @Dash => m_Wrapper.m_Gameplay_Dash;
             public InputAction @OpenInventory => m_Wrapper.m_Gameplay_OpenInventory;
             public InputAction @Pause => m_Wrapper.m_Gameplay_Pause;
+            public InputAction @Return => m_Wrapper.m_Gameplay_Return;
             public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -630,6 +653,9 @@ namespace PlayerInputSystem
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
+                @Return.started += instance.OnReturn;
+                @Return.performed += instance.OnReturn;
+                @Return.canceled += instance.OnReturn;
             }
 
             private void UnregisterCallbacks(IGameplayActions instance)
@@ -649,6 +675,9 @@ namespace PlayerInputSystem
                 @Pause.started -= instance.OnPause;
                 @Pause.performed -= instance.OnPause;
                 @Pause.canceled -= instance.OnPause;
+                @Return.started -= instance.OnReturn;
+                @Return.performed -= instance.OnReturn;
+                @Return.canceled -= instance.OnReturn;
             }
 
             public void RemoveCallbacks(IGameplayActions instance)
@@ -858,6 +887,7 @@ namespace PlayerInputSystem
             void OnDash(InputAction.CallbackContext context);
             void OnOpenInventory(InputAction.CallbackContext context);
             void OnPause(InputAction.CallbackContext context);
+            void OnReturn(InputAction.CallbackContext context);
         }
         public interface IInventoryActions
         {

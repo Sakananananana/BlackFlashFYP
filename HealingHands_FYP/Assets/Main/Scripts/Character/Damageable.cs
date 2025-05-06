@@ -3,14 +3,17 @@ using System;
 
 public class Damageable : MonoBehaviour
 {
+    [SerializeField] private BossHealthUIItem _bossHealthUIItem;
     [SerializeField] private HealthConfigSO _healthConfigSO;
     [SerializeField] public HealthSO _currentHealthSO;
 
     [Header("Broadcasting on...")]
     [SerializeField] public VoidEventChannelSO _updateHealthUI;
+    [SerializeField] public BossEventChannelSO _updateBossUI;
     [SerializeField] public VoidEventChannelSO _deathEvent;
 
     [Header("Listening to...")]
+    [SerializeField] private VoidEventChannelSO _onSceneReady;
     [SerializeField] private IntEventChannelSO _restoreHealth;
 
     public Vector2 HitDirection { get; set; }
@@ -39,6 +42,18 @@ public class Damageable : MonoBehaviour
 
     private void OnEnable()
     {
+        if (_updateBossUI != null && _bossHealthUIItem != null)
+        {
+            _bossHealthUIItem._healthSO = ScriptableObject.CreateInstance<HealthSO>();
+            _bossHealthUIItem._voidEvent = ScriptableObject.CreateInstance<VoidEventChannelSO>();
+
+            _bossHealthUIItem._healthSO.SetMaxHealth(_healthConfigSO.InitialHealth);
+            _bossHealthUIItem._healthSO.SetCurrentHealth(_healthConfigSO.InitialHealth);
+
+            _updateBossUI.RaiseEvent(_bossHealthUIItem);
+        } 
+
+
         if (_restoreHealth != null)
         { _restoreHealth.OnEventRaised += ReceiveHeal; }
     }
