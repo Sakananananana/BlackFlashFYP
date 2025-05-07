@@ -58,6 +58,15 @@
                     "processors": "",
                     "interactions": "Hold(duration=1.5,pressPoint=0.5)",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Open Book",
+                    "type": "Button",
+                    "id": "316ecfc7-6ac6-4dad-8a5d-57bcbb39b873",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -168,6 +177,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Return",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "427b4019-a927-4e07-8142-6fdc4f3a11a2",
+                    "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Open Book",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -344,6 +364,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Next Page",
+                    "type": "Button",
+                    "id": "1174e65e-4513-4af2-be44-36ae50c43255",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Previous Page",
+                    "type": "Button",
+                    "id": "fb56b34d-ddac-446e-be8d-135e544b10bd",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -432,6 +470,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Cancel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "335fc0d2-b8ee-4c1b-9e9c-d75225194b45",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Next Page",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4fbb6bfc-3632-49ae-b552-96cd44977d36",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Previous Page",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

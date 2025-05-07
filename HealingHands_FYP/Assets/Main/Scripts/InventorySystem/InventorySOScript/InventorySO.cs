@@ -253,7 +253,10 @@ namespace Inventory.Model
                     continue;
                 }
                 returnValue[i] = _inventoryItems[i];
-                
+
+                //Check current inventory state and see what item inside, if item is in bag set item to collected.
+                if (_inventoryItems[i].Item.IsItemCollected == false)
+                { _inventoryItems[i].Item.IsItemCollected = true; }
             }
 
             return returnValue;

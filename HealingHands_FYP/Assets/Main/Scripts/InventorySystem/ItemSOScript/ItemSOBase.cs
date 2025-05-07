@@ -23,5 +23,8 @@ namespace Inventory.Model
         [field: SerializeField]
         [field: TextArea] public string ItemDescription { get; set; }
 
+        [field: SerializeField]
+        public bool IsItemCollected { get; set; }
+   
     }
 }

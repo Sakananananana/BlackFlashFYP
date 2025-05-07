@@ -2,6 +2,8 @@ using UnityEngine;
 using PlayerInputSystem;
 using Inventory.UI;
 using UnityEngine.SceneManagement;
+using System.Linq;
+//using UnityEditor.EditorTools;
 
 public class UIManager : MonoBehaviour
 {
@@ -21,10 +23,15 @@ public class UIManager : MonoBehaviour
     [SerializeField] private WeaponUpgradeButton _weaponManager;
     [SerializeField] private TaskUIManager _taskUIManager;
     [SerializeField] private GameObject _roomUIPanel;
+    [SerializeField] private GameObject _shopUIPanel;
+    [SerializeField] private GameObject _craftingUIPanel;
     //[SerializeField] private TriggerSceneChange _roomSceneChanger;
+    [SerializeField] private GameObject bookUI; // Reference to the book UI (parent of pages)
+    [SerializeField] private BookManager bookManager; // Your BookManager script
 
     bool _isCrafting = false;
     bool _isShopping = false;
+    private bool isBookOpen = false;
 
     private void OnEnable()
     {
@@ -35,6 +42,8 @@ public class UIManager : MonoBehaviour
 
         _inputReader.OpenInventoryEvent += OpenInventoryScreen;
         _inputReader.PauseEvent += OpenSettingScreen;
+        _inputReader.OpenBook += OpenBook;
+        _inputReader.CloseBook += CloseBook;
         // For regular shop.
     }
 
@@ -47,11 +56,17 @@ public class UIManager : MonoBehaviour
 
         _inputReader.OpenInventoryEvent -= OpenInventoryScreen;
         _inputReader.PauseEvent -= OpenSettingScreen;
+        _inputReader.OpenBook -= OpenBook;
+        _inputReader.CloseBook -= CloseBook;
     }
 
     void OpenInventoryForCrafting(bool val)
     { 
         _isCrafting = val;
+        if (_craftingUIPanel != null)
+        {
+            _craftingUIPanel.SetActive(val);
+        }
     }
 
 
@@ -68,10 +83,23 @@ public class UIManager : MonoBehaviour
     //shop for player to sell things
     void OnShopRequested(bool val)
     {
+
         if (val == true)
+        {
             _inputReader.InteractEvent += OpenShopScreen;
+            if (_roomUIPanel != null)
+            {
+                _roomUIPanel.SetActive(val);
+            }
+        }
         else
+        {
             _inputReader.InteractEvent -= OpenShopScreen;
+            if (_roomUIPanel != null)
+            {
+                _roomUIPanel.SetActive(val);
+            }
+        }
     }
 
     //void OnOpenRoomRequested(bool val)
@@ -195,5 +223,26 @@ public class UIManager : MonoBehaviour
 
     //    _onOpenRoom.RaiseEvent(false);
     //}
+    private void OpenBook()
+    {
+        bookUI.SetActive(true);
+        bookManager.ShowPage(0);
+        bookManager.RefreshAllPages();
+        isBookOpen = true;
+        _inputReader.ResumeEvent += CloseBook;
+        _inputReader.SetUI();
+        // Optional: pause game
+        Time.timeScale = 0f;
+    }
 
+    private void CloseBook()
+    {
+        Debug.Log("Close");
+        bookUI.SetActive(false);
+        isBookOpen = false;
+        _inputReader.ResumeEvent -= CloseBook;
+        _inputReader.SetGameplay();
+        // Resume game
+        Time.timeScale = 1f;
+    }
 }

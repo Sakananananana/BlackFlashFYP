@@ -82,6 +82,15 @@ namespace PlayerInputSystem
                     ""processors"": """",
                     ""interactions"": ""Hold(duration=1.5,pressPoint=0.5)"",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Open Book"",
+                    ""type"": ""Button"",
+                    ""id"": ""316ecfc7-6ac6-4dad-8a5d-57bcbb39b873"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -192,6 +201,17 @@ namespace PlayerInputSystem
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Return"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""427b4019-a927-4e07-8142-6fdc4f3a11a2"",
+                    ""path"": ""<Keyboard>/k"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Open Book"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -368,6 +388,24 @@ namespace PlayerInputSystem
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Next Page"",
+                    ""type"": ""Button"",
+                    ""id"": ""1174e65e-4513-4af2-be44-36ae50c43255"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Previous Page"",
+                    ""type"": ""Button"",
+                    ""id"": ""fb56b34d-ddac-446e-be8d-135e544b10bd"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -458,6 +496,28 @@ namespace PlayerInputSystem
                     ""action"": ""Cancel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""335fc0d2-b8ee-4c1b-9e9c-d75225194b45"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Next Page"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4fbb6bfc-3632-49ae-b552-96cd44977d36"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Previous Page"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -533,6 +593,7 @@ namespace PlayerInputSystem
             m_Gameplay_OpenInventory = m_Gameplay.FindAction("Open Inventory", throwIfNotFound: true);
             m_Gameplay_Pause = m_Gameplay.FindAction("Pause", throwIfNotFound: true);
             m_Gameplay_Return = m_Gameplay.FindAction("Return", throwIfNotFound: true);
+            m_Gameplay_OpenBook = m_Gameplay.FindAction("Open Book", throwIfNotFound: true);
             // Inventory
             m_Inventory = asset.FindActionMap("Inventory", throwIfNotFound: true);
             m_Inventory_Navigate = m_Inventory.FindAction("Navigate", throwIfNotFound: true);
@@ -545,6 +606,8 @@ namespace PlayerInputSystem
             m_UI_Submit = m_UI.FindAction("Submit", throwIfNotFound: true);
             m_UI_Cancel = m_UI.FindAction("Cancel", throwIfNotFound: true);
             m_UI_Resume = m_UI.FindAction("Resume", throwIfNotFound: true);
+            m_UI_NextPage = m_UI.FindAction("Next Page", throwIfNotFound: true);
+            m_UI_PreviousPage = m_UI.FindAction("Previous Page", throwIfNotFound: true);
         }
 
         ~@GameInputs()
@@ -619,6 +682,7 @@ namespace PlayerInputSystem
         private readonly InputAction m_Gameplay_OpenInventory;
         private readonly InputAction m_Gameplay_Pause;
         private readonly InputAction m_Gameplay_Return;
+        private readonly InputAction m_Gameplay_OpenBook;
         public struct GameplayActions
         {
             private @GameInputs m_Wrapper;
@@ -629,6 +693,7 @@ namespace PlayerInputSystem
             public InputAction @OpenInventory => m_Wrapper.m_Gameplay_OpenInventory;
             public InputAction @Pause => m_Wrapper.m_Gameplay_Pause;
             public InputAction @Return => m_Wrapper.m_Gameplay_Return;
+            public InputAction @OpenBook => m_Wrapper.m_Gameplay_OpenBook;
             public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -656,6 +721,9 @@ namespace PlayerInputSystem
                 @Return.started += instance.OnReturn;
                 @Return.performed += instance.OnReturn;
                 @Return.canceled += instance.OnReturn;
+                @OpenBook.started += instance.OnOpenBook;
+                @OpenBook.performed += instance.OnOpenBook;
+                @OpenBook.canceled += instance.OnOpenBook;
             }
 
             private void UnregisterCallbacks(IGameplayActions instance)
@@ -678,6 +746,9 @@ namespace PlayerInputSystem
                 @Return.started -= instance.OnReturn;
                 @Return.performed -= instance.OnReturn;
                 @Return.canceled -= instance.OnReturn;
+                @OpenBook.started -= instance.OnOpenBook;
+                @OpenBook.performed -= instance.OnOpenBook;
+                @OpenBook.canceled -= instance.OnOpenBook;
             }
 
             public void RemoveCallbacks(IGameplayActions instance)
@@ -773,6 +844,8 @@ namespace PlayerInputSystem
         private readonly InputAction m_UI_Submit;
         private readonly InputAction m_UI_Cancel;
         private readonly InputAction m_UI_Resume;
+        private readonly InputAction m_UI_NextPage;
+        private readonly InputAction m_UI_PreviousPage;
         public struct UIActions
         {
             private @GameInputs m_Wrapper;
@@ -781,6 +854,8 @@ namespace PlayerInputSystem
             public InputAction @Submit => m_Wrapper.m_UI_Submit;
             public InputAction @Cancel => m_Wrapper.m_UI_Cancel;
             public InputAction @Resume => m_Wrapper.m_UI_Resume;
+            public InputAction @NextPage => m_Wrapper.m_UI_NextPage;
+            public InputAction @PreviousPage => m_Wrapper.m_UI_PreviousPage;
             public InputActionMap Get() { return m_Wrapper.m_UI; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -802,6 +877,12 @@ namespace PlayerInputSystem
                 @Resume.started += instance.OnResume;
                 @Resume.performed += instance.OnResume;
                 @Resume.canceled += instance.OnResume;
+                @NextPage.started += instance.OnNextPage;
+                @NextPage.performed += instance.OnNextPage;
+                @NextPage.canceled += instance.OnNextPage;
+                @PreviousPage.started += instance.OnPreviousPage;
+                @PreviousPage.performed += instance.OnPreviousPage;
+                @PreviousPage.canceled += instance.OnPreviousPage;
             }
 
             private void UnregisterCallbacks(IUIActions instance)
@@ -818,6 +899,12 @@ namespace PlayerInputSystem
                 @Resume.started -= instance.OnResume;
                 @Resume.performed -= instance.OnResume;
                 @Resume.canceled -= instance.OnResume;
+                @NextPage.started -= instance.OnNextPage;
+                @NextPage.performed -= instance.OnNextPage;
+                @NextPage.canceled -= instance.OnNextPage;
+                @PreviousPage.started -= instance.OnPreviousPage;
+                @PreviousPage.performed -= instance.OnPreviousPage;
+                @PreviousPage.canceled -= instance.OnPreviousPage;
             }
 
             public void RemoveCallbacks(IUIActions instance)
@@ -888,6 +975,7 @@ namespace PlayerInputSystem
             void OnOpenInventory(InputAction.CallbackContext context);
             void OnPause(InputAction.CallbackContext context);
             void OnReturn(InputAction.CallbackContext context);
+            void OnOpenBook(InputAction.CallbackContext context);
         }
         public interface IInventoryActions
         {
@@ -902,6 +990,8 @@ namespace PlayerInputSystem
             void OnSubmit(InputAction.CallbackContext context);
             void OnCancel(InputAction.CallbackContext context);
             void OnResume(InputAction.CallbackContext context);
+            void OnNextPage(InputAction.CallbackContext context);
+            void OnPreviousPage(InputAction.CallbackContext context);
         }
     }
 }

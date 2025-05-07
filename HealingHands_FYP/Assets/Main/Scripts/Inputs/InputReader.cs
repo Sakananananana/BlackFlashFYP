@@ -23,6 +23,8 @@ namespace PlayerInputSystem
         public Action CloseShopEvent;
         public Action OpenWeaponEvent;
         public Action OpenProtagonistRoomEvent;
+        public Action OpenBook;
+        public Action CloseBook;
 
         public Action WarpEvent;
         public Action StartWarpEvent;
@@ -32,6 +34,9 @@ namespace PlayerInputSystem
         public Action PressedEvent;
         public Action PauseEvent;
         public Action ResumeEvent;
+        public Action NextPageEvent;
+        public Action PreviousPageEvent;
+
 
         float _holdTime;
 
@@ -165,6 +170,24 @@ namespace PlayerInputSystem
         }
         #endregion
 
+        public void OnOpenBook(InputAction.CallbackContext context)
+        {
+            if (context.phase == InputActionPhase.Started)
+            {
+                OpenBook?.Invoke();
+                SetUI(); // Optional: switch to inventory input map if needed
+            }
+        }
+
+        public void OnCloseBook(InputAction.CallbackContext context)
+        {
+            if (context.phase == InputActionPhase.Started)
+            {
+                CloseBook?.Invoke();
+                SetGameplay(); // Optional: switch to inventory input map if needed
+            }
+        }
+
         public void OnOpenShop(InputAction.CallbackContext context)
         {
             if (context.phase == InputActionPhase.Started)
@@ -209,6 +232,24 @@ namespace PlayerInputSystem
                 OpenProtagonistRoomEvent?.Invoke();
             }
         }
+
+        public void OnNextPage(InputAction.CallbackContext context)
+        {
+            if (context.phase == InputActionPhase.Started)
+            {
+                NextPageEvent?.Invoke();
+            }
+        }
+
+        public void OnPreviousPage(InputAction.CallbackContext context)
+        {
+            if (context.phase == InputActionPhase.Started)
+            {
+                PreviousPageEvent?.Invoke();
+            }
+        }
+
+
 
         #region Pause/Resume (Escape)
         public void OnPause(InputAction.CallbackContext context)
