@@ -11,6 +11,7 @@ public class Protagonist : AnimationController
     [NonSerialized] public Vector2 MovementVector;
     [NonSerialized] public Vector2 LastMoveDir = Vector2.down;
     public bool DashPerformed = false;
+    public bool WarpPerformed = false;
     public bool AttackPerformed = false;
 
     [SerializeField] private CircleCollider2D _playerCollider;
@@ -78,9 +79,11 @@ public class Protagonist : AnimationController
             LastMoveDir = MoveDir;
     }
 
+    private void WarpHandler() => WarpPerformed = true;
     private void DashHandler() => DashPerformed = true;
     private void AttackHandler() => AttackPerformed = true;
     public void CancelAttackInput() => AttackPerformed = false;
+    private void CancelWarpInput() => WarpPerformed = false;
     public void CancelDashInput() => DashPerformed = false;
 
     public IEnumerator DashCooldownTimer(float duration)

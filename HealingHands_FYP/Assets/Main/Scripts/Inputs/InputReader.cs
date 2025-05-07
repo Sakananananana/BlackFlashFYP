@@ -23,7 +23,11 @@ namespace PlayerInputSystem
         public Action CloseShopEvent;
         public Action OpenWeaponEvent;
         public Action OpenProtagonistRoomEvent;
-        public Action ReturnEvent;
+
+        public Action WarpEvent;
+        public Action StartWarpEvent;
+        public Action CancelWarpEvent;
+
         public Action CloseWeaponEvent;
         public Action PressedEvent;
         public Action PauseEvent;
@@ -119,23 +123,20 @@ namespace PlayerInputSystem
         {
             if (context.phase == InputActionPhase.Started)
             {
-                _holdTime = Time.time;
+                StartWarpEvent?.Invoke();
             }
 
             switch (context.phase)
             { 
                 case InputActionPhase.Performed:
                     {
-                        ReturnEvent?.Invoke();
-                        Debug.Log("Held for 2 Seconds!");
+                        WarpEvent?.Invoke();
                         break;
                     }
-                    
 
                 case InputActionPhase.Canceled:
                     {
-                        float heldDuration = Time.time - _holdTime;
-                        Debug.Log(heldDuration);
+                        CancelWarpEvent?.Invoke();
                         break;
                     } 
             }
