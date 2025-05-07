@@ -29,7 +29,11 @@ namespace Inventory.UI
         [SerializeField] private VoidEventChannelSO _onResultSlotPressed;
 
         private List<UIInventoryItem> _listOfCraftingSlots = new List<UIInventoryItem>();
+        //private Dictionary<> _invCombinationList; 
+        private List<List<ItemSOBase>> _invalidCombinationList = new List<List<ItemSOBase>>(); 
+        private List<ItemSOBase> _ingredients = new List<ItemSOBase>();
         private bool _isPerformingAction = false;
+        private ItemSOBase _resultingItem;
         private int _currentPressedItem;
 
         private void OnEnable()
@@ -67,27 +71,62 @@ namespace Inventory.UI
                 ResetCraftedItemDescription();
             else
             {
-                List<ItemSOBase> ingredients = new List<ItemSOBase>();
+                _ingredients.Clear();
+
                 for (int i = 0; i < _craftingSlots.Count; i++)
                 {
-                    ingredients.Add(_craftingSlots[i]._item);
+                    _ingredients.Add(_craftingSlots[i]._item);
                 }
 
                 for (int i = 0; i < _craftingList.Count; i++)
                 {
-                    if (ingredients.All(ingredients => _craftingList[i].Ingredients.Contains(ingredients)))
+                    if (_ingredients.All(ingredients => _craftingList[i].Ingredients.Contains(ingredients)))
                     {
-                        SetCraftedItemDescription(_craftingList[i]);
-                        break;
+                        _resultingItem = _craftingList[i];
+
+                        if (_craftingList[i].IsCraftedBefore)
+                            SetCraftedItemDescription(_resultingItem);
+                        else
+                            SetCraftedItemDescription(_craftingList.Last());
+
+                        return;
                     }
                 }
+
+                _resultingItem = _craftingList[4];
+                if (_invalidCombinationList.Count == 0)
+                    SetCraftedItemDescription(_craftingList.Last());
+                else
+                {
+                    foreach (List<ItemSOBase> item in _invalidCombinationList)
+                    {
+                        if (_ingredients.All(item.Contains))
+                        {
+                            SetCraftedItemDescription(_craftingList[4]);
+                            return;
+                        }
+                    }
+
+                    SetCraftedItemDescription(_craftingList.Last());
+                }
             }
+        }
+
+        private bool AreSameIngredients(List<ItemSOBase> a, List<ItemSOBase> b)
+        {
+            if (a.Count != b.Count) return false;
+
+            var aGrouped = a.GroupBy(x => x).ToDictionary(g => g.Key, g => g.Count());
+            var bGrouped = b.GroupBy(x => x).ToDictionary(g => g.Key, g => g.Count());
+
+            return aGrouped.Count == bGrouped.Count && !aGrouped.Except(bGrouped).Any();
         }
 
         private void SetCraftedItemDescription(ItemSOBase item)
         {
             _resultSlot.SetResult(item);
             _resultSlot._itemTitle.text = item.name;
+            _resultSlot._itemDescription.text = item.ItemDescription;
 
             _onResultSlotPressed.OnEventRaised += AddCraftedItemToInventory;
         }
@@ -96,6 +135,7 @@ namespace Inventory.UI
         {
             _resultSlot.ResetData();
             _resultSlot._itemTitle.text = string.Empty;
+            _resultSlot._itemDescription.text = string.Empty;
 
             _onResultSlotPressed.OnEventRaised -= AddCraftedItemToInventory;
         }
@@ -106,12 +146,30 @@ namespace Inventory.UI
                 return;
             else
             {
-                _inventorySO.AddItem(_resultSlot._item, 1); //add item to inventory
+                _inventorySO.AddItem(_resultingItem, 1); //add item to inventory
                 ResetCraftedItemDescription();
+
+                if (_resultingItem is CraftableItemSO craftable)
+                {
+                    craftable.IsCraftedBefore = true;
+                }
+
+                if (_resultingItem == _craftingList[4])
+                {
+                    _invalidCombinationList.Add(new List<ItemSOBase>(_ingredients));
+                    foreach (List<ItemSOBase> item in _invalidCombinationList)
+                    {
+                        Debug.Log($"{item[0]} + {item[1]}");
+                    }
+                }
+
+                _resultingItem = null;
+
                 for (int i = 0; i < _craftingSlots.Count; i++)
                 {
                     _craftingSlots[i].ResetData();
                 }
+
                 _craftingUpdates.RaiseEvent();
             }
         }

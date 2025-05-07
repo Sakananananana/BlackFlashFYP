@@ -8,6 +8,7 @@ namespace Inventory.Model
     public class CraftableItemSO : ItemSOBase
     {
         [SerializeField] public List<ItemSOBase> Ingredients = new List<ItemSOBase>();
+        [SerializeField] public bool IsCraftedBefore { get; set; }
     }
 }
 

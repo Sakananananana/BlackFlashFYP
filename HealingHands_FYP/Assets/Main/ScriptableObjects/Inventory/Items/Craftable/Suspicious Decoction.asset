@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b23deac0c6790748bf5739723c5bd11, type: 3}
+  m_Name: Suspicious Decoction
+  m_EditorClassIdentifier: 
+  <IsStackable>k__BackingField: 1
+  <MaxStackSize>k__BackingField: 5
+  <ItemImage>k__BackingField: {fileID: 21300004, guid: 9d760526269e55b40898d45c96b2a15f,
+    type: 3}
+  <ItemName>k__BackingField: Suspicious Decoction
+  <ItemDescription>k__BackingField: This decoction looks a bit suspicious... Better
+    not use it...
+  Ingredients: []

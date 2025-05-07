@@ -80,7 +80,7 @@ namespace PlayerInputSystem
                     ""id"": ""936ae643-a580-4b8d-bc5a-4e41bace9771"",
                     ""expectedControlType"": """",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Hold(duration=1.5,pressPoint=0.5)"",
                     ""initialStateCheck"": false
                 }
             ],

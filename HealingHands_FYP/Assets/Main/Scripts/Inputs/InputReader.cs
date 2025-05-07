@@ -29,6 +29,8 @@ namespace PlayerInputSystem
         public Action PauseEvent;
         public Action ResumeEvent;
 
+        float _holdTime;
+
         private void OnEnable()
         {
             _interactionEvent.OnEventRaised += IsInteraction;
@@ -86,9 +88,9 @@ namespace PlayerInputSystem
         }
 
         #region Gameplay Move(WASD), Attack/Interact(J), Dash( ), 
-        public void OnMove(InputAction.CallbackContext context)
+        private void IsInteraction(bool val)
         {
-            MoveEvent?.Invoke(context.ReadValue<Vector2>());
+            _interactionEnabled = (val) ? _interactionEnabled = true : _interactionEnabled = false;
         }
 
         public void OnInteract(InputAction.CallbackContext context)
@@ -100,9 +102,9 @@ namespace PlayerInputSystem
             }
         }
 
-        private void IsInteraction(bool val)
+        public void OnMove(InputAction.CallbackContext context)
         {
-            _interactionEnabled = (val) ? _interactionEnabled = true : _interactionEnabled = false;
+            MoveEvent?.Invoke(context.ReadValue<Vector2>());
         }
 
         public void OnDash(InputAction.CallbackContext context)
@@ -115,9 +117,27 @@ namespace PlayerInputSystem
 
         public void OnReturn(InputAction.CallbackContext context)
         {
-            if (context.phase == InputActionPhase.Performed)
+            if (context.phase == InputActionPhase.Started)
+            {
+                _holdTime = Time.time;
+            }
+
+            switch (context.phase)
             { 
-                ReturnEvent?.Invoke();
+                case InputActionPhase.Performed:
+                    {
+                        ReturnEvent?.Invoke();
+                        Debug.Log("Held for 2 Seconds!");
+                        break;
+                    }
+                    
+
+                case InputActionPhase.Canceled:
+                    {
+                        float heldDuration = Time.time - _holdTime;
+                        Debug.Log(heldDuration);
+                        break;
+                    } 
             }
         }
         #endregion

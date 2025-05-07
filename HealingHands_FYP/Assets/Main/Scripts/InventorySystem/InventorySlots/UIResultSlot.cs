@@ -9,6 +9,7 @@ namespace Inventory.UI
         [HideInInspector] public ItemSOBase _item;
 
         [SerializeField] public TMP_Text _itemTitle;
+        [SerializeField] public TMP_Text _itemDescription;
         [SerializeField] private VoidEventChannelSO _onResultSlotPressed;
 
         public void SetResult(ItemSOBase item)
