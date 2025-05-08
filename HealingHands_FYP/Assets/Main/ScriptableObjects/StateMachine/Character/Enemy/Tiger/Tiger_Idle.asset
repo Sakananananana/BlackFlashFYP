@@ -12,10 +12,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bd970c5eb1e3b8479943c38da5a9eec, type: 3}
   m_Name: Tiger_Idle
   m_EditorClassIdentifier: 
-  _actions: []
+  _actions:
+  - {fileID: 11400000, guid: 7f502428994fd5f40af3c8bf8935f6d8, type: 2}
+  - {fileID: 11400000, guid: 9d1aa76885d878144b6125ec1eb49e21, type: 2}
   _transitions:
   - _targetState: {fileID: 11400000, guid: 2f92c9b242284f843a56c49b8ca187da, type: 2}
     Decisions:
     - Decision: {fileID: 11400000, guid: 13146fc9309e2274fbb01c4fd0f4fbfe, type: 2}
+      ExpectedResult: 0
+      Operator: 0
+  - _targetState: {fileID: 11400000, guid: 589806a9bd06a044b80505e6710d00cd, type: 2}
+    Decisions:
+    - Decision: {fileID: 11400000, guid: fd51171ae6aaf8248ad7eb67cbebe8d5, type: 2}
+      ExpectedResult: 1
+      Operator: 0
+    - Decision: {fileID: 11400000, guid: 480ab165a28fba844bffe8a6c8fdad34, type: 2}
+      ExpectedResult: 0
+      Operator: 0
+    - Decision: {fileID: 11400000, guid: 4b6d8050469c9da4787f24c717ae7023, type: 2}
+      ExpectedResult: 0
+      Operator: 0
+  - _targetState: {fileID: 11400000, guid: 1e144a49bb09a044e983415c5bcf6955, type: 2}
+    Decisions:
+    - Decision: {fileID: 11400000, guid: fd51171ae6aaf8248ad7eb67cbebe8d5, type: 2}
+      ExpectedResult: 0
+      Operator: 0
+    - Decision: {fileID: 11400000, guid: 480ab165a28fba844bffe8a6c8fdad34, type: 2}
+      ExpectedResult: 0
+      Operator: 0
+    - Decision: {fileID: 11400000, guid: 4b6d8050469c9da4787f24c717ae7023, type: 2}
+      ExpectedResult: 0
+      Operator: 0
+  - _targetState: {fileID: 11400000, guid: e5dc349cfd1c4524cb90070cc0834542, type: 2}
+    Decisions:
+    - Decision: {fileID: 11400000, guid: 480ab165a28fba844bffe8a6c8fdad34, type: 2}
+      ExpectedResult: 1
+      Operator: 0
+    - Decision: {fileID: 11400000, guid: 4b6d8050469c9da4787f24c717ae7023, type: 2}
+      ExpectedResult: 0
+      Operator: 0
+  - _targetState: {fileID: 11400000, guid: 5ec7c85c845817648bfd11badb0bf8e1, type: 2}
+    Decisions:
+    - Decision: {fileID: 11400000, guid: af9724ee616c4f3429ecfdc6488704e6, type: 2}
       ExpectedResult: 0
       Operator: 0

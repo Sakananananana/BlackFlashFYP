@@ -1,0 +1,317 @@
+fileFormatVersion: 2
+guid: f794363b029f27a40bc423e56bf7b504
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5608665927298232113
+    second: tigers_bite_side_0
+  - first:
+      213: 8505056782597323178
+    second: tigers_bite_side_1
+  - first:
+      213: -6697548031313734698
+    second: tigers_bite_side_2
+  - first:
+      213: -6036937043547438296
+    second: tigers_bite_side_3
+  - first:
+      213: -2631216912493394745
+    second: tigers_bite_side_4
+  - first:
+      213: 3137417218741615692
+    second: tigers_bite_side_5
+  - first:
+      213: -9061874987606608860
+    second: tigers_bite_side_6
+  - first:
+      213: 4566676238861459647
+    second: tigers_bite_side_7
+  - first:
+      213: -4471195425243722483
+    second: tigers_bite_side_8
+  - first:
+      213: 6488475017404194825
+    second: tigers_bite_side_9
+  - first:
+      213: -1333919178326992000
+    second: tigers_bite_side_10
+  - first:
+      213: -107635075453240592
+    second: tigers_bite_side_11
+  - first:
+      213: -5803209730924154878
+    second: tigers_bite_side_12
+  - first:
+      213: 4661965030273671732
+    second: tigers_bite_side_13
+  - first:
+      213: -4623678711716228805
+    second: tigers_bite_side_14
+  - first:
+      213: -1831832580283269728
+    second: tigers_bite_side_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: tigers_bite_side_0
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 42
+        width: 46
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13fa274e1fbf5dd40800000000000000
+      internalID: 5608665927298232113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tigers_bite_side_1
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 23
+        width: 71
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa97d310518080670800000000000000
+      internalID: 8505056782597323178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tigers_bite_side_2
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 14
+        width: 90
+        height: 166
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d39d67fc878d03a0800000000000000
+      internalID: -6697548031313734698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tigers_bite_side_3
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 37
+        width: 113
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82345f37ebd783ca0800000000000000
+      internalID: -6036937043547438296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tigers_bite_side_4
+      rect:
+        serializedVersion: 2
+        x: 1041
+        y: 37
+        width: 112
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c4c4dba82a0c7bd0800000000000000
+      internalID: -2631216912493394745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 78b850830142f6c4383d3c90bd2568a4
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      tigers_bite_side_0: 5608665927298232113
+      tigers_bite_side_1: 8505056782597323178
+      tigers_bite_side_10: -1333919178326992000
+      tigers_bite_side_11: -107635075453240592
+      tigers_bite_side_12: -5803209730924154878
+      tigers_bite_side_13: 4661965030273671732
+      tigers_bite_side_14: -4623678711716228805
+      tigers_bite_side_15: -1831832580283269728
+      tigers_bite_side_2: -6697548031313734698
+      tigers_bite_side_3: -6036937043547438296
+      tigers_bite_side_4: -2631216912493394745
+      tigers_bite_side_5: 3137417218741615692
+      tigers_bite_side_6: -9061874987606608860
+      tigers_bite_side_7: 4566676238861459647
+      tigers_bite_side_8: -4471195425243722483
+      tigers_bite_side_9: 6488475017404194825
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

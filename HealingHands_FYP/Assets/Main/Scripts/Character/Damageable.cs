@@ -44,14 +44,11 @@ public class Damageable : MonoBehaviour
     {
         if (_updateBossUI != null && _bossHealthUIItem != null)
         {
-            _bossHealthUIItem._healthSO = ScriptableObject.CreateInstance<HealthSO>();
-            _bossHealthUIItem._voidEvent = ScriptableObject.CreateInstance<VoidEventChannelSO>();
-
             _bossHealthUIItem._healthSO.SetMaxHealth(_healthConfigSO.InitialHealth);
             _bossHealthUIItem._healthSO.SetCurrentHealth(_healthConfigSO.InitialHealth);
 
             _updateBossUI.RaiseEvent(_bossHealthUIItem);
-        } 
+        }
 
 
         if (_restoreHealth != null)
