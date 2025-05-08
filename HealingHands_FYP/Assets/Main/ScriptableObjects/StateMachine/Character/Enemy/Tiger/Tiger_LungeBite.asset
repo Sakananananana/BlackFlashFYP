@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bd970c5eb1e3b8479943c38da5a9eec, type: 3}
+  m_Name: Tiger_LungeBite
+  m_EditorClassIdentifier: 
+  _actions:
+  - {fileID: 11400000, guid: 01e015df17fa5814693e7016136bd7fa, type: 2}
+  - {fileID: 11400000, guid: d56c76e87a7f6e2489388eb1dec06d7b, type: 2}
+  _transitions:
+  - _targetState: {fileID: 11400000, guid: 3254ac853a2588a4facc2e3d04fefb87, type: 2}
+    Decisions:
+    - Decision: {fileID: 11400000, guid: c37fa041b28b8634e8d1c94171d68ab7, type: 2}
+      ExpectedResult: 0
+      Operator: 0
