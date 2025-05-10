@@ -10,6 +10,7 @@ public class TriggerSceneChange : MonoBehaviour
     [SerializeField] private BoolEventChannelSO _onOpenRoom;
     [SerializeField] private InterectionManager _interactionManager;
     [SerializeField] private TriggerSceneChange _roomSceneChanger;
+    [SerializeField] private GameObject _roomUIPanel;
 
 
     public void triggerSceneChange()
@@ -34,10 +35,12 @@ public class TriggerSceneChange : MonoBehaviour
         if ((val == true))
         {
             _inputReader.InteractEvent += OpenRoomUI;
+            OpenRoomUIPanel(true);
         }
         else
         {
             _inputReader.InteractEvent -= OpenRoomUI;
+            OpenRoomUIPanel(false);
         }
     }
     private void OnDisable()
@@ -45,4 +48,12 @@ public class TriggerSceneChange : MonoBehaviour
         _onOpenRoom.OnEventRaised -= OnOpenRoomRequested;
     }
 
+    void OpenRoomUIPanel(bool shouldShow)
+    {
+        if (_roomUIPanel != null)
+        {
+            _roomUIPanel.SetActive(shouldShow);
+        }
     }
+
+}

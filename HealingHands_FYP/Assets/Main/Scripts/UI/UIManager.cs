@@ -37,7 +37,7 @@ public class UIManager : MonoBehaviour
     {
         _onCraftingStarted.OnEventRaised += OpenInventoryForCrafting;
         _onShoppingStarted.OnEventRaised += OnShopRequested;
-        _onOpenRoom.OnEventRaised += OpenRoomUI;
+        //_onOpenRoom.OnEventRaised += OpenRoomUI;
         _onWeaponShoppingStarted.OnEventRaised += OnWeaponShopRequested;
 
         _inputReader.OpenInventoryEvent += OpenInventoryScreen;
@@ -51,7 +51,7 @@ public class UIManager : MonoBehaviour
     {
         _onCraftingStarted.OnEventRaised -= OpenInventoryForCrafting;
         _onShoppingStarted.OnEventRaised -= OnShopRequested;
-        _onOpenRoom.OnEventRaised-= OpenRoomUI;
+        //_onOpenRoom.OnEventRaised-= OpenRoomUI;
         _onWeaponShoppingStarted.OnEventRaised -= OnWeaponShopRequested;
 
         _inputReader.OpenInventoryEvent -= OpenInventoryScreen;
@@ -208,13 +208,13 @@ public class UIManager : MonoBehaviour
         _inputReader.SetGameplay();
     }
 
-    void OpenRoomUI(bool shouldShow)
-    {
-        if (_roomUIPanel != null)
-        {
-            _roomUIPanel.SetActive(shouldShow);
-        }
-    }
+    //void OpenRoomUI(bool shouldShow)
+    //{
+    //    if (_roomUIPanel != null)
+    //    {
+    //        _roomUIPanel.SetActive(shouldShow);
+    //    }
+    //}
     //void CloseRoomUI()
     //{
     //    _inputReader.ResumeEvent -= CloseRoomUI;
