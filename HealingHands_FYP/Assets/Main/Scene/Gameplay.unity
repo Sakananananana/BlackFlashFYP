@@ -205,6 +205,7 @@ RectTransform:
   - {fileID: 776436558}
   - {fileID: 1158398037}
   - {fileID: 240216833}
+  - {fileID: 401206958}
   m_Father: {fileID: 670873544}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -557,13 +558,14 @@ GameObject:
   m_Component:
   - component: {fileID: 401206958}
   - component: {fileID: 401206960}
+  - component: {fileID: 401206961}
   m_Layer: 7
   m_Name: Boss_HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &401206958
 RectTransform:
   m_ObjectHideFlags: 0
@@ -578,13 +580,12 @@ RectTransform:
   m_Children:
   - {fileID: 1498520955}
   - {fileID: 1670740504}
-  - {fileID: 427730082}
-  m_Father: {fileID: 1483904745}
+  m_Father: {fileID: 201406296}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 45}
-  m_SizeDelta: {x: 1800, y: 30}
+  m_SizeDelta: {x: 1600, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &401206960
 MonoBehaviour:
@@ -637,6 +638,26 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &401206961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 401206957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acccb4332bbb3bd45b12b0ceaf758137, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fillArea: {fileID: 1670740503}
+  _bossTitle: {fileID: 1498520956}
+  _bossHPBar: {fileID: 401206960}
+  _protagonistDeathEvent: {fileID: 11400000, guid: 26bd76ad9378d3a4e8425cd731800f2f,
+    type: 2}
+  _bossHealthUIUpdate: {fileID: 11400000, guid: ec6ef34ad334a7b42abdf6fb7764e9e2,
+    type: 2}
+  _bossUIRequest: {fileID: 11400000, guid: e803e89d8fc6282458553e1a5cc7e954, type: 2}
 --- !u!1 &427730081
 GameObject:
   m_ObjectHideFlags: 0
@@ -662,17 +683,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 427730081}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 401206958}
+  m_Father: {fileID: 1670740504}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -20, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &427730083
 MonoBehaviour:
@@ -1293,7 +1314,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1483904745}
   - {fileID: 751368094}
   - {fileID: 201406296}
   - {fileID: 274889067}
@@ -2392,12 +2412,12 @@ PrefabInstance:
     - target: {fileID: 186976627959299735, guid: 5b2958b24921bb64eabfcc70ba1b014b,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 186976627959299735, guid: 5b2958b24921bb64eabfcc70ba1b014b,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 186976627959299735, guid: 5b2958b24921bb64eabfcc70ba1b014b,
         type: 3}
@@ -3338,58 +3358,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1482438462}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1483904744
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1483904745}
-  - component: {fileID: 1483904746}
-  m_Layer: 5
-  m_Name: BossHealthUI
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1483904745
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1483904744}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 401206958}
-  m_Father: {fileID: 670873544}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 50}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1483904746
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1483904744}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acccb4332bbb3bd45b12b0ceaf758137, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bossTitle: {fileID: 1498520956}
-  _bossHPBar: {fileID: 401206960}
-  _bossUIRequest: {fileID: 11400000, guid: e803e89d8fc6282458553e1a5cc7e954, type: 2}
 --- !u!1 &1498520954
 GameObject:
   m_ObjectHideFlags: 0
@@ -3407,7 +3375,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1498520955
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3447,7 +3415,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Boss Name
+  m_text: Boss Title
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e8721699cb5b56e4fb6ee0e3bb92637b, type: 2}
   m_sharedMaterial: {fileID: 8932314657602109658, guid: e8721699cb5b56e4fb6ee0e3bb92637b,
@@ -3620,7 +3588,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1670740504
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3632,7 +3600,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 427730082}
   m_Father: {fileID: 401206958}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3713,8 +3682,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 150.3949}
-  m_SizeDelta: {x: 400, y: 280}
+  m_AnchoredPosition: {x: 0, y: 150}
+  m_SizeDelta: {x: 355, y: 280}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1732259184
 MonoBehaviour:
@@ -4144,8 +4113,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e8721699cb5b56e4fb6ee0e3bb92637b, type: 2}
+  m_sharedMaterial: {fileID: 8932314657602109658, guid: e8721699cb5b56e4fb6ee0e3bb92637b,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

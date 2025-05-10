@@ -12,5 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bd970c5eb1e3b8479943c38da5a9eec, type: 3}
   m_Name: Tiger_Dead
   m_EditorClassIdentifier: 
-  _actions: []
-  _transitions: []
+  _actions:
+  - {fileID: 11400000, guid: 5cc8254efbe136d45bbafef5b2a79ecb, type: 2}
+  _transitions:
+  - _targetState: {fileID: 11400000, guid: 4de754a2e3609c148b55b6a7683294f8, type: 2}
+    Decisions:
+    - Decision: {fileID: 11400000, guid: 907a6593d0e94174b920d2ec2c2aa3fd, type: 2}
+      ExpectedResult: 1
+      Operator: 0

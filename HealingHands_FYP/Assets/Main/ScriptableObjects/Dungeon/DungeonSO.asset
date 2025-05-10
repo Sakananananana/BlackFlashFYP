@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentLvL: 0
   BaseRoomCount: 5
-  CurrentRoomCount: 7
+  CurrentRoomCount: 5
   HasBossFightComplete: 0
   _roomDataList:
   - RoomPrefab: {fileID: 3476463682391589353, guid: 9fd6baf8aa229704087a7da8940416ec,

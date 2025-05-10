@@ -4862,9 +4862,10 @@ GameObject:
   - component: {fileID: 5031722899402403362}
   - component: {fileID: 1474735139491438572}
   - component: {fileID: 6356122331712727951}
-  - component: {fileID: 8522244124456380788}
   - component: {fileID: 904415411192454212}
   - component: {fileID: -4842003903073898304}
+  - component: {fileID: 8522244124456380788}
+  - component: {fileID: 4125037487829573462}
   - component: {fileID: 1344769064352529075}
   - component: {fileID: 5332264058334622568}
   m_Layer: 0
@@ -4873,7 +4874,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5031722899402403362
 Transform:
   m_ObjectHideFlags: 0
@@ -4934,7 +4935,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -131961991
   m_SortingLayer: 4
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -5906429662383298808, guid: 99bdb90ea97fff844a01c0ca0e25798e,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4969,21 +4970,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &8522244124456380788
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4242019545271151323}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8085a834d11157340b7345be3de59e15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _protagonist: {fileID: 11400000, guid: 9db3d989193252642aa4a6afb03839cc, type: 2}
-  _attackOrigin: {fileID: 2038865289986244961}
-  IsLungeBiteHit: 0
 --- !u!114 &904415411192454212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5010,14 +4996,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3f03b33135c2534d89269f604e777de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bossHealthUIItem: {fileID: 11400000, guid: 2667f08af2c450f40bd657b3c9013b95, type: 2}
+  CharacterType: 2
   _healthConfigSO: {fileID: 11400000, guid: 038486028dd767d4db8d344becb93efc, type: 2}
-  _currentHealthSO: {fileID: 0}
-  _updateHealthUI: {fileID: 0}
-  _updateBossUI: {fileID: 11400000, guid: e803e89d8fc6282458553e1a5cc7e954, type: 2}
+  _currentHealthSO: {fileID: 11400000, guid: d83d443297655034b8217d3af1721123, type: 2}
+  _updateHealthUI: {fileID: 11400000, guid: ec6ef34ad334a7b42abdf6fb7764e9e2, type: 2}
   _deathEvent: {fileID: 0}
   _onSceneReady: {fileID: 0}
   _restoreHealth: {fileID: 0}
+--- !u!114 &8522244124456380788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4242019545271151323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8085a834d11157340b7345be3de59e15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _protagonist: {fileID: 11400000, guid: 9db3d989193252642aa4a6afb03839cc, type: 2}
+  _attackOrigin: {fileID: 2038865289986244961}
+  IsLunging: 0
+  IsLungeBiteHit: 0
+  IsSingleBite: 0
+  IsMultipleBite: 0
+--- !u!114 &4125037487829573462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4242019545271151323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9009ad78cfdfc3749adfdd82ac489c15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DeathParticle: {fileID: 8223698493805417141}
 --- !u!50 &1344769064352529075
 Rigidbody2D:
   serializedVersion: 5
@@ -10016,7 +10032,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5932027770780450764}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}

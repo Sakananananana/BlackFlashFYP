@@ -53,13 +53,29 @@ public class SceneLoader : MonoBehaviour
     { 
         _loadedScene = scene;
 
+        //if (_loadedScene.sceneType == GameSceneSO.GameSceneType.Location)
+        //{
+        //    _gameplaySceneLoadingOpHandle = _gameplayScene.sceneReference.LoadSceneAsync(LoadSceneMode.Additive);
+        //    _gameplaySceneLoadingOpHandle.WaitForCompletion();
+        //    _gameplaySceneInstance = _gameplaySceneLoadingOpHandle.Result;
+        //    _onSceneReady.RaiseEvent();
+        //}
+
         if (_loadedScene.sceneType == GameSceneSO.GameSceneType.Location)
         {
             _gameplaySceneLoadingOpHandle = _gameplayScene.sceneReference.LoadSceneAsync(LoadSceneMode.Additive);
-            _gameplaySceneLoadingOpHandle.WaitForCompletion();
-            _gameplaySceneInstance = _gameplaySceneLoadingOpHandle.Result;
+            _gameplaySceneLoadingOpHandle.Completed += OnGameplaySceneLoaded;
+        }
+        else
+        {
             _onSceneReady.RaiseEvent();
         }
+    }
+
+    private void OnGameplaySceneLoaded(AsyncOperationHandle<SceneInstance> obj)
+    {
+        _gameplaySceneInstance = obj.Result;
+        _onSceneReady.RaiseEvent();
     }
 #endif
 

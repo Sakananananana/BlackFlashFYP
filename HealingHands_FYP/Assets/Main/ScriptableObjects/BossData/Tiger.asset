@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Tiger
   m_EditorClassIdentifier: 
   BossTitle: King of Bamboo Forest, Tiger
-  _voidEvent: {fileID: 0}
-  _healthSO: {fileID: 0}
+  _voidEvent: {fileID: 11400000, guid: fd35939fb8d5e6247b376531a5f0042e, type: 2}
+  _healthSO: {fileID: 11400000, guid: d83d443297655034b8217d3af1721123, type: 2}

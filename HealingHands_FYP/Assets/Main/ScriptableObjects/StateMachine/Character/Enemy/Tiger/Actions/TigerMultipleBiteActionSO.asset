@@ -9,9 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9de6edb1cb76d94b8f96edd97de0c34, type: 3}
-  m_Name: TigerHealthSO
+  m_Script: {fileID: 11500000, guid: 5cc1b5b05b6682f41931d45d034e6c4a, type: 3}
+  m_Name: TigerMultipleBiteActionSO
   m_EditorClassIdentifier: 
-  _maxHealth: 0
-  _currentHealth: 0
-  _characterSprite: {fileID: 0}

@@ -12,10 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bd970c5eb1e3b8479943c38da5a9eec, type: 3}
   m_Name: Tiger_Kill
   m_EditorClassIdentifier: 
-  _actions: []
-  _transitions:
-  - _targetState: {fileID: 11400000}
-    Decisions:
-    - Decision: {fileID: 11400000, guid: 907a6593d0e94174b920d2ec2c2aa3fd, type: 2}
-      ExpectedResult: 0
-      Operator: 0
+  _actions:
+  - {fileID: 11400000, guid: cded875363ec08b4489e228f66e1d1b2, type: 2}
+  _transitions: []

@@ -13,9 +13,13 @@ MonoBehaviour:
   m_Name: Tiger_SingleBite
   m_EditorClassIdentifier: 
   _actions:
+  - {fileID: 11400000, guid: b31fff7cd84a18a4c87e65c169be5b49, type: 2}
   - {fileID: 11400000, guid: f9467416e99673546a2041542cab6c73, type: 2}
   - {fileID: 11400000, guid: 9d1aa76885d878144b6125ec1eb49e21, type: 2}
   - {fileID: 11400000, guid: 02497e19cf9d78242a944d47fdba11be, type: 2}
   _transitions:
   - _targetState: {fileID: 11400000, guid: 3254ac853a2588a4facc2e3d04fefb87, type: 2}
-    Decisions: []
+    Decisions:
+    - Decision: {fileID: 11400000, guid: d4943a3af142b1c4b811a2adcb3f1135, type: 2}
+      ExpectedResult: 1
+      Operator: 0

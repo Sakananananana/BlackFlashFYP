@@ -180,6 +180,7 @@ MonoBehaviour:
   _healthSO: {fileID: 0}
   _slider: {fileID: 6625631220756099184}
   _healthChanges: {fileID: 0}
+  _healthIcon: {fileID: 0}
 --- !u!1 &2169627267991558896
 GameObject:
   m_ObjectHideFlags: 0
@@ -5533,10 +5534,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3f03b33135c2534d89269f604e777de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CharacterType: 1
   _healthConfigSO: {fileID: 11400000, guid: 573854c0624f08b468edb62e78ce97c8, type: 2}
   _currentHealthSO: {fileID: 0}
   _updateHealthUI: {fileID: 0}
   _deathEvent: {fileID: 0}
+  _onSceneReady: {fileID: 0}
   _restoreHealth: {fileID: 0}
 --- !u!114 &-8789179555895173788
 MonoBehaviour:

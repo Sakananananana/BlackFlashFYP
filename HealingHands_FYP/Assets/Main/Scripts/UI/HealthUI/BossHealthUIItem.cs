@@ -4,6 +4,5 @@ using UnityEngine;
 public class BossHealthUIItem : ScriptableObject
 {
     public string BossTitle;
-    public VoidEventChannelSO _voidEvent;
     public HealthSO _healthSO;
 }

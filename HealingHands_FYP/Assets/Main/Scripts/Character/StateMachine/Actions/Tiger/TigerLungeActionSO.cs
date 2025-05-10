@@ -13,6 +13,7 @@ public class TigerLungeAction : StateAction
     private TransformAnchor _protagonist;
     private Vector2 _direction;
     private Rigidbody2D _rb2D;
+    private Tiger _tiger;
 
     public override void OnStateEnter(StateMachine stateMachine)
     {
@@ -20,7 +21,9 @@ public class TigerLungeAction : StateAction
 
         _protagonist = ((TigerLungeActionSO)OriginSO).TransformAnchor;
         _rb2D = stateMachine.GetComponent<Rigidbody2D>();
+        _tiger = stateMachine.GetComponent<Tiger>();
 
+        _tiger.LungingHandler();
         _direction = (_protagonist.Value.position - stateMachine.transform.position).normalized;
     }
 

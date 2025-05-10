@@ -14789,11 +14789,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3f03b33135c2534d89269f604e777de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bossHealthUIItem: {fileID: 0}
+  CharacterType: 1
   _healthConfigSO: {fileID: 11400000, guid: 0579609209301844e82eced3371b6e4e, type: 2}
   _currentHealthSO: {fileID: 0}
   _updateHealthUI: {fileID: 0}
-  _updateBossUI: {fileID: 0}
   _deathEvent: {fileID: 0}
   _onSceneReady: {fileID: 0}
   _restoreHealth: {fileID: 0}
