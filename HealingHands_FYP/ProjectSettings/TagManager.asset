@@ -54,6 +54,9 @@ TagManager:
   - name: Walk InFront
     uniqueID: 1239423867
     locked: 0
+  - name: Particle
+    uniqueID: 3812165217
+    locked: 0
   - name: Collision
     uniqueID: 1833010869
     locked: 0
