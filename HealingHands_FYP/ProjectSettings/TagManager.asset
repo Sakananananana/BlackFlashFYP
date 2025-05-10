@@ -11,6 +11,7 @@ TagManager:
   - Shop
   - WeaponShop
   - ProtagonistRoom
+  - Exit
   layers:
   - Default
   - TransparentFX

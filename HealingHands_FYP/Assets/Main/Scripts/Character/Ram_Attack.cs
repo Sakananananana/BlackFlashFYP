@@ -19,10 +19,15 @@ public class Ram_Attack : Attack
                 IsCollidedWithTarget?.Invoke();
             }
         }
-
+        if (other.CompareTag("Boundary")||other.CompareTag("Exit"))
+        {
+            IsCollidedWithTarget?.Invoke();
+            //Debug.Log("is Boundary");
+        }
         if (other.CompareTag(gameObject.tag))
         {
             IsCollidedWithTarget?.Invoke();
+            
         }
     }
 }
