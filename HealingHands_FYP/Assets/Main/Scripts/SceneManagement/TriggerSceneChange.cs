@@ -23,7 +23,7 @@ public class TriggerSceneChange : MonoBehaviour
 
         _roomSceneChanger.triggerSceneChange();
 
-        _onOpenRoom.RaiseEvent(true);
+        //_onOpenRoom.RaiseEvent(true);
     }
     private void OnEnable()
     {

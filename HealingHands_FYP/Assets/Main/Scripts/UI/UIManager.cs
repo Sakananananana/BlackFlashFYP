@@ -184,11 +184,12 @@ public class UIManager : MonoBehaviour
     void CloseShopScreen()
     {
         _inputReader.ResumeEvent -= CloseShopScreen;
-        _shopManager.CloseShop();
+        _inputReader.SetGameplay();
 
         Time.timeScale = 1;
-        _inputReader.SetGameplay();
+        _shopManager.CloseShop();
     }
+
     void OpenWeaponScreen()
     {
 
