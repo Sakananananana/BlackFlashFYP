@@ -12,7 +12,17 @@ public class Protagonist : AnimationController
     [NonSerialized] public Vector2 LastMoveDir = Vector2.down;
     public bool DashPerformed = false;
     public bool WarpPerformed = false;
+    public bool IsWarping = false;
     public bool AttackPerformed = false;
+
+    
+    [SerializeField] private BoolEventChannelSO _onCoinsBelowWarpCost;
+    [SerializeField] private VoidEventChannelSO _onWarpPerformed;
+    [SerializeField] private VoidEventChannelSO _onCombatEvent;
+    [SerializeField] private SceneEventChannelSO _onSceneChange;
+    private bool _inCombat = false;
+    private bool _isCoinsBelowWarpCost = false;
+    private GameSceneSO.GameSceneType _sceneType;
 
     [SerializeField] private CircleCollider2D _playerCollider;
     [SerializeField] private GameObject _attacker;
@@ -38,6 +48,11 @@ public class Protagonist : AnimationController
 
         _inputReader.MoveEvent += MovementHandler;
         _inputReader.AttackEvent += AttackHandler;
+
+        _onCoinsBelowWarpCost.OnEventRaised += CoinEnoughForWarp;
+        _inputReader.StartWarpEvent += WarpingHandler;
+        _onCombatEvent.OnEventRaised += OnCombatEventRaised;
+        _onSceneChange.OnEventRaised += WarpActivationOnSceneChanges;
     }
 
     private void OnDisable()
@@ -45,6 +60,11 @@ public class Protagonist : AnimationController
         _inputReader.MoveEvent -= MovementHandler;
         _inputReader.DashEvent -= DashHandler;
         _inputReader.AttackEvent -= AttackHandler;
+
+        _onCoinsBelowWarpCost.OnEventRaised -= CoinEnoughForWarp;
+        _inputReader.StartWarpEvent -= WarpingHandler;
+        _onCombatEvent.OnEventRaised -= OnCombatEventRaised;
+        _onSceneChange.OnEventRaised -= WarpActivationOnSceneChanges;
     }
 
     protected override void Awake()
@@ -79,11 +99,74 @@ public class Protagonist : AnimationController
             LastMoveDir = MoveDir;
     }
 
-    private void WarpHandler() => WarpPerformed = true;
+    private void OnCombatEventRaised()
+    {
+        _inCombat = !_inCombat;
+        WarppableCheck();
+    }
+
+    private void WarpingHandler()
+    {
+        IsWarping = true;
+
+        //prevent start again
+        _inputReader.StartWarpEvent -= WarpingHandler;
+
+        //subscribe to subsequent events
+        _inputReader.WarpEvent += WarpHandler;
+        _inputReader.CancelWarpEvent += WarpingCancelHandler;
+
+    }
+
+    private void WarpingCancelHandler()
+    {
+        IsWarping = false;
+
+        //add back warp intiation event
+        _inputReader.StartWarpEvent += WarpingHandler;
+
+        //remove subsequent events
+        _inputReader.WarpEvent -= WarpHandler;
+        _inputReader.CancelWarpEvent -= WarpingCancelHandler;
+
+    }
+
+    private void WarpActivationOnSceneChanges(GameSceneSO.GameSceneType gameScene)
+    { 
+        _sceneType = gameScene;
+        WarppableCheck();
+    }
+
+    private void CoinEnoughForWarp(bool val)
+    { 
+        _isCoinsBelowWarpCost = val;
+        WarppableCheck();     
+    }
+
+    private void WarppableCheck()
+    {
+        if (_isCoinsBelowWarpCost == false &&
+            _inCombat == false &&
+            _sceneType == GameSceneSO.GameSceneType.Location_Dungeon)
+        {
+            _inputReader.StartWarpEvent += WarpingHandler;
+        }
+        else
+        {
+            _inputReader.StartWarpEvent -= WarpingHandler;
+        }
+        
+    }
+
+    private void WarpHandler()
+    {
+        WarpPerformed = true;
+        _onWarpPerformed.RaiseEvent();
+    }
+
     private void DashHandler() => DashPerformed = true;
     private void AttackHandler() => AttackPerformed = true;
     public void CancelAttackInput() => AttackPerformed = false;
-    private void CancelWarpInput() => WarpPerformed = false;
     public void CancelDashInput() => DashPerformed = false;
 
     public IEnumerator DashCooldownTimer(float duration)

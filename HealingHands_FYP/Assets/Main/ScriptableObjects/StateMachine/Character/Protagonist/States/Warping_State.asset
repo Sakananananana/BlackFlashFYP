@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bd970c5eb1e3b8479943c38da5a9eec, type: 3}
+  m_Name: Warping_State
+  m_EditorClassIdentifier: 
+  _actions:
+  - {fileID: 11400000, guid: 0d3c9ccda805e8442b2a6ff6e7d54c3f, type: 2}
+  - {fileID: 11400000, guid: 9d1aa76885d878144b6125ec1eb49e21, type: 2}
+  - {fileID: 11400000, guid: 30beea36fb2bdc44b9632a961ed9bb61, type: 2}
+  _transitions:
+  - _targetState: {fileID: 11400000, guid: 5e5c785ae4ce8b94b8e2e08f7eaebeff, type: 2}
+    Decisions:
+    - Decision: {fileID: 11400000, guid: 025a36689bb23d3418fb1c693e9ecab6, type: 2}
+      ExpectedResult: 1
+      Operator: 0
+  - _targetState: {fileID: 11400000, guid: 8373eb0cd4777cd4eb7a8125cde4a0d9, type: 2}
+    Decisions:
+    - Decision: {fileID: 11400000, guid: 4c9014d20d2d06b4c8558ac3033b1719, type: 2}
+      ExpectedResult: 0
+      Operator: 0

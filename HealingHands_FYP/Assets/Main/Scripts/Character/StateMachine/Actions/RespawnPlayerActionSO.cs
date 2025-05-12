@@ -5,7 +5,7 @@ public class RespawnPlayerActionSO : StateActionSO
 {
     public LoadEventChannelSO RespawnAtHome;
     public GameSceneSO Home;
-
+    public DungeonSO DungeonSO;
     protected override StateAction CreateAction() => new RespawnPlayerAction();
 }
 
@@ -13,6 +13,7 @@ public class RespawnPlayerAction : StateAction
 {
     private LoadEventChannelSO _respawnAtHome;
     private GameSceneSO _home;
+    private DungeonSO _dungeonSO;
 
     public override void OnStateEnter(StateMachine stateMachine)
     {
@@ -20,8 +21,10 @@ public class RespawnPlayerAction : StateAction
 
         _respawnAtHome = ((RespawnPlayerActionSO)OriginSO).RespawnAtHome;
         _home = ((RespawnPlayerActionSO)OriginSO).Home;
+        _dungeonSO = ((RespawnPlayerActionSO)OriginSO).DungeonSO;
 
         _respawnAtHome.RaiseEvent(_home);
+        _dungeonSO.ResetDungeonProgress();
     }
 
 

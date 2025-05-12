@@ -17,6 +17,9 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private AttackConfigSO attackConfigSO;
     //private WeaponStats currentWeaponStats;
 
+    [SerializeField] private VoidEventChannelSO OnWarpPerformed;
+    public BoolEventChannelSO IsCoinLessTheThresold;
+
     [Header("UI Reference")]
     [SerializeField] private TextMeshProUGUI coinText;
 
@@ -35,15 +38,21 @@ public class ShopManager : MonoBehaviour
         totalCoins = PlayerPrefs.GetInt("TotalCoins", 0); // default 0 if no save
         UpdateCoinUI();
     }
-    private void Start()
+    private void OnEnable()
     {
-        //currentWeaponStats = new WeaponStats(attackConfigSO);
+        OnWarpPerformed.OnEventRaised += WarpRemoveCoins;
+    }
+
+    private void OnDisable()
+    {
+        OnWarpPerformed.OnEventRaised -= WarpRemoveCoins;
     }
 
     private void Update()
     {
         SaveCoins();
     }
+
     public void OpenShop()
     {
         if (shopPanel != null)
@@ -108,7 +117,9 @@ public class ShopManager : MonoBehaviour
 
         int earnedCoins = valuePerItem * quantity;
         totalCoins += earnedCoins;
+
         UpdateCoinUI();
+        IsCoinLessTheThresold.RaiseEvent(totalCoins < 400);
 
         //Debug.Log($"Sold {quantity} {itemToSell.ItemName} for {earnedCoins} coins!");
     }
@@ -126,6 +137,14 @@ public class ShopManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("TotalCoins", totalCoins);
         PlayerPrefs.Save(); // optional, but makes it immediate
+    }
+
+    private void WarpRemoveCoins()
+    {
+        totalCoins -= 400;
+        UpdateCoinUI();
+
+        IsCoinLessTheThresold.RaiseEvent(totalCoins < 400);
     }
 
     //public void BuyDamageUpgrade()
