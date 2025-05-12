@@ -12,8 +12,6 @@ public class ShopManager : MonoBehaviour
     [SerializeField] GameObject _firstButton;
     [SerializeField] private GameObject shopPanel;
 
-    [SerializeField] private int damageUpgradeCost = 1000;
-    [SerializeField] private int upgradeAmount = 5;
     [SerializeField] private AttackConfigSO attackConfigSO;
     //private WeaponStats currentWeaponStats;
 
@@ -146,30 +144,6 @@ public class ShopManager : MonoBehaviour
 
         IsCoinLessTheThresold.RaiseEvent(totalCoins < 400);
     }
-
-    //public void BuyDamageUpgrade()
-    //{
-    //    if (!currentWeaponStats.CanUpgrade)
-    //    {
-    //        Debug.Log("Maximum upgrades reached.");
-    //        return;
-    //    }
-
-    //    if (totalCoins >= damageUpgradeCost)
-    //    {
-    //        totalCoins -= damageUpgradeCost;
-
-    //        bool success = currentWeaponStats.UpgradeDamage(upgradeAmount);
-    //        if (success)
-    //        {
-    //            Debug.Log($"Upgrade successful! New damage: {currentWeaponStats.CurrentDamage} (Upgrade {currentWeaponStats.UpgradeCount}/{currentWeaponStats.MaxUpgrades})");
-    //        }
-    //    }
-    //    else
-    //    {
-    //        Debug.Log("Not enough coins!");
-    //    }
-    //}
 
 
 }

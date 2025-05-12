@@ -14,8 +14,7 @@ public class WeaponUpgradeButton : MonoBehaviour
     [SerializeField] private TMP_Text priceText;
     [SerializeField] private int pricePerUpgrade = 1000;
     [SerializeField] private int maxUpgradeLevel = 5;
-    [SerializeField] private int baseDamage = 5;
-    [SerializeField] private int damagePerLevel = 5;
+
     [SerializeField] GameObject _firstButton;
     [SerializeField] private GameObject weaponPanel;
     private bool isProcessing = false;

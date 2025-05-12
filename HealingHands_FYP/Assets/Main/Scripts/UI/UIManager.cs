@@ -14,8 +14,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private BoolEventChannelSO _onWeaponStarted;
     [SerializeField] private BoolEventChannelSO _onOpenRoom;
     [SerializeField] private InterectionManager _interactionManager;
-    [SerializeField] private SceneEventChannelSO _onSceneeChanges;
-    [SerializeField] private VoidEventChannelSO _onCombatEvent;
+
 
     //All the User Interfaces
     [SerializeField] private UIInventoryPage _inventoryPanel;
@@ -26,19 +25,19 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _roomUIPanel;
     [SerializeField] private GameObject _shopUIPanel;
     [SerializeField] private GameObject _craftingUIPanel;
+    //[SerializeField] private TriggerSceneChange _roomSceneChanger;
     [SerializeField] private GameObject bookUI; // Reference to the book UI (parent of pages)
     [SerializeField] private BookManager bookManager; // Your BookManager script
-    [SerializeField] private InGameScreenManager _inGameScreenManager;
 
-    bool _inCombat = false;
     bool _isCrafting = false;
     bool _isShopping = false;
-    private bool isBookOpen = false;
+
 
     private void OnEnable()
     {
         _onCraftingStarted.OnEventRaised += OpenInventoryForCrafting;
         _onShoppingStarted.OnEventRaised += OnShopRequested;
+        //_onOpenRoom.OnEventRaised += OpenRoomUI;
         _onWeaponShoppingStarted.OnEventRaised += OnWeaponShopRequested;
 
         _inputReader.OpenInventoryEvent += OpenInventoryScreen;
@@ -46,24 +45,19 @@ public class UIManager : MonoBehaviour
         _inputReader.OpenBook += OpenBook;
         _inputReader.CloseBook += CloseBook;
         // For regular shop.
-
-        _onSceneeChanges.OnEventRaised += OnLocationChange;
-        _onCombatEvent.OnEventRaised += OnCombatEventRaised;
     }
 
     private void OnDisable()
     {
         _onCraftingStarted.OnEventRaised -= OpenInventoryForCrafting;
         _onShoppingStarted.OnEventRaised -= OnShopRequested;
+        //_onOpenRoom.OnEventRaised-= OpenRoomUI;
         _onWeaponShoppingStarted.OnEventRaised -= OnWeaponShopRequested;
 
         _inputReader.OpenInventoryEvent -= OpenInventoryScreen;
         _inputReader.PauseEvent -= OpenSettingScreen;
         _inputReader.OpenBook -= OpenBook;
         _inputReader.CloseBook -= CloseBook;
-
-        _onSceneeChanges.OnEventRaised -= OnLocationChange;
-        _onCombatEvent.OnEventRaised -= OnCombatEventRaised;
     }
 
     void OpenInventoryForCrafting(bool val)
@@ -74,6 +68,7 @@ public class UIManager : MonoBehaviour
             _craftingUIPanel.SetActive(val);
         }
     }
+
 
     void OnWeaponShopRequested(bool val)
     {
@@ -106,6 +101,19 @@ public class UIManager : MonoBehaviour
             }
         }
     }
+
+    //void OnOpenRoomRequested(bool val)
+    //{
+    //    if ((val == true))
+    //    {
+    //        _inputReader.InteractEvent += OpenRoomUI;
+    //    }
+    //    else
+    //    {
+    //        _inputReader.InteractEvent -= OpenRoomUI;
+    //    }
+    //}
+
 
     void OpenInventoryForShopping(bool val)
     {
@@ -160,6 +168,7 @@ public class UIManager : MonoBehaviour
 
         _pauseMenu.ContinueGame();
         _inputReader.SetGameplay();
+        //Debug.Log("Closing shop screen");
     }
 
     void OpenShopScreen()
@@ -175,12 +184,11 @@ public class UIManager : MonoBehaviour
     void CloseShopScreen()
     {
         _inputReader.ResumeEvent -= CloseShopScreen;
-        _inputReader.SetGameplay();
+        _shopManager.CloseShop();
 
         Time.timeScale = 1;
-        _shopManager.CloseShop();
+        _inputReader.SetGameplay();
     }
-
     void OpenWeaponScreen()
     {
 
@@ -200,12 +208,27 @@ public class UIManager : MonoBehaviour
         _inputReader.SetGameplay();
     }
 
+    //void OpenRoomUI(bool shouldShow)
+    //{
+    //    if (_roomUIPanel != null)
+    //    {
+    //        _roomUIPanel.SetActive(shouldShow);
+    //    }
+    //}
+    //void CloseRoomUI()
+    //{
+    //    _inputReader.ResumeEvent -= CloseRoomUI;
+    //    _inputReader.SetGameplay();
+    //    Time.timeScale = 1;
+
+    //    _onOpenRoom.RaiseEvent(false);
+    //}
     private void OpenBook()
     {
         bookUI.SetActive(true);
         bookManager.ShowPage(0);
         bookManager.RefreshAllPages();
-        isBookOpen = true;
+
         _inputReader.ResumeEvent += CloseBook;
         _inputReader.SetUI();
         // Optional: pause game
@@ -216,40 +239,10 @@ public class UIManager : MonoBehaviour
     {
         Debug.Log("Close");
         bookUI.SetActive(false);
-        isBookOpen = false;
+
         _inputReader.ResumeEvent -= CloseBook;
         _inputReader.SetGameplay();
         // Resume game
         Time.timeScale = 1f;
-    }
-
-    private void OnLocationChange(GameSceneSO.GameSceneType sceneType)
-    {
-        switch (sceneType)
-        {
-            case GameSceneSO.GameSceneType.Location_Dungeon:
-                {
-                    _inGameScreenManager.SetDungeonUIScreen();
-                    break;
-                }
-
-            case GameSceneSO.GameSceneType.Location_BossRoom:
-                {
-                    _inGameScreenManager.SetDungeonUIScreen();
-                    _inGameScreenManager.SetCombatUIScreen();
-                    break;
-                }
-
-            case GameSceneSO.GameSceneType.Location_Village: 
-                {
-                    _inGameScreenManager.SetVillageUIScreen();
-                    break;
-                }
-        }
-    }
-
-    private void OnCombatEventRaised()
-    {
-        _inGameScreenManager.SetCombatUIScreen();
     }
 }

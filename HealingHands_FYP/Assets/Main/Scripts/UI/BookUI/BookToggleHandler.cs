@@ -8,19 +8,7 @@ public class BookToggleHandler : MonoBehaviour
     [SerializeField] private BookManager bookManager; // Your BookManager script
     [SerializeField] private InputReader inputReader;
 
-    private bool isBookOpen = false;
 
-    //private void Update()
-    //{
-    //    if (Input.GetKeyDown(KeyCode.K) && !isBookOpen)
-    //    {
-    //        OpenBook();
-    //    }
-    //    else if (Input.GetKeyDown(KeyCode.Escape) && isBookOpen)
-    //    {
-    //        CloseBook();
-    //    }
-    //}
     private void OnEnable()
     {
         inputReader.OpenBook += OpenBook;
@@ -36,7 +24,7 @@ public class BookToggleHandler : MonoBehaviour
         bookUI.SetActive(true);
         bookManager.ShowPage(0);
         bookManager.RefreshAllPages();
-        isBookOpen = true;
+
         inputReader.CloseBook += CloseBook;
 
         // Optional: pause game
@@ -47,7 +35,7 @@ public class BookToggleHandler : MonoBehaviour
     {
         Debug.Log("Close");
         bookUI.SetActive(false);
-        isBookOpen = false;
+
         inputReader.CloseBook -= CloseBook;
         // Resume game
         Time.timeScale = 1f;
