@@ -10,6 +10,8 @@ public class BossSpawn : MonoBehaviour
     [SerializeField] private BossHealthUIItem _bossUIItems;
     [SerializeField] private BossEventChannelSO _updateBossUIItems;
 
+    [SerializeField] private VoidEventChannelSO _onCombatEvent;
+
     private void OnEnable()
     {
         _onSceneReady.OnEventRaised += EnableBossOnSceneReady;
@@ -24,8 +26,10 @@ public class BossSpawn : MonoBehaviour
     {
         _enemyBoss.SetActive(true);
         _updateBossUIItems.RaiseEvent(_bossUIItems);
+        _onCombatEvent.RaiseEvent();
         StartCoroutine(SpawnExitOnBossDeath());
     }
+
 
     private IEnumerator SpawnExitOnBossDeath()
     {
@@ -33,6 +37,7 @@ public class BossSpawn : MonoBehaviour
         while (_enemyBoss != null)
         yield return null;
 
+        _onCombatEvent.RaiseEvent();
         _exit.SetActive(true);
     }
 }

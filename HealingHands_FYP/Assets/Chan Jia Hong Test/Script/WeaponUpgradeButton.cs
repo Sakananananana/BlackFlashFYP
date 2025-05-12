@@ -30,6 +30,7 @@ public class WeaponUpgradeButton : MonoBehaviour
     {
         UpdateUI();
     }
+
     public void OpenWeapon()
     {
         if (weaponPanel != null)
@@ -69,6 +70,7 @@ public class WeaponUpgradeButton : MonoBehaviour
 
             // Update UI
             UpdateUI();
+            ShopManager.Instance.IsCoinLessTheThresold.RaiseEvent(ShopManager.Instance.totalCoins < 400);
         }
         else
         {

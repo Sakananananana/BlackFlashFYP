@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 955f27e52eb97624eab1f98dabe59459, type: 3}
   m_Name: IsTargetNearDecisionSO
   m_EditorClassIdentifier: 
-  DistanceThresold: 8
+  DistanceThresold: 7
   PlayerAnchor: {fileID: 11400000, guid: 9db3d989193252642aa4a6afb03839cc, type: 2}

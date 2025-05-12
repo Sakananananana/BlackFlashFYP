@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bd970c5eb1e3b8479943c38da5a9eec, type: 3}
+  m_Name: Tiger_Attack
+  m_EditorClassIdentifier: 
+  _actions: []
+  _transitions:
+  - _targetState: {fileID: 11400000, guid: 589806a9bd06a044b80505e6710d00cd, type: 2}
+    Decisions:
+    - Decision: {fileID: 11400000, guid: fd51171ae6aaf8248ad7eb67cbebe8d5, type: 2}
+      ExpectedResult: 1
+      Operator: 0
+    - Decision: {fileID: 11400000, guid: 480ab165a28fba844bffe8a6c8fdad34, type: 2}
+      ExpectedResult: 0
+      Operator: 0
+  - _targetState: {fileID: 11400000, guid: 589806a9bd06a044b80505e6710d00cd, type: 2}
+    Decisions:
+    - Decision: {fileID: 11400000, guid: fd51171ae6aaf8248ad7eb67cbebe8d5, type: 2}
+      ExpectedResult: 0
+      Operator: 0
+    - Decision: {fileID: 11400000, guid: 480ab165a28fba844bffe8a6c8fdad34, type: 2}
+      ExpectedResult: 0
+      Operator: 0
+  - _targetState: {fileID: 11400000, guid: e5dc349cfd1c4524cb90070cc0834542, type: 2}
+    Decisions:
+    - Decision: {fileID: 11400000, guid: 480ab165a28fba844bffe8a6c8fdad34, type: 2}
+      ExpectedResult: 1
+      Operator: 0

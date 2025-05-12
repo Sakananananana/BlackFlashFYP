@@ -12,6 +12,7 @@ public class RoomManager : MonoBehaviour
 
     [Header("Broadcasting on...")]
     [SerializeField] private ColliderEventChannelSO _onNewRoomEntered;
+    [SerializeField] private VoidEventChannelSO _onCombatEvent;
 
     [SerializeField] private GameObject _exitsObj;
     [SerializeField] private List<GameObject> _enemyList = new List<GameObject>();
@@ -43,6 +44,8 @@ public class RoomManager : MonoBehaviour
 
             if (_enteredRoom == false)
             {
+                _onCombatEvent.RaiseEvent();
+
                 for (int i = 0; i < _exits.childCount; i++)
                 {
                     _exits.GetChild(i).GetComponent<Collider2D>().isTrigger = false;
@@ -106,6 +109,8 @@ public class RoomManager : MonoBehaviour
         {
             yield return null;
         }
+
+        _onCombatEvent.RaiseEvent();
 
         for (int i = 0; i < _exits.childCount; i++)
         {

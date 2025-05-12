@@ -52,14 +52,6 @@ public class Damageable : MonoBehaviour
                     break;
                 }
         }
-
-        //if (_updateHealthUI != null)
-        //{
-        //    if (_currentHealthSO.CurrentHealth <= 0)
-        //    { Revive(); }
-
-        //    _updateHealthUI.RaiseEvent(); 
-        //}
     }
 
     private void OnEnable()

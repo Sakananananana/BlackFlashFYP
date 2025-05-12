@@ -17,6 +17,7 @@ public class GameSceneSO : ScriptableObject
     public enum GameSceneType
     {
         //Playable scenes
+        Location_Village, Location_Dungeon, Location_BossRoom,
         Location, //SceneSelector tool will also load PersistentManagers and Gameplay
         Menu, //SceneSelector tool will also load Gameplay
 

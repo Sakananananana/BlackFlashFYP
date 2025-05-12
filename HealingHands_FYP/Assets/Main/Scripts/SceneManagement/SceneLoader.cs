@@ -19,6 +19,7 @@ public class SceneLoader : MonoBehaviour
 
     [Header("Broadcasting on...")]
     [SerializeField] private VoidEventChannelSO _onSceneReady; //later pick up by spawn
+    [SerializeField] private SceneEventChannelSO _onSceneChange;
     //[SerializeField] private BoolEventChannelSO _toggleLoadingScreen;
 
     //parameter for scene
@@ -53,15 +54,9 @@ public class SceneLoader : MonoBehaviour
     { 
         _loadedScene = scene;
 
-        //if (_loadedScene.sceneType == GameSceneSO.GameSceneType.Location)
-        //{
-        //    _gameplaySceneLoadingOpHandle = _gameplayScene.sceneReference.LoadSceneAsync(LoadSceneMode.Additive);
-        //    _gameplaySceneLoadingOpHandle.WaitForCompletion();
-        //    _gameplaySceneInstance = _gameplaySceneLoadingOpHandle.Result;
-        //    _onSceneReady.RaiseEvent();
-        //}
-
-        if (_loadedScene.sceneType == GameSceneSO.GameSceneType.Location)
+        if (_loadedScene.sceneType == GameSceneSO.GameSceneType.Location_BossRoom || 
+            _loadedScene.sceneType == GameSceneSO.GameSceneType.Location_Village || 
+            _loadedScene.sceneType == GameSceneSO.GameSceneType.Location_Dungeon)
         {
             _gameplaySceneLoadingOpHandle = _gameplayScene.sceneReference.LoadSceneAsync(LoadSceneMode.Additive);
             _gameplaySceneLoadingOpHandle.Completed += OnGameplaySceneLoaded;
@@ -69,6 +64,7 @@ public class SceneLoader : MonoBehaviour
         else
         {
             _onSceneReady.RaiseEvent();
+            _onSceneChange.RaiseEvent(_loadedScene.sceneType);
         }
     }
 
@@ -76,6 +72,7 @@ public class SceneLoader : MonoBehaviour
     {
         _gameplaySceneInstance = obj.Result;
         _onSceneReady.RaiseEvent();
+        _onSceneChange.RaiseEvent(_loadedScene.sceneType);
     }
 #endif
 
@@ -148,6 +145,7 @@ public class SceneLoader : MonoBehaviour
 
         //Later Move to Spawn System Ensure Protagonist is Spawned before enabling
         _onSceneReady.RaiseEvent();
+        _onSceneChange.RaiseEvent(_loadedScene.sceneType);
     }
 
 

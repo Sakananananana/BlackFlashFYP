@@ -81,6 +81,7 @@ MonoBehaviour:
   _mapBoundaryBox: {fileID: 4107106910860975909}
   _exits: {fileID: 8207319828910792321}
   _onNewRoomEntered: {fileID: 11400000, guid: 5ead0f4bd4b83f14e9b569d1d1c16af9, type: 2}
+  _onCombatEvent: {fileID: 11400000, guid: 3cc11ad40d8f2a04e89bf46ee374e966, type: 2}
   _exitsObj: {fileID: 2198549174231714721, guid: e276d3bcd4e1b624e9ae6d5fe80b1542,
     type: 3}
   _enemyList:

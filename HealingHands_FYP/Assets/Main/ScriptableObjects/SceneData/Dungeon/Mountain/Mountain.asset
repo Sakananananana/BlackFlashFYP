@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3c15a3945b841f4b96717f479a325b8, type: 3}
   m_Name: Mountain
   m_EditorClassIdentifier: 
-  sceneType: 0
+  sceneType: 1
   sceneReference:
     m_AssetGUID: 022294b40c15e234d861b78cc7e1a17a
     m_SubObjectName: 

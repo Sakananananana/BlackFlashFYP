@@ -4296,6 +4296,7 @@ MonoBehaviour:
   _onSceneReady: {fileID: 11400000, guid: c068a575db3490245948f6c52496efee, type: 2}
   _bossUIItems: {fileID: 11400000, guid: 2667f08af2c450f40bd657b3c9013b95, type: 2}
   _updateBossUIItems: {fileID: 11400000, guid: e803e89d8fc6282458553e1a5cc7e954, type: 2}
+  _onCombatEvent: {fileID: 11400000, guid: 3cc11ad40d8f2a04e89bf46ee374e966, type: 2}
 --- !u!1001 &1008401540
 PrefabInstance:
   m_ObjectHideFlags: 0

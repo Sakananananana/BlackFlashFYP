@@ -216,6 +216,7 @@ MonoBehaviour:
   _loadLocation: {fileID: 11400000, guid: b769200f62001e040aabd9621e541c7a, type: 2}
   _loadMenu: {fileID: 0}
   _onSceneReady: {fileID: 11400000, guid: c068a575db3490245948f6c52496efee, type: 2}
+  _onSceneChange: {fileID: 11400000, guid: ff8df1497c92ed14a9eee70215690166, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

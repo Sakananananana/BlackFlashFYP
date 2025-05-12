@@ -5327,7 +5327,13 @@ MonoBehaviour:
   _inputReader: {fileID: 11400000, guid: 415aeb03029feca43b600e9ed9218756, type: 2}
   DashPerformed: 0
   WarpPerformed: 0
+  IsWarping: 0
   AttackPerformed: 0
+  _onCoinsBelowWarpCost: {fileID: 11400000, guid: cc5b2232939f49e4b843411b2c8cb42b,
+    type: 2}
+  _onWarpPerformed: {fileID: 11400000, guid: fb495eaa9edc4f243bf25ffed3aef4a9, type: 2}
+  _onCombatEvent: {fileID: 11400000, guid: 3cc11ad40d8f2a04e89bf46ee374e966, type: 2}
+  _onSceneChange: {fileID: 11400000, guid: ff8df1497c92ed14a9eee70215690166, type: 2}
   _playerCollider: {fileID: 932691550731633721}
   _attacker: {fileID: 1375189502604888421}
   _interactor: {fileID: 3638485648320794358}
