@@ -15,7 +15,7 @@ public class TaskUIManager : MonoBehaviour
         public string GetDisplayText()
         {
             Debug.Log(requiredItem.ItemName);
-            return $"Collect {requiredAmount} {requiredItem.ItemName}(s)";
+            return $"<size=24>Need</size>\n<size=48>{requiredAmount}</size>\n <size=30>{requiredItem.ItemName}(s)</size>";
         }
 
         public bool IsCompleted(InventorySO inventory)
@@ -91,9 +91,13 @@ public class TaskUIManager : MonoBehaviour
 
                 Text taskText = taskSlots[i].GetComponentInChildren<Text>();
                 Image iconImage = taskSlots[i].transform.Find("Icon").GetComponent<Image>();
+                Image shaodowImage = taskSlots[i].transform.Find("Shadow").GetComponent<Image>();
 
                 taskText.text = task.GetDisplayText();
                 iconImage.sprite = task.requiredItem.ItemImage;
+                shaodowImage.sprite = task.requiredItem.ItemImage;
+
+                shaodowImage.color = new Color(0, 0, 0, 0.5f);
             }
             else
             {

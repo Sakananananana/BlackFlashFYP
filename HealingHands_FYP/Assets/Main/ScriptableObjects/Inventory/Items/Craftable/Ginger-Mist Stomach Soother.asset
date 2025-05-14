@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <IsStackable>k__BackingField: 1
   <MaxStackSize>k__BackingField: 5
-  <ItemImage>k__BackingField: {fileID: 21300000, guid: bb64a1d4a79d8324784385d77c016273,
+  <ItemImage>k__BackingField: {fileID: 6032137941356174208, guid: bb64a1d4a79d8324784385d77c016273,
     type: 3}
   <ItemName>k__BackingField: Ginger-Mist Stomach Soother
   <ItemDescription>k__BackingField: A soothing decoction that clears nausea and calms
