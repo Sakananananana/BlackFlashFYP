@@ -17,7 +17,6 @@ public class InGameScreenManager : MonoBehaviour
         _isInCombat.OnEventRaised += IsInCombatHandler;
         _isCoinsBelowWarpCost.OnEventRaised += IsBelowWarpThreshold;
 
-
         _onSceneChanges.OnEventRaised += OnLocationChange;
     }
 
@@ -25,7 +24,6 @@ public class InGameScreenManager : MonoBehaviour
     {
         _isInCombat.OnEventRaised -= IsInCombatHandler;
         _isCoinsBelowWarpCost.OnEventRaised -= IsBelowWarpThreshold;
-
 
         _onSceneChanges.OnEventRaised -= OnLocationChange;
     }
@@ -61,7 +59,7 @@ public class InGameScreenManager : MonoBehaviour
         else
             _returnButtonUI.gameObject.SetActive(false);
 
-        Debug.Log($"from In Game Screen, IsCoinsBelowWarpCost: {_isBelowWarpCost}");
+        //Debug.Log($"from In Game Screen, IsCoinsBelowWarpCost: {_isBelowWarpCost}");
     }
 
     private void OnLocationChange(GameSceneSO.GameSceneType sceneType)

@@ -28,7 +28,7 @@ public class ShopManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // 可选：保留在场景切换时
+            //DontDestroyOnLoad(gameObject); // 可选：保留在场景切换时
         }
         else
         {
@@ -52,6 +52,7 @@ public class ShopManager : MonoBehaviour
 
     private void CheckWarpAvailable()
     {
+        Debug.Log("Event Raised");
         IsCoinLessThanThresold.RaiseEvent(totalCoins < 400);
     }
 
@@ -149,6 +150,7 @@ public class ShopManager : MonoBehaviour
 
     private void WarpRemoveCoins()
     {
+        Debug.Log(totalCoins + "removed");
         totalCoins -= 400;
         UpdateCoinUI();
 

@@ -18,6 +18,5 @@ public class CoinManager : MonoBehaviour
         coins=PlayerPrefs.GetInt(Coins);
         PlayerPrefs.Save();
     }
-
     
 }

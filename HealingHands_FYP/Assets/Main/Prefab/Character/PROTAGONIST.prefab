@@ -5331,7 +5331,6 @@ MonoBehaviour:
   AttackPerformed: 0
   _onCoinsBelowWarpCost: {fileID: 11400000, guid: cc5b2232939f49e4b843411b2c8cb42b,
     type: 2}
-  _onWarpPerformed: {fileID: 11400000, guid: fb495eaa9edc4f243bf25ffed3aef4a9, type: 2}
   _isInCombat: {fileID: 11400000, guid: ee91c3b45b180ac4ba8f35408355fac7, type: 2}
   _onSceneChange: {fileID: 11400000, guid: ff8df1497c92ed14a9eee70215690166, type: 2}
   _playerCollider: {fileID: 932691550731633721}

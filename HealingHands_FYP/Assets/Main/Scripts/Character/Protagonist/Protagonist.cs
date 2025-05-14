@@ -15,7 +15,6 @@ public class Protagonist : AnimationController
     public bool IsWarping = false;
     public bool AttackPerformed = false;
 
-    
     [SerializeField] private BoolEventChannelSO _onCoinsBelowWarpCost;
     [SerializeField] private BoolEventChannelSO _isInCombat;
     [SerializeField] private SceneEventChannelSO _onSceneChange;
@@ -131,17 +130,18 @@ public class Protagonist : AnimationController
     private void WarpActivationOnSceneChanges(GameSceneSO.GameSceneType gameScene)
     {
         if (gameScene == GameSceneSO.GameSceneType.Location_Dungeon)
-        { _isSceneCanWarp = true; }
+            _isSceneCanWarp = true; 
         else 
-        { _isSceneCanWarp = false; }
-
+            _isSceneCanWarp = false;
+            
         WarppableCheck();
     }
 
     private void CoinEnoughForWarp(bool val)
     { 
         _isCoinsBelowWarpCost = val;
-        Debug.Log($"from protagonist, IsCoinsBelowWarpCost: {_isCoinsBelowWarpCost}");
+
+        Debug.Log($"from protagonist, IsCoinsBelowWarpCost: {val}");
         WarppableCheck();     
     }
 
@@ -150,7 +150,7 @@ public class Protagonist : AnimationController
         if (_isCoinsBelowWarpCost == false && _inCombat == false && _isSceneCanWarp == true)
         {
             _inputReader.StartWarpEvent += WarpingHandler;
-            Debug.Log($"from protagonist, IsCoinsBelowWarpCost: {_isCoinsBelowWarpCost}");
+            //Debug.Log($"from protagonist, IsCoinsBelowWarpCost: {_isCoinsBelowWarpCost}");
             //Debug.Log("Everything: " + (_isCoinsBelowWarpCost == false && _inCombat == false && _sceneType == GameSceneSO.GameSceneType.Location_Dungeon));
         }
         else

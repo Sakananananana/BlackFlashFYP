@@ -30,6 +30,7 @@ public class SpawnSystem : MonoBehaviour
     {
         //spawn player at the location
         GameObject obj = Instantiate(_playerPrefab, transform.position, Quaternion.identity);
+        ShopManager.Instance.IsCoinLessThanThresold.RaiseEvent(ShopManager.Instance.totalCoins < 400);
         _playerTrasformAnchor.Provide(obj.transform);
         _setCameraPosition.RaiseEvent(obj.transform);
         _inputReader.SetGameplay();

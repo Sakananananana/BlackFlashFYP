@@ -30,10 +30,7 @@ public class WarpPlayerAction : StateAction
         _dungeonSO = ((WarpPlayerActionSO)OriginSO).DungeonSO;
         _home = ((WarpPlayerActionSO)OriginSO).Home;
 
-        _dungeonSO.ResetDungeonProgress();
-        _onWarpPerformed.RaiseEvent();
-        _warpToHome.RaiseEvent(_home);
-        _protagonist.WarpPerformed = false;
+        _protagonist.WarpPerformed = false;      
     }
 
     public override void OnFixedUpdate() { }
@@ -44,5 +41,9 @@ public class WarpPlayerAction : StateAction
     public override void OnStateExit()
     {
         base.OnStateExit();
+
+        _dungeonSO.ResetDungeonProgress();
+        _onWarpPerformed.RaiseEvent();
+        _warpToHome.RaiseEvent(_home);
     }
 }
