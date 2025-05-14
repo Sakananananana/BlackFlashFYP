@@ -69,7 +69,7 @@ public class WeaponUpgradeButton : MonoBehaviour
 
             // Update UI
             UpdateUI();
-            ShopManager.Instance.IsCoinLessTheThresold.RaiseEvent(ShopManager.Instance.totalCoins < 400);
+            ShopManager.Instance.IsCoinLessThanThresold.RaiseEvent(ShopManager.Instance.totalCoins < 400);
         }
         else
         {

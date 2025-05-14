@@ -15,8 +15,9 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private AttackConfigSO attackConfigSO;
     //private WeaponStats currentWeaponStats;
 
-    [SerializeField] private VoidEventChannelSO OnWarpPerformed;
-    public BoolEventChannelSO IsCoinLessTheThresold;
+    [SerializeField] private VoidEventChannelSO _onSceneReady;
+    [SerializeField] private VoidEventChannelSO _onWarpPerformed;
+    public BoolEventChannelSO IsCoinLessThanThresold;
 
     [Header("UI Reference")]
     [SerializeField] private TextMeshProUGUI coinText;
@@ -36,14 +37,22 @@ public class ShopManager : MonoBehaviour
         totalCoins = PlayerPrefs.GetInt("TotalCoins", 0); // default 0 if no save
         UpdateCoinUI();
     }
+
     private void OnEnable()
     {
-        OnWarpPerformed.OnEventRaised += WarpRemoveCoins;
+        _onSceneReady.OnEventRaised += CheckWarpAvailable;
+        _onWarpPerformed.OnEventRaised += WarpRemoveCoins;
     }
 
     private void OnDisable()
     {
-        OnWarpPerformed.OnEventRaised -= WarpRemoveCoins;
+        _onSceneReady.OnEventRaised -= CheckWarpAvailable;
+        _onWarpPerformed.OnEventRaised -= WarpRemoveCoins;
+    }
+
+    private void CheckWarpAvailable()
+    {
+        IsCoinLessThanThresold.RaiseEvent(totalCoins < 400);
     }
 
     private void Update()
@@ -89,22 +98,22 @@ public class ShopManager : MonoBehaviour
         }
 
         // Remove the item
-        int remaining = quantity;
-        foreach (var slotIndex in inventoryState.Keys)
-        {
-            var slot = inventoryState[slotIndex];
-            if (slot.Item == itemToSell)
-            {
-                int toRemove = Mathf.Min(remaining, slot.ItemQuantity);
-                for (int i = 0; i < toRemove; i++)
-                {
-                    inventory.RemoveItem(slotIndex);
-                }
+        //int remaining = quantity;
+        //foreach (var slotIndex in inventoryState.Keys)
+        //{
+        //    var slot = inventoryState[slotIndex];
+        //    if (slot.Item == itemToSell)
+        //    {
+        //        int toRemove = Mathf.Min(remaining, slot.ItemQuantity);
+        //        for (int i = 0; i < toRemove; i++)
+        //        {
+        //            inventory.RemoveItem(slotIndex);
+        //        }
 
-                remaining -= toRemove;
-                if (remaining <= 0) break;
-            }
-        }
+        //        remaining -= toRemove;
+        //        if (remaining <= 0) break;
+        //    }
+        //}
 
         // Determine price
         int valuePerItem = 0;
@@ -117,7 +126,7 @@ public class ShopManager : MonoBehaviour
         totalCoins += earnedCoins;
 
         UpdateCoinUI();
-        IsCoinLessTheThresold.RaiseEvent(totalCoins < 400);
+        IsCoinLessThanThresold.RaiseEvent(totalCoins < 400);
 
         //Debug.Log($"Sold {quantity} {itemToSell.ItemName} for {earnedCoins} coins!");
     }
@@ -126,6 +135,7 @@ public class ShopManager : MonoBehaviour
     {
         coinText.text = $"Coins: {totalCoins}";
     }
+
     private void OnApplicationQuit()
     {
         SaveCoins();
@@ -142,9 +152,7 @@ public class ShopManager : MonoBehaviour
         totalCoins -= 400;
         UpdateCoinUI();
 
-        IsCoinLessTheThresold.RaiseEvent(totalCoins < 400);
+        IsCoinLessThanThresold.RaiseEvent(totalCoins < 400);
     }
-
-
 }
 

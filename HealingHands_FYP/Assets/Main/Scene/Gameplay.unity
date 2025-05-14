@@ -448,8 +448,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _goldAmountUI: {fileID: 776436557}
   _healthBarUI: {fileID: 533613624}
+  _onSceneChanges: {fileID: 11400000, guid: ff8df1497c92ed14a9eee70215690166, type: 2}
   _isCoinsBelowWarpCost: {fileID: 11400000, guid: cc5b2232939f49e4b843411b2c8cb42b,
     type: 2}
+  _isInCombat: {fileID: 11400000, guid: ee91c3b45b180ac4ba8f35408355fac7, type: 2}
   _returnButtonUI: {fileID: 890804713}
 --- !u!1 &240216832
 GameObject:
@@ -1605,8 +1607,6 @@ MonoBehaviour:
   _onWeaponStarted: {fileID: 11400000, guid: 383f32740fe54184d88fceb28ee32f8a, type: 2}
   _onOpenRoom: {fileID: 11400000, guid: 256115ad085a5e346862ccc04d1a04c7, type: 2}
   _interactionManager: {fileID: 0}
-  _onSceneeChanges: {fileID: 11400000, guid: ff8df1497c92ed14a9eee70215690166, type: 2}
-  _onCombatEvent: {fileID: 11400000, guid: 3cc11ad40d8f2a04e89bf46ee374e966, type: 2}
   _inventoryPanel: {fileID: 321357316}
   _pauseMenu: {fileID: 1758775363}
   _shopManager: {fileID: 4193730493214022893}
@@ -1617,7 +1617,6 @@ MonoBehaviour:
   _craftingUIPanel: {fileID: 1924396817}
   bookUI: {fileID: 274889066}
   bookManager: {fileID: 1357476306}
-  _inGameScreenManager: {fileID: 201406297}
 --- !u!1 &710329734 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6037569262541766586, guid: 9c0d408a9cb04f94ba71576b5f046c15,
@@ -5437,8 +5436,6 @@ MonoBehaviour:
   priceText: {fileID: 7693283878721216721}
   pricePerUpgrade: 1
   maxUpgradeLevel: 5
-  baseDamage: 5
-  damagePerLevel: 5
   _firstButton: {fileID: 8712529199708303404}
   weaponPanel: {fileID: 8712529199708303405}
 --- !u!114 &4193730493214022893
@@ -5457,11 +5454,10 @@ MonoBehaviour:
   totalCoins: 0
   _firstButton: {fileID: 6048714065596922659}
   shopPanel: {fileID: 4509568168339795595}
-  damageUpgradeCost: 1000
-  upgradeAmount: 5
   attackConfigSO: {fileID: 0}
-  OnWarpPerformed: {fileID: 11400000, guid: fb495eaa9edc4f243bf25ffed3aef4a9, type: 2}
-  IsCoinLessTheThresold: {fileID: 11400000, guid: cc5b2232939f49e4b843411b2c8cb42b,
+  _onSceneReady: {fileID: 11400000, guid: c068a575db3490245948f6c52496efee, type: 2}
+  _onWarpPerformed: {fileID: 11400000, guid: fb495eaa9edc4f243bf25ffed3aef4a9, type: 2}
+  IsCoinLessThanThresold: {fileID: 11400000, guid: cc5b2232939f49e4b843411b2c8cb42b,
     type: 2}
   coinText: {fileID: 1795765138}
 --- !u!224 &4395439486233566120 stripped

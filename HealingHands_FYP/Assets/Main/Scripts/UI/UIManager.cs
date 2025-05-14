@@ -15,7 +15,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] private BoolEventChannelSO _onOpenRoom;
     [SerializeField] private InterectionManager _interactionManager;
 
-
     //All the User Interfaces
     [SerializeField] private UIInventoryPage _inventoryPanel;
     [SerializeField] private PauseMenu _pauseMenu;
@@ -25,7 +24,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _roomUIPanel;
     [SerializeField] private GameObject _shopUIPanel;
     [SerializeField] private GameObject _craftingUIPanel;
-    //[SerializeField] private TriggerSceneChange _roomSceneChanger;
     [SerializeField] private GameObject bookUI; // Reference to the book UI (parent of pages)
     [SerializeField] private BookManager bookManager; // Your BookManager script
 
@@ -37,7 +35,6 @@ public class UIManager : MonoBehaviour
     {
         _onCraftingStarted.OnEventRaised += OpenInventoryForCrafting;
         _onShoppingStarted.OnEventRaised += OnShopRequested;
-        //_onOpenRoom.OnEventRaised += OpenRoomUI;
         _onWeaponShoppingStarted.OnEventRaised += OnWeaponShopRequested;
 
         _inputReader.OpenInventoryEvent += OpenInventoryScreen;
@@ -51,7 +48,6 @@ public class UIManager : MonoBehaviour
     {
         _onCraftingStarted.OnEventRaised -= OpenInventoryForCrafting;
         _onShoppingStarted.OnEventRaised -= OnShopRequested;
-        //_onOpenRoom.OnEventRaised-= OpenRoomUI;
         _onWeaponShoppingStarted.OnEventRaised -= OnWeaponShopRequested;
 
         _inputReader.OpenInventoryEvent -= OpenInventoryScreen;
@@ -101,19 +97,6 @@ public class UIManager : MonoBehaviour
             }
         }
     }
-
-    //void OnOpenRoomRequested(bool val)
-    //{
-    //    if ((val == true))
-    //    {
-    //        _inputReader.InteractEvent += OpenRoomUI;
-    //    }
-    //    else
-    //    {
-    //        _inputReader.InteractEvent -= OpenRoomUI;
-    //    }
-    //}
-
 
     void OpenInventoryForShopping(bool val)
     {
@@ -245,4 +228,6 @@ public class UIManager : MonoBehaviour
         // Resume game
         Time.timeScale = 1f;
     }
+
+
 }

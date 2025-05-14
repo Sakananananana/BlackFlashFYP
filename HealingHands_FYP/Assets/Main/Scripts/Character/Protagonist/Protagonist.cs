@@ -17,12 +17,11 @@ public class Protagonist : AnimationController
 
     
     [SerializeField] private BoolEventChannelSO _onCoinsBelowWarpCost;
-    [SerializeField] private VoidEventChannelSO _onWarpPerformed;
-    [SerializeField] private VoidEventChannelSO _onCombatEvent;
+    [SerializeField] private BoolEventChannelSO _isInCombat;
     [SerializeField] private SceneEventChannelSO _onSceneChange;
     private bool _inCombat = false;
     private bool _isCoinsBelowWarpCost = false;
-    private GameSceneSO.GameSceneType _sceneType;
+    private bool _isSceneCanWarp = false;
 
     [SerializeField] private CircleCollider2D _playerCollider;
     [SerializeField] private GameObject _attacker;
@@ -49,9 +48,8 @@ public class Protagonist : AnimationController
         _inputReader.MoveEvent += MovementHandler;
         _inputReader.AttackEvent += AttackHandler;
 
+        _isInCombat.OnEventRaised += OnCombatEventRaised;
         _onCoinsBelowWarpCost.OnEventRaised += CoinEnoughForWarp;
-        _inputReader.StartWarpEvent += WarpingHandler;
-        _onCombatEvent.OnEventRaised += OnCombatEventRaised;
         _onSceneChange.OnEventRaised += WarpActivationOnSceneChanges;
     }
 
@@ -61,9 +59,8 @@ public class Protagonist : AnimationController
         _inputReader.DashEvent -= DashHandler;
         _inputReader.AttackEvent -= AttackHandler;
 
+        _isInCombat.OnEventRaised -= OnCombatEventRaised;
         _onCoinsBelowWarpCost.OnEventRaised -= CoinEnoughForWarp;
-        _inputReader.StartWarpEvent -= WarpingHandler;
-        _onCombatEvent.OnEventRaised -= OnCombatEventRaised;
         _onSceneChange.OnEventRaised -= WarpActivationOnSceneChanges;
     }
 
@@ -99,12 +96,6 @@ public class Protagonist : AnimationController
             LastMoveDir = MoveDir;
     }
 
-    private void OnCombatEventRaised()
-    {
-        _inCombat = !_inCombat;
-        WarppableCheck();
-    }
-
     private void WarpingHandler()
     {
         IsWarping = true;
@@ -131,39 +122,42 @@ public class Protagonist : AnimationController
 
     }
 
+    private void OnCombatEventRaised(bool val)
+    {
+        _inCombat = val;
+        WarppableCheck();
+    }
+
     private void WarpActivationOnSceneChanges(GameSceneSO.GameSceneType gameScene)
-    { 
-        _sceneType = gameScene;
+    {
+        if (gameScene == GameSceneSO.GameSceneType.Location_Dungeon)
+        { _isSceneCanWarp = true; }
+        else 
+        { _isSceneCanWarp = false; }
+
         WarppableCheck();
     }
 
     private void CoinEnoughForWarp(bool val)
     { 
         _isCoinsBelowWarpCost = val;
+        Debug.Log($"from protagonist, IsCoinsBelowWarpCost: {_isCoinsBelowWarpCost}");
         WarppableCheck();     
     }
 
     private void WarppableCheck()
     {
-        if (_isCoinsBelowWarpCost == false &&
-            _inCombat == false &&
-            _sceneType == GameSceneSO.GameSceneType.Location_Dungeon)
+        if (_isCoinsBelowWarpCost == false && _inCombat == false && _isSceneCanWarp == true)
         {
             _inputReader.StartWarpEvent += WarpingHandler;
+            Debug.Log($"from protagonist, IsCoinsBelowWarpCost: {_isCoinsBelowWarpCost}");
+            //Debug.Log("Everything: " + (_isCoinsBelowWarpCost == false && _inCombat == false && _sceneType == GameSceneSO.GameSceneType.Location_Dungeon));
         }
         else
-        {
-            _inputReader.StartWarpEvent -= WarpingHandler;
-        }
-        
+            _inputReader.StartWarpEvent -= WarpingHandler;  
     }
 
-    private void WarpHandler()
-    {
-        WarpPerformed = true;
-        _onWarpPerformed.RaiseEvent();
-    }
-
+    private void WarpHandler() => WarpPerformed = true;
     private void DashHandler() => DashPerformed = true;
     private void AttackHandler() => AttackPerformed = true;
     public void CancelAttackInput() => AttackPerformed = false;
@@ -216,7 +210,6 @@ public class Protagonist : AnimationController
         _interactor.transform.rotation = Quaternion.LookRotation(Vector3.forward, _attackDir);
     }
 
-    //Considered as Movements? Changing Direction of the Player
     private void CharacterFacing()
     {
         if (MoveDir.x < 0)

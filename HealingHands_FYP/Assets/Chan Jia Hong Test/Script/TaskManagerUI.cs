@@ -128,7 +128,9 @@ public class TaskUIManager : MonoBehaviour
         Task task = activeTasks[index];
 
         bool success = playerInventory.RemoveTaskItem(task.requiredItem, task.requiredAmount);
+        Debug.Log(task.requiredAmount);
         shopManager.SellItem(task.requiredItem, task.requiredAmount);
+        Debug.Log(task.requiredAmount);
         // Example call
 
         if (success)

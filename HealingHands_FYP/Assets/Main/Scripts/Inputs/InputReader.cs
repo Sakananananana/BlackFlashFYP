@@ -37,9 +37,6 @@ namespace PlayerInputSystem
         public Action NextPageEvent;
         public Action PreviousPageEvent;
 
-
-        float _holdTime;
-
         private void OnEnable()
         {
             _interactionEvent.OnEventRaised += IsInteraction;
