@@ -35,6 +35,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 29b4c7cd36acb974996cf6fda145082f
+    m_Address: Assets/Main/Scene/Tutorial/Tutorial.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8c9cfa26abfee488c85f1582747f6a02
     m_Address: Assets/Main/Scene/Village/Village.unity
     m_ReadOnly: 0
