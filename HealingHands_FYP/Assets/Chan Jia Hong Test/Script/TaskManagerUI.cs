@@ -54,30 +54,31 @@ public class TaskUIManager : MonoBehaviour
         UpdateUI();
     }
 
-    public void CompleteTask(int index)
-    {
-        if (index < 0 || index >= activeTasks.Count) return;
+    //public void CompleteTask(int index)
+    //{
+    //    if (index < 0 || index >= activeTasks.Count) return;
 
-        activeTasks.RemoveAt(index);
+    //    activeTasks.RemoveAt(index);
 
-        // Rearrange: shift remaining tasks left
-        UpdateUI();
+    //    // Rearrange: shift remaining tasks left
+    //    UpdateUI();
 
-        StartCoroutine(SpawnNewTaskAfterDelay());
-    }
+    //    StartCoroutine(SpawnNewTaskAfterDelay());
+    //}
 
-    IEnumerator SpawnNewTaskAfterDelay()
-    {
-        yield return new WaitForSecondsRealtime(2f);
 
-        if (activeTasks.Count < 3)
-        {
-            Task newTask = GenerateRandomTask();
-            activeTasks.Add(newTask);
-            Debug.Log($"New Task: {newTask.GetDisplayText()}");
-            UpdateUI();
-        }
-    }
+    //IEnumerator SpawnNewTaskAfterDelay()
+    //{
+    //    yield return new WaitForSecondsRealtime(2f);
+
+    //    if (activeTasks.Count < 3)
+    //    {
+    //        Task newTask = GenerateRandomTask();
+    //        activeTasks.Add(newTask);
+    //        Debug.Log($"New Task: {newTask.GetDisplayText()}");
+    //        UpdateUI();
+    //    }
+    //}
 
 
     private void UpdateUI()
@@ -140,12 +141,52 @@ public class TaskUIManager : MonoBehaviour
         if (success)
         {
             Debug.Log("Task completed and items removed!");
-            
-            CompleteTask(index);
+
+            StartCoroutine(PlayCompleteEffectAndRemove(index, task));
         }
         else
         {
             Debug.Log("Task not completed. Not enough items.");
+        }
+    }
+
+    private IEnumerator PlayCompleteEffectAndRemove(int index, Task task)
+    {
+        GameObject slot = taskSlots[index];
+        Transform effect = slot.transform.Find("CompleteEffect");
+
+        if (effect != null)
+        {
+            effect.gameObject.SetActive(true);
+        }
+
+        yield return new WaitForSecondsRealtime(1.5f); // Wait for visual feedback
+
+        if (effect != null)
+        {
+            effect.gameObject.SetActive(false);
+        }
+
+        // Sell the item after effect is shown
+        shopManager.SellItem(task.requiredItem, task.requiredAmount);
+
+        // Safely remove the task
+        if (index >= 0 && index < activeTasks.Count)
+        {
+            activeTasks.RemoveAt(index);
+        }
+
+        UpdateUI();
+
+        // Spawn new task after additional delay
+        yield return new WaitForSecondsRealtime(4f);
+
+        if (activeTasks.Count < 3)
+        {
+            Task newTask = GenerateRandomTask();
+            activeTasks.Add(newTask);
+            Debug.Log($"New Task: {newTask.GetDisplayText()}");
+            UpdateUI();
         }
     }
 
