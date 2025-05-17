@@ -119,7 +119,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &118967864
+--- !u!1 &957795095
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,37 +127,42 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 118967866}
-  - component: {fileID: 118967865}
+  - component: {fileID: 957795097}
+  - component: {fileID: 957795096}
   m_Layer: 0
-  m_Name: Audio_Manager
+  m_Name: Initialization
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &118967865
+--- !u!114 &957795096
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 118967864}
+  m_GameObject: {fileID: 957795095}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00c0190c35415004285e34a0cea59ea0, type: 3}
+  m_Script: {fileID: 11500000, guid: b2ab1babe87d9ba4a8192030b44fdf91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audioChannelSO: {fileID: 11400000, guid: a41776bc57db1674d88d6fbc275a365c, type: 2}
-  _audioEmitterPool: {fileID: 11400000, guid: 05706937e5a84ed49b45142f9263c108, type: 2}
-  _audioMixer: {fileID: 24100000, guid: 310a9e4a5d478254295ef7058f4a7cb4, type: 2}
---- !u!4 &118967866
+  _managersScene: {fileID: 11400000, guid: c5bbd87140d1a1143a891c9d7485d41f, type: 2}
+  _menuToLoad: {fileID: 11400000, guid: fbc4659fde0b76647b5115446f02ef8c, type: 2}
+  _menuLoadChannel:
+    m_AssetGUID: ed93cac4b6d6477468b17347feb89721
+    m_SubObjectName: 
+    m_SubObjectGUID: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+--- !u!4 &957795097
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 118967864}
+  m_GameObject: {fileID: 957795095}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -166,61 +171,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1788331621
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1788331622}
-  - component: {fileID: 1788331623}
-  m_Layer: 0
-  m_Name: Scene_Loader
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1788331622
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1788331621}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1788331623
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1788331621}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 011b85424094e574fb1a1a433f127745, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _gameplayScene: {fileID: 11400000, guid: 54c50f67bb0536645aa3ac2fc68adccf, type: 2}
-  _inputReader: {fileID: 11400000, guid: 415aeb03029feca43b600e9ed9218756, type: 2}
-  _onEditorStartup: {fileID: 11400000, guid: a366418d78be1ce478def8e246d0bd85, type: 2}
-  _loadLocation: {fileID: 11400000, guid: b769200f62001e040aabd9621e541c7a, type: 2}
-  _loadMenu: {fileID: 11400000, guid: ed93cac4b6d6477468b17347feb89721, type: 2}
-  _onSceneReady: {fileID: 11400000, guid: c068a575db3490245948f6c52496efee, type: 2}
-  _onSceneChange: {fileID: 11400000, guid: ff8df1497c92ed14a9eee70215690166, type: 2}
-  _fadeEvent: {fileID: 11400000, guid: 701a77ce5ee050a4ea3594d3d2eb84d0, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 118967866}
-  - {fileID: 1788331622}
+  - {fileID: 957795097}

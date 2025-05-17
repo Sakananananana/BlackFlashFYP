@@ -193,8 +193,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 889193229
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -4440,7 +4440,7 @@ PrefabInstance:
     - target: {fileID: 3668609668914234624, guid: 4c48c12b07cba944d827e34df48df0ae,
         type: 3}
       propertyPath: Lens.OrthographicSize
-      value: 6.25
+      value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 4874048458882448934, guid: 4c48c12b07cba944d827e34df48df0ae,
         type: 3}
@@ -4455,7 +4455,7 @@ PrefabInstance:
     - target: {fileID: 5869827385216056860, guid: 4c48c12b07cba944d827e34df48df0ae,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 5869827385216056860, guid: 4c48c12b07cba944d827e34df48df0ae,
         type: 3}
@@ -4502,10 +4502,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Camera_System
       objectReference: {fileID: 0}
+    - target: {fileID: 6928576409865528154, guid: 4c48c12b07cba944d827e34df48df0ae,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6928576409865528154, guid: 4c48c12b07cba944d827e34df48df0ae,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.1599998
+      objectReference: {fileID: 0}
     - target: {fileID: 9163928801413157576, guid: 4c48c12b07cba944d827e34df48df0ae,
         type: 3}
       propertyPath: orthographic size
-      value: 6.25
+      value: 5.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4587,8 +4597,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1833010869
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}

@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c3c15a3945b841f4b96717f479a325b8, type: 3}
-  m_Name: PersistentManager
+  m_Name: MainMenu
   m_EditorClassIdentifier: 
-  sceneType: 6
+  sceneType: 4
   sceneReference:
-    m_AssetGUID: f356f32dccbe64640af62e8deab538a6
+    m_AssetGUID: c52a70c4befe76e4caf3177986dd0d1e
     m_SubObjectName: 
     m_SubObjectGUID: 
     m_SubObjectType: 

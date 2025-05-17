@@ -9694,8 +9694,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95bbc6f2fdd06fe4da69485fac3026d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sceneToLoad: {fileID: 0}
-  _raiseLoadEvent: {fileID: 0}
+  _sceneToLoad: {fileID: 11400000, guid: fbc4659fde0b76647b5115446f02ef8c, type: 2}
+  _raiseLoadEvent: {fileID: 11400000, guid: ed93cac4b6d6477468b17347feb89721, type: 2}
 --- !u!1 &1429816450
 GameObject:
   m_ObjectHideFlags: 0

@@ -37,7 +37,7 @@ public class SceneLoader : MonoBehaviour
 #if UNITY_EDITOR
         _onEditorStartup.OnLoadingRequested += EditorStartupMethod;
 #endif
-
+        _loadMenu.OnLoadingRequested += LoadMenu;
         _loadLocation.OnLoadingRequested += LoadLocation;
     }
 
@@ -47,6 +47,7 @@ public class SceneLoader : MonoBehaviour
         _onEditorStartup.OnLoadingRequested -= EditorStartupMethod;
 #endif
 
+        _loadMenu.OnLoadingRequested -= LoadMenu;
         _loadLocation.OnLoadingRequested -= LoadLocation;
     }
 
@@ -93,9 +94,18 @@ public class SceneLoader : MonoBehaviour
         }
     }
 
-    private void LoadMenu(GameSceneSO scene)
-    { 
+    private void LoadMenu(GameSceneSO menuToLoad)
+    {
         //unload previous scene and gameplay scene
+        _sceneToLoad = menuToLoad;
+        Debug.Log(_sceneToLoad.name);
+
+        if (_gameplaySceneInstance.Scene != null
+            && _gameplaySceneInstance.Scene.isLoaded)
+            Addressables.UnloadSceneAsync(_gameplaySceneLoadingOpHandle);
+
+        Debug.Log(_sceneToLoad.name);
+        StartCoroutine(UnloadPreviousScene());
     }
 
     private void OnGameplayManagerLoaded(AsyncOperationHandle<SceneInstance> obj)
@@ -106,9 +116,11 @@ public class SceneLoader : MonoBehaviour
 
     private IEnumerator UnloadPreviousScene()
     {
+        Debug.Log(_sceneToLoad.name);
         _inputReader.DisableAllInput();
         _fadeEvent.FadeIn(1f);
 
+        Debug.Log(_sceneToLoad.name);
         yield return new WaitForSeconds(1f);
 
         if (_loadedScene != null)
