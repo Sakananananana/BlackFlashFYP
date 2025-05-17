@@ -98,13 +98,11 @@ public class SceneLoader : MonoBehaviour
     {
         //unload previous scene and gameplay scene
         _sceneToLoad = menuToLoad;
-        Debug.Log(_sceneToLoad.name);
 
         if (_gameplaySceneInstance.Scene != null
             && _gameplaySceneInstance.Scene.isLoaded)
             Addressables.UnloadSceneAsync(_gameplaySceneLoadingOpHandle);
 
-        Debug.Log(_sceneToLoad.name);
         StartCoroutine(UnloadPreviousScene());
     }
 
@@ -116,11 +114,9 @@ public class SceneLoader : MonoBehaviour
 
     private IEnumerator UnloadPreviousScene()
     {
-        Debug.Log(_sceneToLoad.name);
         _inputReader.DisableAllInput();
         _fadeEvent.FadeIn(1f);
 
-        Debug.Log(_sceneToLoad.name);
         yield return new WaitForSeconds(1f);
 
         if (_loadedScene != null)
@@ -139,6 +135,8 @@ public class SceneLoader : MonoBehaviour
 
             LoadNewScene();
         }
+        else
+        { LoadNewScene(); }
     }
 
     private void LoadNewScene()
