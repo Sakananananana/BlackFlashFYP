@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      DaCheng_0: 7752730254083180308
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

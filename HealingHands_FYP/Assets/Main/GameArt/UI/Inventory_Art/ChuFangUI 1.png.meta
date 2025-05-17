@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ChuFangUI 1_0: 7104873733373136438
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
