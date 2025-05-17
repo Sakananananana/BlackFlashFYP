@@ -99,7 +99,7 @@ public class WeaponUpgradeButton : MonoBehaviour
         }
         else
         {
-            priceText.text = $"Upgrade ({pricePerUpgrade} coins)";
+            priceText.text = $"{pricePerUpgrade} coins";
             upgradeButton.interactable = ShopManager.Instance.totalCoins >= pricePerUpgrade;
         }
     }

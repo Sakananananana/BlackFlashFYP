@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using Inventory.Model;
 using TMPro;
+using System.Collections;
+using UnityEngine.UI;
 
 public class ShopManager : MonoBehaviour
 {
@@ -65,8 +67,8 @@ public class ShopManager : MonoBehaviour
     {
         if (shopPanel != null)
         {
-            EventSystem.current.SetSelectedGameObject(_firstButton);
             shopPanel.SetActive(true);
+            StartCoroutine(SelectFirstButtonNextFrame(0.5f));
         }
     }
 
@@ -155,6 +157,14 @@ public class ShopManager : MonoBehaviour
         UpdateCoinUI();
 
         IsCoinLessThanThresold.RaiseEvent(totalCoins < 400);
+    }
+
+    private IEnumerator SelectFirstButtonNextFrame(float delay)
+    {
+        //yield return null; // Wait one frame
+        EventSystem.current.SetSelectedGameObject(null); // Clear selection first (optional but safer)
+        yield return new WaitForSecondsRealtime(delay);
+        EventSystem.current.SetSelectedGameObject(_firstButton);
     }
 }
 
