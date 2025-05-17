@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Inventory.Model;
+using UnityEngine.EventSystems;
 
 public class TaskUIManager : MonoBehaviour
 {
@@ -83,6 +84,7 @@ public class TaskUIManager : MonoBehaviour
 
     private void UpdateUI()
     {
+        GameObject fallbackButton = null;
         for (int i = 0; i < taskSlots.Length; i++)
         {
             if (i < activeTasks.Count)
@@ -99,12 +101,32 @@ public class TaskUIManager : MonoBehaviour
                 shaodowImage.sprite = task.requiredItem.ItemImage;
 
                 shaodowImage.color = new Color(0, 0, 0, 0.5f);
+
+                if (fallbackButton == null)
+                {
+                    Button btn = taskSlots[i].GetComponentInChildren<Button>();
+                    if (btn != null && btn.gameObject.activeInHierarchy)
+                        fallbackButton = btn.gameObject;
+                }
             }
             else
             {
+                GameObject selected = EventSystem.current.currentSelectedGameObject;
+                if (selected != null && selected.transform.IsChildOf(taskSlots[i].transform))
+                {
+                    EventSystem.current.SetSelectedGameObject(null);
+                }
+
                 taskSlots[i].SetActive(false);
             }
         }
+        GameObject selected1 = EventSystem.current.currentSelectedGameObject;
+        if (selected1 == null || !selected1.activeInHierarchy)
+        {
+            if (fallbackButton != null)
+                EventSystem.current.SetSelectedGameObject(fallbackButton);
+        }
+
     }
 
     private Task GenerateRandomTask()
