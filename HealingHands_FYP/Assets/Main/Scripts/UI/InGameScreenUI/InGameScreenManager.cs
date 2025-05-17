@@ -9,6 +9,7 @@ public class InGameScreenManager : MonoBehaviour
     [SerializeField] private BoolEventChannelSO _isCoinsBelowWarpCost;
     [SerializeField] private BoolEventChannelSO _isInCombat;
     [SerializeField] private ButtonUI _returnButtonUI;
+    private bool _sceneCanWarp = false;
     private bool _isBelowWarpCost = false;
     private bool _isCurrentlyInCombat = false;
 
@@ -54,7 +55,7 @@ public class InGameScreenManager : MonoBehaviour
 
     private void WarppableCheck()
     {
-        if(_isCurrentlyInCombat == false && _isBelowWarpCost == false)
+        if(_isCurrentlyInCombat == false && _isBelowWarpCost == false && _sceneCanWarp == true)
             _returnButtonUI.gameObject.SetActive(true);
         else
             _returnButtonUI.gameObject.SetActive(false);
@@ -64,6 +65,11 @@ public class InGameScreenManager : MonoBehaviour
 
     private void OnLocationChange(GameSceneSO.GameSceneType sceneType)
     {
+        if (sceneType == GameSceneSO.GameSceneType.Location_BossRoom || sceneType == GameSceneSO.GameSceneType.Location_Dungeon)
+            _sceneCanWarp = true;
+        else
+            _sceneCanWarp = false;
+
             switch (sceneType)
             {
                 case GameSceneSO.GameSceneType.Location_Dungeon:

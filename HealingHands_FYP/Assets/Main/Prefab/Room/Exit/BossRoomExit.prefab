@@ -378,8 +378,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1916309987
-  m_SortingLayer: 5
+  m_SortingLayerID: 1239423867
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -1922979618149193216, guid: bf9f91ebafbac7944bb1f2600d603c2b,
     type: 3}
@@ -431,7 +431,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 0.5}
+    oldSize: {x: 1, y: 0.296875}
     newSize: {x: 1, y: 0.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

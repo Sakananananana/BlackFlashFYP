@@ -2,46 +2,78 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
+
 public class FadeController : MonoBehaviour
 {
     [SerializeField] private Slider _fadeSlider;
+
+    [SerializeField] private FadeEventChannelSO _fadeEvent;
+    [SerializeField] private Image _image;
 
     [SerializeField] private VoidEventChannelSO _onRoomExit;
     [SerializeField] private VoidEventChannelSO _onRoomEnter;
 
     private void OnEnable()
     {
-        _onRoomExit.OnEventRaised += FadeInOut;
+        _fadeEvent.OnEventRaised += InitializeFade;
     }
 
     private void OnDisable()
     {
-        _onRoomExit.OnEventRaised -= FadeInOut;
+        _fadeEvent.OnEventRaised -= InitializeFade;
     }
 
-    private void FadeInOut()
+    private void InitializeFade(bool fadeIn, float duration)
     {
-        StartCoroutine(FadeIn());
+        Debug.Log(fadeIn);
+
+        if (fadeIn == true)
+            StartCoroutine(FadeIn(duration, 1));
+        else if (fadeIn == false)
+            StartCoroutine(FadeOut(duration, 0));
     }
 
-    private IEnumerator FadeIn()
+    private IEnumerator FadeIn(float duration, int targetAlpha)
     {
-        while (_fadeSlider.value < 1f)
+        float startAlpha = _image.color.a;
+        float time = 0f;
+
+        while (time < duration)
         {
-            _fadeSlider.value += 0.01f;
+            time += Time.deltaTime;
+            float alpha = Mathf.Lerp(startAlpha, targetAlpha, time / duration);
+
+            Color c = _image.color;
+            c.a = alpha;
+            _image.color = c;
+
             yield return null;
         }
 
-        StartCoroutine(FadeOut());
-        _onRoomEnter.RaiseEvent();
+        Color finalColor = _image.color;
+        finalColor.a = targetAlpha;
+        _image.color = finalColor;
     }
 
-    private IEnumerator FadeOut()
+    private IEnumerator FadeOut(float duration, int targetAlpha)
     {
-        while (_fadeSlider.value > 0)
+        float startAlpha = _image.color.a;
+        float time = 0f;
+
+        while (time < duration)
         {
-            _fadeSlider.value -= 0.01f;
+            time += Time.deltaTime;
+            float alpha = Mathf.Lerp(startAlpha, targetAlpha, time / duration);
+
+            Color c = _image.color;
+            c.a = alpha;
+            _image.color = c;
+
             yield return null;
         }
+
+        Color finalColor = _image.color;
+        finalColor.a = targetAlpha;
+        _image.color = finalColor;
     }
 }

@@ -21,6 +21,7 @@ public class SceneLoader : MonoBehaviour
     [SerializeField] private VoidEventChannelSO _onSceneReady; //later pick up by spawn
     [SerializeField] private SceneEventChannelSO _onSceneChange;
     //[SerializeField] private BoolEventChannelSO _toggleLoadingScreen;
+    [SerializeField] private FadeEventChannelSO _fadeEvent;
 
     //parameter for scene
     private GameSceneSO _loadedScene;
@@ -106,8 +107,9 @@ public class SceneLoader : MonoBehaviour
     private IEnumerator UnloadPreviousScene()
     {
         _inputReader.DisableAllInput();
+        _fadeEvent.FadeIn(1f);
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
 
         if (_loadedScene != null)
         {
@@ -143,7 +145,8 @@ public class SceneLoader : MonoBehaviour
         Scene newScene = obj.Result.Scene;
         SceneManager.SetActiveScene(newScene);
 
-        //Later Move to Spawn System Ensure Protagonist is Spawned before enabling
+        _fadeEvent.FadeOut(1f);
+
         _onSceneReady.RaiseEvent();
         _onSceneChange.RaiseEvent(_loadedScene.sceneType);
     }
