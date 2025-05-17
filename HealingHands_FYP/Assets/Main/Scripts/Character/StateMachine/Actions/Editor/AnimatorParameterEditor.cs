@@ -1,5 +1,7 @@
 using UnityEngine;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 
 [CustomEditor(typeof(AnimatorParameterActionSO)), CanEditMultipleObjects]
 public class AnimatorParameterEditor : CustomBaseEditor

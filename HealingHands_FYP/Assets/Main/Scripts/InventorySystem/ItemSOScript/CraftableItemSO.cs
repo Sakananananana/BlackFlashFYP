@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using System.Collections.Generic;
 
@@ -8,7 +9,13 @@ namespace Inventory.Model
     public class CraftableItemSO : ItemSOBase
     {
         [SerializeField] public List<ItemSOBase> Ingredients = new List<ItemSOBase>();
-        [SerializeField] public bool IsCraftedBefore { get; set; }
+        [NonSerialized] private bool _isCraftedBefore;
+
+        public bool IsCraftedBefore
+        {
+            get => _isCraftedBefore;
+            set => _isCraftedBefore = value;
+        }
     }
 }
 

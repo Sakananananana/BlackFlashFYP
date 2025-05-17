@@ -35,6 +35,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 578b3ab2841b7644aa358c04c59072e1
+    m_Address: Assets/Main/Prefab/Room
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 137262d78c9ce704ebdb5a6179167354, type: 2}
   m_SchemaSet:

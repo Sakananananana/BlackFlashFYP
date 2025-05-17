@@ -4,7 +4,6 @@ using PlayerInputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
-using System;
 using UnityEngine.AddressableAssets;
 
 public class SceneLoader : MonoBehaviour
@@ -126,13 +125,15 @@ public class SceneLoader : MonoBehaviour
                 var unloadHandle = _loadedScene.sceneReference.UnLoadScene();
                 yield return unloadHandle;
             }
+#if UNITY_EDITOR
             else
             {
+
                 var unloadOp = SceneManager.UnloadSceneAsync(_loadedScene.sceneReference.editorAsset.name);
                 if (unloadOp != null)
                     yield return unloadOp;
             }
-
+#endif
             LoadNewScene();
         }
         else
