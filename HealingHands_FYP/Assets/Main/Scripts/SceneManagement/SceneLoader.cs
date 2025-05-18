@@ -21,6 +21,7 @@ public class SceneLoader : MonoBehaviour
     [SerializeField] private SceneEventChannelSO _onSceneChange;
     //[SerializeField] private BoolEventChannelSO _toggleLoadingScreen;
     [SerializeField] private FadeEventChannelSO _fadeEvent;
+    [SerializeField] private BoolEventChannelSO _showInGameScreenUI;
 
     //parameter for scene
     private GameSceneSO _loadedScene;
@@ -114,6 +115,7 @@ public class SceneLoader : MonoBehaviour
     private IEnumerator UnloadPreviousScene()
     {
         _inputReader.DisableAllInput();
+        _showInGameScreenUI.RaiseEvent(false);
         _fadeEvent.FadeIn(1f);
 
         yield return new WaitForSeconds(1f);
@@ -160,6 +162,11 @@ public class SceneLoader : MonoBehaviour
 
         _onSceneReady.RaiseEvent();
         _onSceneChange.RaiseEvent(_loadedScene.sceneType);
+
+        if (_loadedScene.sceneType == GameSceneSO.GameSceneType.Cutscene)
+            _showInGameScreenUI.RaiseEvent(false);
+        else
+            _showInGameScreenUI.RaiseEvent(true);
     }
 
 

@@ -15,6 +15,12 @@ public class UIManager : MonoBehaviour
     [SerializeField] private BoolEventChannelSO _onOpenRoom;
     [SerializeField] private InterectionManager _interactionManager;
 
+    //In Game Screen UIs
+    [SerializeField] private BoolEventChannelSO _setInGameScreenUI;
+    [SerializeField] private SceneEventChannelSO _onSceneChanges;
+    [SerializeField] private BoolEventChannelSO _isCoinsBelowWarpCost;
+    [SerializeField] private BoolEventChannelSO _isInCombat;
+
     //All the User Interfaces
     [SerializeField] private UIInventoryPage _inventoryPanel;
     [SerializeField] private PauseMenu _pauseMenu;
@@ -26,6 +32,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _craftingUIPanel;
     [SerializeField] private GameObject bookUI; // Reference to the book UI (parent of pages)
     [SerializeField] private BookManager bookManager; // Your BookManager script
+    [SerializeField] private InGameScreenManager _inGameScreenUI;
+
+    private bool _locationaCanWarp = false;
+    private bool _isBelowWarpCost = false;
+    private bool _inCombat = false;
 
     bool _isCrafting = false;
     bool _isShopping = false;
@@ -41,7 +52,12 @@ public class UIManager : MonoBehaviour
         _inputReader.PauseEvent += OpenSettingScreen;
         _inputReader.OpenBook += OpenBook;
         _inputReader.CloseBook += CloseBook;
-        // For regular shop.
+
+        //In Game Screen UI Handler
+        _setInGameScreenUI.OnEventRaised += SetInGameScreenUI;
+        _onSceneChanges.OnEventRaised += OnLocationChange;
+        _isInCombat.OnEventRaised += IsInCombatHandler;
+        _isCoinsBelowWarpCost.OnEventRaised += IsBelowWarpThreshold;
     }
 
     private void OnDisable()
@@ -54,6 +70,12 @@ public class UIManager : MonoBehaviour
         _inputReader.PauseEvent -= OpenSettingScreen;
         _inputReader.OpenBook -= OpenBook;
         _inputReader.CloseBook -= CloseBook;
+
+        //In Game Screen UI Handler
+        _setInGameScreenUI.OnEventRaised -= SetInGameScreenUI;
+        _onSceneChanges.OnEventRaised -= OnLocationChange;
+        _isInCombat.OnEventRaised -= IsInCombatHandler;
+        _isCoinsBelowWarpCost.OnEventRaised -= IsBelowWarpThreshold;
     }
 
     void OpenInventoryForCrafting(bool val)
@@ -64,7 +86,6 @@ public class UIManager : MonoBehaviour
             _craftingUIPanel.SetActive(val);
         }
     }
-
 
     void OnWeaponShopRequested(bool val)
     {
@@ -172,6 +193,7 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 1;
         _inputReader.SetGameplay();
     }
+
     void OpenWeaponScreen()
     {
 
@@ -191,21 +213,6 @@ public class UIManager : MonoBehaviour
         _inputReader.SetGameplay();
     }
 
-    //void OpenRoomUI(bool shouldShow)
-    //{
-    //    if (_roomUIPanel != null)
-    //    {
-    //        _roomUIPanel.SetActive(shouldShow);
-    //    }
-    //}
-    //void CloseRoomUI()
-    //{
-    //    _inputReader.ResumeEvent -= CloseRoomUI;
-    //    _inputReader.SetGameplay();
-    //    Time.timeScale = 1;
-
-    //    _onOpenRoom.RaiseEvent(false);
-    //}
     private void OpenBook()
     {
         bookUI.SetActive(true);
@@ -229,5 +236,39 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 1f;
     }
 
+    private void SetInGameScreenUI(bool val) => _inGameScreenUI.gameObject.SetActive(val);
 
+    private void OnLocationChange(GameSceneSO.GameSceneType sceneType)
+    {
+        if (sceneType == GameSceneSO.GameSceneType.Location_BossRoom || sceneType == GameSceneSO.GameSceneType.Location_Dungeon)
+        {
+            _inGameScreenUI.SetDungeonUIScreen();
+            _locationaCanWarp = true;
+            SetReturnButton();
+        }
+        else if (sceneType == GameSceneSO.GameSceneType.Location_Village)
+        {
+            _inGameScreenUI.SetVillageUIScreen();
+            _locationaCanWarp = false;
+        }
+        else
+        { _locationaCanWarp = false; }
+    }
+
+    private void IsInCombatHandler(bool val)
+    {
+        _inCombat = val;
+        SetReturnButton();
+    }
+
+    private void IsBelowWarpThreshold(bool val)
+    {
+        _isBelowWarpCost = val;
+        SetReturnButton();
+    }
+
+    private void SetReturnButton()
+    {
+        _inGameScreenUI.WarppableCheck(_inCombat, _isBelowWarpCost, _locationaCanWarp);
+    }
 }

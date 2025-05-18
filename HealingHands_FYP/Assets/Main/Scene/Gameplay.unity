@@ -448,11 +448,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _goldAmountUI: {fileID: 776436557}
   _healthBarUI: {fileID: 533613624}
+  _returnButtonUI: {fileID: 890804713}
   _onSceneChanges: {fileID: 11400000, guid: ff8df1497c92ed14a9eee70215690166, type: 2}
   _isCoinsBelowWarpCost: {fileID: 11400000, guid: cc5b2232939f49e4b843411b2c8cb42b,
     type: 2}
   _isInCombat: {fileID: 11400000, guid: ee91c3b45b180ac4ba8f35408355fac7, type: 2}
-  _returnButtonUI: {fileID: 890804713}
 --- !u!1 &240216832
 GameObject:
   m_ObjectHideFlags: 0
@@ -1682,6 +1682,11 @@ MonoBehaviour:
   _onWeaponStarted: {fileID: 11400000, guid: 383f32740fe54184d88fceb28ee32f8a, type: 2}
   _onOpenRoom: {fileID: 11400000, guid: 256115ad085a5e346862ccc04d1a04c7, type: 2}
   _interactionManager: {fileID: 0}
+  _setInGameScreenUI: {fileID: 11400000, guid: fce48c173bcfccb468ba030e4e0ca12e, type: 2}
+  _onSceneChanges: {fileID: 11400000, guid: ff8df1497c92ed14a9eee70215690166, type: 2}
+  _isCoinsBelowWarpCost: {fileID: 11400000, guid: cc5b2232939f49e4b843411b2c8cb42b,
+    type: 2}
+  _isInCombat: {fileID: 11400000, guid: ee91c3b45b180ac4ba8f35408355fac7, type: 2}
   _inventoryPanel: {fileID: 321357316}
   _pauseMenu: {fileID: 1758775363}
   _shopManager: {fileID: 4193730493214022893}
@@ -1692,6 +1697,7 @@ MonoBehaviour:
   _craftingUIPanel: {fileID: 1924396817}
   bookUI: {fileID: 274889066}
   bookManager: {fileID: 1357476306}
+  _inGameScreenUI: {fileID: 201406297}
 --- !u!1 &710329734 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6037569262541766586, guid: 9c0d408a9cb04f94ba71576b5f046c15,
@@ -2675,71 +2681,6 @@ MonoBehaviour:
   bookUI: {fileID: 274889066}
   bookManager: {fileID: 1357476306}
   inputReader: {fileID: 11400000, guid: 415aeb03029feca43b600e9ed9218756, type: 2}
---- !u!1 &1380607730
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1380607731}
-  - component: {fileID: 1380607732}
-  m_Layer: 0
-  m_Name: Crafting_Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1380607731
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1380607730}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.86649156, y: 0.9221192, z: -0.19161503}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1380607732
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1380607730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65abcd7cd87a8f64e93f9a5ccff2c4f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _inventorySO: {fileID: 11400000, guid: c96a0e360e2af054abdea78fdf139a17, type: 2}
-  _itemAction: {fileID: 1482438467}
-  _resultSlot: {fileID: 1482438464}
-  _craftingSlots:
-  - {fileID: 1482438466}
-  - {fileID: 1482438465}
-  _craftingList:
-  - {fileID: 11400000, guid: c2eca57db60a9584ea79f68317553617, type: 2}
-  - {fileID: 11400000, guid: c869e2df7b939de45a3125c0bfc1f89d, type: 2}
-  - {fileID: 11400000, guid: d21cca966e8069e4eacff286b220042f, type: 2}
-  - {fileID: 11400000, guid: 74b9fb9fd0fa3564ba6c2d51cdd18204, type: 2}
-  - {fileID: 11400000, guid: d8f370a04ff862042adcb2fbcddd7391, type: 2}
-  - {fileID: 11400000, guid: d9305de53aacd0f479866e105f67ad6c, type: 2}
-  _craftingUpdates: {fileID: 11400000, guid: 87f166611cb0f0b49ad8bafbf65529b6, type: 2}
-  _onItemAdd: {fileID: 11400000, guid: e37110ea0ad20a341921f107568720cd, type: 2}
-  _onItemRemove: {fileID: 11400000, guid: 0ff74d80c4294b740b78bfafd9f48574, type: 2}
-  _onSlotPressed: {fileID: 11400000, guid: 484158b937cdf854997b155ca9913946, type: 2}
-  _slotEventEnded: {fileID: 11400000, guid: da894d042a2ed984ea73ebc3002474b7, type: 2}
-  _onActionStarted: {fileID: 11400000, guid: 21519963c3b56d845b118a87541560a9, type: 2}
-  _onResultSlotPressed: {fileID: 11400000, guid: 51d5c368097bfa3469098f2983e4bafb,
-    type: 2}
 --- !u!1 &1389610585 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7979054360135721973, guid: 9c0d408a9cb04f94ba71576b5f046c15,
@@ -3784,54 +3725,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1482438462}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1482438464 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7391453043534259587, guid: 5b2958b24921bb64eabfcc70ba1b014b,
-    type: 3}
-  m_PrefabInstance: {fileID: 1482438462}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6e27934737ad2243a8871fbf4614d80, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1482438465 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 788465759168921159, guid: 5b2958b24921bb64eabfcc70ba1b014b,
-    type: 3}
-  m_PrefabInstance: {fileID: 1482438462}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34062b3f58c535646b0e86db15bd81d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1482438466 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1119411144458387699, guid: 5b2958b24921bb64eabfcc70ba1b014b,
-    type: 3}
-  m_PrefabInstance: {fileID: 1482438462}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34062b3f58c535646b0e86db15bd81d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1482438467 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1068659676068461603, guid: 5b2958b24921bb64eabfcc70ba1b014b,
-    type: 3}
-  m_PrefabInstance: {fileID: 1482438462}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e281186b46623b4baab33bd9cfa2396, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1498520954
 GameObject:
   m_ObjectHideFlags: 0
@@ -6216,7 +6109,6 @@ SceneRoots:
   - {fileID: 5626073568020282159}
   - {fileID: 5587776530496259626}
   - {fileID: 1357476307}
-  - {fileID: 1380607731}
   - {fileID: 725136773}
   - {fileID: 27822601}
   - {fileID: 1924396816}

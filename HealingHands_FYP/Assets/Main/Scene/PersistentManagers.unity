@@ -218,6 +218,8 @@ MonoBehaviour:
   _onSceneReady: {fileID: 11400000, guid: c068a575db3490245948f6c52496efee, type: 2}
   _onSceneChange: {fileID: 11400000, guid: ff8df1497c92ed14a9eee70215690166, type: 2}
   _fadeEvent: {fileID: 11400000, guid: 701a77ce5ee050a4ea3594d3d2eb84d0, type: 2}
+  _showInGameScreenUI: {fileID: 11400000, guid: fce48c173bcfccb468ba030e4e0ca12e,
+    type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
