@@ -30,6 +30,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9db3d989193252642aa4a6afb03839cc
+    m_Address: Assets/Main/ScriptableObjects/Anchor/ProtagonistTransformAnchor.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f5b58de578d7f0b4d8ff9bf029924d46
+    m_Address: Assets/Main/ScriptableObjects/Gameplay
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 137262d78c9ce704ebdb5a6179167354, type: 2}
   m_SchemaSet:

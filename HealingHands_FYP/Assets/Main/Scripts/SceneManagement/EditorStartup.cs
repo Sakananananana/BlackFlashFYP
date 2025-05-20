@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class EditorStartup : MonoBehaviour
 {
+#if UNITY_EDITOR
     [SerializeField] private GameSceneSO _currentSceneSO;
     [SerializeField] private GameSceneSO _persistentManagerSO;
 
@@ -35,4 +36,5 @@ public class EditorStartup : MonoBehaviour
             obj.Result.RaiseEvent(_currentSceneSO);
         }
     }
+#endif
 }

@@ -214,10 +214,12 @@ MonoBehaviour:
   _inputReader: {fileID: 11400000, guid: 415aeb03029feca43b600e9ed9218756, type: 2}
   _onEditorStartup: {fileID: 11400000, guid: a366418d78be1ce478def8e246d0bd85, type: 2}
   _loadLocation: {fileID: 11400000, guid: b769200f62001e040aabd9621e541c7a, type: 2}
-  _loadMenu: {fileID: 0}
+  _loadMenu: {fileID: 11400000, guid: ed93cac4b6d6477468b17347feb89721, type: 2}
   _onSceneReady: {fileID: 11400000, guid: c068a575db3490245948f6c52496efee, type: 2}
   _onSceneChange: {fileID: 11400000, guid: ff8df1497c92ed14a9eee70215690166, type: 2}
   _fadeEvent: {fileID: 11400000, guid: 701a77ce5ee050a4ea3594d3d2eb84d0, type: 2}
+  _showInGameScreenUI: {fileID: 11400000, guid: fce48c173bcfccb468ba030e4e0ca12e,
+    type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

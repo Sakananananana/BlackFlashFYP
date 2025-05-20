@@ -12,6 +12,9 @@ public class MainMenu : MonoBehaviour
     [SerializeField] AudioData _selectedAudio;
     [SerializeField] AudioConfiguration _audioConfig;
 
+    [SerializeField] LoadEventChannelSO _loadTutorialScene;
+    [SerializeField] GameSceneSO _tutorialScene;
+
     // Start is called before the first frame update
     public void Start()
     {
@@ -21,15 +24,17 @@ public class MainMenu : MonoBehaviour
 
     public void LoadLevel()
     {
-        if (TutorialManager.instance.IsTutorialCompleted() == true)
-        {
-            SceneManager.LoadScene("Village");
-        }
-        else 
-        {
-            SceneManager.LoadScene("Tutorial");
-            TutorialManager.instance.OnTutorialComplete();
-        }
+        _loadTutorialScene.OnLoadingRequested(_tutorialScene);
+
+        //if (TutorialManager.instance.IsTutorialCompleted() == true)
+        //{
+        //    SceneManager.LoadScene("Village");
+        //}
+        //else 
+        //{
+        //    SceneManager.LoadScene("Tutorial");
+        //    TutorialManager.instance.OnTutorialComplete();
+        //}
     }
 
     public void Quit()
@@ -86,7 +91,7 @@ public class MainMenu : MonoBehaviour
 
     public void OnSelect()
     {
-        _audioChannelSO.OnAudioPlayRequested(_selectedAudio, _audioConfig);
+        //_audioChannelSO.OnAudioPlayRequested(_selectedAudio, _audioConfig);
     }
 }
 

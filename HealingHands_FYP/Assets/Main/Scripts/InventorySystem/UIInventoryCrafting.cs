@@ -29,7 +29,7 @@ namespace Inventory.UI
         [SerializeField] private VoidEventChannelSO _onResultSlotPressed;
 
         private List<UIInventoryItem> _listOfCraftingSlots = new List<UIInventoryItem>();
-        //private Dictionary<> _invCombinationList; 
+
         private List<List<ItemSOBase>> _invalidCombinationList = new List<List<ItemSOBase>>(); 
         private List<ItemSOBase> _ingredients = new List<ItemSOBase>();
         private bool _isPerformingAction = false;
@@ -80,7 +80,7 @@ namespace Inventory.UI
 
                 for (int i = 0; i < _craftingList.Count; i++)
                 {
-                    if (_ingredients.All(ingredients => _craftingList[i].Ingredients.Contains(ingredients)))
+                    if (AreSameIngredients(_ingredients, _craftingList[i].Ingredients))
                     {
                         _resultingItem = _craftingList[i];
 

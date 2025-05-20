@@ -4,7 +4,6 @@ using PlayerInputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
-using System;
 using UnityEngine.AddressableAssets;
 
 public class SceneLoader : MonoBehaviour
@@ -22,6 +21,7 @@ public class SceneLoader : MonoBehaviour
     [SerializeField] private SceneEventChannelSO _onSceneChange;
     //[SerializeField] private BoolEventChannelSO _toggleLoadingScreen;
     [SerializeField] private FadeEventChannelSO _fadeEvent;
+    [SerializeField] private BoolEventChannelSO _showInGameScreenUI;
 
     //parameter for scene
     private GameSceneSO _loadedScene;
@@ -37,7 +37,7 @@ public class SceneLoader : MonoBehaviour
 #if UNITY_EDITOR
         _onEditorStartup.OnLoadingRequested += EditorStartupMethod;
 #endif
-
+        _loadMenu.OnLoadingRequested += LoadMenu;
         _loadLocation.OnLoadingRequested += LoadLocation;
     }
 
@@ -47,6 +47,7 @@ public class SceneLoader : MonoBehaviour
         _onEditorStartup.OnLoadingRequested -= EditorStartupMethod;
 #endif
 
+        _loadMenu.OnLoadingRequested -= LoadMenu;
         _loadLocation.OnLoadingRequested -= LoadLocation;
     }
 
@@ -93,9 +94,16 @@ public class SceneLoader : MonoBehaviour
         }
     }
 
-    private void LoadMenu(GameSceneSO scene)
-    { 
+    private void LoadMenu(GameSceneSO menuToLoad)
+    {
         //unload previous scene and gameplay scene
+        _sceneToLoad = menuToLoad;
+
+        if (_gameplaySceneInstance.Scene != null
+            && _gameplaySceneInstance.Scene.isLoaded)
+            Addressables.UnloadSceneAsync(_gameplaySceneLoadingOpHandle);
+
+        StartCoroutine(UnloadPreviousScene());
     }
 
     private void OnGameplayManagerLoaded(AsyncOperationHandle<SceneInstance> obj)
@@ -107,6 +115,7 @@ public class SceneLoader : MonoBehaviour
     private IEnumerator UnloadPreviousScene()
     {
         _inputReader.DisableAllInput();
+        _showInGameScreenUI.RaiseEvent(false);
         _fadeEvent.FadeIn(1f);
 
         yield return new WaitForSeconds(1f);
@@ -118,15 +127,19 @@ public class SceneLoader : MonoBehaviour
                 var unloadHandle = _loadedScene.sceneReference.UnLoadScene();
                 yield return unloadHandle;
             }
+#if UNITY_EDITOR
             else
             {
+
                 var unloadOp = SceneManager.UnloadSceneAsync(_loadedScene.sceneReference.editorAsset.name);
                 if (unloadOp != null)
                     yield return unloadOp;
             }
-
+#endif
             LoadNewScene();
         }
+        else
+        { LoadNewScene(); }
     }
 
     private void LoadNewScene()
@@ -149,6 +162,11 @@ public class SceneLoader : MonoBehaviour
 
         _onSceneReady.RaiseEvent();
         _onSceneChange.RaiseEvent(_loadedScene.sceneType);
+
+        if (_loadedScene.sceneType == GameSceneSO.GameSceneType.Cutscene)
+            _showInGameScreenUI.RaiseEvent(false);
+        else
+            _showInGameScreenUI.RaiseEvent(true);
     }
 
 
