@@ -2023,6 +2023,11 @@ PrefabInstance:
       propertyPath: Target.TrackingTarget
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3722542236465375911, guid: 4c48c12b07cba944d827e34df48df0ae,
+        type: 3}
+      propertyPath: m_RequiresDepthTextureOption
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5869827385216056860, guid: 4c48c12b07cba944d827e34df48df0ae,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2117,6 +2122,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_BackGroundColor.r
       value: 0.07058824
+      objectReference: {fileID: 0}
+    - target: {fileID: 9163928801413157576, guid: 4c48c12b07cba944d827e34df48df0ae,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
