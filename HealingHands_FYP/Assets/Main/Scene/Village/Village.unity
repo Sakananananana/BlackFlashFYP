@@ -127,10 +127,15 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3015296028568170533, guid: 4c48c12b07cba944d827e34df48df0ae,
+        type: 3}
+      propertyPath: DefaultVelocity.y
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 3668609668914234624, guid: 4c48c12b07cba944d827e34df48df0ae,
         type: 3}
       propertyPath: Lens.OrthographicSize
-      value: 6
+      value: 5.6
       objectReference: {fileID: 0}
     - target: {fileID: 4874048458882448934, guid: 4c48c12b07cba944d827e34df48df0ae,
         type: 3}
@@ -195,7 +200,7 @@ PrefabInstance:
     - target: {fileID: 9163928801413157576, guid: 4c48c12b07cba944d827e34df48df0ae,
         type: 3}
       propertyPath: orthographic size
-      value: 6
+      value: 5.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9746,8 +9751,8 @@ MonoBehaviour:
   _onEditorStartup:
     m_AssetGUID: a366418d78be1ce478def8e246d0bd85
     m_SubObjectName: 
-    m_SubObjectGUID: 
     m_SubObjectType: 
+    m_SubObjectGUID: 
     m_EditorAssetChanged: 0
 --- !u!1 &1490085650
 GameObject:
