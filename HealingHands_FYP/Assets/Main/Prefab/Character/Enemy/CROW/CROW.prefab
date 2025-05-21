@@ -100,13 +100,14 @@ GameObject:
   - component: {fileID: 6445269564507116301}
   - component: {fileID: 5089017787724517313}
   - component: {fileID: 2734659938782967019}
+  - component: {fileID: 5512086330571560867}
   m_Layer: 0
   m_Name: CROW
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &9058535236174153835
 Transform:
   m_ObjectHideFlags: 0
@@ -329,6 +330,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DeathParticle: {fileID: 4633762367101158347}
+--- !u!114 &5512086330571560867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2103040218175319359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0e8f2834da80584e9fb3f0d52b78b3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioChannelSO: {fileID: 11400000, guid: a41776bc57db1674d88d6fbc275a365c, type: 2}
+  _audioConfig: {fileID: 11400000, guid: 0d856fbfc57e03e4cb5f55add5e60595, type: 2}
+  _crowFlapAudio: {fileID: 11400000, guid: ca4316e635984854387729f8e7b44885, type: 2}
+  _crowAttackAudio: {fileID: 11400000, guid: cc9e18b30608ddf449c934d1be2981ee, type: 2}
 --- !u!1 &3528552850920740044
 GameObject:
   m_ObjectHideFlags: 0

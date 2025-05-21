@@ -17,15 +17,19 @@ public class LevelCheck : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag(playerTag) && isUnlocked)
+        if (other.CompareTag(playerTag) && !isUnlocked)
         {
             uiPanel?.SetActive(true);
+        }
+        else
+        {
+            uiPanel?.SetActive(false);
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag(playerTag) && isUnlocked)
+        if (other.CompareTag(playerTag) && !isUnlocked)
         {
             uiPanel?.SetActive(false);
         }

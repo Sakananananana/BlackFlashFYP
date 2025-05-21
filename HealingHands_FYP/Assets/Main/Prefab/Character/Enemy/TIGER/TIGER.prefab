@@ -4868,6 +4868,7 @@ GameObject:
   - component: {fileID: 4125037487829573462}
   - component: {fileID: 1344769064352529075}
   - component: {fileID: 5332264058334622568}
+  - component: {fileID: 2774106085974260065}
   m_Layer: 0
   m_Name: TIGER
   m_TagString: Enemy
@@ -5099,6 +5100,22 @@ CapsuleCollider2D:
   m_Offset: {x: 0.0106521845, y: -0.08273232}
   m_Size: {x: 1.7927055, y: 2.2834427}
   m_Direction: 0
+--- !u!114 &2774106085974260065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4242019545271151323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 279a46c66b39b984b837ddced4fbd96e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioChannelSO: {fileID: 11400000, guid: a41776bc57db1674d88d6fbc275a365c, type: 2}
+  _audioConfig: {fileID: 11400000, guid: 0d856fbfc57e03e4cb5f55add5e60595, type: 2}
+  _tigerRoarAudio: {fileID: 11400000, guid: 9a6008057a9089d4db6fb2f4a69246cf, type: 2}
+  _tigerBiteAudio: {fileID: 11400000, guid: 212b7e0f69434c14eb93c156beb71b9f, type: 2}
 --- !u!1 &4823789987488777216
 GameObject:
   m_ObjectHideFlags: 0
