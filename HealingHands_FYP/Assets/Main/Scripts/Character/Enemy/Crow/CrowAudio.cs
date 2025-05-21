@@ -2,15 +2,13 @@ using UnityEngine;
 
 public class CrowAudio : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    //Move To Audio Script Later
+    [SerializeField] private AudioChannelSO _audioChannelSO;
+    [SerializeField] private AudioConfiguration _audioConfig;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] private AudioData _crowFlapAudio;
+    [SerializeField] private AudioData _crowAttackAudio;
+
+    public void PlayCrowFlapAudio() => _audioChannelSO.OnAudioPlayRequested(_crowFlapAudio, _audioConfig);
+    public void PlayCrowAttackAudio() => _audioChannelSO.OnAudioPlayRequested(_crowAttackAudio, _audioConfig);
 }
