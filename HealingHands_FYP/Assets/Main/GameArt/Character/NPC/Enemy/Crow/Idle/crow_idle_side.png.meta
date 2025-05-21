@@ -1,0 +1,503 @@
+fileFormatVersion: 2
+guid: ebd49dc1bdd1825428ea7a2409131ad7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2972846431294718854
+    second: crow_idle_side_0
+  - first:
+      213: 6138408964814233337
+    second: crow_idle_side_1
+  - first:
+      213: -2599397718698391822
+    second: crow_idle_side_2
+  - first:
+      213: -4075300739400844450
+    second: crow_idle_side_3
+  - first:
+      213: 4930100827748617190
+    second: crow_idle_side_4
+  - first:
+      213: -3357840100895683368
+    second: crow_idle_side_5
+  - first:
+      213: 5824315736494019820
+    second: crow_idle_side_6
+  - first:
+      213: 1967959990025898323
+    second: crow_idle_side_7
+  - first:
+      213: -4911155486883097233
+    second: crow_idle_side_8
+  - first:
+      213: 3353889776509118354
+    second: crow_idle_side_9
+  - first:
+      213: 8146919468710921645
+    second: crow_idle_side_10
+  - first:
+      213: -1416463471024882060
+    second: crow_idle_side_11
+  - first:
+      213: -5871440576078971559
+    second: crow_idle_side_12
+  - first:
+      213: -6681559264030884652
+    second: crow_idle_side_13
+  - first:
+      213: 4741353595435562176
+    second: crow_idle_side_14
+  - first:
+      213: 2062941915048270187
+    second: crow_idle_side_15
+  - first:
+      213: 7986502703172056926
+    second: crow_idle_side_16
+  - first:
+      213: 301290438819329516
+    second: crow_idle_side_17
+  - first:
+      213: -996192861933394634
+    second: crow_idle_side_18
+  - first:
+      213: -4749358702779788145
+    second: crow_idle_side_19
+  - first:
+      213: -3541566323965245558
+    second: crow_idle_side_20
+  - first:
+      213: -1081599215523818344
+    second: crow_idle_side_21
+  - first:
+      213: 2038337988801849363
+    second: crow_idle_side_22
+  - first:
+      213: 819838792777109172
+    second: crow_idle_side_23
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: crow_idle_side_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 0
+        width: 117
+        height: 128
+      alignment: 9
+      pivot: {x: 0.4786325, y: 0.5859375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7cf3eaebe35eb6d0800000000000000
+      internalID: -2972846431294718854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crow_idle_side_1
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 0
+        width: 109
+        height: 117
+      alignment: 9
+      pivot: {x: 0.4587156, y: 0.6666667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fe53d94e62003550800000000000000
+      internalID: 6138408964814233337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crow_idle_side_2
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 0
+        width: 89
+        height: 120
+      alignment: 9
+      pivot: {x: 0.48314607, y: 0.65833336}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f6850b0c851debd0800000000000000
+      internalID: -2599397718698391822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crow_idle_side_3
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 0
+        width: 82
+        height: 117
+      alignment: 9
+      pivot: {x: 0.48780486, y: 0.64102566}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5b3023c19f9177c0800000000000000
+      internalID: -4075300739400844450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crow_idle_side_4
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 0
+        width: 90
+        height: 115
+      alignment: 9
+      pivot: {x: 0.4888889, y: 0.67826086}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ebc0d0059c3b6440800000000000000
+      internalID: 4930100827748617190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crow_idle_side_5
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 0
+        width: 117
+        height: 114
+      alignment: 9
+      pivot: {x: 0.4529915, y: 0.6754386}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8dc0d85083e8661d0800000000000000
+      internalID: -3357840100895683368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crow_idle_side_6
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 0
+        width: 117
+        height: 128
+      alignment: 9
+      pivot: {x: 0.49572653, y: 0.5859375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce49175cd4024d050800000000000000
+      internalID: 5824315736494019820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crow_idle_side_7
+      rect:
+        serializedVersion: 2
+        x: 910
+        y: 0
+        width: 109
+        height: 117
+      alignment: 9
+      pivot: {x: 0.4770642, y: 0.6752137}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 359cca92f299f4b10800000000000000
+      internalID: 1967959990025898323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crow_idle_side_8
+      rect:
+        serializedVersion: 2
+        x: 1045
+        y: 0
+        width: 89
+        height: 120
+      alignment: 9
+      pivot: {x: 0.49438202, y: 0.70000005}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f655f97ea1218dbb0800000000000000
+      internalID: -4911155486883097233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crow_idle_side_9
+      rect:
+        serializedVersion: 2
+        x: 1177
+        y: 0
+        width: 82
+        height: 117
+      alignment: 9
+      pivot: {x: 0.49999997, y: 0.6923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 297e3a86bf86b8e20800000000000000
+      internalID: 3353889776509118354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crow_idle_side_10
+      rect:
+        serializedVersion: 2
+        x: 1303
+        y: 0
+        width: 90
+        height: 115
+      alignment: 9
+      pivot: {x: 0.46666667, y: 0.68695647}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da58a32b71caf0170800000000000000
+      internalID: 8146919468710921645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crow_idle_side_11
+      rect:
+        serializedVersion: 2
+        x: 1420
+        y: 0
+        width: 116
+        height: 114
+      alignment: 9
+      pivot: {x: 0.44827586, y: 0.6754386}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47ebe345af5b75ce0800000000000000
+      internalID: -1416463471024882060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: f417e58029a404c43aa4170320eb2243
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      crow_idle_side_0: -2972846431294718854
+      crow_idle_side_1: 6138408964814233337
+      crow_idle_side_10: 8146919468710921645
+      crow_idle_side_11: -1416463471024882060
+      crow_idle_side_12: -5871440576078971559
+      crow_idle_side_13: -6681559264030884652
+      crow_idle_side_14: 4741353595435562176
+      crow_idle_side_15: 2062941915048270187
+      crow_idle_side_16: 7986502703172056926
+      crow_idle_side_17: 301290438819329516
+      crow_idle_side_18: -996192861933394634
+      crow_idle_side_19: -4749358702779788145
+      crow_idle_side_2: -2599397718698391822
+      crow_idle_side_20: -3541566323965245558
+      crow_idle_side_21: -1081599215523818344
+      crow_idle_side_22: 2038337988801849363
+      crow_idle_side_23: 819838792777109172
+      crow_idle_side_3: -4075300739400844450
+      crow_idle_side_4: 4930100827748617190
+      crow_idle_side_5: -3357840100895683368
+      crow_idle_side_6: 5824315736494019820
+      crow_idle_side_7: 1967959990025898323
+      crow_idle_side_8: -4911155486883097233
+      crow_idle_side_9: 3353889776509118354
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

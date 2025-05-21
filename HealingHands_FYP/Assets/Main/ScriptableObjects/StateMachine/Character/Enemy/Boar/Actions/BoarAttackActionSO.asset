@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: BoarAttackActionSO
   m_EditorClassIdentifier: 
   PlayerAnchor: {fileID: 11400000, guid: 9db3d989193252642aa4a6afb03839cc, type: 2}
+  MovementSpeed: 10

@@ -4,6 +4,8 @@ using UnityEngine;
 public class BoarAttackActionSO : StateActionSO
 {
     public TransformAnchor PlayerAnchor;
+    public float MovementSpeed;
+
     protected override StateAction CreateAction() => new BoarAttackAction();
 }
 
@@ -12,6 +14,7 @@ public class BoarAttackAction : StateAction
     private Rigidbody2D _rb2D;
     private Vector2 _direction;
     private TransformAnchor _protagonist;
+    private float _movementSpeed;
 
     public override void OnStateEnter(StateMachine stateMachine)
     {
@@ -19,12 +22,13 @@ public class BoarAttackAction : StateAction
 
         _rb2D = stateMachine.GetComponent<Rigidbody2D>();
         _protagonist = ((BoarAttackActionSO)OriginSO).PlayerAnchor;
+        _movementSpeed= ((BoarAttackActionSO)OriginSO).MovementSpeed;
         _direction = (_protagonist.Value.position - stateMachine.transform.position).normalized;
     }
 
     public override void OnFixedUpdate()
     {
-        _rb2D.linearVelocity = _direction * 10f;
+        _rb2D.linearVelocity = _direction * _movementSpeed;
     }
 
     public override void OnStateExit()

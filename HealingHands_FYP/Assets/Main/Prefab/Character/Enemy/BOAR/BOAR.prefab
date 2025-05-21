@@ -14792,6 +14792,7 @@ MonoBehaviour:
   CharacterType: 1
   _healthConfigSO: {fileID: 11400000, guid: 0579609209301844e82eced3371b6e4e, type: 2}
   _currentHealthSO: {fileID: 0}
+  _spriteRenderer: {fileID: 8257820487972423247}
   _updateHealthUI: {fileID: 0}
   _deathEvent: {fileID: 0}
   _onSceneReady: {fileID: 0}

@@ -7,6 +7,7 @@ public class Damageable : MonoBehaviour
 
     [SerializeField] private HealthConfigSO _healthConfigSO;
     [SerializeField] public HealthSO _currentHealthSO;
+    [SerializeField] public SpriteRenderer _spriteRenderer;
 
     [Header("Broadcasting on...")]
     [SerializeField] public VoidEventChannelSO _updateHealthUI;

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bd970c5eb1e3b8479943c38da5a9eec, type: 3}
+  m_Name: Crow_Attack
+  m_EditorClassIdentifier: 
+  _actions:
+  - {fileID: 11400000, guid: 1119438142cc6e942b546303d9befe51, type: 2}
+  - {fileID: 11400000, guid: 10016b3fd53e27a4d9b643f372151b10, type: 2}
+  - {fileID: 11400000, guid: 7f502428994fd5f40af3c8bf8935f6d8, type: 2}
+  _transitions:
+  - _targetState: {fileID: 11400000, guid: 48c57c496914f7a49ae55d04d580c84d, type: 2}
+    Decisions:
+    - Decision: {fileID: 11400000, guid: 257f4ff8631de0a4986c5cd7ecf90c1e, type: 2}
+      ExpectedResult: 0
+      Operator: 0
