@@ -5373,7 +5373,7 @@ MonoBehaviour:
   _updateHealthUI: {fileID: 11400000, guid: b8dbf5983ec02924a87d31904ba767dd, type: 2}
   _deathEvent: {fileID: 11400000, guid: 26bd76ad9378d3a4e8425cd731800f2f, type: 2}
   _onSceneReady: {fileID: 0}
-  _restoreHealth: {fileID: 0}
+  _restoreHealth: {fileID: 11400000, guid: 4e11139c96eceaf498221551ad175cae, type: 2}
 --- !u!114 &2126520854685727094
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -33,5 +33,10 @@ public class HealthSO : ScriptableObject
         _currentHealth += HealthValue;
         if (_currentHealth > _maxHealth)
             _currentHealth = _maxHealth;
+        if(_currentHealth+HealthValue > _maxHealth)
+        {
+            _currentHealth = 20;
+            _currentHealth = _maxHealth;
+        }
     }
 }

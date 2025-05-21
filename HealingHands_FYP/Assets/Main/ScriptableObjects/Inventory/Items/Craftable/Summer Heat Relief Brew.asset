@@ -14,11 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <IsStackable>k__BackingField: 1
   <MaxStackSize>k__BackingField: 5
-  <ItemImage>k__BackingField: {fileID: 21300000, guid: a28960bf12ee0ef439f0a3de86162ef9,
+  <ItemImage>k__BackingField: {fileID: 3512712321482160934, guid: 4cca817397a893b4db0091c905b44f8b,
     type: 3}
   <ItemName>k__BackingField: Summer Heat Relief Brew
   <ItemDescription>k__BackingField: A cooling decoction that relieves summer heat
     and restores balance.
+  <IsItemCollected>k__BackingField: 0
+  isHealingItem: 1
+  healingAmount: 4
   Ingredients:
   - {fileID: 11400000, guid: 2cf98f21443c1e94aaf9d17dd8c98847, type: 2}
   - {fileID: 11400000, guid: 17d462f136f5bc4469de97304e688c21, type: 2}

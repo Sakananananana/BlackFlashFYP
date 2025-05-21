@@ -21,4 +21,6 @@ MonoBehaviour:
     relax muscles, and relieve spasms. Used for pain relief, particularly when there
     is blood deficiency or stagnation. Often used to treat menstrual cramps and muscle
     pain.
-  <IsItemCollected>k__BackingField: 0
+  <IsItemCollected>k__BackingField: 1
+  isHealingItem: 1
+  healingAmount: 2

@@ -14,11 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <IsStackable>k__BackingField: 1
   <MaxStackSize>k__BackingField: 5
-  <ItemImage>k__BackingField: {fileID: 21300000, guid: a28960bf12ee0ef439f0a3de86162ef9,
+  <ItemImage>k__BackingField: {fileID: 6676470208270554210, guid: b9f5075ee3383e14399375819823cfb0,
     type: 3}
   <ItemName>k__BackingField: Headwind Dispersing Decoction
   <ItemDescription>k__BackingField: A powerful decoction that clears wind from the
     head, perfect for treating headaches caused by wind-cold and blood stagnation.
+  <IsItemCollected>k__BackingField: 0
+  isHealingItem: 1
+  healingAmount: 4
   Ingredients:
   - {fileID: 11400000, guid: 86add08bc2217444aaf7b030701cc765, type: 2}
   - {fileID: 11400000, guid: 2a8e479412e24374e9b9f1c62cb7b693, type: 2}

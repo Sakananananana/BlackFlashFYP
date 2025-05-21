@@ -59,6 +59,7 @@ public class Damageable : MonoBehaviour
     {
         if (_restoreHealth != null)
         { _restoreHealth.OnEventRaised += ReceiveHeal; }
+
     }
 
     private void OnDisable()
@@ -73,6 +74,9 @@ public class Damageable : MonoBehaviour
             return; 
 
         _currentHealthSO.RestoreHealth(amount);
+
+        if (_updateHealthUI != null)
+        { _updateHealthUI.RaiseEvent(); }
     }
 
     public void RecieveAttack(int damage, Vector2 dmgDir = default)

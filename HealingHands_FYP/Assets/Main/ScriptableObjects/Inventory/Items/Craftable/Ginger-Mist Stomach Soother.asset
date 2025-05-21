@@ -20,6 +20,8 @@ MonoBehaviour:
   <ItemDescription>k__BackingField: A soothing decoction that clears nausea and calms
     the stomach.
   <IsItemCollected>k__BackingField: 0
+  isHealingItem: 1
+  healingAmount: 4
   Ingredients:
   - {fileID: 11400000, guid: 11aa2dcb33b317940b0366936404b21f, type: 2}
   - {fileID: 11400000, guid: 5d6ee2c12626d2346a51d18af8f1373c, type: 2}

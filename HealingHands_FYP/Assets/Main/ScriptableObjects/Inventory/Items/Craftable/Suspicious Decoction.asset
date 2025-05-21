@@ -20,4 +20,6 @@ MonoBehaviour:
   <ItemDescription>k__BackingField: This decoction looks a bit suspicious... Better
     not use it...
   <IsItemCollected>k__BackingField: 0
+  isHealingItem: 1
+  healingAmount: 4
   Ingredients: []

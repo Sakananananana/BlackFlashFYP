@@ -25,6 +25,12 @@ namespace Inventory.Model
 
         [field: SerializeField]
         public bool IsItemCollected { get; set; }
-   
+
+        [Header("Effect")]
+        [SerializeField] private bool isHealingItem = false;
+        [SerializeField] private int healingAmount = 0;
+
+        public bool IsHealingItem => isHealingItem;
+        public int HealingAmount => healingAmount;
     }
 }

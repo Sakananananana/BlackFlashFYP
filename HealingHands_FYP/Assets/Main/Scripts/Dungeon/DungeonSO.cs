@@ -24,6 +24,7 @@ public class DungeonSO : ScriptableObject
 
     public void DungeonProgress()
     {
+        _startRoom = null;
         DungeonLayout.Clear();
 
         if (CurrentLvL <= 1)
@@ -36,6 +37,7 @@ public class DungeonSO : ScriptableObject
 
     public void ResetDungeonProgress()
     {
+        _startRoom = null;
         DungeonLayout.Clear();
 
         CurrentLvL = 0;
@@ -44,7 +46,10 @@ public class DungeonSO : ScriptableObject
     }
 
     public void GetDungeonPath()
-    { 
+    {
+        DungeonLayout.Clear();
+        _roomToProcess.Clear();
+        CurrentRoomCount = 0;
         CorePathGenerator();
         RoomValidationCheck();
     }

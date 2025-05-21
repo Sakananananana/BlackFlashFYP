@@ -21,3 +21,5 @@ MonoBehaviour:
     especially from the upper body. Commonly treats headaches, stiff neck, and joint
     pain caused by cold.
   <IsItemCollected>k__BackingField: 0
+  isHealingItem: 1
+  healingAmount: 2
