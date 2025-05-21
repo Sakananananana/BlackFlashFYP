@@ -9,12 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e88869b9005715e41867cf2ea79189d8, type: 3}
-  m_Name: CrowAttack_True_OnEnter
+  m_Script: {fileID: 11500000, guid: 68d1e5f5980b82a4dbed40a8cebfb2e7, type: 3}
+  m_Name: CrowHealthConfig
   m_EditorClassIdentifier: 
-  WhenToRun: 0
-  ParameterName: IsAttacking
-  parameterType: 2
-  BoolValue: 1
-  FloatValue: 0
-  IntValue: 0
+  _initialHealth: 15

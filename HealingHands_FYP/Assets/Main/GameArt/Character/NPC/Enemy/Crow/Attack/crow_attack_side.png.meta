@@ -1,0 +1,429 @@
+fileFormatVersion: 2
+guid: c999632df9e79a5499e354a946fd15e3
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -635323618203813873
+    second: crow_attack_side_0
+  - first:
+      213: 4854611485283108174
+    second: crow_attack_side_1
+  - first:
+      213: -3852391692880184251
+    second: crow_attack_side_2
+  - first:
+      213: 2209296699408101934
+    second: crow_attack_side_3
+  - first:
+      213: 7714591082462501177
+    second: crow_attack_side_4
+  - first:
+      213: -1025603461166451216
+    second: crow_attack_side_5
+  - first:
+      213: 2863457252394340327
+    second: crow_attack_side_6
+  - first:
+      213: -5907216451347545880
+    second: crow_attack_side_7
+  - first:
+      213: -4604304350712643947
+    second: crow_attack_side_8
+  - first:
+      213: 2030023067635930580
+    second: crow_attack_side_9
+  - first:
+      213: 6179563112811755149
+    second: crow_attack_side_10
+  - first:
+      213: 3021103745439474225
+    second: crow_attack_side_11
+  - first:
+      213: 4249663846958651930
+    second: crow_attack_side_12
+  - first:
+      213: -7077538754263034298
+    second: crow_attack_side_13
+  - first:
+      213: 208918064191778687
+    second: crow_attack_side_14
+  - first:
+      213: -4615884956063026580
+    second: crow_attack_side_15
+  - first:
+      213: 8117142331991176852
+    second: crow_attack_side_16
+  - first:
+      213: 7904449580074546086
+    second: crow_attack_side_17
+  - first:
+      213: 8941041611656159581
+    second: crow_attack_side_18
+  - first:
+      213: 1464091339038206964
+    second: crow_attack_side_19
+  - first:
+      213: -4812660011933244940
+    second: crow_attack_side_20
+  - first:
+      213: -4425173508504106530
+    second: crow_attack_side_21
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: crow_attack_side_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 0
+        width: 117
+        height: 128
+      alignment: 9
+      pivot: {x: 0.49572653, y: 0.5859375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f08bb8b0980ee27f0800000000000000
+      internalID: -635323618203813873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crow_attack_side_1
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 0
+        width: 109
+        height: 117
+      alignment: 9
+      pivot: {x: 0.4862385, y: 0.6752137}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e45c4decc6b0f5340800000000000000
+      internalID: 4854611485283108174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crow_attack_side_2
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 0
+        width: 89
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54cf53a8a2e898ac0800000000000000
+      internalID: -3852391692880184251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crow_attack_side_3
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 0
+        width: 82
+        height: 119
+      alignment: 9
+      pivot: {x: 0.53658533, y: 0.5042017}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e22b9ab84aff8ae10800000000000000
+      internalID: 2209296699408101934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crow_attack_side_4
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 0
+        width: 90
+        height: 124
+      alignment: 9
+      pivot: {x: 0.51111114, y: 0.40322578}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 939d29147bbbf0b60800000000000000
+      internalID: 7714591082462501177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crow_attack_side_5
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 0
+        width: 117
+        height: 119
+      alignment: 9
+      pivot: {x: 0.52136755, y: 0.47058827}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f533c0061354c1f0800000000000000
+      internalID: -1025603461166451216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crow_attack_side_8
+      rect:
+        serializedVersion: 2
+        x: 769
+        y: 0
+        width: 118
+        height: 117
+      alignment: 9
+      pivot: {x: 0.7288136, y: 0.71794873}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59ebcf176993a10c0800000000000000
+      internalID: -4604304350712643947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crow_attack_side_10
+      rect:
+        serializedVersion: 2
+        x: 897
+        y: 0
+        width: 111
+        height: 113
+      alignment: 9
+      pivot: {x: 0.6216216, y: 0.61946905}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d86704e09e732c550800000000000000
+      internalID: 6179563112811755149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crow_attack_side_11
+      rect:
+        serializedVersion: 2
+        x: 1036
+        y: 0
+        width: 116
+        height: 114
+      alignment: 9
+      pivot: {x: 0.49137932, y: 0.6315789}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 132a58899dd1de920800000000000000
+      internalID: 3021103745439474225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: fe5b686322c3a274dbf56b68a73f96b7
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      crow_attack_side_0: -635323618203813873
+      crow_attack_side_1: 4854611485283108174
+      crow_attack_side_10: 6179563112811755149
+      crow_attack_side_11: 3021103745439474225
+      crow_attack_side_12: 4249663846958651930
+      crow_attack_side_13: -7077538754263034298
+      crow_attack_side_14: 208918064191778687
+      crow_attack_side_15: -4615884956063026580
+      crow_attack_side_16: 8117142331991176852
+      crow_attack_side_17: 7904449580074546086
+      crow_attack_side_18: 8941041611656159581
+      crow_attack_side_19: 1464091339038206964
+      crow_attack_side_2: -3852391692880184251
+      crow_attack_side_20: -4812660011933244940
+      crow_attack_side_21: -4425173508504106530
+      crow_attack_side_3: 2209296699408101934
+      crow_attack_side_4: 7714591082462501177
+      crow_attack_side_5: -1025603461166451216
+      crow_attack_side_6: 2863457252394340327
+      crow_attack_side_7: -5907216451347545880
+      crow_attack_side_8: -4604304350712643947
+      crow_attack_side_9: 2030023067635930580
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
