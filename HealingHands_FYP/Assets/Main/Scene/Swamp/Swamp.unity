@@ -182,6 +182,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8907268414194744346, guid: d5085722ba0fe4449a1cef3a60e6d6ae,
+        type: 3}
+      propertyPath: _currentSceneSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 9ab351ab0b0f28f4bb7022cdbf2e7217,
+        type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -197,6 +203,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1358069927}
   - component: {fileID: 1358069926}
+  - component: {fileID: 1358069928}
   m_Layer: 0
   m_Name: Dungeon_Map
   m_TagString: Untagged
@@ -231,6 +238,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1358069928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358069925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d25fc2f8cba56234abc04ac78750b5a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dungeonSO: {fileID: 11400000, guid: 71e394ea37a5b7445b536dd113813d9a, type: 2}
+  _resetDungeonLayerOnPlayerDeath: {fileID: 11400000, guid: 26bd76ad9378d3a4e8425cd731800f2f,
+    type: 2}
 --- !u!1001 &1679959300
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -299,7 +321,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8390685923425938992, guid: 4c48c12b07cba944d827e34df48df0ae, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

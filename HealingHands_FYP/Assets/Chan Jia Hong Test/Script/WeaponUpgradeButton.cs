@@ -16,7 +16,8 @@ public class WeaponUpgradeButton : MonoBehaviour
     [SerializeField] private int maxUpgradeLevel = 5;
 
     [SerializeField] GameObject _firstButton;
-    [SerializeField] private GameObject weaponPanel;
+    [SerializeField] public GameObject weaponPanel;
+    [SerializeField] private ParticleSystem particleEffect;
     private bool isProcessing = false;
 
     private void Start()
@@ -57,7 +58,7 @@ public class WeaponUpgradeButton : MonoBehaviour
         if (currentLevel < maxUpgradeLevel && ShopManager.Instance.totalCoins >= pricePerUpgrade)
         {
             // Deduct coins
-            ShopManager.Instance.totalCoins -= pricePerUpgrade;
+            ShopManager.Instance.totalCoins -= (currentLevel+1)*pricePerUpgrade;
 
             // Save coins
             PlayerPrefs.SetInt("TotalCoins", ShopManager.Instance.totalCoins);
@@ -67,6 +68,11 @@ public class WeaponUpgradeButton : MonoBehaviour
             // Upgrade weapon
             upgradeManager.UpgradeWeapon();
 
+            if (particleEffect != null)
+            {
+                particleEffect.Play();
+                Debug.Log("playing");
+            }
             // Update UI
             UpdateUI();
             ShopManager.Instance.IsCoinLessThanThresold.RaiseEvent(ShopManager.Instance.totalCoins < 400);
@@ -99,8 +105,8 @@ public class WeaponUpgradeButton : MonoBehaviour
         }
         else
         {
-            priceText.text = $"{pricePerUpgrade} coins";
-            upgradeButton.interactable = ShopManager.Instance.totalCoins >= pricePerUpgrade;
+            priceText.text = $"Level {(currentLevel + 1)}:\n{(currentLevel + 1) * pricePerUpgrade} coins";
+            upgradeButton.interactable = ShopManager.Instance.totalCoins >= (currentLevel + 1) * pricePerUpgrade;
         }
     }
 //    private void ApplySavedUpgrade()

@@ -2443,7 +2443,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1975488909063211651}
-  m_Layer: 31
+  m_Layer: 0
   m_Name: Waypoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -2006,12 +2006,17 @@ PrefabInstance:
     - target: {fileID: 1478599624020816555, guid: 4c48c12b07cba944d827e34df48df0ae,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -4.2319055
       objectReference: {fileID: 0}
     - target: {fileID: 1478599624020816555, guid: 4c48c12b07cba944d827e34df48df0ae,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -4.815638
+      objectReference: {fileID: 0}
+    - target: {fileID: 1478599624020816555, guid: 4c48c12b07cba944d827e34df48df0ae,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -9.991786
       objectReference: {fileID: 0}
     - target: {fileID: 3668609668914234624, guid: 4c48c12b07cba944d827e34df48df0ae,
         type: 3}
@@ -2028,6 +2033,11 @@ PrefabInstance:
       propertyPath: m_RequiresDepthTextureOption
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4874048458882448934, guid: 4c48c12b07cba944d827e34df48df0ae,
+        type: 3}
+      propertyPath: BoundingShape2D
+      value: 
+      objectReference: {fileID: 2086869932}
     - target: {fileID: 5869827385216056860, guid: 4c48c12b07cba944d827e34df48df0ae,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2098,6 +2108,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6928576409865528154, guid: 4c48c12b07cba944d827e34df48df0ae,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -9.991786
+      objectReference: {fileID: 0}
     - target: {fileID: 9163928801413157576, guid: 4c48c12b07cba944d827e34df48df0ae,
         type: 3}
       propertyPath: m_ClearFlags
@@ -2128,7 +2143,8 @@ PrefabInstance:
       propertyPath: m_CullingMask.m_Bits
       value: 4294967295
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8390685923425938992, guid: 4c48c12b07cba944d827e34df48df0ae, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
