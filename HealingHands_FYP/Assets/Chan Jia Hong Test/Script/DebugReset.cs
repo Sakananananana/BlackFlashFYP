@@ -11,6 +11,7 @@ public class DebugReset : MonoBehaviour
         PlayerPrefs.DeleteKey("WeaponUpgradeLevel");
         attackConfigSO.OverrideRuntimeDamage(defaultDamage);
         PlayerPrefs.GetInt(UpgradeKey, 0);
+        PlayerPrefs.DeleteKey("Level1BossDefeated");
         PlayerPrefs.Save();
         Debug.Log("Weapon damage has been reset to default.");
     }
