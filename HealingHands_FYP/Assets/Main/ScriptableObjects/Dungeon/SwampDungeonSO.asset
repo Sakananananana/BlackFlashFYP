@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a324e691e5fc55f46a83107286feb3cf, type: 3}
+  m_Name: SwampDungeonSO
+  m_EditorClassIdentifier: 
+  CurrentLvL: 1
+  BaseRoomCount: 5
+  CurrentRoomCount: 7
+  HasBossFightComplete: 0
+  _roomDataList:
+  - RoomPrefab: {fileID: 1663358159770489997, guid: 06204cfc03c7e3d4baeb5715ecb97d25,
+      type: 3}
+    RoomExits: 01000000
+  - RoomPrefab: {fileID: 6151470331662222298, guid: 98b7572a72ec1e04ea53ee863f0b2d3a,
+      type: 3}
+    RoomExits: 0100000002000000
+  - RoomPrefab: {fileID: 4135917412450862486, guid: 62303e0d111fe0e49847b56034476ddb,
+      type: 3}
+    RoomExits: 010000000200000003000000
+  - RoomPrefab: {fileID: 7718731077496787779, guid: 7762e1a459f44b64090be63db70a7242,
+      type: 3}
+    RoomExits: 0100000003000000
+  - RoomPrefab: {fileID: 2695028024305610642, guid: a391df05f9539cb4597647b058537f33,
+      type: 3}
+    RoomExits: 02000000
+  - RoomPrefab: {fileID: 3483736346002483119, guid: 03f05f9466803b64daf730b88e0efe41,
+      type: 3}
+    RoomExits: 0200000003000000
+  - RoomPrefab: {fileID: 8097060907545554301, guid: 38d0bff66c09a664b9e0cdbae06df8f4,
+      type: 3}
+    RoomExits: 020000000000000001000000
+  - RoomPrefab: {fileID: 9191346030308209555, guid: 6558c0868cd1cc94ca6800e26f7052b9,
+      type: 3}
+    RoomExits: 03000000
+  - RoomPrefab: {fileID: -5997301833030134741, guid: abf935dedb43a7a478a47dc68dfdacfe,
+      type: 3}
+    RoomExits: 030000000000000001000000
+  - RoomPrefab: {fileID: 3189818678954467348, guid: 3a82cdc991cb0734ca1597823dd19482,
+      type: 3}
+    RoomExits: 00000000
+  - RoomPrefab: {fileID: 1449303553944153636, guid: 7d0da3a3c25534945bf0ee07d9be1078,
+      type: 3}
+    RoomExits: 0000000001000000
+  - RoomPrefab: {fileID: 3864628762157719026, guid: c6d7b003cb7281748be3c18a5cb748ac,
+      type: 3}
+    RoomExits: 0000000002000000
+  - RoomPrefab: {fileID: 2430196261159954760, guid: cc3cb067e0be94a4a9fda8e5b9e5a8aa,
+      type: 3}
+    RoomExits: 000000000200000003000000
+  - RoomPrefab: {fileID: 4089946364604267060, guid: 3badaf1ca2b1702499300daf6bbb9b23,
+      type: 3}
+    RoomExits: 0000000003000000

@@ -141,7 +141,7 @@ PrefabInstance:
         type: 3}
       propertyPath: BoundingShape2D
       value: 
-      objectReference: {fileID: 995149965}
+      objectReference: {fileID: 0}
     - target: {fileID: 5869827385216056860, guid: 4c48c12b07cba944d827e34df48df0ae,
         type: 3}
       propertyPath: m_LocalPosition.x

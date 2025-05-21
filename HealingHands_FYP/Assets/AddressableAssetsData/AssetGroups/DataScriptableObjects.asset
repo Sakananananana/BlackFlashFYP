@@ -25,6 +25,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 71e394ea37a5b7445b536dd113813d9a
+    m_Address: Assets/Main/ScriptableObjects/Dungeon/SwampDungeonSO.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8ad1e48e74ddcf34a9867a908b8b64c8
     m_Address: Assets/Main/ScriptableObjects/Inventory
     m_ReadOnly: 0
