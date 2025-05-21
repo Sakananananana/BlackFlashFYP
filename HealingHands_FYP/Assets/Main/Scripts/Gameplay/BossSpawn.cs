@@ -39,5 +39,7 @@ public class BossSpawn : MonoBehaviour
 
         _onCombatEvent.RaiseEvent(false);
         _exit.SetActive(true);
+        PlayerPrefs.SetInt("Level1BossDefeated", 1);
+        PlayerPrefs.Save();
     }
 }

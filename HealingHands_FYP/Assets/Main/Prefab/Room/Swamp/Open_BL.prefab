@@ -148,7 +148,7 @@ MonoBehaviour:
     type: 3}
   _enemyList:
   - {fileID: 8278052125973401609, guid: 371b4f07da3e3fc4aa0c864d39a88ebe, type: 3}
-  - {fileID: 8278052125973401609, guid: 371b4f07da3e3fc4aa0c864d39a88ebe, type: 3}
+  - {fileID: 2103040218175319359, guid: ab3013677c47a3648902eedeb651dcd6, type: 3}
 --- !u!50 &3815686553789107895
 Rigidbody2D:
   serializedVersion: 5
