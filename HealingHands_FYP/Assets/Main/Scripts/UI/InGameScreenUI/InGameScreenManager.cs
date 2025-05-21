@@ -2,8 +2,20 @@ using UnityEngine;
 
 public class InGameScreenManager : MonoBehaviour
 {
+    [SerializeField] private BoolEventChannelSO _showDamageScreenOnRecieveDamage;
     [SerializeField] private GameObject _healthBarUI;
     [SerializeField] private ButtonUI _returnButtonUI;
+    [SerializeField] private GameObject _damageScreen;
+
+    private void OnEnable()
+    {
+        _showDamageScreenOnRecieveDamage.OnEventRaised += SetDamageScreen;
+    }
+
+    private void OnDisable()
+    {
+        _showDamageScreenOnRecieveDamage.OnEventRaised -= SetDamageScreen;
+    }
 
     public void SetDungeonUIScreen()
     {
@@ -24,4 +36,6 @@ public class InGameScreenManager : MonoBehaviour
         else
             _returnButtonUI.gameObject.SetActive(false);
     }
+
+    public void SetDamageScreen(bool val) => _damageScreen.SetActive(val);
 }

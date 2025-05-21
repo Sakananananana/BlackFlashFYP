@@ -153,6 +153,13 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 0.5
+    functionName: PlayBoarSnortAudio
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 1.1666666
     functionName: PlayBrushParticle
     data: 
@@ -160,8 +167,22 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 1.1666666
+    functionName: PlayBoarSnortAudio
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 1.6833333
     functionName: AttackHandler
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.6833333
+    functionName: PlayBoarSnortAudio
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

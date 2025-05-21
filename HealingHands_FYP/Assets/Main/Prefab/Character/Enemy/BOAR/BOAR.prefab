@@ -14579,6 +14579,7 @@ GameObject:
   - component: {fileID: 6924012849879520146}
   - component: {fileID: 7268059890727811232}
   - component: {fileID: 9104572585195671941}
+  - component: {fileID: 893030365264800966}
   m_Layer: 0
   m_Name: BOAR
   m_TagString: Enemy
@@ -14814,6 +14815,24 @@ MonoBehaviour:
   WhiffParticle: {fileID: 6526587841371860296}
   DizzyParticle: {fileID: 7746738773507969327}
   RushParticle: {fileID: 1717126421799768120}
+--- !u!114 &893030365264800966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2638775309074673217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f10bd203bd70e74e95a4eb729537aa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioChannelSO: {fileID: 11400000, guid: a41776bc57db1674d88d6fbc275a365c, type: 2}
+  _audioConfig: {fileID: 11400000, guid: 0d856fbfc57e03e4cb5f55add5e60595, type: 2}
+  _boarDizzyAudio: {fileID: 11400000, guid: b3b241e07b6619046b70832541de9d8e, type: 2}
+  _boarSnortAudio: {fileID: 11400000, guid: c7abff560ef1ad144b736befccfc067f, type: 2}
+  _boarDeadAudio: {fileID: 11400000, guid: 2160990c05ecd5b48bd520f35102179e, type: 2}
+  _boarAttackAudio: {fileID: 11400000, guid: cff1c82190b22c04b8885c2c6e620239, type: 2}
 --- !u!1 &2685509235480525265
 GameObject:
   m_ObjectHideFlags: 0

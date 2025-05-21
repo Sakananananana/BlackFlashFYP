@@ -15,6 +15,7 @@ public class BoarAttackAction : StateAction
     private Vector2 _direction;
     private TransformAnchor _protagonist;
     private float _movementSpeed;
+    private BoarAudio _boarAudio;
 
     public override void OnStateEnter(StateMachine stateMachine)
     {
@@ -24,6 +25,7 @@ public class BoarAttackAction : StateAction
         _protagonist = ((BoarAttackActionSO)OriginSO).PlayerAnchor;
         _movementSpeed= ((BoarAttackActionSO)OriginSO).MovementSpeed;
         _direction = (_protagonist.Value.position - stateMachine.transform.position).normalized;
+        _boarAudio = stateMachine.GetComponent<BoarAudio>();
     }
 
     public override void OnFixedUpdate()
@@ -34,6 +36,7 @@ public class BoarAttackAction : StateAction
     public override void OnStateExit()
     {
         base.OnStateExit();
+        _boarAudio.PlayBoarSmashAudio();
     }
 
     public override void OnUpdate()

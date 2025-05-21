@@ -12,4 +12,7 @@ public class BoarAudio : MonoBehaviour
     [SerializeField] private AudioData _boarAttackAudio;
 
     public void PlayBoarDizzyAudio() => _audioChannelSO.OnAudioPlayRequested(_boarDizzyAudio, _audioConfig);
+    public void PlayBoarSnortAudio() => _audioChannelSO.OnAudioPlayRequested(_boarSnortAudio, _audioConfig);
+    public void PlayBoarDeadAudio() => _audioChannelSO.OnAudioPlayRequested(_boarDeadAudio, _audioConfig);
+    public void PlayBoarSmashAudio() => _audioChannelSO.OnAudioPlayRequested(_boarAttackAudio, _audioConfig);
 }
