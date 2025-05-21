@@ -21,3 +21,5 @@ MonoBehaviour:
     the body\u2019s interior. Commonly used to treat cold in the stomach and limbs,
     and to revive weak Yang energy."
   <IsItemCollected>k__BackingField: 0
+  isHealingItem: 1
+  healingAmount: 2

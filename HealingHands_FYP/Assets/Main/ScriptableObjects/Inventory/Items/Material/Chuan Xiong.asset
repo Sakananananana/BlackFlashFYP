@@ -21,3 +21,5 @@ MonoBehaviour:
     the head. Frequently used for headaches, dizziness, and menstrual pain caused
     by blood stasis or wind.
   <IsItemCollected>k__BackingField: 0
+  isHealingItem: 1
+  healingAmount: 2

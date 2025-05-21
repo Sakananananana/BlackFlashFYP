@@ -10,6 +10,7 @@ namespace Inventory
     public class InventoryManager : MonoBehaviour
     {
         [SerializeField] private InventorySO _inventoryData;
+        [SerializeField] private HealthSO _playerHealth;
 
         [Header("Listening to...")]
         [SerializeField] private IntEventChannelSO _onItemUsed;
@@ -23,6 +24,7 @@ namespace Inventory
         private void PrepareInventory()
         {
             _inventoryData.Initialize();
+
         }
 
         private void OnEnable()
@@ -39,8 +41,16 @@ namespace Inventory
 
         private void UseItem(int index)
         {
-            _inventoryData.RemoveItem(index);
-            //Update Save Data
+            InventoryItem inventoryItem = _inventoryData.GetItemAt(index);
+            ItemSOBase item = inventoryItem.Item;
+
+            if (item.IsHealingItem)
+            {
+                _playerHealth.RestoreHealth(item.HealingAmount);
+                Debug.Log($"Healed {item.HealingAmount}. Current HP: {_playerHealth.CurrentHealth}/{_playerHealth.MaxHealth}");
+            }
+
+            _inventoryData.RemoveItem(index); // Remove after use
         }
 
         private void DropItem(int index)

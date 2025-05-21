@@ -19,4 +19,6 @@ MonoBehaviour:
   <ItemName>k__BackingField: Unknown Decoction
   <ItemDescription>k__BackingField: Unknown Decoction
   <IsItemCollected>k__BackingField: 0
+  isHealingItem: 1
+  healingAmount: 4
   Ingredients: []

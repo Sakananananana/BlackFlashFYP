@@ -14,8 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <IsStackable>k__BackingField: 1
   <MaxStackSize>k__BackingField: 10
-  <ItemImage>k__BackingField: {fileID: 21300000, guid: 8f66c60fb167a0f4299a9865ef4badc9,
+  <ItemImage>k__BackingField: {fileID: 21300000, guid: 1ca1444d4552dfb4ba48482e41001d33,
     type: 3}
   <ItemName>k__BackingField: Bai Bian Dou
   <ItemDescription>k__BackingField: The white hyacinth bean strengthens the stomach
     and spleen while clearing summer heat.
+  <IsItemCollected>k__BackingField: 0
+  isHealingItem: 1
+  healingAmount: 2

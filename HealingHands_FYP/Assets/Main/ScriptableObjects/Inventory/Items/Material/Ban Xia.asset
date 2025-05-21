@@ -20,4 +20,6 @@ MonoBehaviour:
   <ItemDescription>k__BackingField: Prepared pinellia root used to dry dampness,
     resolve phlegm, and stop nausea or vomiting. Especially effective for cold-induced
     digestive discomfort.
-  <IsItemCollected>k__BackingField: 0
+  <IsItemCollected>k__BackingField: 1
+  isHealingItem: 1
+  healingAmount: 2

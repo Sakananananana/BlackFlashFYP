@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 192da37d05c1958408b8f412bf53a692, type: 3}
   m_Name: ProtagonistAttack
   m_EditorClassIdentifier: 
-  _attackDamage: 5
+  _attackDamage: 30

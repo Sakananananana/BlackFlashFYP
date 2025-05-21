@@ -21,4 +21,6 @@ MonoBehaviour:
     the blood, and harmonizes other herbs. It is often used as a mild pain reliever,
     especially when there is an underlying Qi deficiency. It also soothes the digestive
     system and reduces inflammation.
-  <IsItemCollected>k__BackingField: 0
+  <IsItemCollected>k__BackingField: 1
+  isHealingItem: 1
+  healingAmount: 2

@@ -19,6 +19,8 @@ MonoBehaviour:
   <ItemName>k__BackingField: Pain Soothing Harmony Decoction
   <ItemDescription>k__BackingField: A decoction that harmonizes and alleviates pain.
   <IsItemCollected>k__BackingField: 0
+  isHealingItem: 1
+  healingAmount: 4
   Ingredients:
   - {fileID: 11400000, guid: aedc23cc3d2f08f41a396d474bf6a30b, type: 2}
   - {fileID: 11400000, guid: f515152f86777324399696f96defdfda, type: 2}
