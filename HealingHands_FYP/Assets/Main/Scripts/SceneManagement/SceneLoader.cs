@@ -19,7 +19,6 @@ public class SceneLoader : MonoBehaviour
     [Header("Broadcasting on...")]
     [SerializeField] private VoidEventChannelSO _onSceneReady; //later pick up by spawn
     [SerializeField] private SceneEventChannelSO _onSceneChange;
-    //[SerializeField] private BoolEventChannelSO _toggleLoadingScreen;
     [SerializeField] private FadeEventChannelSO _fadeEvent;
     [SerializeField] private BoolEventChannelSO _showInGameScreenUI;
 
