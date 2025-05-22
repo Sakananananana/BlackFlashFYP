@@ -20,8 +20,3 @@ MonoBehaviour:
     - Decision: {fileID: 11400000, guid: 4b6d8050469c9da4787f24c717ae7023, type: 2}
       ExpectedResult: 0
       Operator: 0
-  - _targetState: {fileID: 11400000, guid: e2f3e7ae143dcee41886e52eb855488c, type: 2}
-    Decisions:
-    - Decision: {fileID: 11400000, guid: af9724ee616c4f3429ecfdc6488704e6, type: 2}
-      ExpectedResult: 0
-      Operator: 0
