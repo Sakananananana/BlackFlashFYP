@@ -9573,8 +9573,8 @@ MonoBehaviour:
   _onEditorStartup:
     m_AssetGUID: a366418d78be1ce478def8e246d0bd85
     m_SubObjectName: 
-    m_SubObjectGUID: 
     m_SubObjectType: 
+    m_SubObjectGUID: 
     m_EditorAssetChanged: 0
 --- !u!4 &2037419948
 Transform:

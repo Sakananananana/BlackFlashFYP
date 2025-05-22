@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bd970c5eb1e3b8479943c38da5a9eec, type: 3}
+  m_Name: IdleToaf
+  m_EditorClassIdentifier: 
+  _actions: []
+  _transitions:
+  - _targetState: {fileID: 11400000, guid: 0170a709d9ce5a94ca3700db75d7a19a, type: 2}
+    Decisions:
+    - Decision: {fileID: 11400000, guid: 13146fc9309e2274fbb01c4fd0f4fbfe, type: 2}
+      ExpectedResult: 0
+      Operator: 0
+  - _targetState: {fileID: 11400000, guid: ad51bc205b1601c419968f8559610754, type: 2}
+    Decisions:
+    - Decision: {fileID: 11400000, guid: af9724ee616c4f3429ecfdc6488704e6, type: 2}
+      ExpectedResult: 0
+      Operator: 0

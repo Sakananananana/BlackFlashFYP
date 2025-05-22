@@ -33,6 +33,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject bookUI; // Reference to the book UI (parent of pages)
     [SerializeField] private BookManager bookManager; // Your BookManager script
     [SerializeField] private InGameScreenManager _inGameScreenUI;
+    [SerializeField] private GameObject _damageScreen;
 
     private bool _locationaCanWarp = false;
     private bool _isBelowWarpCost = false;
@@ -240,6 +241,7 @@ public class UIManager : MonoBehaviour
 
     private void OnLocationChange(GameSceneSO.GameSceneType sceneType)
     {
+        _damageScreen.SetActive(false);
         if (sceneType == GameSceneSO.GameSceneType.Location_BossRoom || sceneType == GameSceneSO.GameSceneType.Location_Dungeon)
         {
             _inGameScreenUI.SetDungeonUIScreen();

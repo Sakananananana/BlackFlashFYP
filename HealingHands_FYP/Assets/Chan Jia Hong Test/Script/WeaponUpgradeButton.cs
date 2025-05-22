@@ -35,8 +35,8 @@ public class WeaponUpgradeButton : MonoBehaviour
     {
         if (weaponPanel != null)
         {
-            EventSystem.current.SetSelectedGameObject(_firstButton);
             weaponPanel.SetActive(true);
+            StartCoroutine(SelectFirstButtonNextFrame(0.5f));
         }
     }
 
@@ -109,25 +109,31 @@ public class WeaponUpgradeButton : MonoBehaviour
             upgradeButton.interactable = ShopManager.Instance.totalCoins >= (currentLevel + 1) * pricePerUpgrade;
         }
     }
-//    private void ApplySavedUpgrade()
-//    {
-//        int savedLevel = PlayerPrefs.GetInt("WeaponUpgradeLevel", 0);
-//        ApplyUpgrade(savedLevel);
-//    }
+    //    private void ApplySavedUpgrade()
+    //    {
+    //        int savedLevel = PlayerPrefs.GetInt("WeaponUpgradeLevel", 0);
+    //        ApplyUpgrade(savedLevel);
+    //    }
 
-//    private void ApplyUpgrade(int level)
-//    {
-//        int newDamage = baseDamage + (level * damagePerLevel);
-//        attackConfig.OverrideRuntimeDamage(newDamage);
+    //    private void ApplyUpgrade(int level)
+    //    {
+    //        int newDamage = baseDamage + (level * damagePerLevel);
+    //        attackConfig.OverrideRuntimeDamage(newDamage);
 
-//#if UNITY_EDITOR
-//        attackConfig.SetAttackDamage(newDamage); // Optional: only updates asset in editor
-//#endif
+    //#if UNITY_EDITOR
+    //        attackConfig.SetAttackDamage(newDamage); // Optional: only updates asset in editor
+    //#endif
 
-//        Debug.Log($"Weapon upgraded to level {level} | Damage: {newDamage}");
-//        UpdateUI();
+    //        Debug.Log($"Weapon upgraded to level {level} | Damage: {newDamage}");
+    //        UpdateUI();
     //}
+    private IEnumerator SelectFirstButtonNextFrame(float delay)
+    {
+        //yield return null; // Wait one frame
+        EventSystem.current.SetSelectedGameObject(null); // Clear selection first (optional but safer)
+        yield return new WaitForSecondsRealtime(delay);
+        EventSystem.current.SetSelectedGameObject(_firstButton);
+    }
 
-  
 }
 
