@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: IsDead_Trigger
   m_EditorClassIdentifier: 
   WhenToRun: 0
-  ParameterName: Is_Dead
+  ParameterName: IsDead
   parameterType: 3
   BoolValue: 0
   FloatValue: 0

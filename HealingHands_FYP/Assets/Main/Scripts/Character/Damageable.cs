@@ -109,6 +109,14 @@ public class Damageable : MonoBehaviour
 
         IsDead = false;
     }
+
+    public void ResetHealth()
+    {
+        _currentHealthSO.SetCurrentHealth(_healthConfigSO.InitialHealth);
+
+        if (_updateHealthUI != null)
+        { _updateHealthUI.RaiseEvent(); }
+    }
 }
 
 public enum CharacterType
